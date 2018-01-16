@@ -1,0 +1,39 @@
+<div class="message" ng-controller="MessageController">
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <!--<a class="back" go-back></a>-->
+        <span class="headline f18">消息</span>
+    </div>
+    <!--标题结束-->
+    <!--消息列表开始-->
+    <div class="message_list pd_rl12">
+        <ul>
+            <li ui-sref="my.message_reply">
+                <i class="icon reply"></i>
+                <div class="list">
+                    <span class="f16">回复</span>
+                    <i class="unread" ng-hide="notify.comment==0"></i>
+                    <i class="into"></i>
+                </div>
+            </li>
+            <li ui-sref="my.message_praise">
+                <i class="icon praise"></i>
+                <div class="list">
+                    <span class="f16">赞</span>
+                    <i class="unread" ng-hide="notify.like==0"></i>
+                    <i class="into"></i>
+                </div>
+            </li>
+            <li ui-sref="my.message_system">
+                <i class="icon system"></i>
+                <div class="list">
+                    <span class="f16">系统消息</span>
+                    <i class="unread" ng-hide="notify.system==0"></i>
+                    <i class="into"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <menu></menu>
+    <!--消息列表结束-->
+</div>

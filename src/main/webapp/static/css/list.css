@@ -1,0 +1,220 @@
+/*列表导航*/
+.list .nav {
+    width: 100%;
+    height:1.0666rem;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 1.1rem;
+    z-index: 100;
+    box-shadow: 0 0 0.065rem 0 rgba(0,0,0,0.12);
+    padding-left: 0.2rem;
+}
+.list .nav .swiper-slide{
+    width: 21%;
+    margin-right:0.2rem;
+    text-align: center;
+}
+.list .nav a.active:after{
+    content:'';
+    width:0.42666rem;
+    height:0.10666rem;
+    background:#FF5000;
+    border-radius:0.21333rem;
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+}
+.list .nav a{
+    text-decoration: none;
+    color: #222;
+    display: block;
+    height:1.0666rem;
+    line-height:1.0666rem;
+    font-size:16px;
+}
+[data-dpr="2"] .list .nav a{
+    font-size:32px;
+}
+[data-dpr="3"] .list .nav a{
+    font-size:48px;
+}
+.list .hot{
+    margin-top:2.2rem;
+    padding-top:1px;
+}
+.list .top i{
+    display: block;
+    width: 0.64rem;
+    height: 0.64rem;
+    background: #D8D8D8;
+    position: absolute;
+}
+.list .top i.search{
+    top: 0.2666rem;
+    right: 1.2666rem;
+}
+.list .top i.screen{
+    top: 0.2666rem;
+    right: 0.32rem;
+    background: url("../img/classify_screen_n.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .list .top i.screen{
+    background: url("../img/classify_screen_n@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .list .top i.screen{
+    background: url("../img/classify_screen_n@3x.png");
+    background-size: 100%;
+}
+.list .top i.screen.active{
+    background: url("../img/classify_off.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .list .top i.screen.active{
+    background: url("../img/classify_off@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .list .top i.screen.active{
+    background: url("../img/classify_off@3x.png");
+    background-size: 100%;
+}
+.list .top i.search{
+    background: url("../img/classify_search.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .list .top i.search{
+    background: url("../img/classify_search@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .list .top i.search{
+    background: url("../img/classify_search@3x.png");
+    background-size: 100%;
+}
+.list .bg {
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 11;
+    display: block;
+}
+.list .Sortsearch {
+    width: 100%;
+    background: #fff;
+    position: fixed;
+    left: 0;
+    top: 1.1733rem;
+    z-index: 110;
+    cursor: pointer;
+    display: block;
+    line-height: 1.1733rem;
+}
+.list .Sortsearch .hot_block {
+    margin: 0;
+    height: 1.3066rem;
+    background: #fff;
+    border-bottom: 1px solid #e5e5e5;
+}
+.list .Sortsearch .time_block {
+    height: 1.3066rem;
+    background: #fff;
+}
+.list .Sortsearch i{
+    display: inline-block;
+    width: 0.5333rem;
+    height: 0.5333rem;
+    background: #D8D8D8;
+    margin-top: 0.32rem;
+    float: left;
+}
+.list .Sortsearch i.check{
+    display: inline-block;
+    width: 0.5333rem;
+    height: 0.35rem;
+    background: #D8D8D8;
+    margin-top: 0.4rem;
+    margin-right: 0.2666rem;
+    float: right;
+}
+.list .Sortsearch span{
+    color: #6b6b6b;
+    margin-left: 0.2666rem;
+}
+.list .Sortsearch span.active{
+    color: #FF5000;
+}
+.list .Sortsearch .hotter{
+    float: left;
+}
+.list .Sortsearch .check{
+    float: right;
+}
+.list .Sortsearch i.hotter{
+    background: url("../img/classify_hot_n.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .list .Sortsearch i.hotter{
+    background: url("../img/classify_hot_n@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .list .Sortsearch i.hotter{
+    background: url("../img/classify_hot_n@3x.png");
+    background-size: 100%;
+}
+.list .Sortsearch i.hotter_active{
+    background: url("../img/classify_hot_s.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .list .Sortsearch i.hotter_active{
+    background: url("../img/classify_hot_s@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .list .Sortsearch i.hotter_active{
+    background: url("../img/classify_hot_s@3x.png");
+    background-size: 100%;
+}
+.list .Sortsearch i.time{
+    background: url("../img/classify_time_n.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .list .Sortsearch i.time{
+    background: url("../img/classify_time_n@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .list .Sortsearch i.time{
+    background: url("../img/classify_time_n@3x.png");
+    background-size: 100%;
+}
+.list .Sortsearch i.time_active{
+    background: url("../img/classify_time_s.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .list .Sortsearch i.time_active{
+    background: url("../img/classify_time_s@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .list .Sortsearch i.time_active{
+    background: url("../img/classify_time_s@3x.png");
+    background-size: 100%;
+}
+.list .Sortsearch i.check{
+    background: url("../img/location_choice.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .list .Sortsearch i.check{
+    background: url("../img/location_choice@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .list .Sortsearch i.check{
+    background: url("../img/location_choice@3x.png");
+    background-size: 100%;
+}
+
+
+
+

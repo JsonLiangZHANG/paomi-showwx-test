@@ -1,0 +1,34 @@
+<div class="privilege" ng-controller="PrivilegeController">
+    <!--头部开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">特惠购票</span>
+    </div>
+    <!--头部结束-->
+    <!--列表开始 -->
+    <div class="hot" ng-controller="PublicController" style="padding-top:0px;">
+        <div class="hot-list">
+            <ul infinite-scroll="goods.nextPage()" infinite-scroll-disabled='goods.busy' infinite-scroll-distance="1">
+                <li class="flag" ng-repeat="good in goods.items" on-list-finish-render="listFinishRender" ui-sref="main.detail({good_id:{{good.id}}})">
+                    <a class="figure flag-item">
+                        <i class="label f8" ng-show="good.coupon_label"><span ng-bind="good.coupon_label"></span></i>
+                        <img ng-src="{{good.thumb}}" alt="">
+                    </a>
+                    <div class="figcaption flag-item">
+                        <div class="flag-title">
+                            <a title="" ng-bind="good.title"></a>
+                        </div>
+                        <div class="flag-price" ng-bind="good.date"></div>
+                        <div class="flag-type" ng-bind="good.site_title"></div>
+                        <div class="flag-type">
+                            <strong ng-bind="good.price"></strong>
+                            <span>元起</span>
+                        </div>
+                        <a class="flag-btn" href="" ng-style="btnSetColor(good.state)" ng-bind="btnText(good.state)"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+<!--列表结束-->
+</div>

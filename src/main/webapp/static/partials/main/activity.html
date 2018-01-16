@@ -1,0 +1,114 @@
+<div class="activity" ng-controller="ActivityController">
+        <!--注册start-->
+        <div class="activity_bg register" ng-show="init">
+            <img src="static/img/activity_bg.png" alt="">
+            <div class="info">
+                <img src="static/img/card.png" alt="">
+                <div class="con">
+                    <img src="static/img/userdefault.png" alt="">
+                    <p>用户名</p>
+                    <p>送你首单立减30元优惠券</p>
+                    <p>邀请你一起观看精彩演出</p>
+                    <p>￥30</p>
+                </div>
+                <div class="register_box">
+                    <div class="iphone">
+                        <input type="number" placeholder="手机号" ng-model="telphone_no">
+                        <span ng-click="sendCode()" ng-bind="paracont">获取验证码</span>
+                    </div>
+                    <div class="code">
+                        <input type="number" placeholder="验证码" ng-model="code" maxlength="4" style="width:100%;">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn1" ng-show="init">
+            <div class="btns" ng-click="login()">立即领取</div>
+        </div>
+        <!--注册end-->
+        <!--领取成功start-->
+        <div class="activity_bg" ng-if="succeed">
+            <img src="static/img/activity_bg.png" alt="">
+            <div class="info">
+                <img src="static/img/card.png" alt="">
+                <div class="con">
+                    <img src="static/img/succeed.png" alt="">
+                    <p>领取成功</p>
+                    <p>已领取收单立减30元优惠券</p>
+                    <p>￥30</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="btn1"  ng-show="succeed">
+            <div class="btns" ui-sref="main.index">去使用</div>
+        </div>
+        <!--领取成功end-->
+
+    <!--领取失败start-->
+    <div class="activity_bg" ng-show="nothing">
+        <img src="static/img/activity_bg.png" alt="">
+        <div class="info">
+            <img src="static/img/card.png" alt="">
+            <div class="con">
+                <img src="static/img/defeated.png" alt="" style="margin-left:0;">
+                <p style="font-weight: normal;">您是星锐娱乐的老朋友</p>
+                <p>不能在领取新人优惠券啦</p>
+                <p style="font-weight: normal;font-size:14px;color:#000;margin-top:50%;">想更多优惠？</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="btn1"  ng-show="nothing">
+        <div class="btns" style="width:50%;"><a href="http://a.app.qq.com/o/simple.jsp?pkgname=cn.stareal.stareal" style="color:#fff;">打开App,立即邀请</a></div>
+    </div>
+    <!--领取成功end-->
+    <div class="hot_list">
+        <div class="title">热门推荐</div>
+        <div class="list clear">
+            <ul id="lu">
+                <li ng-repeat="late in latest|limitTo:3"  on-list-finish-render="latestFinishRender" ui-sref="main.detail({good_id:{{late.id}}})">
+                    <div class="list_img">
+                        <img ng-src="{{late.thumb}}" alt="" ng-style="lst">
+                    </div>
+                    <div class="text">
+                        <p ng-bind="late.title" class="hidetext" style="-webkit-line-clamp:2"></p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+        <div class="more">
+            <p ui-sref="main.index">更多热门演出</p>
+        </div>
+    </div>
+
+    <div class="mask" ng-show="mask">
+            <div class="maskbg">
+                <img src="static/img/dele.png" alt="" style="position: absolute;right:0.2666rem;top:0.2666rem; width: 0.3733rem;height: 0.3733rem" ng-click="cencel()">
+                <div class="cont">
+                    <div class="erweim">
+                        <img src="static/img/fuwuhao.png" alt="" style="width: 4rem;">
+                        <p style="width:4rem;margin:0 auto;">长按识别二维码，关注微信服务号</p>
+                    </div>
+                    <div class="erweim">
+                        <img src="static/img/dingyuehao.png" alt="" style="width: 4rem;">
+                        <p style="width:4rem;margin:0 auto;">长按识别二维码，关注微信订阅号</p>
+                    </div>
+                </div>
+            </div>
+    </div>
+
+    <div class="attention clear">
+        <div class="logo">
+            <img src="static/img/logo.png" alt="">
+        </div>
+        <div class="text">
+            <p>即可关注星锐娱乐公众号</p>
+            <p>随时掌握最新娱乐咨询票务信息</p>
+        </div>
+        <div class="btnatten">
+            <div class="btn" ng-click="showMask()" style="width: 1.44rem;height: 0.9066rem">关注</div>
+        </div>
+    </div>
+</div>

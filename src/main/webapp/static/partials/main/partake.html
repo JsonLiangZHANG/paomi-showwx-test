@@ -1,0 +1,31 @@
+<div class="partake" ng-controller="PartakeController">
+    <!--头部开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">本期参与</span>
+    </div>
+    <!--头部结束-->
+    <!--本期参与开始-->
+    <div class="partake_list pd_rl12 pd_rl16 f12" style="padding-top:0">
+        <div class="partake_row">
+            <ul infinite-scroll="partakes.nextPage()" infinite-scroll-disabled='partakes.busy' infinite-scroll-distance="0">
+                <li class="clear pd_rl16" ng-repeat="partake in partakes.items">
+                    <div class="avatar fl">
+                        <img src="{{partake.head}}" err-src="static/img/userdefault.png" alt="">
+                    </div>
+                    <div class="partake_con fl">
+                        <p class="f12" ng-bind="partake.name"></p>
+                        <div class="partake-id clear">
+                            <p class="fl f10">用户IP：<span>{{partake.ip}}</span></p>
+                            <p class="fr f12"><span>{{partake.num}}</span>人次</p>
+                        </div>
+                        <div class="time f10">
+                            <p>{{partake.timeline}}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--本期参与结束-->
+</div>

@@ -1,0 +1,141 @@
+<div class="order" ng-controller="GoodDeliController">
+    <style>
+        html,body{
+            background:#F1F1F1;
+        }
+    </style>
+    <!--头部开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">订单详情</span>
+    </div>
+    <!--头部结束-->
+    <!--订单详情开始-->
+    <div class="orders_itme clear f12 pd_rl12 pd_rl16" style="color:#6b6b6b" ng-controller="PublicController">
+        <div class="clear">
+                <p class="fl"><span>订单编号：</span><span ng-bind="good.order_id"></span></p>
+            <p class="fr" style="color:#FF5000" ng-bind="statusText(good.new_state)"></p>
+        </div>
+        <div class="clear" style="margin-top:0.1333rem;">
+            <div class="thumb_size2 fl">
+                <img ng-src="{{good.thumb}}" alt="">
+            </div>
+            <div class="orders_row_info fl">
+                <div class="good_info clear">
+                    <div class="title hd2 fl" ng-bind="good.title"></div>
+                    <div class="price fr">
+                        <p ng-bind="good.ori_price | currency:'¥'"></p>
+                        <p ng-bind="good.num+'张'"></p>
+                    </div>
+                </div>
+                <div class="time">
+                    <p ng-bind="good.begindate"></p>
+                </div>
+                <div class="addres">
+                    <p ng-bind="good.site_title"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--订单详情结束-->
+    <!--取票标题开始-->
+    <div class="ticket_delivery pd_rl12 pd_tb12 clear" ng-if="param.deliverType!=3">
+        <i class="express" ng-if="param.deliverType==1"></i>
+        <i class="scene" ng-if="param.deliverType==2"></i>
+        <h4 class="f14" ng-if="param.deliverType==1">快递配送</h4>
+        <h4 class="f14" ng-if="param.deliverType==2">现场取票</h4>
+    </div>
+    <!--取票标题结束-->
+    <!--取票人信息开始  快递-->
+    <div>
+        <div class="ticket_people_info pd_rl12 pd_rl16 f12" ng-if="param.deliverType==1">
+            <p class="clear"><span class="fl">收货人：</span><span class="fl" ng-bind="good.name"></span><span class="fr" ng-bind="good.mobile"></span></p>
+            <p>收货地址：<span ng-bind="good.address"></span></p>
+        </div>
+        <!--现场取票开始-->
+        <div class="ticket_people_info pd_rl12 pd_rl16 f12" ng-if="param.deliverType==2">
+            <p class="clear"><span class="fl">收货人：</span><span class="fl" ng-bind="good.live_name"></span><span class="fr" ng-bind="good.live_mobile"></span></p>
+            <p>取票时间：<span>演出开场前1小时</span></p>
+            <p>取票地址：<span>演出场馆</span></p>
+        </div>
+    </div>
+    <!--现场取票结束-->
+    <!--取票人信息结束-->
+    <!--价格列表开始-->
+    <div class="ticket_people_info pd_rl12 pd_rl16 f12 price">
+        <p class="clear"><span class="fl">票价总额</span><span class="fr" ng-bind="good.price"></span></p>
+        <p class="clear"><span class="fl">优惠劵</span><span class="fr">-{{good.coupon_price | currency:'¥'}}</span></p>
+        <p class="clear"><span class="fl">贝里</span><span class="fr">-{{good.belly/100 | currency:'¥'}}</span></p>
+        <p class="clear"><span class="fl">快递费</span><span class="fr">-{{good.deliver_fee | currency:'¥'}}</span></p>
+        <p class="clear f14" style="color:#222"><span class="fl">实付金额</span><span class="fr" style="color:#FF5000" ng-bind="good.total| currency:'¥'"></span></p>
+    </div>
+    <!--价格列表结束-->
+    <!--订单信息开始-->
+    <div class="ticket_people_info pd_rl12 pd_rl16 f12 order-info">
+        <p ng-if="good.timeline_create">创建时间：<span ng-bind="good.timeline_create"></span></p>
+        <p ng-if="good.timeline_pay">付款时间：<span ng-bind="good.timeline_pay"></span></p>
+        <p ng-if="good.timeline_deliver">发货时间：<span ng-bind="good.timeline_deliver"></span></p>
+        <p ng-if="good.timeline_confirm">成交时间：<span ng-bind="good.timeline_confirm"></span></p>
+    </div>
+    <!--订单信息结束-->
+    <!--订单底部按钮开始-->
+    <div>
+        <div style="height:1.3333rem"></div>
+        <div class="order_btns pd_tb12 pd_rl12" ng-hide="(good.new_state=='待发货')||(good.new_state=='已完成'&&param.deliverType==2)">
+            <div class="btns">
+                <a href="" ng-if="good.new_state=='待付款'" ng-click="cancelOrder(good.order_id)">取消订单</a>
+                <a href="" ng-if="good.new_state=='待付款'" ng-click="verify(good.create_time)">立即支付</a>
+                <a href="" ng-if="good.new_state=='已取消'" ng-click="deleteOrder(good.order_id)">删除订单</a>
+                <a href="" ng-if="(good.new_state=='已完成'||good.new_state=='待收货')&&(param.deliverType!=2)" ui-sref="my.logistics_information({order_id:{{good.order_id}}})">查看物流</a>
+                <a href="" ng-if="good.new_state=='待收货'" ng-click="donelOrder(good.order_id)">确认收货</a>
+            </div>
+        </div>
+    </div>
+    <!--订单底部按钮结束-->
+    <!--支付方式开始-->
+    <div class="mask_pay" ng-click="close()">
+        <div class="pay_box br" ng-click="bubble($event)">
+            <div class="pay_title f14 pd_rl16">
+                <span>支付方式</span>
+                <i class="off" ng-click="close()"></i>
+            </div>
+            <div class="timer pd_tb8 linear">
+                <p>支付剩余时间{{date|date:'mm:ss'}}</p>
+            </div>
+            <div class="pay_method pd_rl12">
+                <ul>
+                    <li ng-show="!showPay" ng-click="pay()">
+                        <i class="alipay"></i>
+                        <span>支付宝</span>
+                        <i class="arrow"></i>
+                    </li>
+                    <li ng-show="showPay" ng-click="pay()">
+                        <i class="pay_wechat"></i>
+                        <span>微信</span>
+                        <i class="arrow"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--支付方式结束-->
+    <form id="alipaysubmit" name="alipaysubmit" action="https://mapi.alipay.com/gateway.do?_input_charset=utf-8" method="post">
+        <input type="hidden" name="_input_charset" value=""/>
+        <input type="hidden" name="subject" value=""/>
+        <input type="hidden" name="sign" value=""/>
+        <input type="hidden" name="notify_url" value=""/>
+        <input type="hidden" name="body" value=""/>
+        <input type="hidden" name="payment_type" value=""/>
+        <input type="hidden" name="out_trade_no" value=""/>
+        <input type="hidden" name="partner" value=""/>
+        <input type="hidden" name="service" value=""/>
+        <input type="hidden" name="total_fee" value=""/>
+        <input type="hidden" name="return_url" value=""/>
+        <input type="hidden" name="app_pay" value=""/>
+        <input type="hidden" name="sign_type" value=""/>
+        <input type="hidden" name="seller_id" value=""/>
+        <input type="hidden" name="show_url" value=""/>
+        <!--<input type="hidden" name="it_b_pay" value=""/>-->
+    </form>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</div>

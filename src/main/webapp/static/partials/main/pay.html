@@ -1,0 +1,177 @@
+<div class="pay" ng-controller="PayController">
+    <style>
+        html,body{
+            background:#f1f1f1;
+        }
+    </style>
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" ui-sref="main.ticket({good_id:order_id})"></a>
+        <span class="headline f18">确认订单</span>
+    </div>
+    <!--标题结束-->
+    <!--商品详情开始-->
+    <div class="orders_itme clear f12 pd_rl12 pd_rl16" style="color:#6b6b6b">
+        <div class="clear" style="padding-bottom:0.2rem">
+            <div class="thumb_size2 fl">
+                <img ng-src="{{thumb}}" alt="">
+            </div>
+            <div class="orders_row_info fl">
+                <div class="good_info clear">
+                    <div class="title hd2 fl" ng-bind="title">［上海］2017五月天LIEF［人生无线公司］巡回演唱会</div>
+                    <div class="price fr">
+                        <p ng-bind="cat | currency:'¥'">¥9999.00</p>
+                        <p ng-bind="num+'张'"></p>
+                    </div>
+                </div>
+                <div class="time">
+                    <p ng-bind="date">05月21日周日19:30</p>
+                </div>
+                <div class="addres">
+                    <p ng-bind="site_title">上海梅赛德斯奔驰文化中心</p>
+                </div>
+            </div>
+        </div>
+        <div class="seat_1 f12 pd_rl12" ng-bind="seat">看台／随即连坐</div>
+    </div>
+    <!--商品详情结束-->
+    <!--选择取票方式开始-->
+    <div class="mode pd_rl16">
+        <div class="mode_type clear">
+            <div class="express fl">
+                <a ng-class="{1: 'active'}[param.deliverType]" ng-click="cd(1)"></a>
+                <p ng-class="{1: 'active'}[param.deliverType]">快递配送</p>
+            </div>
+            <div class="locale fl">
+                <a ng-class="{2: 'active'}[param.deliverType]" ng-click="cd(2)"></a>
+                <p ng-class="{2: 'active'}[param.deliverType]">现场取票</p>
+            </div>
+        </div>
+    </div>
+    <!--选择取票方式结束-->
+    <!--快递取票添加地址开始-->
+    <div class="address pd_rl12 pd_rl16"  ng-show="param.deliverType == 1">
+        <div class="address_info">
+            <i class="arrow"></i>
+            <p class="f14" ng-hide="address.id"><span style="color:#222">收货地址：</span><span style="color:#999" ui-sref="main.pay_address({order_id:'{{order_id}}',src:1})">新增收货地址</span></p>
+            <p ng-show="address.id" ui-sref="main.pay_address({order_id:'{{order_id}}',src:1})">
+                <span>{{address.name}}</span>
+                <span>{{address.mobile}}</span>
+                <br>
+                <span>{{address.province}}</span>
+                <span>{{address.city}}</span>
+                <span>{{address.district}}</span>
+                <span>{{address.address}}</span>
+            </p>
+        </div>
+    </div>
+    <!--快递取票添加地址结束-->
+    <!--现场取票开始-->
+    <div class="discount pd_rl12 pd_tb14 f14 clear" ng-show="param.deliverType == 2">
+        <ul>
+            <li class="pd_tb12">
+                <p><span style="color:#222">取票人姓名</span><span style="color:#999"><input type="text" placeholder="请输入姓名" ng-model="live_name"></span></p>
+            </li>
+            <li class="pd_tb12">
+                <p><span style="color:#222">取票人手机号</span><span style="color:#999"><input type="text" placeholder="请输入手机号" ng-model="live_mobile"></span></p>
+            </li>
+        </ul>
+    </div>
+    <div class="mode_tips pd_rl12 pd_rl16" ng-show="param.deliverType == 2">
+        <p>取票地址 演出场馆，取票时间 演出开场前1小时。凭手机短信取票码取票。</p>
+    </div>
+    <!--现场取票结束-->
+    <!--优惠券贝里开始-->
+    <div class="discount pd_rl12 pd_rl16 f14 clear">
+        <ul>
+            <li class="pd_tb12" ng-click="cc()">
+                <p><span style="color:#222">优惠劵</span><span style="color:#999;">{{csl}}<i class="arrow"></i></span></p>
+            </li>
+            <li class="pd_tb12">
+                <p><span style="color:#222">贝里</span><span style="color:#999"><input type="text" ng-model="param.beily" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" ng-change="MaxBelly(param.beily)"placeholder="最多可抵扣{{deduction_max}}贝里"></span></p>
+            </li>
+        </ul>
+    </div>
+    <!--优惠券背景结束-->
+    <!--价格明细开始-->
+    <div class="settlement pd_rl12 pd_rl16 f12">
+        <ul class="clear">
+            <li>
+                <span class="fl">票品总额</span>
+                <span class="fr" ng-bind="total | currency:'¥'">¥9999.00</span>
+            </li>
+            <li>
+                <span class="fl">优惠劵</span>
+                <span class="fr" ng-bind="copon_price | currency:'-¥'">－¥9999.00</span>
+            </li>
+            <li>
+                <span class="fl">贝里</span>
+                <span class="fr" ng-bind="beily_price | currency:'-¥'">－¥9999.00</span>
+            </li>
+            <li>
+                <span class="fl">快递费</span>
+                <span class="fr" ng-bind="deliver_price | currency:'¥'">¥12.00</span>
+            </li>
+        </ul>
+    </div>
+    <!--价格明细结束-->
+    <!--立即支付按钮开始-->
+    <div>
+        <div class="footer" style="height:1.3333rem"></div>  <!--解决fixed显示不全bug--->
+        <div class="total_box shop_box clear">
+            <div class="total_price fl">
+                <p><span ng-bind="total_price | currency:'¥'">¥5880.00</span><span>({{num}}张)</span></p>
+            </div>
+            <div class="total_btn fr" ng-click="verify()">
+                立即支付
+            </div>
+        </div>
+    </div>
+    <!--按钮结束-->
+    <!--支付方式开始-->
+    <div class="mask_pay" ng-click="close()">
+        <div class="pay_box br" ng-click="bubble($event)">
+            <div class="pay_title f14 pd_rl16">
+                <span>支付方式</span>
+                <i class="off" ng-click="close()"></i>
+            </div>
+            <!--<div class="timer pd_tb8 linear">-->
+                <!--<p>支付剩余时间 13 分 46 秒</p>-->
+            <!--</div>-->
+            <div class="pay_method pd_rl12">
+                <ul>
+                    <li ng-show="!showPay" ng-click="pay()">
+                        <i class="alipay"></i>
+                        <span>支付宝</span>
+                        <i class="arrow"></i>
+                    </li>
+                    <li ng-show="showPay" ng-click="pay()">
+                        <i class="pay_wechat"></i>
+                        <span>微信</span>
+                        <i class="arrow"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--支付方式结束-->
+    <form id="alipaysubmit" name="alipaysubmit" action="https://mapi.alipay.com/gateway.do?_input_charset=utf-8" method="post">
+        <input type="hidden" name="_input_charset" value=""/>
+        <input type="hidden" name="subject" value=""/>
+        <input type="hidden" name="sign" value=""/>
+        <input type="hidden" name="notify_url" value=""/>
+        <input type="hidden" name="body" value=""/>
+        <input type="hidden" name="payment_type" value=""/>
+        <input type="hidden" name="out_trade_no" value=""/>
+        <input type="hidden" name="partner" value=""/>
+        <input type="hidden" name="service" value=""/>
+        <input type="hidden" name="total_fee" value=""/>
+        <input type="hidden" name="return_url" value=""/>
+        <input type="hidden" name="app_pay" value=""/>
+        <input type="hidden" name="sign_type" value=""/>
+        <input type="hidden" name="seller_id" value=""/>
+        <input type="hidden" name="show_url" value=""/>
+        <!--<input type="hidden" name="it_b_pay" value=""/>-->
+    </form>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

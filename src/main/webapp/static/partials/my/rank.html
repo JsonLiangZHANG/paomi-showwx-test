@@ -1,0 +1,39 @@
+<div class="rank" ng-controller="RankController">
+    <!--头部开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">排行榜</span>
+    </div>
+    <!--头部结束-->
+    <!--排行榜头部开始-->
+    <div class="rank_top">
+        <div class="rank_info">
+            <div class="rank_avatar">
+                <img src="{{user.headimgurl}}" alt="" err-src="static/img/userdefault.png">
+            </div>
+            <div class="rank_name">
+                <p><sapn class="f16" ng-bind="user.nickname"></sapn><span class="f12">(第{{pl}}名)</span></p>
+            </div>
+            <div class="rank_beili f12">{{beili}}贝里</div>
+        </div>
+    </div>
+    <!--排行榜头部结束-->
+    <!--排行榜列表开始-->
+    <div class="rank_list pd_rl12 f14">
+        <ul infinite-scroll="ranks.items.length==100?'':ranks.nextPage()" infinite-scroll-disabled='ranks.busy' infinite-scroll-distance="0">
+            <li class="clear pd_rl16" ng-repeat="rank in ranks.items">
+                <div class="rank_num fl">
+                    {{$index>2?$index+1:''}}
+                </div>
+                <div class="rank_info_detail fl clear">
+                    <div class="head fl">
+                        <img src="{{rank.head}}" alt="" err-src="static/img/userdefault.png">
+                    </div>
+                    <div class="name fl" ng-bind="rank.name"></div>
+                    <div class="beili fr">{{rank.balance}}贝里</div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--排行榜列表结束-->
+</div>

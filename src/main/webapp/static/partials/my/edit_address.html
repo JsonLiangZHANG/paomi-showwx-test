@@ -1,0 +1,49 @@
+<div class="edit_address" ng-controller="EditAddressController">
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18" style="padding-left: 1.33rem">编辑地址</span>
+        <span class="f18 fr" style="margin-right: 0.32rem" ng-click="save()">保存</span>
+    </div>
+    <!--标题结束-->
+    <!--编辑地址开始-->
+    <div class="edit_list pd_rl12">
+        <ul>
+            <li class="pd_rl16">
+                <span class="f14">收货人姓名</span>
+                <input type="text" placeholder="请输入姓名" ng-model="name">
+            </li>
+            <li class="pd_rl16">
+                <span class="f14">手机号</span>
+                <input type="text" placeholder="请输入手机号" ng-model="mobile">
+            </li>
+            <li class="pd_rl16">
+                <span class="f14">邮编（选填）</span>
+                <input type="text" placeholder="请输入邮编" ng-model="postcode">
+            </li>
+            <li class="pd_rl16">
+                <span class="f14">省／市／行政区</span>
+                <select ng-model="province" ng-options="key as key for (key,value) in division"
+                        ng-change="city='';district='';">
+                    <option value="">请选择省</option>
+                </select>
+                <select ng-model="city" ng-options="key as key for (key,value) in division[province]"
+                        ng-change="district='';">
+                    <option value="">请选择市</option>
+                </select>
+                <select ng-model="district" ng-options="value as value for value in division[province][city]">
+                    <option value="">请选择区</option>
+                </select>
+            </li>
+            <li class="pd_rl16">
+                <span class="f14 fl">详情地址</span>
+                <textarea type="text" placeholder="请输入地址" ng-model="detail"></textarea>
+            </li>
+        </ul>
+    </div>
+    <div class="default_address pd_rl12 pd_rl16">
+        <i ng-click="default()" ng-class="defstyle" ng-model="isdefault"></i>
+        <span class="f14">默认地址</span>
+    </div>
+    <!--编辑地址结束-->
+</div>

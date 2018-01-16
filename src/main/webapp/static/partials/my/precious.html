@@ -1,0 +1,104 @@
+<div class="precious" ng-controller="PreciousController">
+    <!--头部开始-->
+    <div class="head pd_tb14">
+        <a class="back" ui-sref="my.index"></a>
+        <span class="headline f18">我的夺宝</span>
+    </div>
+    <!--头部结束-->
+    <!--夺宝导航开始-->
+    <div class="precious-tab">
+        <ul class="clear">
+            <li class="fl f16" ng-class="{active:isActive('')}"><a ng-click="filter('')">全部</a></li>
+            <li class="fl f16" ng-class="{active:isActive('1')}"><a ng-click="filter('1')">进行中</a></li>
+            <li class="fl f16" ng-class="{active:isActive('2')}"><a ng-click="filter('2')">已揭晓</a></li>
+        </ul>
+    </div>
+    <!--夺宝导航结束-->
+    <!--导宝列表开始-->
+    <div class="precious-list pd_rl12 pd_rl16 f12">
+        <ul infinite-scroll="treasures.nextPage()" infinite-scroll-disabled='treasures.busy' infinite-scroll-distance="0">
+            <li class="flag" ng-repeat="treasure in treasures.items" ng-click="GoAward(treasure.id)">
+                <a class="figure flag-item">
+                    <img ng-src="{{treasure.thumb}}" alt="">
+                </a>
+                <div class="figcaption flag-item">
+                    <div class="flag-title">
+                        <a  ng-bind="treasure.title" style="height: 0.5rem"></a>
+                    </div>
+                    <div class="award_xq">
+                        <div class="flag-type">
+                            我已参与 <em ng-bind="treasure.num"></em> 人次
+                        </div>
+                        <div class="flag-type">
+                            期号：<span ng-bind="treasure.id"></span>
+                        </div>
+                        <div class="flag-type bar" ng-if="treasure.state=='正在进行'">
+                            <div class="bar_bg1"></div>
+                            <div class="bar_bg" ng-class="treasure.progress==100?'bar_bg100':''"style="width:{{treasure.progress+'%'}}"></div>
+                            <!--<div class="bar_bg2 f8">70%</div>-->
+                        </div>
+                        <div class="flag-type clear" ng-if="treasure.state=='正在进行'">
+                            <p class="fl">总需：<span ng-bind="treasure.total"></span></p>
+                            <p class="fr">剩余：<span>{{treasure.total-treasure.used}}</span></p>
+                        </div>
+                        <div class="flag-type" ng-if="treasure.state=='已结束'">
+                            中奖者：<em ng-bind="treasure.winner_name"></em>
+                        </div>
+                    </div>
+                    <a class="precious-btn f12" ng-style="{border:'{{treasure.state=='已结束'?'1px solid #6b6b6b':(treasure.state=='等待开奖'?'1px solid #999999':(treasure.progress==100?'1px solid #999999':'1px solid #ff5000'))}}',color:'{{treasure.state=='已结束'?'#6b6b6b':(treasure.state=='等待开奖'?'#6b6b6b':(treasure.progress==100?'#6b6b6b':'#ff5000'))}}'}">{{treasure.state=='已结束'?'已揭晓':(treasure.state=='等待开奖'?'待揭晓':(treasure.progress==100?'待揭晓':'追加'))}}</a>
+                </div>
+            </li>
+            <!--<li class="flag">-->
+                <!--<a class="figure flag-item">-->
+                    <!--<img src="https://ohcv9kyxd.qnssl.com/upload/image/20170109/1483947529179090199.jpg" alt="">-->
+                <!--</a>-->
+                <!--<div class="figcaption flag-item">-->
+                    <!--<div class="flag-title">-->
+                        <!--<a title="">［杭州站］2017五月LIEF［人生无线公司］巡回演唱会</a>-->
+                    <!--</div>-->
+                    <!--<div class="award_xq">-->
+                        <!--<div class="flag-type">-->
+                            <!--期号：310101005-->
+                        <!--</div>-->
+                        <!--<div class="flag-type bar">-->
+                            <!--<div class="bar_bg1"></div>-->
+                            <!--<div class="bar_bg"></div>-->
+                            <!--<div class="bar_bg2 f8">70%</div>-->
+                        <!--</div>-->
+                        <!--<div class="flag-type clear">-->
+                            <!--<p class="fl">总需：<span>9999</span></p>-->
+                            <!--<p class="fr">剩余：<span>9999</span></p>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<a class="precious-btn f12" href="" style="bottom:1.4rem">已揭晓</a>-->
+                <!--</div>-->
+            <!--</li>-->
+            <!--<li class="flag">-->
+                <!--<a class="figure flag-item">-->
+                    <!--<img src="https://ohcv9kyxd.qnssl.com/upload/image/20170109/1483947529179090199.jpg" alt="">-->
+                <!--</a>-->
+                <!--<div class="figcaption flag-item">-->
+                    <!--<div class="flag-title">-->
+                        <!--<a title="">［杭州站］2017五月LIEF［人生无线公司］巡回演唱会</a>-->
+                    <!--</div>-->
+                    <!--<div class="award_xq" style="margin-top:1rem">&lt;!&ndash;-&#45;&#45;待揭晓&#45;&#45;&ndash;&gt;-->
+                        <!--<div class="flag-type">-->
+                            <!--我已参与 <em>2</em> 人次-->
+                        <!--</div>-->
+                        <!--<div class="flag-type">-->
+                            <!--期号：<span>310101005</span>-->
+                        <!--</div>-->
+                    <!--</div>-->
+                    <!--<a class="precious-btn f12" href="">待揭晓</a>-->
+                <!--</div>-->
+            <!--</li>-->
+        </ul>
+    </div>
+    <!--夺宝列表结束-->
+    <!--暂无数据开始-->
+    <div class="nodata" ng-show="treasures.nodata">
+        <div class="no_beili"></div>
+        <p class="f14">宝藏沉入海底了～快去捞捞</p>
+    </div>
+    <!--暂无数据结束-->
+</div>

@@ -1,0 +1,16 @@
+<div class="settings_feedback" ng-controller="SettingsFeedbackController">
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">意见反馈</span>
+    </div>
+    <!--标题结束-->
+    <!--反馈开始-->
+    <div class="feedback pd_rl12 pd_rl16">
+        <p class="f14">详情描述：</p>
+        <textarea placeholder="说点什么吧" class="f16" ng-model="remark"></textarea>
+        <!--<p class="contact_number f14">联系电话：<input ng-model="telphone_no"></p>-->
+        <button class="f16 pd_tb8" ng-click="save()">提交</button>
+    </div>
+    <!--反馈结束-->
+</div>

@@ -1,0 +1,24 @@
+<div class="payresult" ng-controller="PayresultController">
+    <!--头部开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">支付结果</span>
+    </div>
+    <!--头部结束-->
+    <!--内容开始-->
+    <div class="payment_status">
+        <div class="pay_complete"></div>
+        <p class="f20">充值成功</p>
+    </div>
+    <div class="pd_rl12 f14">
+        <div class="money pd_rl16">
+            <span>账户余额：</span>
+            <span>{{bellyremain}}贝里</span>
+        </div>
+    </div>
+    <div class="button">
+        <a ui-sref="main.index">回到首页</a>
+        <a ui-sref="main.award({award_id:periodId})">继续充值</a>
+    </div>
+    <!--内容结束-->
+</div>

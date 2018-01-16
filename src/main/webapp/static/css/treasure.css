@@ -1,0 +1,810 @@
+/******************************************************************************************************************/
+/*夺宝首页*/
+.treasure .publish{
+    background: rgba(255,80,0,0.40);
+}
+.treasure .publish i{
+    display: inline-block;
+    width: 0.64rem;
+    height: 0.64rem;
+    background: #D8D8D8;
+    float: left;
+}
+.treasure .publish i.notice{
+    background: url("../img/beili home_notice.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .treasure .publish i.notice{
+    background: url("../img/beili home_notice@2x.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .treasure .publish i.notice{
+    background: url("../img/beili home_notice@3x.png");
+    background-size: 100%;
+}
+.treasure .win{
+    height: 0.5rem;
+    overflow: hidden;
+    width: 90%;
+    margin-left: 0.2666rem;
+    margin-top: 0.08rem;
+}
+.treasure .win ul li{
+    color:#222;
+}
+.treasure .latests{
+    border-bottom:0.16rem solid #F1F1F1;
+}
+.treasure .latests ul li{
+    margin-right:0.32rem;
+    width: 2.4rem;
+}
+.treasure .latests ul li:last-child{
+    margin-right: 0;
+}
+.treasure .latests ul{
+    width:816px;
+}
+.treasure .latests ul li .title{
+    margin-top: 0.16rem;
+}
+.treasure .latests ul li .time{
+    color:#FF5000;
+    margin-top: 0.2133rem;
+}
+.treasure .latests ul li .time p{
+    float: left;
+    margin-left: 0.2133rem;
+    margin-top: 0.07rem;
+}
+.treasure .latests ul li .time i{
+    display: inline-block;
+    width: 0.4266rem;
+    height: 0.4266rem;
+    background: #D8D8D8;
+    float: left;
+}
+.treasure .latests ul li .time i.i_time{
+    background: url("../img/beili home_time.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .treasure .latests ul li .time i.i_time{
+    background: url("../img/beili home_time@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .treasure .latests ul li .time i.i_time{
+    background: url("../img/beili home_time@3x.png");
+    background-size: 100%;
+}
+.treasure .treasure-tabs{
+    background: #FFFFFF;
+    border-bottom:1px solid #E5E5E5;
+}
+.treasure .treasure-tabs ul li{
+    height:1.0666rem;
+    line-height:1.0666rem;
+    float:left;
+}
+.treasure .treasure-tabs ul{
+    /*width:2.6rem;*/
+    height:1.0666rem;
+    display:table;/*会把元素撑的更加高*/
+    margin:0 auto;
+}
+.treasure .treasure-tabs ul li:first-child{
+    margin-right:0.8rem;
+}
+.treasure .treasure-tabs ul li a{
+    color:#222;
+}
+.treasure .treasure-tabs ul li.active{
+    position:relative;
+}
+.treasure .treasure-tabs ul li.active:after{
+    content:'';
+    width:0.42666rem;
+    height:0.10666rem;
+    background:#FF5000;
+    border-radius:0.21333rem;
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+}
+.treasure .treasure-tabs ul li.active a{
+    color:#FF5000;
+}
+.treasure .treasure-list ul{
+    margin-bottom: -0.4266rem;
+}
+.treasure .treasure-list ul li{
+    width:48%;
+    overflow:hidden;
+    float:left;
+    margin-bottom:0.4266rem;
+}
+.treasure .treasure-list ul li:nth-last-child(1),
+.treasure .treasure-list ul li:nth-last-child(2)
+{
+    /*margin-bottom:0;*/
+}
+.treasure .treasure-list ul li:nth-of-type(2n){
+    float:right;
+}
+.treasure .treasure-list ul li .list_thumb{
+    width:100%;
+    height:3.7333rem;
+}
+.treasure .treasure-list ul li .list_thumb img{
+    width:100%;
+    height:3.7333rem;
+}
+.treasure .treasure-list ul li .list-title{
+    color:#222;
+    margin-top:0.16rem;
+    margin-bottom:0.16rem;
+}
+.treasure .treasure-list ul li .info .progress{
+    width:54%;
+}
+.treasure .treasure-list ul li .info .progress p{
+    color:#999;
+    margin-bottom:0.16rem;
+}
+[data-dpr="2"] .treasure .treasure-list ul li .info .progress p{
+    font-size:22px;
+}
+.treasure .treasure-list ul li .info .progress p span{
+    color:#FF5000;
+}
+.treasure .treasure-list ul li .info .progress .bar{
+    position:relative;
+}
+.treasure .treasure-list ul li .info .progress .bar .barbg{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:0.106666rem;
+    background:#E5E5E5;
+    border-radius:0.106666rem;
+}
+.treasure .treasure-list ul li .info .progress .bar .bar{
+    position:absolute;
+    left:0;
+    top:0;
+    width:20%;
+    height:0.106666rem;
+    background:#FF5000;
+    border-top-left-radius:0.106666rem;
+    border-bottom-left-radius:0.106666rem;
+}
+.treasure .treasure-list ul li .info .progress .bar .barbg{
+    position:absolute;
+    left:0;
+    top:0;
+}
+.treasure .treasure-list ul li .info .btn{
+    padding:0.1333rem 0.2666rem;
+    border:1px solid #FF5000;
+    /*width:46%;*/
+}
+.treasure .treasure-list ul li .info .btn a{
+    color:#FF5000;
+}
+[data-dpr="2"] .treasure .treasure-list ul li .info .btn a{
+    font-size:22px;
+}
+/******************************************************************************************************************/
+/*夺宝详情*/
+/*banner*/
+.banner{
+    width:100%;
+    height:5.866666rem;
+    background: #D8D8D8;
+}
+.carousel-demo{
+    display: inline-block;
+    text-align: center;
+    background-color: #fff;
+    height: 200px;
+    width: 100%;
+    position: relative;
+}
+.carousel-demo > ul[rn-carousel] {
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+}
+.carousel-demo > ul li img{
+    width: 100%;
+    height: 100%;
+}
+.carousel-demo > ul li .bgimage {
+    text-align: right;
+    color: white;
+    background-size: cover;
+    height: 100%;
+    background-position: center center;
+}
+.carousel-indicator{
+    position:absolute;
+    left:50%;
+    bottom:0px;
+    transform: translate(-50%);
+    -ms-transform: translate(-50%);
+    -webkit-transform: translate(-50%);
+    -o-transform: translate(-50%);
+    -moz-transform: translate(-50%);
+}
+.award .award_detail{
+    border-bottom:0.16rem solid #F1F1F1;
+}
+.award .award_detail .award-info p:first-child{
+    width:70%;
+    color:#222;
+}
+.award .award_detail .award-info p:last-child{
+    width:30%;
+    text-align: right;
+    color:#FF5000;
+    height: 0.56rem;
+    line-height: 0.56rem;
+}
+.award .award_detail .award-xq{
+    color:#6b6b6b;
+    margin-top:0.4266rem;
+}
+.award .award_detail .award-xq .bar{
+    position:relative;
+    width:100%;
+    margin:0.26666rem 0;
+}
+.award .award_detail .award-xq .bar .barbg{
+    /*position:absolute;*/
+    left:0;
+    top:0;
+    width:100%;
+    height:0.106666rem;
+    background:#E5E5E5;
+    border-radius:0.106666rem;
+}
+.award .award_detail .award-xq .bar .bar1{
+    position:absolute;
+    left:0;
+    top:0;
+    width:20%;
+    height:0.106666rem;
+    background:#FF5000;
+    border-top-left-radius:0.106666rem;
+    border-bottom-left-radius:0.106666rem;
+}
+.award .award_detail .award-xq .qihao p:last-child{
+    color: #4899FE;
+}
+.award .award_detail .award-xq .surplus p:last-child span{
+    color: #FF5000;
+}
+.award .intro{
+    border-bottom:0.16rem solid #F1F1F1;
+}
+.award .intro h4{
+    color:#222;
+    margin-bottom:0.2666rem;
+}
+.award .intro .intro_con{
+    color:#6b6b6b;
+}
+/*贝里支付弹窗*/
+.award .shadow{
+    width: 100%;
+    background: rgba(0,0,0,0.3);
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 100;
+}
+.award .shadow .pay{
+    width: 100%;
+    background: #ffffff;
+    position: fixed;
+    left: 0;
+    z-index: 11;
+    display: none;
+}
+.award .shadow .pay .recharge{
+    border-bottom:1px solid #e5e5e5;
+    margin-left: 0.32rem;
+    margin-right: 0.32rem;
+}
+.award .shadow .pay .recharge .count{
+    color: #FF5000;
+}
+.award .shadow .pay .recharge button{
+    border: none;
+    border: 1px solid #FF5000;
+    border-radius: 0.1066rem;
+    color: #FF5000;
+    padding: 0.1333rem 0.2666rem;
+    background: #ffffff;
+}
+.award .shadow .pay .recharge span{
+    display: inline-block;
+    height: 0.64rem;
+    line-height: 0.66rem;
+}
+.award .shadow .pay .adjustment{
+    margin-top: 0.8rem;
+    text-align: center;
+}
+.award .shadow .pay .adjustment a{
+    display: inline-block;
+    width: 0.5333rem;
+    height: 0.5333rem;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px 0 rgba(0,0,0,0.12);
+    text-align: center;
+    line-height: 0.5333rem;
+}
+.award .shadow .pay .adjustment input{
+    width: 0.633rem;
+    height: 0.533rem;
+    margin-left: 1.0666rem;
+    margin-right: 1.0666rem;
+    text-align: center;
+    border: none;
+    font-size: 0.4266rem;
+}
+.award .shadow .pay .adjustment input:disabled{
+    background:#fff;
+}
+.award .shadow .pay .choose .buy_list ul li{
+    float: left;
+    padding: 0.16rem 0.4266rem;
+    border-right: 1px solid #e5e5e5;
+}
+.award .shadow .pay .choose .buy_list ul li:last-child{
+    border-right: none;
+}
+.award .shadow .pay .choose .buy_list{
+    margin-top: 0.8rem;
+    margin-left: 1.8rem;
+}
+.award .shadow .pay .choose .buy_list ul{
+    border: 1px solid #e5e5e5;
+    border-radius: 0.1066rem;
+    width: 6.5rem;
+}
+.award .shadow .pay .pay_count{
+    border-top: 1px solid #e5e5e5;
+    margin-top: 0.8rem;
+}
+.award .shadow .pay .pay_count span{
+    color: #FF5000;
+    display: inline-block;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    margin-left: 2.933rem;
+}
+.award .shadow .pay .pay_count button{
+    border: none;
+    color: #ffffff;
+    padding: 0.16rem 0.2666rem;
+    margin-right: 0.533rem;
+}
+
+/******************************************************************************************************************/
+/*网期揭晓*/
+.unevil_list{
+    padding-bottom:0;
+    /*border-bottom:0.16rem solid #F1F1F1;*/
+}
+.unevil_list .unevil_title h4{
+    color:#222;
+}
+.unevil_list .unevil_row ul li{
+    border-bottom:1px solid #E5E5E5;
+    color:#6b6b6b;
+}
+.unevil_list .unevil_row ul li:last-child{
+    border:none;
+}
+.unevil_list .unevil_row ul li .avatar{
+    width:0.8rem;
+    height:0.8rem;
+    border-radius:50%;
+    background:#F1F1F1;
+    margin-right:0.32rem;
+}
+.unevil_list .unevil_row ul li .avatar img{
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+}
+.unevil_list .unevil_row ul li .unevil_con{
+    width:8.24rem;
+}
+.unevil_list .unevil_row ul li .unevil_con .people{
+    color:#222;
+    margin:0.106666rem 0;
+}
+.unevil_list .unevil_row ul li .unevil_con .people-id p:last-child{
+    color: #FF5000;
+}
+.unevil_list .unevil_row ul li .unevil_con .unevil-current{
+    margin-top:0.106666rem;
+}
+.unevil_list .unevil_row ul li .unevil_con .unevil-current span{
+    color: #FF5000;
+}
+/*查看更多*/
+.award .unevil_more{
+    border-top:1px solid #E5E5E5;
+    border-bottom:0.16rem solid #F1F1F1;
+    text-align:center;
+}
+.award .unevil_more a{
+    color:#4899FE;
+}
+/******************************************************************************************************************/
+/*本期参与*/
+.partake_list{
+    padding-bottom:0;
+    /*border-bottom:0.16rem solid #F1F1F1;*/
+}
+.partake_list .partake_title h4{
+    color:#222;
+}
+.partake_list .partake_row ul li{
+    border-bottom:1px solid #E5E5E5;
+    color:#6b6b6b;
+}
+.partake_list .partake_row ul li:last-child{
+    border:none;
+}
+.partake_list .partake_row ul li .avatar{
+    width:0.8rem;
+    height:0.8rem;
+    border-radius:50%;
+    background:#F1F1F1;
+    margin-right:0.32rem;
+}
+.partake_list .partake_row ul li .avatar img{
+    width:100%;
+    height:100%;
+    border-radius: 50%;
+}
+.partake_list .partake_row ul li .partake_con{
+    width:8.24rem;
+}
+.partake_list .partake_row ul li .partake_con > p{
+    color:#222;
+}
+.partake_list .partake_row ul li .partake_con .partake-id{
+    margin:0.106666rem 0;
+}
+.partake_list .partake_row ul li .partake_con .partake-id p:last-child span{
+    color:#ff5000;
+}
+/**********************************************************************************************************************/
+/*夺宝购买*/
+.award .award-footer .shop_box .tel{
+    width:13%;
+    padding-top:0.32rem;
+    text-align:center;
+}
+.award .award-footer .shop_box .tel a{
+    display:inline-block;
+    width:0.693333rem;
+    height:0.693333rem;
+    line-height:0.693333rem;
+    background:#F1F1F1;
+}
+.award .award-footer .shop_box .tel a.i_tel{
+    background: url("../img/beili details_privilege.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .award .award-footer .shop_box .tel a.i_tel{
+    background: url("../img/beili details_privilege@2x.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .award .award-footer .shop_box .tel a.i_tel{
+    background: url("../img/beili details_privilege@3x.png");
+    background-size: 100%;
+}
+.award .award-footer .shop_box .award_btn{
+    width:87%;
+    text-align: right;
+    padding-right:0.53333rem;
+}
+.award .award-footer .shop_box .award_btn a{
+    display:inline-block;
+    width:2.2666rem;
+    height:0.8rem;
+    line-height:0.8rem;
+    text-align:center;
+    color:#fff;
+}
+/******************************************************************************************************************/
+/*贝里充值*/
+.recharge .account{
+    width:100%;
+    background:#fff;
+    border-top: 0.16rem solid #F1F1F1;
+    border-bottom: 0.16rem solid #F1F1F1;
+}
+.recharge .account p{
+    height:0.42666rem;
+    line-height:0.42666rem;
+    color:#6b6b6b;
+}
+.recharge .recharge_list{
+    width:100%;
+    background:#fff;
+}
+.recharge .recharge_list ul li{
+    width:2.875rem;
+    height:1.3333rem;
+    line-height:1.3333rem;
+    margin-right:0.28rem;
+    border:1px solid #E5E5E5;
+    border-radius:0.106666rem;
+    text-align:center;
+    float:left;
+    margin-bottom:0.26666rem;
+    color:#6b6b6b;
+    overflow:hidden;
+}
+.recharge .recharge_list ul li input{
+    width:100%;
+    border:none;
+    text-align:center;
+}
+.recharge .recharge_list ul li input::-ms-input-placeholder{text-align: center;}
+.recharge .recharge_list ul li input::-webkit-input-placeholder{text-align: center;}
+[data-dpr="2"] .recharge .recharge_list ul li{
+    margin-right:0.32rem;
+}
+[data-dpr="3"] .recharge .recharge_list ul li{
+    margin-right:0.32rem;
+}
+.recharge .recharge_list ul li.active{
+    color:#4899FE;
+    border:1px solid #4899FE;
+}
+.recharge .recharge_list ul li:nth-of-type(3n){
+    margin-right:0;
+}
+.recharge .recharge_list ul li:nth-of-type(4),
+.recharge .recharge_list ul li:nth-of-type(5),
+.recharge .recharge_list ul li:nth-of-type(6)
+{
+    margin-bottom:0;
+}
+.recharge .get_beili{
+    width:100%;
+    background:#fff;
+    border-top:1px solid #E5E5E5;
+}
+.recharge .get_beili p span{
+    color:#ff5000;
+}
+.recharge .get_beili .recharge_btn{
+    width:100%;
+    margin-top: 0.4266rem;
+}
+.recharge .get_beili .recharge_btn a{
+    display:inline-block;
+    width:100%;
+    text-align:center;
+    color:#fff;
+    background:#4899FE;
+    padding:0.26666rem 0;
+}
+.recharge .recharge_tips{
+    color:#999;
+}
+/*******************************************************************************************************************/
+/*计算详情*/
+.countdetail .bor{
+    background:#ff5000;
+    color:#fff;
+    border-bottom:0.16rem solid #F1F1F1;
+}
+.countdetail .bgfff{
+    background:#fff !important;
+    width:100%;
+}
+.countdetail .bt10{
+    margin-bottom:0.26666rem;
+}
+.countdetail .nobg{
+    background:none;
+}
+.countdetail .col222{
+    color:#222;
+}
+.countdetail .col6b6b{
+    color:#6b6b6b;
+}
+.countdetail .colff5{
+    color:#ff5000;
+}
+/*******************************************************************************************************************/
+/*贝里付款*/
+.paying .paying_detail{
+    width:100%;
+    background:#fff;
+    border-bottom:0.16rem solid #F1F1F1;
+}
+.paying .paying_detail .thumb{
+    width:1.70666rem;
+    height:2.4rem;
+}
+.paying .paying_detail .thumb img{
+    width:100%;
+    height:100%;
+}
+.paying .paying_detail .award_info{
+    width:7.444rem;
+}
+.paying .paying_detail .award_info .cishu{
+    margin:0.3rem 0 0.1rem 0;
+}
+.paying .paying_detail .award_info p:nth-of-type(1){
+    color:#222;
+}
+.paying .paying_detail .award_info p{
+    color:#6b6b6b;
+}
+.paying .paying_detail .award_info p span{
+    color:#ff5000;
+}
+.paying .receiving{
+    width:100%;
+    background:#fff;
+    border-bottom:0.16rem solid #F1F1F1;
+}
+.paying .receiving .title{
+    color:#222;
+}
+.paying .beili{
+    width:100%;
+    background:#FFF;
+}
+.paying .beili span{
+    margin-left: 0.32rem;
+}
+.paying .beili i.icon_beili{
+    display: inline-block;
+    width: 0.56rem;
+    height: 0.56rem;
+    background: #D8D8D8;
+    float: left;
+}
+.paying .beili i.icon_beili{
+    background: url("../img/personal_beili.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .paying .beili i.icon_beili{
+    background: url("../img/personal_beili@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .paying .beili i.icon_beili{
+    background: url("../img/personal_beili@3x.png");
+    background-size: 100%;
+}
+.paying .beili i.choose{
+    display: inline-block;
+    width: 0.4266rem;
+    height: 0.4266rem;
+    background: #D8D8D8;
+    float: right;
+}
+.paying .beili i.choose{
+    background: url("../img/photo_s.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .paying .beili i.choose{
+    background: url("../img/photo_s@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .paying .beili i.choose{
+    background: url("../img/photo_s@3x.png");
+    background-size: 100%;
+}
+.paying .receiving .address{
+    color:#6b6b6b;
+    margin-top:0.2666rem;
+    position: relative;
+}
+.paying .receiving .address span:last-child{
+    margin-left: 0.8rem;
+}
+.paying .receiving .address i.arrow{
+    display: inline-block;
+    width: 0.1866rem;
+    height: 0.32rem;
+    background: #D8D8D8;
+    position: absolute;
+    right: 0;
+    top:0.3rem;
+}
+.paying .receiving .address i.arrow{
+    background: url("../img/arrow.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .paying .receiving .address i.arrow{
+    background: url("../img/arrow@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .paying .receiving .address i.arrow{
+    background: url("../img/arrow@3x.png");
+    background-size: 100%;
+}
+.paying .paying-btn a{
+    display:inline-block;
+    width:2.2666rem;
+    height:0.8rem;
+    line-height:0.8rem;
+    text-align:center;
+    color:#fff;
+}
+.paying .paying-btn span{
+    color:#ff5000;
+    padding-left:2.9333rem;
+    padding-right:2.3555rem;
+}
+/*******************************************************************************************************************/
+/*支付结果*/
+.payresult .payment_status{
+    text-align: center;
+    padding-top: 0.692rem;
+    padding-bottom: 0.4266rem;
+    border-bottom: 0.16rem solid #F1F1F1;
+}
+.payresult .payment_status p{
+    font-size: 0.5333rem;
+    color: #222222;
+    margin-top: 0.5333rem;
+}
+.payresult .money{
+    border-bottom: 0.05rem solid #e5e5e5;
+}
+.payresult .money span:last-child{
+    color: #FF5000;
+}
+.payresult .payment_status .pay_complete{
+    width: 1.3333rem;
+    height: 1.3333rem;
+    margin: auto;
+    background: url("../img/beili pay_complete.png");
+    background-size: 100%;
+}
+[data-dpr="2"] .payresult .payment_status .pay_complete{
+    background: url("../img/beili pay_complete@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .payresult .payment_status .pay_complete{
+    background: url("../img/beili pay_complete@3x.png");
+    background-size: 100%;
+}
+.payresult .button{
+    text-align: center;
+    margin-top: 0.8133rem;
+}
+.payresult .button a{
+    display: inline-block;
+    border-radius: 0.1066rem;
+    padding: 0.1333rem 0.2666rem;
+    font-size: 0.32rem;
+}
+.payresult .button a:first-child{
+    border: 0.03rem solid #999999;
+    margin-right: 0.32rem;
+    color: #222222;
+}
+.payresult .button a:last-child{
+    border: 0.03rem solid #FF5000;
+    color: #FF5000;
+}

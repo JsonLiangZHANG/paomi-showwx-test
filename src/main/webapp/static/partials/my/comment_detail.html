@@ -1,0 +1,75 @@
+<div class="comment_detail" ng-controller="CommentDetailController">
+    <style>
+        body{
+            cursor:pointer;
+        }
+    </style>
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">评论详情</span>
+    </div>
+    <!--标题结束-->
+    <!--演唱信息开始-->
+    <div class="information pd_rl12 pd_rl16 clear">
+        <img src="{{comment.thumb}}">
+        <p ng-bind="comment.name"></p>
+    </div>
+    <!--演唱信息结束-->
+    <!--评论详情开始-->
+    <div class="detail_list pd_rl12 pd_rl16 clear" ng-controller="PublicController">
+        <ul>
+            <li class="clear">
+                <div class="head_portrait fl">
+                    <img src="{{comment.headimgurl}}">
+                </div>
+                <div class="right_block fr">
+                    <div class="topside clear">
+                        <div class="name_stars fl">
+                            <span class="f12 fl" ng-bind="comment.nickname"></span>
+                            <i class="stars" ng-style="setPost(comment.star)"></i>
+                        </div>
+                        <div class="operation fr clear">
+                            <div class="review fl">
+                                <i class="i_review"></i>
+                                <span class="f10" ng-bind="comment.reply"></span>
+                            </div>
+                            <div class="fabulous fr">
+                                <i class="fl {{comment.is_praise==0?'':'liked'}}" ng-click="IsPraise(comment.id,$index,comment.like,'allreplay',$event)"></i>
+                                <span class="f10" ng-bind="comment.like"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="time f10" ng-bind="getDateDiff(getDateTimeStamp(comment.timeline))"></p>
+                    <p class="comment f14" ng-bind="comment.content"></p>
+                    <div class="itme_img_box clear" ng-if="comment.attach">
+                        <div class="itme_img" ng-repeat="atta in comment.attach.split(',').slice(0,5)" img-view img-arr="comment.attach" ng-style="{width:'{{comment.attach.split(',').length==1?'2.6666rem':''}}',height:'{{comment.attach.split(',').length==1?'2.6666rem':''}}'}">
+                            <img ng-src="{{atta}}" alt="">
+                        </div>
+                    </div>
+                    <div class="reply_content pd_rl12 f12" ng-hide="replies.length==0">
+                        <div ng-repeat="replie in replies" ng-click="Reply(replie.from_name,replie.from_id,$event)">
+                            <p><span ng-bind="replie.to_name!=''?replie.from_name:replie.from_name" style="color: #999999">bowen</span><span ng-hide="replie.to_name">：</span><span ng-if="replie.to_name">回复</span><span ng-if="replie.to_name" ng-bind="replie.to_name+'：'" style="color: #999999">天道</span><span ng-bind="replie.content">这样啊 刚过没看到额</span></p>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        <div class="more" ng-if="replies.length>=10&&page_show" style="text-align:center;color: #4899FE;">
+            <p ng-bind="'查看全部'+review.reply+'条回复'" ng-click="toggle($event)"></p>
+        </div>
+        <!--横线开始-->
+        <p class="line f8" ng-hide="replies.length>=10&&page_show">没有更多内容啦</p>
+        <!--横线结束-->
+    </div>
+    <!--评论详情结束-->
+    <!--回复框开始-->
+    <div class="reply pd_rl12 clear" id="publish">
+        <img src="{{user.headimgurl}}" err-src="static/img/userdefault.png">
+        <p class="case fl">
+            <input placeholder="{{placeholder}}" ng-model="ReplyFormText" id="reply_inp">
+            <i class="reply-btn {{ReplyFormText.length>0?'active':''}}" ng-click="submitReply(comment.id,$event)"></i>
+        </p>
+    </div>
+    <!--回复框结束-->
+</div>

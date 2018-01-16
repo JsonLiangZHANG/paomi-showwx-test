@@ -1,0 +1,100 @@
+<div class="account_settings" ng-controller="AccountSettingsController">
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" ui-sref="my.index"></a>
+        <span class="headline f18">账户设置</span>
+    </div>
+    <!--标题结束-->
+    <!--个人资料开始-->
+    <div class="personal_data pd_rl12">
+        <p class="title f16">个人资料</p>
+        <ul>
+            <li class="pd_rl16 clear">
+                <span class="f14" style="display: inline-block;line-height: 1.333rem">头像</span>
+                <div class="fr">
+                    <img class="head_portrait" src="{{thumb.imgSrc}}" err-src="static/img/userdefault.png">
+                    <input type="file" img-upload>
+                    <i class="arrow" style="margin-bottom: 0.4266rem"></i>
+                </div>
+            </li>
+            <li class="pd_rl16 clear" ui-sref="my.set_nickname">
+                <div class="f14 fl">昵称</div>
+                <div class="fr">
+                    <div class="edit f14 fl" ng-bind="nickname"></div>
+                    <i class="arrow"></i>
+                </div>
+            </li>
+            <li class="pd_rl16 clear" ng-click="setSex()">
+                <div class="f14 fl">性别</div>
+                <div class="fr">
+                    <div class="edit f14 fl" ng-bind="sex"></div>
+                    <i class="arrow"></i>
+                </div>
+            </li>
+            <li class="pd_rl16 clear" ng-click="setBirthday()">
+                <div class="f14 fl">生日</div>
+                <div class="fr">
+                    <div class="edit f14 fl" ng-bind="birthday"></div>
+                    <i class="arrow"></i>
+                </div>
+            </li>
+            <li class="pd_rl16 clear" ui-sref="my.address_management">
+                <div class="f14 fl">地址管理</div>
+                <div class="fr">
+                    <div class="edit f14 fl" ng-bind="address_num!=0?address_num+'个地址':'未设置'"></div>
+                    <i class="arrow"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--个人资料结束-->
+    <!--账号安全开始-->
+    <div class="personal_data pd_rl12" ng-show="!show">
+        <p class="title f16">账号安全</p>
+        <ul>
+            <li class="pd_rl16 clear" ng-click="tip()">
+                <div class="f14 fl">手机号</div>
+                <div class="fr">
+                    <div class="edit f14 fl" ng-bind="mobile"></div>
+                    <i class="arrow"></i>
+                </div>
+            </li>
+            <li class="pd_rl16 clear"  ui-sref="my.verify_phone">
+                <div class="f14 fl">密码</div>
+                <div class="fr">
+                    <div class="edit f14 fl">*****</div>
+                    <i class="arrow"></i>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--账号安全结束-->
+    <!--设置性别弹窗开始-->
+    <div class="sex_mask">
+        <div class="sex_box">
+            <ul>
+                <li class="pd_rl12 pd_rl16" ng-click="choose('男')" ng-class="{true: 'active', false: ''}[isBoy]">
+                    男
+                    <i class="check" ng-show="isBoy"></i>
+                </li>
+                <li class="pd_rl12 pd_rl16" ng-click="choose('女')" ng-class="{true: '', false: 'active'}[isBoy]">
+                    女
+                    <i class="check" ng-hide="isBoy"></i>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--设置性别弹窗结束-->
+    <!--设置生日弹窗开始-->
+    <div class="birthday_mask">
+        <div class="birthday_box pd_rl12" ng-click="bubble($event)">
+            <div class="date f18">
+                <select ng-model="time.year" data-ng-options="t.id as t.name for t in yearNows"></select>年
+                <select ng-model="time.month" data-ng-options="t.id as t.name for t in monthNow"></select>月
+                <select ng-model="time.day"  data-ng-options="t.id as t.name for t in dayNow"></select>日
+            </div>
+            <p class="f14 pd_rl16" ng-click="confirm()">确定</p>
+        </div>
+    </div>
+    <!--设置生日弹窗结束-->
+</div>

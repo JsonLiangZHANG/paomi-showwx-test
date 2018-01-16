@@ -1,0 +1,151 @@
+<div class="award" ng-controller="AwardController">
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">夺宝详情</span>
+        <i class="share"></i>
+    </div>
+    <!--头部结束-->
+    <!--banner开始-->
+    <div id="carousel-demo" class="carousel-demo">
+        <ul rn-carousel rn-carousel-index="cindex" rn-carousel-auto-slide rn-carousel-pause-on-hover rn-carousel-buffered rn-carousel-controls-allow-loop>
+            <li ng-repeat="slide in pic">
+                <img ng-src="{{slide}}" alt="">
+            </li>
+        </ul>
+        <div rn-carousel-indicators ng-if="pic.length > 1" slides="pic" rn-carousel-index="cindex" class="carousel-indicator" ></div>
+    </div>
+    <!--banner结束-->
+    <!--夺宝详情开始-->
+    <div class="award_detail pd_rl12 pd_rl16">
+        <div class="award-info f16 clear">
+            <p class="hd2 fl" ng-bind="award.title"></p>
+            <p class="fr" ng-bind="time"></p>
+        </div>
+        <div class="award-xq f12">
+            <div class="qihao clear">
+                <p class="fl">期号：<span ng-bind="award.id"></span></p>
+                <p class="fr" ui-sref="main.countdetail">计算方式说明＞</p>
+            </div>
+            <div class="bar">
+                <div class="barbg"></div>
+                <div class="bar1" style="width:{{award.progress+'%'}}"></div>
+            </div>
+            <div class="surplus clear">
+                <p class="fl">总需：<sapn ng-bind="award.total"></sapn></p>
+                <p class="fr">剩余：<span ng-bind="award.l3ft"></span></p>
+            </div>
+        </div>
+    </div>
+    <!--夺宝详情结束-->
+    <!--简介开始-->
+    <div class="intro pd_rl12 pd_rl16">
+        <h4 class="f14">商品简介</h4>
+        <div class="intro_con f12">
+            <p ng-bind="good.introduction"></p>
+        </div>
+    </div>
+    <!--简介结束-->
+    <!--往期揭晓开始-->
+    <div class="unevil_list pd_rl12 pd_rl16 f12">
+        <div class="unevil_title">
+            <h4 class="f14">往期揭晓</h4>
+        </div>
+        <div class="unevil_row">
+            <ul>
+                <li class="clear pd_rl16" ui-sref="main.award({award_id:unveil.id})" ng-repeat="unveil in unveils | limitTo:3">
+                    <div class="avatar fl">
+                        <img src="{{unveil.winner_head}}" err-src="static/img/userdefault.png" alt="">
+                    </div>
+                    <div class="unevil_con fl">
+                        <p class="f10">第<span>{{unveil.id}}</span>期</p>
+                        <div class="people clear f12">
+                            <p class="fl">获奖者：<span>{{unveil.winner_name}}</span></p>
+                            <p class="fr">幸运号码</p>
+                        </div>
+                        <div class="people-id clear">
+                            <p class="fl f10">用户IP：{{unveil.winner_ip}}</p>
+                            <p class="fr f12" ng-bind="unveil.prize_no"></p>
+                        </div>
+                        <p class="f10 unevil-current">本期参与：<span ng-bind="unveil.used"></span>人次</p>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="unevil_more pd_rl16">
+        <a href="" class="f14" ui-sref="main.unveiled">查看全部</a>
+    </div>
+    <!--往期揭晓结束-->
+    <!--本期参与开始-->
+    <div class="partake_list pd_rl12 pd_rl16 f12">
+        <div class="partake_title">
+            <h4 class="f14">本期参与</h4>
+        </div>
+        <div class="partake_row">
+            <ul>
+                <li class="clear pd_rl16" ng-repeat="partake in partakes | limitTo:3">
+                    <div class="avatar fl">
+                        <img src="{{partake.head}}" err-src="static/img/userdefault.png" alt="">
+                    </div>
+                    <div class="partake_con fl">
+                        <p class="f12" ng-bind="partake.name"></p>
+                        <div class="partake-id clear">
+                            <p class="fl f10">用户IP：<span>{{partake.ip}}</span></p>
+                            <p class="fr f12"><span>{{partake.num}}</span>人次</p>
+                        </div>
+                        <div class="time f10">
+                            <p>{{partake.timeline}}</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="unevil_more pd_rl16">
+        <a href="" class="f14" ui-sref="main.partake({award_id:award_id})">查看全部</a>
+    </div>
+    <!--本期参与结束-->
+    <!--立即购买开始-->
+    <div class="award-footer">
+        <div style="height:1.3333rem"></div>  <!--解决fixed显示不全bug--->
+        <div class="shop_box clear">
+            <div class="tel fl">
+                <a class="i_tel"></a>
+            </div>
+            <div class="award_btn fr">
+                <a class="linear br" ng-disabled="true" ng-style="gbs">{{Btn}}</a>
+            </div>
+        </div>
+    </div>
+    <!--立即购买结束-->
+    <!--支付贝里弹窗开始-->
+    <div class="shadow">
+        <div class="pay">
+            <div class="recharge pd_tb12 clear">
+                <span class="f14 fl">我的贝里：<span class="count" ng-bind="bellyremain"></span></span>
+                <button class="f12 fr" ui-sref="main.recharge">充值</button>
+            </div>
+            <div class="choose">
+                <div class="adjustment">
+                    <a ng-click="subNum()">-</a>
+                    <input type="text" ng-model="num"  ng-blur="blurPrice(num)" disabled="disabled"/>
+                    <a ng-click="addNum()">+</a>
+                </div>
+                <div class="buy_list clear">
+                    <ul class="clear">
+                        <li ng-click="filter(10)">10</li>
+                        <li ng-click="filter(20)">20</li>
+                        <li ng-click="filter(30)">30</li>
+                        <li ng-click="filter(40)">40</li>
+                        <li ng-click="filter(50)">50</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="pay_count pd_rl16 clear">
+                <span class="f16 fl">{{price}}贝里</span>
+                <button class="f16 linear br fr" ng-click="goPaying(num)">立即支付</button>
+            </div>
+        </div>
+    </div>
+    <!--支付贝里弹窗结束-->
+</div>

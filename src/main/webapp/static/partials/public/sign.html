@@ -1,0 +1,14 @@
+<div ng-controller="SigncController" class="pd_rl12">
+    <!--签到按钮-->
+    <div class="home-sign f16" ng-show="showInfo&&my_sing==1" ng-click="sign()">
+
+    </div>
+    <div class="sign_mask">
+        <div class="sign_box">
+            <div class="sign_succee"></div>
+            <div id="scs_rl" ></div>
+            <div class="days f12">您已连续签到{{days}}天</div>
+            <div class="calendar_close" ng-click="close()"></div>
+        </div>
+    </div>
+</div>

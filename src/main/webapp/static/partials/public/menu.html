@@ -1,0 +1,26 @@
+<!--底部菜单开始-->
+<div>
+    <div style="height:1.333rem"></div>
+    <div class="menu_bar f10" ng-controller="PublicController">
+        <ul class="clear">
+            <li ui-sref="main.index">
+                <i class="menu-home" ng-class="{true: 'active',false:''}[mypage==1]" ng-bind="currentDate|date:'dd'"></i>
+                <p ng-class="{true: 'active',false:''}[mypage==1]">首页</p>
+            </li>
+            <li ui-sref="main.list({kind:0,sort:'hot',direct:'desc',keyword:''})">
+                <i class="menu-classify" ng-class="{true: 'active',false:''}[mypage==2]"></i>
+                <p ng-class="{true: 'active',false:''}[mypage==2]">分类</p>
+            </li>
+            <li ui-sref="my.message">
+                <i class="menu-message" ng-class="{true: 'active',false:''}[mypage==3]"></i>
+                <p ng-class="{true: 'active',false:''}[mypage==3]">消息</p>
+                <span ng-show="(notify.comment!=0||notify.like!=0||notify.system!=0)&&notify_show"></span>
+            </li>
+            <li ui-sref="my.index">
+                <i class="menu-my" ng-class="{true: 'active',false:''}[mypage==4]"></i>
+                <p ng-class="{true: 'active',false:''}[mypage==4]">我的</p>
+            </li>
+        </ul>
+    </div>
+</div>
+<!--底部菜单结束-->

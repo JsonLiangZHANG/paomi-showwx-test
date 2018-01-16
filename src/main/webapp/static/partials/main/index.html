@@ -1,0 +1,141 @@
+<div id="home" ng-controller="IndexController">
+    <!--<style>-->
+        <!--html,body{-->
+            <!--background:#f1f1f1;-->
+        <!--}-->
+    <!--</style>-->
+    <!--搜索开始-->
+    <div class="home-search">
+        <!--<i class="location"></i>-->
+        <!--<div class="home-search-btn fl f14">上海</div>-->
+        <div class="home-search-input f10" ui-sref="main.search">
+            <i class="search"></i>
+            <input type="text" placeholder="搜索明星、演出、场馆...">
+        </div>
+    </div>
+    <!--搜索结束-->
+    <!--banner开始-->
+    <div id="carousel-demo" class="carousel-demo">
+        <ul rn-carousel rn-carousel-index="cindex" rn-carousel-auto-slide rn-carousel-pause-on-hover rn-carousel-buffered rn-carousel-controls-allow-loop>
+            <li ng-repeat="slide in advs" ui-sref="main.detail({good_id:{{slide.id}}})">
+                <div ng-style="{'background-image': 'url(' + slide.thumb + ')'}"  class="bgimage">
+                </div>
+            </li>
+        </ul>
+        <div rn-carousel-indicators ng-if="advs.length > 1" slides="advs" rn-carousel-index="cindex" class="carousel-indicator" ></div>
+    </div>
+    <!--banner结束-->
+    <!--导航栏开始-->
+    <div class="nav swiper-container">
+        <ul class="clear swiper-wrapper clear" id="silder">
+            <li class="swiper-slide">
+                <div class="nav-icon home-1" ui-sref="main.list({kind:0,sort:'hot',direct:'desc',keyword:''})">
+
+                </div>
+                <p>演唱会</p>
+            </li>
+            <li class="swiper-slide">
+                <div class="nav-icon home-2" ui-sref="main.list({kind:1,sort:'hot',direct:'desc',keyword:''})">
+
+                </div>
+                <p>话剧歌剧</p>
+            </li>
+            <li class="swiper-slide">
+                <div class="nav-icon home-3" ui-sref="main.list({kind:2,sort:'hot',direct:'desc',keyword:''})">
+
+                </div>
+                <p>体育赛事</p>
+            </li>
+            <li class="swiper-slide">
+                <div class="nav-icon home-4" ui-sref="main.list({kind:3,sort:'hot',direct:'desc',keyword:''})">
+
+                </div>
+                <p>展览景点</p>
+            </li>
+            <li class="swiper-slide">
+                <div class="nav-icon home-5" ui-sref="main.list({kind:4,sort:'hot',direct:'desc',keyword:''})">
+
+                </div>
+                <p>儿童亲子</p>
+            </li>
+            <li class="swiper-slide">
+                <div class="nav-icon home-6" ui-sref="main.list({kind:8,sort:'hot',direct:'desc',keyword:''})">
+
+                </div>
+                <p>音乐舞蹈</p>
+            </li>
+            <li class="swiper-slide">
+                <div class="nav-icon home-7" ui-sref="main.list({kind:5,sort:'hot',direct:'desc',keyword:''})">
+
+                </div>
+                <p>曲艺杂谈</p>
+            </li>
+            <li class="swiper-slide">
+                <div class="nav-icon home-8" ui-sref="main.list({kind:6,sort:'hot',direct:'desc',keyword:''})">
+
+                </div>
+                <p>同城活动</p>
+            </li>
+        </ul>
+        <div class="swiper-pagination nav-pagination"></div>
+    </div>
+    <!--导航栏结束-->
+    <!--新闻轮播开始-->
+    <div class="news">
+        <div class="news-con">
+            <i class="fl"></i>
+            <div class="text-scroll fl slide">
+                <ul class="slideUl">
+                    <li ng-repeat = "data in datasetData"  ui-sref="main.detail({good_id:{{data.id}}})"><p><span style="color:#000;">{{data.title}}</span></p></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--新闻轮播结束-->
+    <!--活动专区开始-->
+    <div class="activity-box">
+        <h4 class="f14 pd_rl12">活动专区</h4>
+        <div class="swiper-container activity">
+            <div class="swiper-wrapper" id="swiper-wrapper">
+                <div class="swiper-slide activity-item activity-item-2" id="activity-item-2"></div>
+                <!--<div class="swiper-slide activity-item activity-item-1" id="activity-item-1"></div>-->
+                <div class="swiper-slide activity-item activity-item-3" id="activity-item-3"></div>
+            </div>
+        </div>
+    </div>
+    <!--活动专区结束-->
+    <!--热门推荐开始-->
+    <div class="hot" ng-controller="PublicController">
+        <h4>热门推荐</h4>
+        <div class="hot-list">
+            <ul>
+                <li class="flag" style="margin-bottom:0.5333rem" ng-repeat="lat in latest" ui-sref="main.detail({good_id:{{lat.id}}})">
+                    <a class="figure flag-item">
+                        <i class="label f8" ng-show="lat.coupon_label"><span ng-bind="lat.coupon_label"></span></i>
+                        <img ng-src="{{lat.thumb}}" alt="">
+                    </a>
+                    <div class="figcaption flag-item">
+                        <div class="flag-title">
+                            <a title="" ng-bind="lat.title"></a>
+                        </div>
+                        <div class="flag-price" ng-bind="lat.date"></div>
+                        <div class="flag-type" ng-bind="lat.site_title" style="width: 5rem;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;color: #6B6B6B"></div>
+                        <div class="flag-type">
+                            <strong ng-show="!(lat.state=='即将开票'&&lat.price=='0')" ng-bind="lat.price">9999</strong>
+                            <strong ng-show="lat.state=='即将开票'&&lat.price=='0'" class="state_f12">待定</strong>
+                            <span ng-show="!(lat.state=='即将开票'&&lat.price=='0')">元起</span>
+                        </div>
+                        <a class="flag-btn" href="" ng-style="btnSetColor(lat.state)" ng-bind="btnText(lat.state)"></a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--热门推荐结束-->
+    <!--底部菜单开始-->
+    <menu></menu>
+    <!--底部菜单结束-->
+    <!--签到日历开始-->
+    <sign></sign>
+    <!--签到日历结束-->
+</div>

@@ -1,0 +1,32 @@
+<div class="message_system" ng-controller="MessageSystemController">
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">系统消息</span>
+    </div>
+    <!--标题结束-->
+    <!--消息列表开始-->
+    <div class="system_list pd_rl12" style="padding-top:0.53333rem;padding-bottom:0.53333rem;" ng-controller="PublicController">
+        <ul infinite-scroll="goods.nextPage()" infinite-scroll-disabled='goods.busy' infinite-scroll-distance="1">
+            <li class="f14 br" style="color:#6B6B6B;" ng-repeat="good in goods.items" ng-click="goComment(good.subject_id,good.state,good.notify_id,$index,good.remark)">
+                <div class="message_con pd_rl12">
+                    <div class="message_title clear">
+                        <p class="fl" style="color:#222">订单支付成功</p>
+                        <p class="fr" style="color:#999" ng-bind="getDateDiff(getDateTimeStamp(good.timeline))|substitute">4月19日 16:16</p>
+                    </div>
+                    <div class="message_con_d" ng-bind="good.content">您购买的［杭州站］2017五月天LIEF［人生无线司］您购买的［杭州站］州站］20天LIEF［人生无线］您购买的［杭州站］［］您购买的您购买的您购买的您购买的［杭州站］2017五月天LIEF［人生无线司］您购买的［杭州站］2017五月天</div>
+                    <div class="message_more_btn">
+                        <p>查看详情<i></i></p>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <!--消息列表结束-->
+    <!--暂无数据开始-->
+    <div class="nodata" ng-show="goods.nodata">
+        <div class="no_system"></div>
+        <p class="f14">消息空空如也</p>
+    </div>
+    <!--暂无数据结束-->
+</div>

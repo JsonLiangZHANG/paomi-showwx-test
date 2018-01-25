@@ -10,8 +10,6 @@ sourceCompatibility = 1.8
 repositories {
     mavenLocal()
     mavenCentral()
-    maven { url "http://mirrors.ibiblio.org/pub/mirrors/maven2" }
-    maven { url 'http://maven.oschina.net/content/groups/public/' }
 }
 
 dependencies {

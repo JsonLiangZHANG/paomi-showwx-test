@@ -16,9 +16,7 @@ stareal.config(function ($httpProvider, localStorageServiceProvider) {
 
 }).factory('$api', function ($q, $http, localStorageService) {
 
-    // var host_prefix = "http://stareal.cn/mobile/";
-    var host_prefix = "https://api.stareal.cn/mobile/";//正式
-    // var host_prefix = "http://t.stareal.cn:8080/api/";//测试
+    var host_prefix = "https://api.mydeershow.com/mobile/";
     var service = {
         get: function (url, params, needToken) {
             return handleRepData('get', url, params, needToken);

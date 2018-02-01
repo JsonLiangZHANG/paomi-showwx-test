@@ -62,22 +62,8 @@ stareal
                     payType: 4
                 }, true)
                     .then(function (ret) {
-                        document.forms['alipaysubmit']._input_charset.value = ret.data._input_charset;
-                        document.forms['alipaysubmit'].subject.value = ret.data.subject;
-                        // document.forms['alipaysubmit'].it_b_pay.value = ret.data.it_b_pay;
-                        document.forms['alipaysubmit'].sign.value = ret.data.sign;
-                        document.forms['alipaysubmit'].notify_url.value = ret.data.notify_url;
-                        document.forms['alipaysubmit'].body.value = ret.data.body;
-                        document.forms['alipaysubmit'].payment_type.value = ret.data.payment_type;
-                        document.forms['alipaysubmit'].out_trade_no.value = ret.data.out_trade_no;
-                        document.forms['alipaysubmit'].partner.value = ret.data.partner;
-                        document.forms['alipaysubmit'].service.value = ret.data.service;
-                        document.forms['alipaysubmit'].total_fee.value = ret.data.total_fee;
-                        document.forms['alipaysubmit'].return_url.value = ret.data.return_url;
-                        document.forms['alipaysubmit'].app_pay.value = ret.data.app_pay;
-                        document.forms['alipaysubmit'].sign_type.value = ret.data.sign_type;
-                        document.forms['alipaysubmit'].seller_id.value = ret.data.seller_id;
-                        document.forms['alipaysubmit'].show_url.value = ret.data.show_url;
+                        document.forms['alipaysubmit'].action = ret.data.action;
+                        document.forms['alipaysubmit'].biz_content.value = ret.data.biz_content;
                         document.forms['alipaysubmit'].submit();
                     }, function (err) {
                         $alert.show(err);

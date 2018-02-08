@@ -1,0 +1,61 @@
+<div class="product" ng-controller="ProductController">
+        <!--头部开始-->
+        <div class="top">
+            <span class="title">分类</span>
+            <i class="search" ui-sref="main.search"></i>
+            <i class="screen {{sf==true?'active':''}}" ng-click="toggle()"></i>
+        </div>
+        <!--头部结束-->
+        <!--筛选开始-->
+        <div ng-show="sf">
+            <div class="bg" ng-click="sf = false"></div>
+            <div class="Sortsearch pd_rl12">
+                <div class="hot_block" ng-click="filter('hot','desc')">
+                    <i ng-class="{true: 'hotter_active fl', false: 'hotter'}[isHot]"></i>
+                    <span ng-class="{true: 'active f14 fl', false: 'f14'}[isHot]">热度</span>
+                    <i class="check" ng-show="isHot"></i>
+                </div>
+                <div class="time_block" ng-click="filter('date','asc')">
+                    <i ng-class="{true: 'time', false: 'time_active fl'}[isHot]"></i>
+                    <span ng-class="{true: 'f14', false: 'active f14 fl'}[isHot]">时间</span>
+                    <i class="check" ng-hide="isHot"></i>
+                </div>
+            </div>
+        </div>
+        <!--筛选结束-->
+        <!--导航开始-->
+        <!--<div class="nav swiper-container">
+            <div class="swiper-wrapper clear" id="swiper-wrapper">
+                <div ng-repeat="nav in navs" class="swiper-slide" on-list-finish-render="navFinishRender">
+                    <a class="{{kind == nav.type?'active':''}}" ng-click="switch({{nav.type}})" >
+                        {{nav.name}}
+                    </a>
+                </div>
+            </div>
+        </div>-->
+        <div class="nav">
+            <ul>
+                <li ng-click="switch(all)">
+                    <a href="#">
+                        <img src="static/img/listd_piao.png" alt="">
+                    </a>
+                </li>
+                <li ng-click="sw()" class="active">
+                    <a href="#">
+                        <img src="static/img/listd_product.png" alt="">
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <!--导航结束-->
+        <!--列表开始 -->
+
+        <!--列表结束-->
+        <!--暂无数据开始-->
+        <div class="nodata" ng-show="false">
+            <div class="no_classify"></div>
+            <p class="f14">这里没演出，去隔壁看看吧</p>
+        </div>
+        <!--暂无数据结束-->
+        <menu></menu>
+    </div>

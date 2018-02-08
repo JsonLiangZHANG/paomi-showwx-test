@@ -7,7 +7,8 @@
                 <i class="menu-home" ng-class="{true: 'active',false:''}[mypage==1]" ng-bind="currentDate|date:'dd'"></i>
                 <p ng-class="{true: 'active',false:''}[mypage==1]">首页</p>
             </li>
-            <li ui-sref="main.list({kind:0,sort:'hot',direct:'desc',keyword:''})">
+            <!--修改传入的kind参数-->
+            <li ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
                 <i class="menu-classify" ng-class="{true: 'active',false:''}[mypage==2]"></i>
                 <p ng-class="{true: 'active',false:''}[mypage==2]">分类</p>
             </li>

@@ -1,4 +1,4 @@
-﻿'use strict';
+'use strict';
 
 var loadLazyjs = function (js) {
     return {
@@ -38,6 +38,33 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/js/controllers/public/sign.js',
                 'static/css/public.css',
                 'static/css/main.css',
+                'static/css/newstyle.css'
+            ])
+        })
+        //精彩回顾
+        .state('main.special', {
+            url: '/special',
+            templateUrl: 'static/partials/main/special.html',
+            resolve: loadLazyjs([
+                'static/css/special.css',
+            ])
+        })
+        //专题
+        .state('main.topic', {
+            url: '/topic',
+            templateUrl: 'static/partials/main/topic.html',
+            resolve: loadLazyjs([
+                'static/css/special.css',
+            ])
+        })
+        //专题
+        .state('main.product', {
+            url: '/product',
+            templateUrl: 'static/partials/main/product.html',
+            resolve: loadLazyjs([
+                'static/css/public.css',
+                'static/css/list.css',
+                'static/css/special.css'
             ])
         })
         .state('main.list', {
@@ -47,7 +74,8 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/js/controllers/main/list.js',
                 'static/js/controllers/public/public.js',
                 'static/css/public.css',
-                'static/css/list.css'
+                'static/css/list.css',
+                'static/css/special.css'
             ])
         })
         .state('main.search', {

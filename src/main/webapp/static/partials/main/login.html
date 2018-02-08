@@ -3,7 +3,8 @@
     <div>
         <!--头部开始-->
         <div class="head pd_tb14">
-            <a class="back" go-back></a>
+            <!--加点击事件-->
+            <a class="back" go-back ng-click="window.history.back();"></a>
             <span class="headline f18" ng-if="cdState">快速登录</span>
             <span class="headline f18" ng-if="!cdState">账号登录</span>
             <span class="rule f14" ng-if="!cdState" ui-sref="main.user_register">注册</span>
@@ -15,7 +16,7 @@
     <div class="login_box pd_rl12" ng-if="cdState">
         <ul>
             <li class="f16">
-                <p><input type="number" placeholder="手机号" ng-model="telphone_no"></p>
+                <p><input type="number" placeholder="手机号" ng-model="telphone_no" style="width:100%"></p>
             </li>
             <li class="f16 clear">
                 <p class="fl"><input type="number" placeholder="动态码" maxlength="4" ng-model="code"></p>

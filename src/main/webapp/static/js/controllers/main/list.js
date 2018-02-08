@@ -37,13 +37,22 @@ stareal
         var refresh = function(){
             $state.go('main.list',{kind:$scope.kind,sort:$scope.sort,direct:$scope.direct});
         };
+        //衍生品
+        var product=function(){
+            $state.go('main.product',{});
+        }
 
         // 点击导航栏
         $scope.switch = function(kind){
+            console.log($stateParams);
             $scope.kind = kind;
             refresh();
         };
-
+        $scope.sw = function(){
+            console.log(this);
+            //product();
+            alert("正在开发.....");
+        };
         // 热度/时间排序过滤
         $scope.filter = function (sort,direct) {
             $scope.sort = sort;

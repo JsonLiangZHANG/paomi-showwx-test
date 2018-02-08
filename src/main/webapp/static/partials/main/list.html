@@ -24,7 +24,7 @@
     </div>
     <!--筛选结束-->
     <!--导航开始-->
-    <div class="nav swiper-container">
+    <!--<div class="nav swiper-container">
         <div class="swiper-wrapper clear" id="swiper-wrapper">
             <div ng-repeat="nav in navs" class="swiper-slide" on-list-finish-render="navFinishRender">
                 <a class="{{kind == nav.type?'active':''}}" ng-click="switch({{nav.type}})" >
@@ -32,7 +32,18 @@
                 </a>
             </div>
         </div>
-    </div>
+    </div>-->
+    <!--导航-->
+     <div class="nav" id="list_nav">
+          <ul class="nav_ul">
+              <li ng-click="switch(all)" class="active list_piao">
+                      <img src="static/img/list_piao.png" alt="">
+              </li>
+              <li ng-click="sw()" class="list_product last">
+                      <img src="static/img/list_product.png" alt="">
+              </li>
+          </ul>
+     </div>
     <!--导航结束-->
     <!--列表开始 -->
     <div class="hot" ng-controller="PublicController">

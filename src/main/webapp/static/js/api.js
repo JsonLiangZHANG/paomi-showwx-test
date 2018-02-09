@@ -16,8 +16,7 @@ stareal.config(function ($httpProvider, localStorageServiceProvider) {
 
 }).factory('$api', function ($q, $http, localStorageService) {
 
-    //var host_prefix = "https://api.mydeershow.com/mobile/";
-    var host_prefix = "http://192.168.1.4/api/";
+    var host_prefix = "https://api.mydeershow.com/mobile/";
     var service = {
         get: function (url, params, needToken) {
             return handleRepData('get', url, params, needToken);

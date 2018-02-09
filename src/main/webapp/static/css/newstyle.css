@@ -16,7 +16,7 @@
 }
 .carousel_btnGroup{
     position:absolute;;
-    left:8%;
+    left:0.58rem;
     bottom:4%;
 }
 .carousel_dailog{
@@ -36,7 +36,7 @@
     /*background:url("../img/Purchase_btn.png") no-repeat center;*/
     background:rgb(255,222,0);
     color:#000;
-    line-height:0.6rem;
+    line-height:0.65rem;
     text-align:center;
     border-radius: 0.3rem;
     /*-webkit-background-size: 100% 100%;*/
@@ -51,7 +51,7 @@
     height:0.6rem;
     border: 2px solid #fff;
     background:transparent;
-    line-height: 0.6rem;
+    line-height: 0.56rem;
     text-align: center;
     color:#fff;
     border-radius: 0.3rem;

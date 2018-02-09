@@ -44,7 +44,7 @@
     line-height:1.06rem;
     color:rgb(100,100,100);
     border-right:1px solid #e5e5e5;
-    padding:0.12rem 0;
+    padding:0.06rem 0;
 }
 #list_nav .nav_ul li.last{
     border:none;
@@ -55,16 +55,17 @@
     clear: both;
 }
 .nav_ul li.list_piao img{
-    display:block;
-    width:2.49rem;
+    float:left;
+    width:0.8rem;
     height:0.8rem;
-    margin:0 auto;
+    margin:0.08rem auto;
 }
 .nav_ul li.list_product img{
-    display:block;
-    width:3.02rem;
+    opacity:0.6;
+   float:left;
+    width:0.8rem;
     height:0.8rem;
-    margin:0 auto;
+    margin:0.08rem auto;
 }
 #list_nav .nav_ul li.active{
     color:#fff;

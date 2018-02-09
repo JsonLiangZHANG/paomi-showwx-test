@@ -1,12 +1,16 @@
 'use strict';
 
 stareal
-    .controller("LoginController", function ($scope, $api, $stateParams, $alert, $document, localStorageService, $state, $interval) {
+    .controller("LoginController", function ($scope, $api, $stateParams, $alert, $document, localStorageService, $state, $interval,$rootScope) {
         $scope.cdState = true;  //切换状态
         $scope.telphone_no = "";
         $scope.accessToken = "";
         $scope.paracont = "获取验证码";
         $scope.code = "";
+        $scope.goBack = function() {
+            $rootScope.back()//直接使用
+
+        },
         $scope.login = {
             cd:function () {
                 $scope.cdState  = !$scope.cdState

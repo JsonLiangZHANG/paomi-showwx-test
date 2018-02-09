@@ -29,21 +29,41 @@
 
 }
 .carousel_btnGroup .Purchase_btn{
+    float:left;
     display:inline-block;
     width:2.2rem;
     height:0.6rem;
-    background:url("../img/Purchase_btn.png") no-repeat center;
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
+    /*background:url("../img/Purchase_btn.png") no-repeat center;*/
+    background:rgb(255,222,0);
+    color:#000;
+    line-height:0.6rem;
+    text-align:center;
+    border-radius: 0.3rem;
+    /*-webkit-background-size: 100% 100%;*/
+    /*background-size: 100% 100%;*/
 
 }
 .carousel_btnGroup .review_btn{
+    margin-left:0.5rem;
+    float:left;
     display:inline-block;
     width:2.94rem;
     height:0.6rem;
-    background:url("../img/review_btn.png") no-repeat center;
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
+    border: 2px solid #fff;
+    background:transparent;
+    line-height: 0.6rem;
+    text-align: center;
+    color:#fff;
+    border-radius: 0.3rem;
+    box-sizing: border-box;
+}
+.review_img{
+   display:inline-block;
+    width: 0.4rem;
+    height:0.4rem;
+    padding-top: 0.06rem;
+    padding-right: 0.2rem;
+    float: right;
 }
 .Repertoire{
     padding:0 0.32rem;
@@ -99,10 +119,15 @@
 }
 .Repertoire_Purchase{
     margin-top: 0.2rem;
-    display:block;
+    display:inline-block;
     width:2.2rem;
     height:0.6rem;
-    background:url("../img/Purchase_btn.png") no-repeat center;
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
+    /*background:url("../img/Purchase_btn.png") no-repeat center;*/
+    background:rgb(255,222,0);
+    color:#000;
+    line-height:0.6rem;
+    text-align:center;
+    border-radius: 0.3rem;
+    /*-webkit-background-size: 100% 100%;*/
+    /*background-size: 100% 100%;*/
 }

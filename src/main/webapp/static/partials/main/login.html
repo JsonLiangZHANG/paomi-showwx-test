@@ -4,7 +4,7 @@
         <!--头部开始-->
         <div class="head pd_tb14">
             <!--加点击事件-->
-            <a class="back" go-back ng-click="window.history.back();"></a>
+            <a class="back"  ng-click="goBack();"></a>
             <span class="headline f18" ng-if="cdState">快速登录</span>
             <span class="headline f18" ng-if="!cdState">账号登录</span>
             <span class="rule f14" ng-if="!cdState" ui-sref="main.user_register">注册</span>

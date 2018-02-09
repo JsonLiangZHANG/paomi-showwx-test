@@ -23,8 +23,8 @@
                     <!--添加按钮-->
                     <div class="carousel_dailog" ui-sref="main.topic"></div>
                     <div class="carousel_btnGroup">
-                        <a class="flag-btn ng-binding Purchase_btn" ui-sref="main.detail({good_id:{{slide.id}}})"></a>
-                        <a class="flag-btn ng-binding review_btn" ui-sref="main.special"></a>
+                        <a class="flag-btn ng-binding Purchase_btn" ui-sref="main.detail({good_id:{{slide.id}}})">购票</a>
+                        <a class="flag-btn ng-binding review_btn" ui-sref="main.special">精彩回顾 <img src="static/img/bofang.png" alt="" class="review_img"></a>
                     </div>
 
                 </div>
@@ -113,7 +113,7 @@
     </div>-->
     <!--更多精彩剧目-->
     <div class="Repertoire">
-        <h4 class="f14 pd_rl12" style="line-height:110px;">更多精彩剧目</h4>
+        <h4 class="f14 pd_rl12" style="line-height:40px;">更多精彩剧目</h4>
         <div class="swiper-container Repertoire_container" >
             <ul class="swiper-wrapper Repertoire-wrapper clear" >
                     <li ng-repeat="lat in latest" class="Repertoire_li swiper-slide">
@@ -126,7 +126,7 @@
                             <!--<div class="flag-type Repertoire_item_site" ng-bind="lat.site_title" ></div>-->
                             <!--<a class="flag-btn" href="" ng-style="btnSetColor(lat.state)" ng-bind="btnText(lat.state)"></a>-->
 
-                            <a class="flag-btn ng-binding Repertoire_Purchase" ui-sref="main.detail({good_id:{{lat.id}}})"></a>
+                            <a class="flag-btn ng-binding Repertoire_Purchase" ui-sref="main.detail({good_id:{{lat.id}}})">购票</a>
 
                         </div>
                     </li>

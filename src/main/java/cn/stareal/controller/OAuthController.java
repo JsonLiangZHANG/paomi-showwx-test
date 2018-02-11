@@ -158,7 +158,7 @@ public class OAuthController extends BaseController {
      * @throws
      */
     public String getUserAccessToken(Map<String, String> params) {
-        String loginApi = "http://stareal.cn/mobile/app/login/social/retrieve";
+        String loginApi = "http://api.mydeershow.com/mobile/app/login/social/retrieve";
         JSONObject dataMap = JSON.parseObject(HttpKit.get(loginApi, params));
         String accessToken = dataMap.getString("accessToken");
         return accessToken;

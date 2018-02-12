@@ -10,7 +10,7 @@
     <logger name="druid.sql.Statement" level="DEBUG"/>
     <logger name="com.jfinal" level="DEBUG"/>
     <logger name="com.prettyshop" level="DEBUG"/>
-    <root level="DEBUG">
+    <root level="INFO">
         <appender-ref ref="CONSOLE"/>
     </root>
 </configuration> 

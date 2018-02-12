@@ -30,7 +30,7 @@ public class OAuthController extends BaseController {
             throw LoginException.WX_CODE_NULL_ERROR;
         }
 
-        JSONObject json = OauthWxweb.me().getUserInfoByCode(code);
+        JSONObject json = OauthWeixin.me().getUserInfoByCode(code);
         if (null == json) {
             throw LoginException.WX_GET_CODE_ERROR;
         }

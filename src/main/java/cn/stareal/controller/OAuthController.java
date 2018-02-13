@@ -59,6 +59,9 @@ public class OAuthController extends BaseController {
         params.put("country", country);
         params.put("headimgurl", headimgurl);
         params.put("openid", openid);
+        System.out.println("============================================================================");
+        System.out.println(token+"-"+nickname +"-"+sex+"-"+province+"-"+city+"-"+country+"-"+headimgurl+"-"+openid);
+        System.out.println("============================================================================");
         this.setSessionAttr("accessToken", getUserAccessToken(params));
         this.setSessionAttr("openid", openid);
 //        render("/index.html");

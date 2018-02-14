@@ -634,7 +634,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
 
                         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                             "appid=wxda73ac8ac7af1261&" +
-                            "redirect_uri=http%3A%2F%2Fwww.mydeershow.com%2Foauth%2Findex" +
+                            "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
                             "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                         // //测试redirect_uri

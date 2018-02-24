@@ -150,11 +150,12 @@ stareal
                     });
                     wx.ready(function(res){
                         //分享到朋友圈
+                        console.log(res);
                         wx.onMenuShareTimeline({
                             title: '独角秀', // 分享标题
-                            desc: '独角秀--泡米文化传媒(上海)有限公司', // 分享描述
-                            link: location.href.split('#')[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://image.mydeershow.com/2018-02-11.png', // 分享图标
+                            desc: '粉丝苦等十年的秀出终于引进中国了-太阳马戏深圳站', // 分享描述
+                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://image.mydeershow.com/upload/image/20180223/1519373778412058384.jpg', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
                                 //alert('你好');
@@ -167,9 +168,9 @@ stareal
                         //分享给朋友
                         wx.onMenuShareAppMessage({
                             title: '独角秀', // 分享标题
-                            desc: '独角秀--泡米文化传媒(上海)有限公司', // 分享描述
-                            link: location.href.split('#')[0], // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://image.mydeershow.com/2018-02-11.png', // 分享图标
+                            desc: '粉丝苦等十年的秀出终于引进中国了-太阳马戏深圳站', // 分享描述
+                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://image.mydeershow.com/upload/image/20180223/1519373778412058384.jpg', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
@@ -182,9 +183,9 @@ stareal
                         });
                         wx.onMenuShareQQ({
                             title: '独角秀', // 分享标题
-                            desc: '独角秀--泡米文化传媒(上海)有限公司', // 分享描述
-                            link: location.href.split('#')[0], // 分享链接
-                            imgUrl: 'http://image.mydeershow.com/2018-02-11.png', // 分享图标
+                            desc: '粉丝苦等十年的秀出终于引进中国了-太阳马戏深圳站', // 分享描述
+                            link: location.href, // 分享链接
+                            imgUrl: 'http://image.mydeershow.com/upload/image/20180223/1519373778412058384.jpg', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },
@@ -194,9 +195,9 @@ stareal
                         });
                         wx.onMenuShareQZone({
                             title: '独角秀', // 分享标题
-                            desc: '独角秀--泡米文化传媒(上海)有限公司', // 分享描述
-                            link: location.href.split('#')[0] ,// 分享链接
-                            imgUrl: 'ttp://image.mydeershow.com/2018-02-11.png', // 分享图标
+                            desc: '粉丝苦等十年的秀出终于引进中国了-太阳马戏深圳站', // 分享描述
+                            link: location.href,// 分享链接
+                            imgUrl: 'http://image.mydeershow.com/upload/image/20180223/1519373778412058384.jpg', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },

@@ -173,7 +173,7 @@ stareal
                 .then(function (ret) {
                     $scope.totalRe = ret.total_row;
                     $scope.reviews = ret.data;
-                    console
+                    console.log($scope.reviews);
                 })
         }
         $scope.GetCooments()

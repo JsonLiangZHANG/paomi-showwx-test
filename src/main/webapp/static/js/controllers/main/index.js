@@ -135,7 +135,7 @@ stareal
                     console.log(data.signature);
 
                     wx.config({
-                        debug: true,
+                        debug: false,
                         appId: data.appid,
                         timestamp: data.timestamp,
                         nonceStr: data.nonceStr,
@@ -174,7 +174,7 @@ stareal
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
 // 用户确认分享后执行的回调函数
-                                alert('你好....');
+                               // alert('你好....');
                             },
                             cancel: function () {
 // 用户取消分享后执行的回调函数
@@ -206,7 +206,7 @@ stareal
                         });
                     });
                     wx.error(function(res){
-                        console.log(res);
+                        //console.log(res);
                         alert("微信分享接口配置失败");
                     });
                 }

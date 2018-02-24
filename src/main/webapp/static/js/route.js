@@ -315,9 +315,9 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             url: '/index',
             templateUrl: 'static/partials/my/index.html',
             resolve: loadLazyjs([
+                'static/js/controllers/public/sign.js',
                 'static/js/controllers/my/index.js',
                 'static/js/controllers/public/public.js',
-                'static/js/controllers/public/sign.js',
                 'static/css/public.css',
                 'static/css/my.css',
             ])

@@ -20,8 +20,10 @@ stareal
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                     // 正式地址
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                        // "appid=wxda73ac8ac7af1261&" +
+                        // "redirect_uri=http%3A%2F%2Fwww.mydeershow.com%2Foauth%2Findex" +
                         "appid=wxda73ac8ac7af1261&" +
-                        "redirect_uri=http%3A%2F%2Fwww.mydeershow.com%2Foauth%2Findex" +
+                        "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" ;
                     return false;
                     // //测试redirect_uri

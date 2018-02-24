@@ -625,7 +625,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                     }
 
                     var ua = window.navigator.userAgent.toLowerCase();
-                    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                         // 正式地址
                         // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         //     "appid=wxd39f7e740343d507&" +

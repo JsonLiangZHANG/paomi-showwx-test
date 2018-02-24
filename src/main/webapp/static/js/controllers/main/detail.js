@@ -3,6 +3,7 @@
 stareal
     .controller("DetailController", function ($scope,$timeout, $stateParams, $api, $sce, base64, $state, $alert,localStorageService) {
         $scope.current =$stateParams.good_id;
+
         $api.get("app/detail/good/retrieve", {id: $stateParams.good_id},true)
             .then(function (ret) {
                 var good = ret.data;
@@ -287,4 +288,97 @@ stareal
         $scope.stopPropagation = function (event) {
             event.stopPropagation()//阻止冒泡
         }
+
+        //分享
+        //微信分享http://192.168.1.4:9090/oauth/getSignature
+        $api.get("app/share/getSignature",{url: window.location.href.split('#')[0]})
+            .then(function (ret) {
+
+                if (ret) {
+                    console.log(ret);
+                    var data=ret.data;
+                    console.log('-------------------------------');
+                    console.log(data);
+                    console.log(data.appid);
+                    console.log(data.timestamp);
+                    console.log(data.nonceStr);
+                    console.log(data.signature);
+
+                    wx.config({
+                        debug: false,
+                        appId: data.appid,
+                        timestamp: data.timestamp,
+                        nonceStr: data.nonceStr,
+                        signature: data.signature,
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ',
+                            // 'onMenuShareWeibo',
+                            'onMenuShareQZone'
+                        ]
+                    });
+                    wx.ready(function(){
+                        //分享到朋友圈
+                        wx.onMenuShareTimeline({
+                            title: '独角秀', // 分享标题
+                            desc: '粉丝苦等十年的秀出终于引进中国了-太阳马戏深圳站', // 分享描述
+                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://image.mydeershow.com/upload/image/20180223/1519373778412058384.jpg', // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                                //alert('你好');
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                                // alert('你好....');
+                            }
+                        });
+                        //分享给朋友
+                        wx.onMenuShareAppMessage({
+                            title: '独角秀', // 分享标题
+                            desc: '粉丝苦等十年的秀出终于引进中国了-太阳马戏深圳站', // 分享描述
+                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://image.mydeershow.com/upload/image/20180223/1519373778412058384.jpg', // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+// 用户确认分享后执行的回调函数
+                                // alert('你好....');
+                            },
+                            cancel: function () {
+// 用户取消分享后执行的回调函数
+                            }
+                        });
+                        wx.onMenuShareQQ({
+                            title: '独角秀', // 分享标题
+                            desc: '粉丝苦等十年的秀出终于引进中国了-太阳马戏深圳站', // 分享描述
+                            link: location.href, // 分享链接
+                            imgUrl: 'http://image.mydeershow.com/upload/image/20180223/1519373778412058384.jpg', // 分享图标
+                            success: function () {
+// 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+// 用户取消分享后执行的回调函数
+                            }
+                        });
+                        wx.onMenuShareQZone({
+                            title: '独角秀', // 分享标题
+                            desc: '粉丝苦等十年的秀出终于引进中国了-太阳马戏深圳站', // 分享描述
+                            link: location.href,// 分享链接
+                            imgUrl: 'http://image.mydeershow.com/upload/image/20180223/1519373778412058384.jpg', // 分享图标
+                            success: function () {
+// 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+// 用户取消分享后执行的回调函数
+                            }
+                        });
+                    });
+                    wx.error(function(res){
+                        //console.log(res);
+                        alert("微信分享接口配置失败");
+                    });
+                }
+            })
     });

@@ -17,6 +17,10 @@ public class IndexController extends Controller {
         render("index.html");
 
         if(getSessionAttr("accessToken")!=null){
+            String rs = this.getPara("state");
+            if (rs != null && !"".equals(rs)) {
+                this.setSessionAttr("rs", rs);
+            }
             redirect("/?");
         }
     }

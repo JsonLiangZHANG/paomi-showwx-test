@@ -238,8 +238,9 @@ stareal
                             openid: localStorageService.get('openid')
                         }, true)
                             .then(function (ret) {
-                                console.log(ret);
+                                // console.log(ret);
                                  function onBridgeReady() {
+                                     location.href = "oauth/web?accessToken=" + _params.accessToken + "&state="+encodeURIComponent(ret);
                                     WeixinJSBridge.invoke(
                                         'getBrandWCPayRequest',
                                         {

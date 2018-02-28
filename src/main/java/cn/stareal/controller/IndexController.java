@@ -15,5 +15,9 @@ public class IndexController extends Controller {
         this.setAttr("rs",getSessionAttr("rs"));
         this.removeSessionAttr("rs");
         render("index.html");
+
+        if(getSessionAttr("accessToken")!=null){
+            redirect("/?");
+        }
     }
 }

@@ -238,6 +238,7 @@ stareal
                             openid: localStorageService.get('openid')
                         }, true)
                             .then(function (ret) {
+                                console.log(ret);
                                  function onBridgeReady() {
                                     WeixinJSBridge.invoke(
                                         'getBrandWCPayRequest',

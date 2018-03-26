@@ -20,8 +20,10 @@ public class ITOauthWeixin {
 
     @Test
     public void testGetUserInfoByCode() {
-        String code = "031VLBvk2xEAHI0ljqxk2lKzvk2VLBv4";
-        JSONObject json = OauthWxweb.me().getUserInfoByCode(code);
+        String code = "081R8CUl1Ymf6m08dWSl12qjUl1R8CUq";
+      //  JSONObject json = OauthWxweb.me().getUserInfoByCode(code);
+        JSONObject json = OauthWeixin.me().getUserInfoByCode(code);
+       // JSONObject json = OauthWxweb.me().getUserInfoByCode(code);
         String openid = json.getString("openid");
         String nickname = json.getString("nickname");
         String sex = json.getString("sex");

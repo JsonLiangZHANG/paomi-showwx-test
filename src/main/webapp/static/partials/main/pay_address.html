@@ -8,7 +8,7 @@
     <!--地址列表开始-->
     <div class="address_list">
         <ul>
-            <li class="pd_rl12" ng-repeat="address in addresses" ng-click="select('{{address.id}}')">
+            <li class="pd_rl12" ng-repeat="address in addresses" ng-click="select('{{address.id}}')" ng-class="{true:'active',false:''}[address.is_default]">
                 <div class="upper_half pd_rl16">
                     <p class="clear">
                         <span class="f14 fl">{{address.name}}</span>

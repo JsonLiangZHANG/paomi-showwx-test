@@ -15,6 +15,20 @@ stareal
             }
         }
     })
+    .directive('onFinishRenderFilters', ['$timeout', function ($timeout) {//ng-repeat
+        return {
+            restrict: 'A',
+            link: function(scope,element,attr) {
+                if (scope.$last === true) {
+                    var finishFunc=scope.$parent[attr.onFinishRenderFilters];
+                    if(finishFunc)
+                    {
+                        finishFunc();
+                    }
+                }
+            }
+        };
+    }])
     .directive('goBack', function () {
         return {
             restrict: 'A',
@@ -727,9 +741,67 @@ stareal
                 orderState:'=',
                 createTime:'='
             },
-            template:"<sapn>剩余时间</sapn>{{time|date:'mm分:ss秒'}}",
+            template:"<sapn>剩余时间</sapn><span style='color: red;'>{{time|date:'mm分ss秒'}}</span>",
             link: function (scope,element,attrs) {
                 if(scope.orderState=='待付款'){
+                    // console.log(index)
+                    scope.create_time = Date.parse(new Date(scope.createTime.replace(/-/gi,'/')))//兼容ios问题
+                    var expiredTime =  scope.create_time+15*60*1000;//过期时间戳
+                    var nowDate =  Date.parse(new Date());//现在时间戳
+                    scope.date = expiredTime-nowDate;
+                    var updateTime =function () {
+                        scope.date -= 1000;
+                        scope.time = scope.date;
+                        if(scope.date<=0){
+                            scope.orderState = '已取消';
+                            $interval.cancel(timer);
+                        }
+                    }
+                    var timer = $interval(updateTime,1000)
+                    updateTime()
+                }
+            }
+        }
+    })//时间到改状态
+//衍生品
+    .directive('changeProductState', function ($window,$alert,$interval) {//监听订单支付超时状态
+        return {
+            restrict: 'EA',
+            scope:{
+                orderState:'=',
+                createTime:'='
+            },
+            // template:'{{time}}',
+            link: function (scope,element,attrs) {
+                if(scope.orderState=='待支付'){
+                    scope.create_time = Date.parse(new Date(scope.createTime.replace(/-/gi,'/')))//兼容ios问题
+                    var expiredTime =  scope.create_time+15*60*1000;//过期时间戳
+                    var nowDate =  Date.parse(new Date());//现在时间戳
+                    scope.date = expiredTime-nowDate;
+                    var updateTime =function () {
+                        scope.date -= 1000;
+                        scope.time = scope.date;
+                        if(scope.date<=0){
+                            scope.orderState = '已取消';
+                            $interval.cancel(timer);
+                        }
+                    }
+                    var timer = $interval(updateTime,1000)
+                    updateTime()
+                }
+            }
+        }
+    })//时间到改状态
+    .directive('changeProductState1', function ($window,$alert,$interval) {//监听订单支付超时状态
+        return {
+            restrict: 'EA',
+            scope:{
+                orderState:'=',
+                createTime:'='
+            },
+            template:"<sapn>剩余时间:</sapn><span style='color: red;'>{{time|date:'mm分ss秒'}}</span>",
+            link: function (scope,element,attrs) {
+                if(scope.orderState=='待支付'){
                     // console.log(index)
                     scope.create_time = Date.parse(new Date(scope.createTime.replace(/-/gi,'/')))//兼容ios问题
                     var expiredTime =  scope.create_time+15*60*1000;//过期时间戳

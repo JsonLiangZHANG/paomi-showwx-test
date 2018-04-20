@@ -1,0 +1,214 @@
+.productpay .mode .mode_type{
+    width:4rem;
+    margin:0 auto;
+}
+.productpay .mode .mode_type .express{
+    margin-right:0.9333rem;
+}
+.productpay .mode .mode_type .express a{
+    background:url("../../img/order_express_n.png") no-repeat center;
+    background-size:100%;
+}
+[data-dpr="2"] .productpay .mode .mode_type .express a{
+    background:url("../../img/order_express_n@2x.png") no-repeat center;
+    background-size:100%;
+}
+[data-dpr="3"] .productpay .mode .mode_type .express a{
+    background:url("../../img/order_express_n@3x.png") no-repeat center;
+    background-size:100%;
+}
+.productpay .mode .mode_type .express a.active{
+    background:url("../../img/order_express_s.png") no-repeat center;
+    background-size:100%;
+}
+[data-dpr="2"] .productpay .mode .mode_type .express a.active{
+    background:url("../../img/order_express_s@2x.png") no-repeat center;
+    background-size:100%;
+}
+[data-dpr="3"] .productpay .mode .mode_type .express a.active{
+    background:url("../../img/order_express_s@3x.png") no-repeat center;
+    background-size:100%;
+}
+.productpay .mode .mode_type .locale a{
+    background:url("../../img/order_scene_n.png") no-repeat center;
+    background-size:100%;
+}
+[data-dpr="2"] .productpay .mode .mode_type .locale a{
+    background:url("../../img/order_scene_n@2x.png") no-repeat center;
+    background-size:100%;
+}
+[data-dpr="3"] .productpay .mode .mode_type .locale a{
+    background:url("../../img/order_scene_n@3x.png") no-repeat center;
+    background-size:100%;
+}
+.productpay .mode .mode_type .locale a.active{
+    background:url("../../img/order_scene_s.png") no-repeat center;
+    background-size:100%;
+}
+[data-dpr="2"] .productpay .mode .mode_type .locale a.active{
+    background:url("../../img/order_scene_s@2x.png") no-repeat center;
+    background-size:100%;
+}
+[data-dpr="3"] .productpay .mode .mode_type .locale a.active{
+    background:url("../../img/order_scene_s@3x.png") no-repeat center;
+    background-size:100%;
+}
+.productpay .mode .mode_type > div{
+    text-align:center;
+    color:#E5E5E5;
+}
+.productpay .mode .mode_type .express p.active,
+.productpay .mode .mode_type .locale p.active{
+    color:#222;
+}
+.productpay .mode .mode_type > div > a{
+    display:inline-block;
+    width:1.3333rem;
+    height:1.3333rem;
+    background:#FF5000;
+    border-radius:50%;
+}
+.productpay .address{
+    background:#fff;
+    border-top:1px solid #E5E5E5;
+    position: relative;
+}
+.productpay .address i.arrow{
+    display: inline-block;
+    width: 0.1866rem;
+    height: 0.32rem;
+    position: absolute;
+    right: 0.32rem;
+    top: 0.5rem;
+    background: url("../../img/arrow.png");
+    background-size: 100%;
+}
+.productpay .product_btn .sale{
+    font-size:0.34rem;
+    color:#fff;
+    background:url("../../img/shop_bg.png")no-repeat center center;
+    background-size: 100% 100%;
+    padding:0.3rem 0.42rem;
+    border-radius: 0.2rem;
+    margin-right: 0.3rem;
+}
+[data-dpr="2"] .productpay .address i.arrow{
+    background: url("../../img/arrow@2x.png");
+    background-size: 100%;
+}
+[data-dpr="3"] .productpay .address i.arrow{
+    background: url("../../img/arrow@3x.png");
+    background-size: 100%;
+}
+.productpay .discount ul li:first-child{
+    border-bottom: 1px solid #e5e5e5;
+}
+.productpay .discount ul li p > span:last-child input {
+    border: 0px;
+    text-align: right;
+}
+.productpay .discount ul li p > span:last-child {
+    float: right;
+}
+
+/**/
+.productorders_listName{
+    font-size: 0.4rem;
+    line-height: 0.6rem;
+    height:1.2rem;
+    overflow: hidden;
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    -webkit-box-orient: vertical;
+    box-orient: vertical;
+    display: -webkit-box;
+    display:box;
+}
+.productorders_listSku{
+    color: #666;
+    font-size: 0.34rem;
+    line-height: 0.6rem;
+}
+.productorders_listPrice{
+    font-size: 0.4rem;
+    color: rgb(213,0,95);
+    line-height: 0.6rem;
+}
+.productorders_listCount{
+    font-size: 0.4rem;
+    color: #666;
+    line-height: 0.6rem;
+}
+.productorders_row_info{
+    width: 7.3rem;
+    margin-left: 0.3rem;
+}
+.productorders{
+    border-bottom: 1px solid #ddd;
+}
+.Settlement_span{
+    color:#000;
+    font-size: 0.4rem;
+    margin: 0 0.3rem;
+}
+.productpay .topBorder{
+    border-top: 1px solid #ddd;
+}
+/* 支付*/
+.deliver_price{
+    padding: 0.3rem 0;
+    font-size: 0.35rem;
+    border-bottom: 1px solid #ddd;
+}
+.Buyer_message{
+    padding: 0.3rem 0;
+    font-size: 0.35rem;
+    border-bottom: 1px solid #ddd;
+}
+.Buyer_message input{
+    text-align: right;
+    width:6.0rem;
+    font-size: 0.34rem;
+    border: none;
+}
+
+/*立即支付*/
+.speedPay_num{
+    border-bottom: 1px solid #ddd;
+}
+.speedPay_num .quantity{
+    padding: 0.2rem 0;
+}
+.speedPay_num .num input{
+    width: 1.0rem;
+    color:#000;
+    border: none;
+    height: 0.6rem;
+    text-align: center;
+    background: #ddd;
+}
+
+.speedPay_num .add{
+    margin: 0 0.2rem;
+    text-align: center;
+    color:#000;
+    font-size: 0.5rem;
+    line-height: 0.6rem;
+    width: 0.8rem;
+    background: #dddddd;
+}
+.speedPay_num .sub{
+    margin: 0 0.2rem;
+    text-align: center;
+    color:#999;
+    font-size: 0.5rem;
+    line-height: 0.6rem;
+    width: 0.8rem;
+    background: #dddddd;
+}
+.speedPay_num .sub.active {
+    color:#000;
+}
+.speedPay_num .add.active{
+    color: #999;
+}

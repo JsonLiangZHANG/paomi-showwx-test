@@ -89,6 +89,25 @@ stareal
             }
             return $scope.text;
         }
+        //衍生品 订单状态文字
+        $scope.statusText0 = function (status) {
+            if(status=='待支付'){
+                $scope.text = '待支付';
+            }
+            if(status=='待发货'){
+                $scope.text = '待发货';
+            }
+            if(status=='待收货'){
+                $scope.text = '待收货';
+            }
+            if(status=='已完成'){
+                $scope.text = '已完成';
+            }
+            if(status=='已取消'){
+                $scope.text = '已取消';
+            }
+            return $scope.text;
+        }
         //发表时间转换
         $scope.getDateTimeStamp = function(dateStr){
             if(dateStr!=undefined){

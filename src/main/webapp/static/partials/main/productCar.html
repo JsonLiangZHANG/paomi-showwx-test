@@ -1,0 +1,86 @@
+<div class="productCar" ng-controller="ProductCarController">
+    <style>
+        html,body{
+            background:#fff;
+        }
+        body{
+            cursor:pointer;
+        }
+    </style>
+    <!--返回键-->
+    <div class="head pd_tb14 product_header">
+        <a class="back" go-back></a>
+        <span class="headline f18">购物车</span>
+        <span class="f18" ng-click="deleteProducts()" style="font-size: 0.34rem;line-height:0.6rem;position: absolute;right: 0.3rem;top: 0.38rem;">删除</span>
+    </div>
+    <div class="productCar_list" ng-show="cartListLength!=0">
+        <div class="table table-bordered table-responsive" >
+            <div ng-repeat="p in cartList"  class="car_list clear session-box" on-finish-render-filters="completecarRepeat">
+                <div class="session-content" data-id="{{p.id}}">
+                    <div class="car_check fl">
+                        <span  ng-class="{true: 'carcheck', false: 'caruncheck'}[p.selected]" ng-checked="p.selected" ng-click="echoChange($index,p.selected,selectAll)"></span>
+                        <!--<input type="checkbox" ng-checked="p.checked" ng-click="echoChange(p.id,p.checked,selectAll)" >-->
+                    </div>
+                    <div class="car_img fl">
+                        <img ng-src="{{p.mainImg}}" alt="" >
+                    </div>
+                    <div class="car_listDetail fl">
+                        <div class="show_{{$index}} ">
+                            <p class="car_listName">{{p.goodName}}</p>
+                            <p class="car_listSku">规格：<i ng-repeat="specificationValue in p.specificationValues">{{specificationValue.name}} &nbsp;</i></p>
+                            <p class="car_listPrice">￥{{p.goodPrice}}</p>
+                        </div>
+                        <div class=" clear hide_{{$index}} car_hide" style="margin-top: 1.5rem;">
+                            <div style="font-size: 0.3rem;line-height: 0.6rem" class="fl">数量：</div>
+                            <div class="sub {{p.quantity>1?'active':''}} fl" ng-click="subNum($index)">-</div>
+                            <div class="num fl"><input type="text" id="{{$index}}" ng-model="p.quantity" value="p.quantity"></div>
+                            <div class="add {{p.quantity==max?'active':''}} fl" ng-click="addNum($index)">+</div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="car_listOperation  clear  fr" >
+                            <div class="  show_{{$index}}">
+                                <p class="del fr" ng-click="changeShow($index)">
+                                    <img src="static/img/del23@3x.png" alt="" >
+                                </p>
+                                <div class="car_listCount  fr" style="width: 100%;">
+                                    <p> ×<span ng-model="p.quantity">{{p.quantity}}</span></p>
+                                </div>
+                            </div>
+                            <div  class="car_hide  hide_{{$index}}" ng-click="changeHide($index)">
+                                <div class="sure_num">完成</div>
+                            </div>
+                    </div>
+                </div>
+                <div class="del-btn">
+                    <a href="javascript:;">删除</a>
+                </div>
+                <!--<td>单价：￥{{p.price}}</td>-->
+                <!--<td>数量：<input type="number" ng-model="p.count" min="0" value="p.cont"></td>-->
+                <!--<td>小计：￥{{p.sum}}</td>-->
+            </div>
+        </div>
+    </div>
+    <div class="productCar_list" ng-show="cartListLength==0">
+        <img src="static/img/car_null.png" alt="" style="width:9.4rem;height: 9.4rem;display: block;margin:1.0rem auto;">
+    </div>
+    <div>
+        <div class="footer" style="height:1.3333rem"></div>  <!--解决fixed显示不全bug--->
+        <div class="shop_box clear">
+            <div class="fun_btn fl clear">
+                <span  ng-model="selectAll"  ng-class="{true: 'carcheck', false: 'caruncheck'}[selectAll]"  ng-click="selectAllClick(selectAll)" class="fl selectall"></span>
+                <span ng-hide="selectAll" class="fl Settlement_span">全选</span>
+                <span ng-show="selectAll" class="fl Settlement_span">取消全选</span>
+                <span class="fl Settlement_span">合计：￥<b style="color: rgb(213,0,95);">{{sumTotal}}</b></span>
+            </div>
+            <div class="shop_btn fr product_btn">
+                <span class="br sale Settlement" ng-click="Settlement()" >结算（{{jishuqi}}）</span>
+            </div>
+        </div>
+    </div>
+
+
+    <!--预约登记弹窗结束-->
+</div>

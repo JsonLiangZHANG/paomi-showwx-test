@@ -1,4 +1,4 @@
-<div class="my-home" ng-controller="MyController">
+<div class="my-home" ng-controller="MyController" ng-cloak>
     <style>
         html,body{
             background:#F1F1F1;
@@ -73,6 +73,11 @@
                 <!--<span>我的贝里</span>-->
                 <!--<i class="arrow"></i>-->
             <!--</li>-->
+            <li class="pd_tb14 clear" ui-sref="my.productorders({status:'', order_status:'', payment_status:'',shipping_status:''})">
+                <a class="i-member"></a>
+                <span>我的衍生品</span>
+                <i class="arrow"></i>
+            </li>
             <li class="pd_tb14 clear" ui-sref="my.member">
                 <a class="i-member"></a>
                 <span>我的会员</span>

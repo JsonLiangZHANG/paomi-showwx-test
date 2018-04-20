@@ -1,0 +1,116 @@
+<div class="productDetail" ng-controller="ProductDetailController">
+    <style>
+        html,body{
+            background:#f1f1f1;
+        }
+        body{
+            cursor:pointer;
+        }
+    </style>
+    <!--返回键-->
+    <div class="head pd_tb14 product_header">
+        <a class="back" ui-sref="main.product"></a>
+        <span class="headline f18">{{good.name}}</span>
+    </div>
+   <!--底部购物车-->
+    <div class="product_content">
+        <div id="carousel-demo" class="carousel-demo" style="width: 10rem;display: block;height: 8.3rem;position: relative;">
+            <ul rn-carousel rn-carousel-index="cindex" rn-carousel-auto-slide rn-carousel-pause-on-hover rn-carousel-buffered rn-carousel-controls-allow-loop class="product_imgcontent">
+                <li ng-repeat="slide in productPic" >
+                    <img ng-src="{{slide.large}}" alt="" class="product_img">
+                </li>
+            </ul>
+            <div rn-carousel-indicators ng-if="productPic.length > 1" slides="productPic" rn-carousel-index="cindex" class="carousel-indicator product_imgindicator" ></div>
+        </div>
+        <!--<img ng-src="http://image.mydeershow.com/0.jpg" alt="" class="product_img">-->
+        <div class="product_contentHeader">
+            <p class="paroduct_title">{{good.name}}</p>
+            <p class="product_contentPrice">
+                <b class="new_price"><span>{{good.price}}</span>元</b>
+                <span class="old_price">{{good.market_price}}元</span>
+            </p>
+        </div>
+        <div class="product_contentPromise">
+            <p>正版授权&nbsp;&nbsp;假一赔十</p>
+        </div>
+    </div>
+    <!--商品描述-->
+    <div style="background:#fff;margin-top: 0.4rem; ">
+        <ul class="descript_btngroup clear">
+            <li class="descript_btn fl" ng-class="{ hover: isActive}"  ng-click="isActive=true">图文详情</li>
+            <li class="descript_btn fl" ng-class="{ hover: !isActive}"  ng-click="isActive=false">购买须知</li>
+        </ul>
+        <div class="product_desciptionContent" ng-show="isActive" ng-bind-html="good.detail">
+            <!--调后台详情-->
+            <!--<img ng-src="http://image.mydeershow.com/0.jpg" alt="" class="product_desciptionimg">-->
+        </div>
+        <div class="product_NoticeContent" ng-show="isActive==false">
+            <h4>商家QQ</h4>
+            <p>4168077044</p>
+            <h4>商家QQ</h4>
+            <p>4168077044</p>
+            <h4>商家QQ</h4>
+            <p>4168077044</p>
+            <h4>商家QQ</h4>
+            <p>4168077044</p>
+            <h4>商家QQ</h4>
+            <p>4168077044</p>
+         </div>
+
+    </div>
+    <div>
+        <div class="footer" style="height:1.3333rem"></div>  <!--解决fixed显示不全bug--->
+        <div class="shop_box clear">
+            <div class=" fl clear product_fun" ng-click="goCar()">
+                <span  class="fl" id="toggle-title">
+                    <img ng-src="static/img/car.png" alt="" class="car">
+                </span>
+                <span class="car_num" ng-show="carNum" id="carNum"　>{{cartcount}}</span>
+            </div>
+            <div class="shop_btn fr product_btn">
+                <span class="br add_car" ng-click="addcar()">加入购物车</span>
+                <span class="br sale" ng-click="Productspay()">立即购买</span>
+            </div>
+        </div>
+    </div>
+    <!--弹出框 选择商品的sku-->
+    <div class="mask" id="product_mask">
+        <div class="alert_box pd_rl16 pd_rl12" >
+            <div class="alert_con">
+                <div class="alert_header clear">
+                    <img ng-src="{{good.image}}" alt="" class="fl alert_img" id="good_Imgitem">
+                    <div class="fl alert_productdetail">
+                        <p class="product_price">￥{{good.price}}</p>
+                        <p>库存 {{good.stock}} 件</p>
+                        <p>选择 <span >{{skuName}}</span></p>
+                    </div>
+                </div>
+                <div class="alert_sku">
+                    <ul class="sku_ul" ng-hide="good.is_unified_spec">
+                        <li  ng-repeat="productSku in productSkus">
+                            <h4 data-id="productSku.specification.id">{{productSku.specification.name}}：</h4>
+                            <span ng-repeat="productSkuValue in productSku.specificationValues"
+                                  id="productSkuValue_{{productSkuValue.id}}"  ng-click="swithSku($parent.$index,$index,{{productSkuValue.id}})"> {{productSkuValue.name}}</span>
+
+                        </li>
+                    </ul>
+                    <div class="product_num clear">
+                        <div class="shuliang fl">
+                            <h4>购买数量</h4>
+                        </div>
+                        <div class="quantity fr clear">
+                            <div class="sub {{num>1?'active':''}} fl" ng-click="subNum()">-</div>
+                            <div class="num fl"><input type="text" id="num0" ng-model="num" disabled></div>
+                            <div class="add {{num==max?'active':''}} fl" ng-click="addNum()">+</div>
+                        </div>
+                    </div>
+                    <div class="btn product_skubtn" ng-click="productCarAdd()" ng-show="!buy">添 加</div>
+                    <div class="btn product_skubtn" ng-click="productSpeedpay()" ng-show="buy">提交</div>
+                </div>
+            </div>
+            <div class="cloes" ng-click="close()">X</div>
+        </div>
+    </div>
+
+    <!--预约登记弹窗结束-->
+</div>

@@ -1,0 +1,172 @@
+<div class="productpay" ng-controller="ProductSpayController">
+    <style>
+        html,body{
+            background:#fff;
+            height: 100%;
+        }
+    </style>
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" ui-sref="main.productdetail({good_id:{{order_id}}})"></a>
+        <span class="headline f18">确认订单</span>
+    </div>
+    <!--标题结束-->
+    <!--商品详情开始-->
+    <div class="orders_itme clear f12 pd_rl12 pd_rl16 productorders">
+        <div class="clear" style="padding-bottom:0.2rem">
+            <div class="thumb_size2 fl">
+                <img ng-src="{{productspay.imgURL}}" alt="">
+            </div>
+            <div class="productorders_row_info fl">
+                <div class="good_info clear">
+                    <p class="productorders_listName">{{productspay.name}}</p>
+                    <p class="productorders_listSku">颜色分类：{{productspay.sku}}</p>
+                    <div class="clear">
+                        <p class="productorders_listPrice fl" >￥{{productspay.price}}</p>
+                        <!--<p class="productorders_listCount fr" > ×{{productspay.count}}</p>-->
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--商品详情结束-->
+    <!--选择取票方式开始-->
+    <!--<div class="mode pd_rl16">-->
+    <!--<div class="mode_type clear">-->
+    <!--<div class="express fl">-->
+    <!--<a ng-class="{1: 'active'}[param.deliverType]" ng-click="cd(1)"></a>-->
+    <!--<p ng-class="{1: 'active'}[param.deliverType]">快递配送</p>-->
+    <!--</div>-->
+    <!--<div class="locale fl">-->
+    <!--<a ng-class="{2: 'active'}[param.deliverType]" ng-click="cd(2)"></a>-->
+    <!--<p ng-class="{2: 'active'}[param.deliverType]">现场取货</p>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--选择取票方式结束-->
+    <!--快递取票添加地址开始-->
+    <div class="address pd_rl12 pd_rl16"  ng-show="true">
+        <div class="address_info">
+            <i class="arrow"></i>
+            <p class="f14" ng-hide="address.id"><span style="color:#222">收货地址：</span><span style="color:#999" ui-sref="main.pay_address({order_id:'{{order_id}}',src:4})">新增收货地址</span></p>
+            <p ng-show="address.id" ui-sref="main.pay_address({order_id:'{{order_id}}',src:4})">
+                <span>{{address.name}}</span>
+                <span>{{address.mobile}}</span>
+                <br>
+                <span>{{address.province}}</span>
+                <span>{{address.city}}</span>
+                <span>{{address.district}}</span>
+                <span>{{address.address}}</span>
+            </p>
+        </div>
+    </div>
+    <!--快递取票添加地址结束-->
+    <!--现场取票开始-->
+    <!--<div class="discount pd_rl12 pd_tb14 f14 clear" ng-show="param.deliverType == 2">-->
+    <!--<ul>-->
+    <!--<li class="pd_tb12">-->
+    <!--<p><span style="color:#222">取货人姓名</span><span style="color:#999"><input type="text" placeholder="请输入姓名" ng-model="live_name"></span></p>-->
+    <!--</li>-->
+    <!--<li class="pd_tb12">-->
+    <!--<p><span style="color:#222">取货人手机号</span><span style="color:#999"><input type="text" placeholder="请输入手机号" ng-model="live_mobile"></span></p>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--<div class="mode_tips pd_rl12 pd_rl16 topBorder" ng-show="param.deliverType == 2">-->
+    <!--<p>取货地址： 演出场馆，取货时间： 演出开场前1小时。凭手机短信取票码取货。</p>-->
+    <!--</div>-->
+    <!--现场取票结束-->
+    <!--优惠券贝里开始-->
+    <!--<div class="discount pd_rl12 pd_rl16 f14 clear">-->
+    <!--<ul>-->
+    <!--<li class="pd_tb12" ng-click="cc()">-->
+    <!--<p><span style="color:#222">优惠劵</span><span style="color:#999;">{{csl}}<i class="arrow"></i></span></p>-->
+    <!--</li>-->
+    <!--<li class="pd_tb12">-->
+    <!--<p><span style="color:#222">贝里</span><span style="color:#999"><input type="text" ng-model="param.beily" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" ng-change="MaxBelly(param.beily)"placeholder="最多可抵扣{{deduction_max}}贝里"></span></p>-->
+    <!--</li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--优惠券背景结束-->
+    <!--价格明细开始-->
+    <div class="settlement pd_rl12 pd_rl16 f12 topBorder">
+        <ul class="clear">
+            <!--<li>-->
+            <!--<span class="fl">票品总额</span>-->
+            <!--<span class="fr" ng-bind="total | currency:'¥'">¥9999.00</span>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<span class="fl">优惠劵</span>-->
+            <!--<span class="fr" ng-bind="copon_price | currency:'-¥'">－¥9999.00</span>-->
+            <!--</li>-->
+            <!--<li>-->
+            <!--<span class="fl">贝里</span>-->
+            <!--<span class="fr" ng-bind="beily_price | currency:'-¥'">－¥9999.00</span>-->
+            <!--</li>-->
+            <li class="clear speedPay_num">
+                <span class="fl" style="line-height: 1.0rem;font-size: 0.35rem;">购买数量</span>
+                <div class="quantity fr clear">
+                    <div class="sub {{productspay.num>1?'active':''}} fl" ng-click="subNum()">-</div>
+                    <div class="num fl"><input type="text" id="num" ng-model="productspay.num" disabled value="productspay.num"></div>
+                    <div class="add {{productspay.num==max?'active':''}} fl" ng-click="addNum()">+</div>
+                </div>
+            </li>
+            <li class="clear deliver_price">
+                <span class="fl">快递费</span>
+                <!--<span class="fr" ng-bind="deliver_price | currency:'¥'">¥12.00</span>-->
+                <span class="fr" >¥{{productspay.postFee}}</span>
+            </li>
+            <li class="clear Buyer_message">
+                <span class="fl">买家留言:</span>
+                <!--<span class="fr" ng-bind="deliver_price | currency:'¥'">¥12.00</span>-->
+                <input type="text" class="fr"  placeholder="请输入留言">
+            </li>
+        </ul>
+    </div>
+    <!--价格明细结束-->
+    <!--立即支付按钮开始-->
+    <div>
+        <div class="footer" style="height:1.3333rem"></div>  <!--解决fixed显示不全bug--->
+        <div class="total_box shop_box clear topBorder">
+            <div class="total_price fl">
+                <p class="Settlement_span">合计金额：<span  style="color: rgb(213,0,95);">¥{{sumTotal}}</span></p>
+            </div>
+            <div class="shop_btn fr product_btn">
+                <span class="br sale Settlement" ng-click="verify()">提交订单</span>
+            </div>
+        </div>
+    </div>
+    <!--按钮结束-->
+    <!--支付方式开始-->
+    <div class="mask_pay" ng-click="close()">
+        <div class="pay_box br" ng-click="bubble($event)">
+            <div class="pay_title f14 pd_rl16">
+                <span>支付方式</span>
+                <i class="off" ng-click="close()"></i>
+            </div>
+            <!--<div class="timer pd_tb8 linear">-->
+            <!--<p>支付剩余时间 13 分 46 秒</p>-->
+            <!--</div>-->
+            <div class="pay_method pd_rl12">
+                <ul>
+                    <li ng-show="!showPay" ng-click="pay()">
+                        <i class="alipay"></i>
+                        <span>支付宝</span>
+                        <i class="arrow"></i>
+                    </li>
+                    <li ng-show="showPay" ng-click="pay()">
+                        <i class="pay_wechat"></i>
+                        <span>微信</span>
+                        <i class="arrow"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--支付方式结束-->
+    <form id="alipaysubmit" name="alipaysubmit" action="" method="post">
+        <input type="hidden" name="biz_content" value=""/>
+    </form>
+</div>
+<script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>

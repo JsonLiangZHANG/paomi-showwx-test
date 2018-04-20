@@ -57,13 +57,15 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/special.css',
             ])
         })
-        //专题
+        //衍生品
         .state('main.product', {
-            url: '/product',
+            url: '/product/:kind/:sort/:direct/:keyword',
             templateUrl: 'static/partials/main/product.html',
             resolve: loadLazyjs([
+                'static/js/controllers/main/product.js',
+                'static/js/controllers/public/public.js',
                 'static/css/public.css',
-                'static/css/list.css',
+                'static/css/product.css',
                 'static/css/special.css'
             ])
         })
@@ -76,6 +78,49 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/public.css',
                 'static/css/list.css',
                 'static/css/special.css'
+            ])
+        })
+        //衍生品详情
+        .state('main.productdetail', {
+            url: '/productDetail/product/:good_id',
+            templateUrl: 'static/partials/main/productDetail.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/product_detail.js',
+                 'static/css/public.css',
+                'static/css/product/detail.css',
+            ])
+        })
+        //衍生品购物车
+        .state('main.productcar', {
+            url: '/productcar',
+            templateUrl: 'static/partials/main/productCar.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/product_car.js',
+                'static/css/public.css',
+                'static/css/product/detail.css',
+                'static/css/product/car.css'
+            ])
+        })
+        //衍生品购物车--确认订单
+        .state('main.productpay', {
+            url: '/productpay',
+            templateUrl: 'static/partials/main/productPay.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/product_pay.js',
+                'static/css/public.css',
+                'static/css/product/detail.css',
+                'static/css/product/pay.css'
+            ])
+        })
+        //衍生品立即购买
+        .state('main.productspay', {
+            url: '/productspay/:order_id?_',
+            templateUrl: 'static/partials/main/productSpay.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/product_spay.js',
+                'static/css/public.css',
+                'static/css/product/detail.css',
+                'static/css/product/pay.css'
             ])
         })
         .state('main.search', {
@@ -96,14 +141,6 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/js/controllers/public/public.js',
                 'static/css/public.css',
                 'static/css/detail.css'
-            ])
-        })
-        .state('main.gooddetail', {
-            url: '/gooddetail',
-            templateUrl: 'static/partials/main/gooddetail.html',
-            resolve: loadLazyjs([
-                'static/js/controllers/main/gooddetail.js',
-                'static/css/public.css'
             ])
         })
         .state('main.ticket', {
@@ -346,6 +383,17 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             templateUrl: 'static/partials/my/order.html',
             resolve: loadLazyjs([
                 'static/js/controllers/my/order.js',
+                'static/js/controllers/public/public.js',
+                'static/css/public.css',
+                'static/css/my.css'
+            ])
+        })
+        //衍生品订单列表
+        .state('my.productorders', {
+            url: '/productorders/:status/:order_status/:payment_status/:shipping_status',
+            templateUrl: 'static/partials/my/product_orders.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/my/product_orders.js',
                 'static/js/controllers/public/public.js',
                 'static/css/public.css',
                 'static/css/my.css'

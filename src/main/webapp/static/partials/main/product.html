@@ -33,23 +33,57 @@
                 </div>
             </div>
         </div>-->
-        <div class="nav">
-            <ul>
-                <li ng-click="switch(all)">
-                    <a href="#">
-                        <img src="static/img/listd_piao.png" alt="">
+    <!--导航-->
+    <div class="nav" id="list_nav">
+        <ul class="nav_ul">
+            <li  class="list_piao" ng-class="{true: 'active',false:''}[listpage==1]" ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
+                <div class="clear" style="width: 1.8rem;margin: 0 auto;">
+                    <img src="static/img/list_piao.png" alt="">
+                    <span class="fl"style="width: 1.0rem;line-height: 1.0rem;font-size: 0.4rem;">票务</span>
+                </div>
+
+            </li>
+            <li  class="list_product active last" ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product">
+                <div class="clear" style="width: 2.2rem;margin: 0 auto;">
+                    <img src="static/img/list_product.png" alt="">
+                    <span class="fl" style="width: 1.4rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+        <!--导航结束-->
+    <!--列表开始 -->
+    <div class="hot" ng-controller="PublicController">
+        <!--你好-->
+        <div class="hot-list product_list">
+            <ul infinite-scroll="goods.nextPage()" infinite-scroll-disabled='goods.busy' infinite-scroll-distance="1" >
+                <li class="flag" ng-repeat="good in goods.items"  on-list-finish-render="listFinishRender" ui-sref="main.productdetail({good_id:{{good.id}}})">
+                    <a class="figure flag-item">
+                        <i class="label f8"ng-show="good.coupon_label"><span ng-bind="good.coupon_label"></span></i>
+                        <img ng-src="{{good.image}}" alt="">
                     </a>
+                    <div class="figcaption flag-item">
+                        <div class="flag-title">
+                            <a title="" ng-bind="good.name"></a>
+                        </div>
+                        <!--<div class="flag-price" ng-bind="good.date"></div>-->
+                        <div class="flag-type" ng-bind="good.good_name"></div>
+                        <div class="flag-type">
+                            <strong>￥{{good.price}}</strong>
+                            <strong class="black">元</strong>
+                            <span>{{good.sales}}人付款</span>
+                            <!--<strong ng-hide="good.state=='即将开票'&&good.price=='0'" ng-bind="good.price"></strong>-->
+                            <!--<strong ng-show="good.state=='即将开票'&&good.price=='0'" class="state_f12">待定</strong>-->
+                            <!--<span ng-hide="good.state=='即将开票'&&good.price=='0'">元起</span>-->
+                        </div>
+                        <!--<a class="flag-btn" href="" ng-style="btnSetColor(good.state)" ng-bind="btnText(good.state)"></a>-->
+                        <a class="flag-btn" href="" style="color:rgb(255,80,0);border: 1px solid rgb(255,80,0);" ui-sref="main.productdetail({good_id:{{good.id}}})">售卖中</a>
+                    </div>
                 </li>
-                <li ng-click="sw()" class="active">
-                    <a href="#">
-                        <img src="static/img/listd_product.png" alt="">
-                    </a>
-                </li>
+
             </ul>
         </div>
-        <!--导航结束-->
-        <!--列表开始 -->
-
+    </div>
         <!--列表结束-->
         <!--暂无数据开始-->
         <div class="nodata" ng-show="false">

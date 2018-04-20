@@ -157,9 +157,9 @@ stareal
             angular.element('.alert_box').animate({bottom:-alertHe},200);
             angular.element('.mask').fadeOut()
         }
-        angular.element('html,body').click(function () {
-            $scope.close()
-        })
+        // angular.element('html,body').click(function () {
+        //     $scope.close()
+        // })
         //获取头像
         $api.get("app/login/userinfo/retrieve", null, true)
             .then(function (ret) {
@@ -377,7 +377,7 @@ stareal
                     });
                     wx.error(function(res){
                         //console.log(res);
-                        alert("微信分享接口配置失败");
+                        //alert("微信分享接口配置失败");
                     });
                 }
             })

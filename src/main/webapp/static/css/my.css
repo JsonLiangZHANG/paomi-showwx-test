@@ -20,7 +20,7 @@
     width:65%;
 }
 .login_box > ul li:nth-of-type(2) p:first-child input{
-    width:60%;
+    width:100%;
 }
 .login_box > ul li:nth-of-type(2) p:last-child{
     padding-right:0.32rem;
@@ -32,6 +32,7 @@
     color:#999;
 }
 .login_box > ul li input{
+    width: 97%;
     border:none;
 }
 .login_box > ul li input:-webkit-autofill{
@@ -1764,6 +1765,12 @@
 /*地址管理*/
 .address_management .address_list .address{
     margin-top: 0.16rem;
+}
+.address_management .address_list ul li{
+    margin-top: 5px;
+}
+.address_management .address_list ul li.active{
+    border: 1px solid rgb(241,0,95);
 }
 .address_management .address_list .upper_half{
     border-bottom: 1px solid #e5e5e5;

@@ -40,7 +40,7 @@ stareal
         $scope.history_list = JSON.parse(localStorageService.get("list"));
         //回车搜索
         var searchBtn = document.getElementById("searchBtn");
-        searchBtn.onsearch = function () {
+        searchBtn.onsearch = function(){
             var keyword = this.value;
             search(keyword);
             $scope.history.unshift({"word":keyword});

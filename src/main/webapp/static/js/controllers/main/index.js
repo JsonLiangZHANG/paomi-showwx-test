@@ -36,6 +36,7 @@ stareal
         var rs = localStorageService.get('rs');
         if (rs) {
             localStorageService.remove('rs');
+            console.log(rs);
             var _state = rs.substring(0, rs.indexOf('-'));
             var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
 

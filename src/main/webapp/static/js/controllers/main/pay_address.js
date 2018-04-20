@@ -18,5 +18,11 @@ stareal
             if($scope.src==2){
                 $state.go('main.paying', {});
             }
+            if($scope.src==3){//购物车 支付 衍生品
+                $state.go('main.productpay', { _: '_'});
+            }
+            if($scope.src==4){//立即支付  衍生 品
+                $state.go('main.productspay',{order_id: $scope.order_id, _: '_'});
+            }
         }
     });

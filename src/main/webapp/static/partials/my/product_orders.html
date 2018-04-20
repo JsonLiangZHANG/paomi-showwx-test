@@ -1,0 +1,102 @@
+<div class="myorder" ng-controller="ProductsOrdersController">
+    <!--<style>-->
+    <!--html,body{-->
+    <!--background:#F1F1F1;-->
+    <!--}-->
+    <!--</style>-->
+    <!--头部开始-->
+    <div class="head pd_tb14">
+        <a class="back" ui-sref="my.index"></a>
+        <span class="headline f18">我的衍生品</span>
+    </div>
+    <!--头部结束-->
+    <!--导航开始-->
+    <div class="orders-tab">
+        <ul class="clear">
+            <li class="fl f14" ng-class="{true: 'active',false:''}[status=='']"><a href="" ui-sref="my.productorders({status:'', order_status:'', payment_status:'',shipping_status:''})">全部</a></li>
+            <li class="fl f14" ng-class="{true: 'active',false:''}[status=='-1']"><a href="" ui-sref="my.productorders({status:'-1', order_status:'0', payment_status:'0',shipping_status:'0'})">待支付</a></li>
+            <li class="fl f14" ng-class="{true: 'active',false:''}[status=='0']"><a href="" ui-sref="my.productorders({status:'0', order_status:'0', payment_status:'1',shipping_status:'0'})">待发货</a></li>
+            <li class="fl f14" ng-class="{true: 'active',false:''}[status=='1']"><a href="" ui-sref="my.productorders({status:'1', order_status:'0', payment_status:'1',shipping_status:'1'})">待收货</a></li>
+            <li class="fl f14" ng-class="{true: 'active',false:''}[status=='2']"><a href="" ui-sref="my.productorders({status:'2', order_status:'0', payment_status:'1',shipping_status:'2'})">已完成</a></li>
+        </ul>
+    </div>
+    <!--导航结束-->
+    <!--订单列表开始-->
+    <div class="orders_row_list f12" infinite-scroll="orders.nextPage()" infinite-scroll-disabled='orders.busy' infinite-scroll-distance="1" ng-controller="PublicController">
+        <!----有按钮---->
+        <div class="itme-order pd_rl12 pd_rl16" style="padding-bottom:0" ng-repeat="order in orders.items" change-product-state order-state="order.status" create-time="order.time">   <!--有按钮的时候padding-bottom为0-->
+            <div class="state clear">
+                <p class="fl">订单编号：<span ng-bind="order.orderId"></span></p>
+                <p class="fr" ng-bind="statusText0(order.status)"></p>
+            </div>
+            <div class="orders_row_con clear" ng-repeat="orderItem in order.orderItems" style="padding-top: 0.26rem;">
+                <div class="thumb_size2 fl" ui-sref="my.order({id:{{order.orderId}}})">
+                    <img ng-src="{{orderItem.productImg}}" alt="">
+                </div>
+                <div class="orders_row_info fl" ui-sref="my.order({id:{{order.orderId}}})">
+                    <div class="good_info clear">
+                        <div class="title hd2 fl" ng-bind="orderItem.productName"></div>
+                        <div class="price fr">
+                            <p ng-bind="orderItem.price | currency:'¥'"></p>
+                            <p ng-bind="orderItem.quantity+'件'"></p>
+                        </div>
+                    </div>
+                    <div class="time">
+                        <p ng-bind="orderItem.good_name"></p>
+                    </div>
+                    <div class="addres" ng-show="orderItem.specificationValueNames!=null">
+                        <p ng-bind="'规格：'+orderItem.specificationValueNames"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="orders_row_btns clear" style="padding:0.21333rem 0" ng-hide="(order.status=='待发货')||(order.status=='已完成'&&order.deliver_type==2)">  <!--无按钮的时候-->
+                <div class="Btn_time fl" ng-show="order.status=='待支付'" style="height:0.72rem;line-height:0.72rem;"><p change-product-state1 order-state="order.status" create-time="order.time" ></p></div>
+                <div class="btns">
+                    <a href="" ng-if="order.status=='待支付'" ng-click="cancelOrder(order.orderId,order)">取消订单</a>
+                    <a href="" ng-if="order.status=='待支付'" ng-click="verify(order.orderId,order.time,order)">立即支付</a>
+                    <a href="" ng-if="order.status=='已取消'" ng-click="deleteOrder(order.orderId,order)">删除订单</a>
+                    <a href="" ng-if="(order.status=='已完成'||order.status=='待收货')&&(order.deliver_type!=2)" ui-sref="my.logistics_information({order_id:{{order.orderId}}})">查看物流</a>
+                    <a href="" ng-if="order.status=='待收货'" ng-click="donelOrder(order.orderId,order)">确认收货</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--订单列表结束-->
+    <!--暂无数据开始-->
+    <div class="nodata" ng-show="orders.nodata">
+        <div class="no_order"></div>
+        <p class="f14">咦，目前还没有订单</p>
+    </div>
+    <!--暂无数据结束-->
+    <!--支付方式开始-->
+    <div class="mask_pay" ng-click="close()">
+        <div class="pay_box br" ng-click="bubble($event)">
+            <div class="pay_title f14 pd_rl16">
+                <span>支付方式</span>
+                <i class="off" ng-click="close()"></i>
+            </div>
+            <div class="timer pd_tb8 linear">
+                <p>支付剩余时间{{date|date:'mm:ss'}}</p>
+            </div>
+            <div class="pay_method pd_rl12">
+                <ul>
+                    <li ng-show="!showPay" ng-click="pay()">
+                        <i class="alipay"></i>
+                        <span>支付宝</span>
+                        <i class="arrow"></i>
+                    </li>
+                    <li ng-show="showPay" ng-click="pay()">
+                        <i class="pay_wechat"></i>
+                        <span>微信</span>
+                        <i class="arrow"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--支付方式结束-->
+    <form id="alipaysubmit" name="alipaysubmit" action="" method="post">
+        <input type="hidden" name="biz_content" value=""/>
+    </form>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
+</div>

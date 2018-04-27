@@ -41,17 +41,17 @@
 
 
                     <div class="car_listOperation  clear  fr" >
-                            <div class="  show_{{$index}}">
-                                <p class="del fr" ng-click="changeShow($index)">
-                                    <img src="static/img/del23@3x.png" alt="" >
-                                </p>
-                                <div class="car_listCount  fr" style="width: 100%;">
-                                    <p> ×<span ng-model="p.quantity">{{p.quantity}}</span></p>
-                                </div>
+                        <div class="  show_{{$index}}">
+                            <p class="del fr" ng-click="changeShow($index)">
+                                <img src="static/img/del23@3x.png" alt="" >
+                            </p>
+                            <div class="car_listCount  fr" style="width: 100%;">
+                                <p> ×<span ng-model="p.quantity">{{p.quantity}}</span></p>
                             </div>
-                            <div  class="car_hide  hide_{{$index}}" ng-click="changeHide($index)">
-                                <div class="sure_num">完成</div>
-                            </div>
+                        </div>
+                        <div  class="car_hide  hide_{{$index}}" ng-click="changeHide($index)">
+                            <div class="sure_num">完成</div>
+                        </div>
                     </div>
                 </div>
                 <div class="del-btn">
@@ -69,13 +69,13 @@
     <div>
         <div class="footer" style="height:1.3333rem"></div>  <!--解决fixed显示不全bug--->
         <div class="shop_box clear">
-            <div class="fun_btn fl clear">
+            <div class="fl clear">
                 <span  ng-model="selectAll"  ng-class="{true: 'carcheck', false: 'caruncheck'}[selectAll]"  ng-click="selectAllClick(selectAll)" class="fl selectall"></span>
                 <span ng-hide="selectAll" class="fl Settlement_span">全选</span>
                 <span ng-show="selectAll" class="fl Settlement_span">取消全选</span>
                 <span class="fl Settlement_span">合计：￥<b style="color: rgb(213,0,95);">{{sumTotal}}</b></span>
             </div>
-            <div class="shop_btn fr product_btn">
+            <div class="fr product_btn">
                 <span class="br sale Settlement" ng-click="Settlement()" >结算（{{jishuqi}}）</span>
             </div>
         </div>

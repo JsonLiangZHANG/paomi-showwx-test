@@ -30,10 +30,10 @@
                 <p class="fr" ng-bind="statusText0(order.status)"></p>
             </div>
             <div class="orders_row_con clear" ng-repeat="orderItem in order.orderItems" style="padding-top: 0.26rem;">
-                <div class="thumb_size2 fl" ui-sref="my.order({id:{{order.orderId}}})">
+                <div class="thumb_size2 fl" ui-sref="my.product_order({id:{{order.orderId}}})">
                     <img ng-src="{{orderItem.productImg}}" alt="">
                 </div>
-                <div class="orders_row_info fl" ui-sref="my.order({id:{{order.orderId}}})">
+                <div class="orders_row_info fl" ui-sref="my.product_order({id:{{order.orderId}}})">
                     <div class="good_info clear">
                         <div class="title hd2 fl" ng-bind="orderItem.productName"></div>
                         <div class="price fr">

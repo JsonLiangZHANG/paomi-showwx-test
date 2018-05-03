@@ -1,0 +1,77 @@
+<div class="productrefund" ng-controller="ProductRefundController">
+    <style>
+        html,body{
+            background: #fff;
+            margin-bottom: 1.5rem;
+        }
+    </style>
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">申请退款</span>
+    </div>
+    <!--标题结束-->
+    <!--商品区域开始-->
+    <div class="good">
+        <div class="good-list" ng-repeat="goods in good.orderItems">
+            <img ng-src="{{goods.productImg}}" alt="">
+            <ul class="list">
+                <li>{{goods.productName}}</li>
+                <li>{{goods.good_name}}</li>
+                <li class="good-property">颜色分类：{{goods.specificationValueNames}}</li>
+            </ul>
+        </div>
+        <div class="refund-line"></div>
+        <div ng-click="result()"><span>退款原因</span><span class="refund-result">2222222222</span><i class="arrow"></i></div>
+        <div class="refund-line"></div>
+        <div><span>退款金额：<span class="price">￥{{good.totalPrice}}</span></span><i class="arrow"></i></div>
+        <div class="refund-line"></div>
+        <div><span>退款说明：选填</span></div>
+        <div class="refund-line"></div>
+    </div>
+    <!--商品区域结束-->
+    <!--上传凭证开始-->
+    <div class="photo">
+        <span class="photo-title">上传凭证</span>
+        <div class="box">
+            <img src="static\img\CombinedShape@2x.png" alt="">
+            <span class="text">上传凭证</span>
+            <span class="text">（最多6张）</span>
+        </div>
+    </div>
+    <!--上传凭证结束-->
+    <div class="submit">
+        <div class="refund-submit">提交</div>
+    </div>
+    <!--退款原因弹出框开始-->
+    <div class="mask">
+        <div class="alert_box pd_rl16 pd_rl12" style="padding-bottom:0">
+            <div class="alert_con">
+                <div class="alert_title f16">退款原因</div>
+                <div class="alert-result">
+                    <span>拍错/多拍/不想要</span>
+                    <img class="img" src="static\img\Group 5.png" alt="" ng-click="change($event)">
+                </div>
+                <div class="alert-result">
+                    <span>协商一致退款</span>
+                    <img class="img" src="static\img\Group 5.png" alt="" ng-click="change($event)">
+                </div>
+                <div class="alert-result">
+                    <span>缺货</span>
+                    <img class="img" src="static\img\Group 5.png" alt="" ng-click="change($event)">
+                </div>
+                <div class="alert-result">
+                    <span>未按约定时间发货</span>
+                    <img class="img" src="static\img\Group 5.png" alt="" ng-click="change($event)">
+                </div>
+                <div class="alert-result">
+                    <span>其他</span>
+                    <img class="img" src="static\img\Group 5.png" alt="" ng-click="change($event)">
+                </div>
+                <div class="btn-sure" ng-click="alertsure($event)">确&nbsp;定</div>
+            </div>
+            <div class="cloes" ng-click="close()">X</div>
+        </div>
+    </div>
+    <!--退款原因弹出框结束-->
+</div>

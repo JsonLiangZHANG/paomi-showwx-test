@@ -1,0 +1,57 @@
+<div class="Productorder" ng-controller="ProductorderController">
+    <style>
+        html,body{
+            background: #fff;
+            margin-bottom: 1rem;
+        }
+    </style>
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18">衍生品订单</span>
+    </div>
+    <!--标题结束-->
+    <!--取消开始-->
+    <div class="bgc">
+        <span class="text">已取消</span>
+    </div>
+    <!--取消结束-->
+    <!--地址详情开始-->
+    <div class="add">
+        <img src="static\img\home_navigation_location@2x.png" alt="">
+        <div class="address">
+            <p>收货人：{{good.receiverName}}</p>
+            <p>{{good.receiverCountry}}{{good.receiverProvince}}</p>
+        </div>
+        <p class="left">{{good.receiverPhone }}</p>
+    </div>
+    <div class="line"></div>
+    <!--地址详情结束-->
+    <!--商品详情开始-->
+    <div class="goods-list clear">
+        <div class="good clear" ng-repeat="goods in good.orderItems">
+            <img ng-src="{{goods.productImg}}"  alt="">
+            <ul>
+                <li>{{goods.productName}}</li>
+                <li>{{goods.good_name}}</li>
+                <li class="good-name">{{goods.specificationValueNames}}</li>
+            </ul>
+            <span class="left">
+                <p class="price">￥{{goods.price}}</p>
+                <p class="number">×{{goods.quantity}}</p>
+            </span>
+        </div>
+        <div class="line2"></div>
+        <ul>
+            <li class="good-price">商品金额：￥{{good.totalPrice}}</li>
+            <li class="good-price">快递金额：￥{{good.postFee}}</li>
+            <li class="good-price">合计金额：￥{{good.payFee}}</li>
+        </ul>
+        <div class="line2"></div>
+    </div>
+    <div class="btn">
+        <div class="btn-tui" ng-click="refund()">申请退款</div>
+        <div class="btn-shan">删除订单</div>
+    </div>
+    <!--商品详情结束-->
+</div>

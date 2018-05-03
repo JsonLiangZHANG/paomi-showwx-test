@@ -1,0 +1,112 @@
+.productrefund .good img{
+    width: 1.7066rem;
+    height: 2.4rem;
+}
+.productrefund .good .refund-result{
+    float: right;
+    margin-right: 0.5rem;
+}
+.productrefund .good div i.arrow{
+    background: url(../../img/arrow.png);
+    background-size: 100%;
+}
+.productrefund .good div i{
+    width: 0.1866rem;
+    height: 0.32rem;
+    margin-top: 0.13333rem;
+    background: #E5E5E5;
+    position: absolute;
+    right: 0.48rem;
+}
+.productrefund .good ul li{
+    font-size: 12px;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    width: 6rem;
+}
+.productrefund .good ul .good-property{
+    font-size: 12px;
+    color: #ccc;
+}
+.productrefund .good{
+    padding: 0.32rem 0.4266rem;
+}
+.productrefund .good .price{
+    color: red;
+}
+.productrefund .good .good-list .list{
+    display: inline-block;
+    vertical-align: top;
+}
+.productrefund .good .refund-line{
+    height: 1px;
+    background: #ccc;
+    width: 100%;
+    margin: 0.4rem 0rem;
+}
+.productrefund .good div span{
+    font-size: 14px;
+}
+.productrefund .photo{
+    margin: -0.45rem 0.45rem 0rem;
+}
+.productrefund .photo .photo-title{
+    font-size: 14px;
+    display: block;
+    margin-bottom: 0.3rem;
+}
+.productrefund .photo .box{
+    border: 1px dotted #000;
+    padding: 0.3rem 0.45rem;
+    display: inline-block;
+}
+.productrefund .photo .box img{
+    margin-left: 20%;
+}
+.productrefund .photo .box .text{
+    display: block;
+    text-align: center;
+}
+.productrefund .submit{
+    position: fixed;
+    bottom: 0rem;
+    width: 100%;
+    background: #fff;
+    padding: 0.23rem 0.356rem;
+}
+.productrefund .refund-submit{
+    background: #FFD300;
+    padding: 0.3rem 0;
+    text-align: center;
+    border-radius: 0.32rem;
+    font-size: 15px;
+}
+.productrefund .mask .alert_box .alert_con .alert_title{
+    padding: 0.32rem 0em 0.6rem 0rem;
+}
+.productrefund .mask .alert_box .alert_con .alert-result::after{
+    content: "";
+    height: 1px;
+    width: 100%;
+    background: #ccc;
+    display: block;
+    margin: 0.35rem 0rem;
+}
+.productrefund .mask .alert_box .alert_con .alert-result span{
+    font-size: 14px;
+    font-weight: 600;
+}
+.productrefund .mask .alert_box .alert_con .alert-result img{
+    position: absolute;
+    right: 0.5rem;
+    width: 0.4rem;
+}
+.productrefund .mask .alert_box .alert_con .btn-sure{
+    background: #FFD300;
+    padding: 0.3rem 0rem;
+    text-align: center;
+    margin: 1.2rem 0rem 0.25rem;
+    border-radius: 0.25rem;
+    font-size: 15px;
+}

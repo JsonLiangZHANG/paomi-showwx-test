@@ -478,6 +478,26 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/my.css'
             ])
         })
+        // 衍生品退款页面
+        .state('my.product_refund', {
+            url: '/product_refund/:id',
+            templateUrl: 'static/partials/my/product_refund.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/my/product_refund.js',
+                'static/css/public.css',
+                'static/css/product/product_refund.css',
+            ])
+        })
+        // 衍生品订单
+        .state('my.product_order', {
+            url: '/product_order/:id',
+            templateUrl: 'static/partials/my/product_order.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/my/product_order.js',
+                'static/css/public.css',
+                'static/css/product/product_order.css',
+            ])
+        })
         .state('my.modify_binding', {
             url: '/modify_binding',
             templateUrl: 'static/partials/my/modify_binding.html',

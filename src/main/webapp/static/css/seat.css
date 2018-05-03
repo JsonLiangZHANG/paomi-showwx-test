@@ -1,0 +1,182 @@
+.min-top{
+    height:0.8rem;
+    line-height: 1.2rem;
+    font-size:0.14rem;
+    width: 100%;
+    overflow: hidden;
+    text-align: left;
+    /*border-right: 1px solid #ddd;*/
+}
+.min-top a,.m-scree a{
+    display: block;
+    color: #333;
+    cursor: pointer;
+}
+.m-scree a span{
+    cursor: pointer;
+}
+.m-scree .m-scree-on{
+    background:#fff;
+    border-right: 1px solid #a8a8a8;
+    border-left: 1px solid #a8a8a8;
+    border-bottom: 1px solid #fff;
+    position: relative;
+    z-index: 20000;
+}
+.m-scree{
+    cursor: pointer;
+    float: left;
+    width: 100%;
+    height: 1rem;
+    line-height: 1rem;
+    font-size: 0.14rem;
+    border-right: 1px solid #ddd;
+    /*margin-left: 1.555rem;*/
+    text-align: left;
+}
+.ct .itm{
+    float: left;
+    display: block;
+    min-width: 122px;
+    _width: 130px;
+    line-height: 24px;
+    padding: 4px;
+    text-align: center;
+    border: 1px solid #fff;
+    margin:0 0 10px 10px;
+    border: 1px solid #eaeceb;
+    display: inline;
+    background-color: #fff;
+}
+.ct .itm.active  {
+    border: 1px solid rgb(213,0,95);
+    background: url(../img/m-datepicker-sel.png)no-repeat right bottom;
+}
+.ct{
+    /*display: none;*/
+    width: 780px;
+    background: #FFF;
+    padding: 20px;
+    position: absolute;
+    left: 50%;
+    margin-left: -445px;
+    top: 49px;
+    border: 1px solid #a8a8a8;
+    z-index: 200;
+    /* display: none; */
+    max-height: 160px;
+    overflow-y: auto;
+    border-right: 1px solid #a8a8a8;
+}
+.seat{
+    background: #f1f1f1;;
+}
+.seat .footer{
+    margin-top: 0px!important;
+}
+.new-down-arrow {
+    width: 7px;
+    height: 4px;
+    background: url(../img/down.png) no-repeat center center;
+    display: inline-block;
+    margin: -5px 0 0 5px;
+    vertical-align: middle;
+    margin-top: 0;
+    margin-left: 10px;
+}
+
+
+.seat_content{
+    background: #fff;
+}
+
+.head{
+    box-shadow: none!important;
+}
+
+#pt{
+    margin-left: 2%;
+}
+
+.seat_zj{
+    position: fixed;
+    bottom: 0px;
+    left: 0;
+    height: 1.1rem;
+    width: 100%;
+}
+.zj_btn{
+    width: 30%;
+    background: orange;
+    height: 1.1rem;
+    display: inline-block;
+    line-height: 1.1rem;
+    text-align: center;
+    color: #fff;
+    font-size: 14px;
+    margin-right: 2%;
+    float: left;
+    /*margin-top: 0.1rem;*/
+}
+
+.zj_total {
+    width: 51%;
+    height: 1.1rem;
+    display: inline-block;
+    text-align: center;
+    /*background: red;*/
+    line-height: 1.1rem;
+    float: left;
+}
+
+.seat_car_car{
+    width: 15%;
+    /*background: beige;*/
+    display: inline-block;
+    text-align: center;
+    margin-left: 2%;
+    height: 1.1rem;
+    line-height: 1.1rem;
+    float: left;
+    background: url(../img/car.jpg);
+    background-size: cover;
+    position: relative;
+}
+
+.zj_total span:nth-child(1){
+    font-size:16px;
+    color: orange;
+}
+a{
+    text-decoration: none;
+}
+
+
+/*//弹窗样式*/
+
+.seat_box2 {
+    width: 100%;
+    position: fixed;
+    left: 0;
+    bottom: 1.4rem;
+    z-index: 1001;
+    overflow: hidden;
+    display: none;
+}
+
+#Seat_alertBox{
+    width: 95%;
+    margin: 0 auto;
+}
+
+#Seat_alertBox tr{
+    height: 0.8rem;
+    line-height:0.8rem
+}
+
+.seat_car_car span{
+    position: absolute;
+    top: -15px;
+    right: 0px;
+}
+

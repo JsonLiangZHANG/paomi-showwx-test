@@ -8,6 +8,7 @@ stareal
         $scope.thumb = localStorageService.get('thumb');//演出图片
         $scope.total = localStorageService.get('total')//总价
         $scope.num = localStorageService.get('num')//数量
+        console.log(11)
         $scope.cat = localStorageService.get('cat')//票面价格
         $scope.date = localStorageService.get('date').replace(/#/g," ")//时间日期
         $scope.seat = localStorageService.get('seat')//座位

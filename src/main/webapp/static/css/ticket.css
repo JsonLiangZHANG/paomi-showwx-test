@@ -44,25 +44,25 @@
 .fare .fare_list{
     margin-top:0.2666rem;
 }
-.fare .fare_list ul li{
-    width:2.85rem;
-    height:1.1rem;
-    line-height:1.1rem;
-    text-align: center;
-    border: 1px solid #E5E5E5;
-    border-radius: 8px;
-    float:left;
-    text-align: center;
-    margin-right:0.31rem;
-    margin-bottom:0.2666rem;
-    font-size: 12px;
-    overflow:hidden;
-    /*padding: 0 0.2rem;*/
-}
-.fare .fare_list ul li.active{
-    color:#FF5000;
-    border: 1px solid #FF5000;
-}
+/*.fare .fare_list ul li{*/
+    /*width:2.85rem;*/
+    /*height:1.1rem;*/
+    /*line-height:1.1rem;*/
+    /*text-align: center;*/
+    /*border: 1px solid #E5E5E5;*/
+    /*border-radius: 8px;*/
+    /*float:left;*/
+    /*text-align: center;*/
+    /*margin-right:0.31rem;*/
+    /*margin-bottom:0.2666rem;*/
+    /*font-size: 12px;*/
+    /*overflow:hidden;*/
+    /*!*padding: 0 0.2rem;*!*/
+/*}*/
+/*.fare .fare_list ul li.active{*/
+    /*color:#FF5000;*/
+    /*border: 1px solid #FF5000;*/
+/*}*/
 /*缺货登记*/
 .fare .fare_list ul li.disabled{
     background: #F9F9F9;
@@ -540,7 +540,7 @@
     display:inline-block;
     width:0.6rem;
     height:0.44rem;
-    background:red;
+    /*background:red;*/
     position:absolute;
     left:0;
     top:50%;

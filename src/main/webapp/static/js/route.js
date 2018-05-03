@@ -57,6 +57,23 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/special.css',
             ])
         })
+
+
+
+        //专题
+        .state('main.new', {
+            url: '/new',
+            templateUrl: 'static/partials/main/new.html',
+            resolve: loadLazyjs([
+                'static/css/new.css',
+                'static/js/controllers/public/public.js',
+                'static/js/controllers/main/new.js'
+
+            ])
+        })
+
+
+
         //衍生品
         .state('main.product', {
             url: '/product/:kind/:sort/:direct/:keyword',
@@ -139,19 +156,41 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             resolve: loadLazyjs([
                 'static/js/controllers/main/detail.js',
                 'static/js/controllers/public/public.js',
+                // 'static/js/controllers/public/ticket.js',
+                'static/css/public.css',
+                'static/css/detail.css',
+                'static/css/jquery.e-calendar.css'
+            ])
+        })
+
+
+        //新添加页面
+        .state('main.revice', {
+            url: '/revice/gd/:good_id',
+            templateUrl: 'static/partials/main/revice.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/revice.js',
+                'static/js/controllers/public/public.js',
+                // 'static/js/controllers/main/detail.js',
                 'static/css/public.css',
                 'static/css/detail.css'
+
+
+                // 'static/css/detail.css'
             ])
         })
-        .state('main.ticket', {
-            url: '/detail/ticket/:good_id',
-            templateUrl: 'static/partials/main/ticket.html',
-            resolve: loadLazyjs([
-                'static/js/controllers/main/ticket.js',
-                'static/css/public.css',
-                'static/css/ticket.css'
-            ])
-        })
+
+
+
+        // .state('main.ticket', {
+        //     url: '/detail/ticket/:good_id',
+        //     templateUrl: 'static/partials/main/ticket.html',
+        //     resolve: loadLazyjs([
+        //         'static/js/controllers/main/ticket.js',
+        //         'static/css/public.css',
+        //         'static/css/ticket.css'
+        //     ])
+        // })
         .state('main.pay', {
             url: '/pay/:order_id?_',
             templateUrl: 'static/partials/main/pay.html',
@@ -161,6 +200,19 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/ticket.css'
             ])
         })
+        //选座
+        .state('main.seat', {
+            url: '/seat/:event_id/:good_id',
+            templateUrl: 'static/partials/main/seat.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/seat.js',
+                'static/js/controllers/public/public.js',
+                'static/css/public.css',
+                'static/css/detail.css',
+                'static/css/seat.css'
+            ])
+        })
+
         .state('main.pay_address', {
             url: '/pay/address/:order_id/:src/',
             templateUrl: 'static/partials/main/pay_address.html',

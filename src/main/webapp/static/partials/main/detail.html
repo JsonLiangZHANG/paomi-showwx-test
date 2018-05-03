@@ -236,7 +236,7 @@
                     </div>
                 </div>
                 <div style="height:1.4rem"></div>
-            <div class="cloes" ng-click="ticClose()"></div>
+                <div class="cloes" ng-click="ticClose()"></div>
                 <!--商品数量结束-->
                 <!--立即支付开始-->
                 <div class="total_box shop_box clear">
@@ -282,162 +282,74 @@
 
 
 
-
-<div class="good_conten " style="width:10rem;margin-top: 0px;" ng-show="good.good_type==1">
-    <div class="l_con" style="width: 100%;background: #fff;;">
-        <!--在线选座-->
-        <div class="goupiao clear" >
-            <div class="guopiao-con">
-                <div class="bookbox clear">
-                    <!--选择场次开始-->
-                    <div class="time clear" >
-                        <!--<div class="book_row_title fl">-->
-                            <!--选择时间：-->
-                        <!--</div>-->
-                        <div class="book_row_table fl">
-                            <div id="calendar"></div>
-                        </div>
-                    </div>
-                    <div class="time clear" >
-                        <!--<div class="book_row_title fl">-->
-                            <!--选择场次：-->
-                        <!--</div>-->
-                        <div class="book_row_table fl">
-                            <div id="calendarEvent">
-                                <div class="c-event-grid">
-                                    <div class="c-event-body">
-                                        <div class="c-event-list">
-                                            <div class="c-event-item  {{$index == paras.planIndex?'active':''}}  {{dshow == plan.day?'c-event-over1':''}}" data-time-id="{{plan.id}}" data-event-index="{{$index}}" data-event-day="{{plan.day}}" ng-repeat="plan in plans" ng-click="switchPlan($index,{{plan.eventId}})" >
-                                                <div class="title">
-                                                    <span ng-bind="plan.name | buildDate:'before'"></span>
-                                                    <span ng-bind="plan.name | buildDate:'after'"></span>
+    <div class="xuanzuo_content">
+        <div class="good_conten " style="width:10rem;margin-top: 0px;" ng-show="good.good_type==1">
+            <div class="l_con" style="width: 100%;background: #fff;" >
+                <!--在线选座-->
+                <div class="goupiao clear" style="position: relative;">
+                    <div class="guopiao-con">
+                        <div class="bookbox clear">
+                            <!--选择场次开始-->
+                            <div class="time clear" >
+                                <!--<div class="book_row_title fl">-->
+                                    <!--选择时间：-->
+                                <!--</div>-->
+                                <div class="book_row_table fl">
+                                    <div id="calendar"></div>
+                                </div>
+                            </div>
+                            <div class="time clear" >
+                                <div class="book_row_table fl">
+                                    <div id="calendarEvent">
+                                        <div class="c-event-grid">
+                                            <div class="c-event-body">
+                                                <div class="c-event-list">
+                                                    <div class="c-event-item  {{$index == paras.planIndex?'active':''}}  {{dshow == plan.day?'c-event-over1':''}}" data-time-id="{{plan.id}}" data-event-index="{{$index}}" data-event-day="{{plan.day}}" ng-repeat="plan in plans" ng-click="switchPlan($index,{{plan.eventId}})" >
+                                                        <div class="title">
+                                                            <span ng-bind="plan.name | buildDate:'before'"></span>
+                                                            <span ng-bind="plan.name | buildDate:'after'"></span>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
+
                                     </div>
                                 </div>
-
                             </div>
+                            <div class="price clear" style="display: none;">
+                                <div class="book_row_title fl">
+                                    票面价格：
+                                </div>
+                                <div class="book_row_table fl">
+                                    <ul ng-repeat="cat in cats" class="clear" style="margin-top: 15px;">
+                                        <li class="fl {{gory.status?'':'disabled'}} {{$parent.$index == paras.catIndex1 && $index == paras.catIndex2 ?'active':''}}" ng-repeat="gory in cat.children" ng-click="switchCat($parent.$index,$index,gory.status)">
+                                            <p ng-bind="gory.name" ng-show="gory.status!=''"></p>
+                                            <p ng-show="gory.status==''" ng-click="pop()" ng-bind="gory.name"></p>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+
+
                         </div>
                     </div>
-                    <!--<div class="seat clear" ng-hide="paras.priceIndex == null">-->
-                    <!--<div class="book_row_title fl">-->
-                    <!--选择座位：-->
-                    <!--</div>-->
-                    <!--<div class="book_row_table fl">-->
-                    <!--<div class="seat_btn" ng-click="selectsiteModa()">在线座位</div>-->
-                    <!--</div>-->
-                    <!--</div>-->
-                    <!--选择场次结束-->
-                    <!--选择价格开始-->
-
-                    <!--<div class="price clear">-->
-                        <!--<div class="book_row_title fl">-->
-                            <!--票面价格：-->
-                        <!--</div>-->
-                        <!--<div class="book_row_table fl">-->
-                            <!--<ul ng-repeat="cat in cats" class="clear" style="margin-top: 15px;">-->
-                                <!--<li class="fl {{gory.status?'':'disabled'}} {{$parent.$index == paras.catIndex1 && $index == paras.catIndex2 ?'active':''}}" ng-repeat="gory in cat.children" ng-click="switchCat($parent.$index,$index,gory.status)">-->
-                                    <!--<p ng-bind="gory.name" ng-show="gory.status!=''"></p>-->
-                                    <!--<p ng-show="gory.status==''" ng-click="pop()" ng-bind="gory.name"></p>-->
-                                <!--</li>-->
-                            <!--</ul>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--选择价格结束-->
-                    <!--选择座位开始-->
-                    <!--<div id="detailmask">-->
-                        <!--<div id="detailcontent" stop-propagation="" class="coverAniamtion">-->
-                            <!--<div class="con-box">-->
-                                <!--<div class="seat clear" ng-hide="paras.priceIndex == null" >-->
-                                    <!--<div class="book_row_title" style="color: rgb(241,0,95);width: 100%;">-->
-                                        <!--<span id="seats_Screenings" >{{good.title}}&nbsp;&nbsp;({{text}}) &nbsp;&nbsp;选座图</span>-->
-                                        <!--&lt;!&ndash;<div class="look_seatsCart" ng-click="getseats()"><span class="seeCart_ation">(点击刷新查看！)</span> <span class="seeCart_btn">查看选票</span> </div>&ndash;&gt;-->
-                                    <!--</div>-->
-                                    <!--<div class="seats_list"   >-->
-                                        <!--<table style="width: 100%;" id="selectseats_table">-->
-                                            <!--<thead>-->
-                                            <!--<tr>-->
-                                                <!--<td>区域</td>-->
-                                                <!--<td>排</td>-->
-                                                <!--<td>座位号</td>-->
-                                                <!--<td>票价</td>-->
-                                                <!--<td>操作</td>-->
-                                            <!--</tr>-->
-                                            <!--</thead>-->
-                                            <!--<tbody ng-show="seatsList.length!=0">-->
-                                            <!--<tr ng-repeat="seat in seatsList track by $index" on-finish-render-filters="completecarRepeat" data-svg="{{seat.seat_no}}" data-id="{{seat.seat_id}}">-->
-                                                <!--<td>{{seat.section_name}}</td>-->
-                                                <!--<td>{{seat.row}}</td>-->
-                                                <!--<td>{{seat.column}}</td>-->
-                                                <!--<td style="color: rgb(241,0,95);">￥{{seat.unit_price}}</td>-->
-                                                <!--<td ><span class="detele_seat" ng-click="seats(seat.seat_no)">&times;</span></td>-->
-                                            <!--</tr>-->
-                                            <!--</tbody>-->
-                                            <!--<tbody ng-show="seatsList.length==0">-->
-                                            <!--<tr>-->
-                                                <!--<td colspan="4">您还没选票！</td>-->
-                                                <!--<td>￥0</td>-->
-                                            <!--</tr>-->
-                                            <!--</tbody>-->
-
-                                        <!--</table>-->
-                                        <!--<div ng-show="seatsList.length!=0">您已选择&nbsp;<span style="color: rgb(241,0,91);">{{seatsnum}}</span>&nbsp;张票 &nbsp;&nbsp;&nbsp;总价：<span style="color: rgb(241,0,91);">￥{{total}}</span></div>-->
-                                        <!--<div class="create_seatsCart" ng-click="xuanCreateOrder(gf)" ng-show="seatsList.length!=0"> 立即购票 </div>-->
-                                        <!--<div id="loading_img" style="position: absolute;top:50%;left:50%;width: 50px; height: 50px;margin-left: -25px;margin-top: -25px;z-index: 999999;"ng-show="seatsList.length!=0"><img src="static/img/loading1.gif" alt=""></div>-->
-                                    <!--</div>-->
-
-
-                                    <!--&lt;!&ndash;{{seat.section_name}}-{{seat.row}}-{{seat.column}}&ndash;&gt;-->
-                                    <!--<div class="book_row_table" style="width:1050px;height:700px;" ng-bind-html="specialHtml" id="table_seats" >-->
-
-                                    <!--</div>-->
-                                <!--</div>-->
-                            <!--</div>-->
-                            <!--<div id="close" close-model></div>-->
-                        <!--</div>-->
-                    <!--</div>-->
-
-                </div>
-            </div>
-            <!--提交按钮-->
-            <div class="fr  saosao">
-                <img src="static/img/saosao.png" alt="" class="sao_btn" ng-mouseover="show()" ng-mouseleave="hide()">
-                <div class="saosao_div" ng-if="sao_show">
-                    <img src="static/img/fuwuhao_new.png" alt="" class="sao_pic">
-                </div>
-            </div>
-            <div class="create-order">
-                <div class="order-price " style=" margin-top: 52px;">
-                    <!--<p ng-bind="total | currency:'￥'"></p>-->
-                    <!--ng-click="createOrder(gf)"-->
-                    <!--<div class="create-btn fr"  ng-click="selectsiteModa()">选座购票</div>-->
-                    <div class="create-btn "  ng-click="selectseats()">选座购票</div>
-                </div>
-            </div>
-
-        </div>
-        <!--立即购买 -->
-        <!--立即购票开始-->
+                    <!--提交按钮-->
+                    <div class="create-order">
+                        <div class="order-price " style=" margin:20px auto;">
+                            <!--<p ng-bind="total | currency:'￥'"></p>-->
+                            <!--ng-click="createOrder(gf)"-->
+                            <!--<div class="create-btn fr"  ng-click="selectsiteModa()">选座购票</div>-->
+                            <div class="create-btn "  ng-click="selectseats()">选座购票</div>
+                        </div>
                     </div>
-                    <!--选择价格结束-->
-                    <!--选择座位开始-->
-                    <!--<div class="seat clear" ng-hide="paras.priceIndex == null">-->
-                        <!--<div class="book_row_title fl">-->
-                            <!--观看座位：-->
-                        <!--</div>-->
-                        <!--<div class="book_row_table fl">-->
-                            <!--<ul class="clear" style="margin-top: 15px;">-->
-                                <!--<li class="fl {{$index == paras.priceIndex ?'active':''}}" ng-hide="!price.status"  ng-repeat="price in prices" ng-click="switchPrice($index,price.status)" ng-show="sf || $index < 6">-->
-                                    <!--<p ng-bind="price.name"></p>-->
-                                <!--</li>-->
-                            <!--</ul>-->
-                        <!--</div>-->
-                    <!--</div>-->
-                    <!--选择座位结束-->
-        <!--立即购票结束-->
-    </div>
-</div>
+                    <div class="xuanClose" ng-click="Xuanclose()">&times;</div>
+                </div>
+
+               </div>
+             </div>
+        </div>
+  </div>
 </div>
 
 

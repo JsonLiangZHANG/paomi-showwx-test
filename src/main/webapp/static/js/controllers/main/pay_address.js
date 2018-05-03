@@ -24,5 +24,8 @@ stareal
             if($scope.src==4){//立即支付  衍生 品
                 $state.go('main.productspay',{order_id: $scope.order_id, _: '_'});
             }
+            if($scope.src==5){//在线选座
+                $state.go('main.xuanpay',{order_id: $scope.order_id, _: '_'});
+            }
         }
     });

@@ -200,6 +200,16 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/ticket.css'
             ])
         })
+        //选座支付
+        .state('main.xuanpay', {
+            url: '/xuanpay/:order_id?_',
+            templateUrl: 'static/partials/main/xuan_pay.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/xuan_pay.js',
+                'static/css/public.css',
+                'static/css/ticket.css'
+            ])
+        })
         //选座
         .state('main.seat', {
             url: '/seat/:event_id/:good_id',

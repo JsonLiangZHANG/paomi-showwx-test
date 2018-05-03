@@ -3,7 +3,7 @@
         <div class="clear">
 
             <div class="head pd_tb14">
-                <a class="back" ui-sref="main.detail({good_id:id})"></a>
+                <a class="back" ui-sref="main.detail({good_id:{{currentId}}})"></a>
                 <span class="headline f18">选择座位</span>
             </div>
 
@@ -42,64 +42,38 @@
                 <!--</tr>-->
                 <!--</thead>-->
                 <tbody ng-show="seatsList.length!=0">
-                <tr>
-                    <!--<td>{{seat.section_name}}</td>-->
-                    <!--<td>{{seat.row}}</td>-->
-                    <!--<td>{{seat.column}}</td>-->
-                    <!--<td style="color: rgb(241,0,95);">￥{{seat.unit_price}}</td>-->
-                    <!--<td ><span class="detele_seat" ng-click="seats(seat.seat_no)">&times;</span></td>-->
+                <tr ng-repeat="seat in seatsList track by $index" on-finish-render-filters="completecarRepeat" data-svg="{{seat.seat_no}}" data-id="{{seat.seat_id}}">
+                    <td>{{seat.section_name}}</td>
+                    <td>{{seat.row}}</td>
+                    <td>{{seat.column}}</td>
+                    <td style="color: rgb(241,0,95);">￥{{seat.unit_price}}</td>
+                    <td ><span class="detele_seat" ng-click="seats(seat.seat_no)">&times;</span></td>
 
-                    <td>
-                        <span>6 排</span>
-                        <span>6 号</span>
-                    </td>
+                    <!--<td>-->
+                        <!--<span>6 排</span>-->
+                        <!--<span>6 号</span>-->
+                    <!--</td>-->
 
-                    <td>
-                        <span>280￥</span>
-                    </td>
-                    <td>
-                        <span>203区</span>
+                    <!--<td>-->
+                        <!--<span>280￥</span>-->
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<span>203区</span>-->
 
-                    </td>
-                    <td>
-                        <span>X</span>
+                    <!--</td>-->
+                    <!--<td>-->
+                        <!--<span>X</span>-->
 
-                    </td>
+                    <!--</td>-->
                 </tr>
-
-                <tr>
-                    <!--<td>{{seat.section_name}}</td>-->
-                    <!--<td>{{seat.row}}</td>-->
-                    <!--<td>{{seat.column}}</td>-->
-                    <!--<td style="color: rgb(241,0,95);">￥{{seat.unit_price}}</td>-->
-                    <!--<td ><span class="detele_seat" ng-click="seats(seat.seat_no)">&times;</span></td>-->
-
-                    <td>
-                        <span>6 排</span>
-                        <span>6 号</span>
-                    </td>
-
-                    <td>
-                        <span>280￥</span>
-                    </td>
-                    <td>
-                        <span>203区</span>
-
-                    </td>
-                    <td>
-                        <span>X</span>
-
-                    </td>
-                </tr>
-
                 </tbody>
 
-                <!--<tbody ng-show="seatsList.length==0">-->
-                <!--<tr>-->
-                    <!--<td colspan="4">您还没选票！</td>-->
-                    <!--<td>￥0</td>-->
-                <!--</tr>-->
-                <!--</tbody>-->
+                <tbody ng-show="seatsList.length==0">
+                <tr>
+                    <td colspan="4">您还没选票！</td>
+                    <td>￥0</td>
+                </tr>
+                </tbody>
 
             </table>
 
@@ -133,14 +107,14 @@
 
 
         <div class="seat_zj">
-            <a class="seat_car_car" ng-click="goShow()"><span class="seat_num" >2</span></a>
+            <a class="seat_car_car" ng-click="goShow()"><span class="seat_num" >{{seatsnum}}</span></a>
 
           <a class="zj_total ">
-              <span ng-bind="">480</span><span>元</span>
-              <span>| 1张</span>
+              <span >{{total}}</span><span>元</span>
+              <span>| {{seatsnum}}张</span>
           </a>
 
-            <a class="zj_btn">确认选座</a>
+            <a class="zj_btn" ng-click="xuanCreateOrder(gf)" >确认选座</a>
         </div>
 
 

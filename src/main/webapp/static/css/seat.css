@@ -50,7 +50,7 @@
 }
 .ct .itm.active  {
     border: 1px solid rgb(213,0,95);
-    background: url(../img/m-datepicker-sel.png)no-repeat right bottom;
+    /*background: url(../img/m-datepicker-sel.png)no-repeat right bottom;*/
 }
 .ct{
     /*display: none;*/
@@ -77,7 +77,7 @@
 .new-down-arrow {
     width: 7px;
     height: 4px;
-    background: url(../img/down.png) no-repeat center center;
+    /*background: url(../img/down.png) no-repeat center center;*/
     display: inline-block;
     margin: -5px 0 0 5px;
     vertical-align: middle;
@@ -165,11 +165,11 @@ a{
 }
 
 #Seat_alertBox{
-    width: 95%;
-    margin: 0 auto;
+    width:100%;
 }
 
 #Seat_alertBox tr{
+    text-align:center;
     height: 0.8rem;
     line-height:0.8rem
 }

@@ -123,10 +123,10 @@ stareal
                 var mobile=localStorageService.get('mobile');
                 //http://app.mydeershow.com/ 正式
                 //http://api.dd.com/  测试
-                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/mobile/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=android&ver='+Math.random()+'" frameborder="0" width="100%" height="500";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/mobile/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=wechat&ver='+Math.random()+'" frameborder="0" width="100%" height="500";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
             }else{
                 var mobile=localStorageService.get('mobile');
-                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/mobile/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=android&ver='+Math.random()+'" frameborder="0" width="100%" height="500";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/mobile/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=wechat&ver='+Math.random()+'" frameborder="0" width="100%" height="500";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
 
             }
             $scope.getseats();
@@ -135,7 +135,7 @@ stareal
 
         $scope.getseats=function(){
             //正式  http://app.mydeershow.com/mobile/getCartP
-            var myUrl = 'http://app.mydeershow.com/mobile/getCart?EventId='+ $scope.currentEventId+'&UserId='+localStorageService.get('mobile')+'&AppId=FEQWEe&m=android';
+            var myUrl = 'http://app.mydeershow.com/mobile/getCartP?EventId='+ $scope.currentEventId+'&UserId='+localStorageService.get('mobile')+'&AppId=FEQWEe&m=wechat';
             $http.jsonp(myUrl).success(
                 function (response) {
                     var carts=response.data;
@@ -155,7 +155,6 @@ stareal
                 })
                 .error(
                     function(response,config){
-                        var carts=response.data;
                         console.log(carts);
                         $scope.seatsList=carts.seats;
                         $scope.seatscart=carts.cart;
@@ -231,8 +230,7 @@ stareal
             // }
             // var _po = $scope.prices[$scope.paras.priceIndex];
             // console.log(_po);
-            console.log(gf);
-            console.log("3333");
+
             if ( $scope.seatsList.length == 0) {
                 $alert.show("请选择座位!");
                 return;

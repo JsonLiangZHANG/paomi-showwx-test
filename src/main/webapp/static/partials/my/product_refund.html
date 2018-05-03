@@ -12,22 +12,22 @@
     </div>
     <!--标题结束-->
     <!--商品区域开始-->
-    <div class="good">
-        <div class="good-list" ng-repeat="goods in good.orderItems">
-            <img ng-src="{{goods.productImg}}" alt="">
-            <ul class="list">
+    <div class="productorder-good">
+        <div class="good-list clear" ng-repeat="goods in good.orderItems">
+            <img ng-src="{{goods.productImg}}" alt="" class="fl">
+            <ul class="list fl">
                 <li>{{goods.productName}}</li>
                 <li>{{goods.good_name}}</li>
                 <li class="good-property">颜色分类：{{goods.specificationValueNames}}</li>
             </ul>
         </div>
-        <div class="refund-line"></div>
-        <div ng-click="result()"><span>退款原因</span><span class="refund-result">2222222222</span><i class="arrow"></i></div>
-        <div class="refund-line"></div>
-        <div><span>退款金额：<span class="price">￥{{good.totalPrice}}</span></span><i class="arrow"></i></div>
-        <div class="refund-line"></div>
-        <div><span>退款说明：选填</span></div>
-        <div class="refund-line"></div>
+        <!--<div class="refund-line"></div>-->
+        <div ng-click="result()" class="refund_div"><span>退款原因</span><span class="refund-result" ng-model="refundReason">{{refundReason}}</span><i class="arrow"></i></div>
+        <!--<div class="refund-line"></div>-->
+        <div class="refund_div"><span>退款金额：<span class="price">￥{{good.totalPrice}}</span></span><i class="arrow"></i></div>
+        <!--<div class="refund-line"></div>-->
+        <div class="refund_div"><span>退款说明：选填</span></div>
+        <!--<div class="refund-line"></div>-->
     </div>
     <!--商品区域结束-->
     <!--上传凭证开始-->

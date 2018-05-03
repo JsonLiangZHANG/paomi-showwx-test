@@ -30,7 +30,7 @@
 
 /*分类导航条 */
 #list_nav{
-    background:#000;
+    background:#fff;
     width:100%;
     padding-left:0rem;
 }
@@ -42,10 +42,9 @@
     height:100%;
     font-size:0.5rem;
     line-height:1.06rem;
-    color:#fff;
+    color:#333;
     border-right:1px solid #e5e5e5;
     padding:0.06rem 0;
-    opacity:0.6;
 }
 #list_nav .nav_ul li.last{
     border:none;
@@ -55,20 +54,10 @@
     display: table;
     clear: both;
 }
-.nav_ul li.list_piao img{
-    float:left;
-    width:0.8rem;
-    height:0.8rem;
-    margin:0.08rem auto;
-}
-.nav_ul li.list_product img{
-    /*opacity:0.6;*/
-   float:left;
-    width:0.8rem;
-    height:0.8rem;
-    margin:0.08rem auto;
-}
+
+
 #list_nav .nav_ul li.active{
-    opacity:1.0;
+    color: #f83601;
+    border-bottom: 1px solid #f83601;
 }
 

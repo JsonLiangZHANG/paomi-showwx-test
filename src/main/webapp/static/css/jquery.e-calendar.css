@@ -24,7 +24,8 @@
 
 .calendar .c-pad-top {
     padding-top: 2.22%;
-        /*border: 1px solid #ddd;*/
+    padding-bottom: 2.22%;
+    border: 1px solid #fff;
 }
 
 .c-grid {
@@ -46,7 +47,7 @@
     /*background-color: #ededed;*/
     float: left;
     text-align: center;
-    color:#999;
+    color: #ddd;
 }
 .c-day-previous{
 	width: 14.28%;
@@ -63,7 +64,7 @@
     /*background-color:#ededed;*/
     float: left;
     text-align: center;
-    color: #999;
+    color: #ddd;
 }
 
 .c-week-day {
@@ -83,7 +84,7 @@
     padding: 2% 6% 0 2%;
     text-align: right;
     cursor: pointer;
-    color:#ccc
+    color: #333;
 }
 
 .c-previous {
@@ -92,7 +93,7 @@
     padding: 2% 2% 0 6%;
     text-align: left;
     cursor: pointer;
-    color:#ccc
+    color: #333;
 }
 
 .c-month {
@@ -156,7 +157,7 @@
 }
 
 .c-event-list {
-    padding: 7 0 0 0;
+    padding: 7px 0 0 0;
     overflow: auto;
     height:100%;
 }
@@ -188,10 +189,11 @@
     display: block;
 }
 .c-event-over0 {
-	background-color:#ff5b02!important ;
-    background:url(../img/m-datepicker-sel.png)no-repeat right bottom;
+	background-color:#f83601!important ;
+    /*background:url(../img/m-datepicker-sel.png)no-repeat right bottom;*/
     /*font-weight: bold;*/
-    border: 1px solid #e6a642!important;
+    border: 1px solid #f83601!important;
+    border-radius: 50%;
     color:#fff;
     display: block;
 }
@@ -199,14 +201,13 @@
     font-weight: normal;
 }
 #calendarEvent .c-event-item{
-    color: #e6a642;
+    color: #fff;
     padding: 0.08rem 0;
-    border: 1px solid #E5E5E5;
     border-radius: 8px;
     margin-right: 0.2666rem;
     font-size: 12px;
     text-align: center;
-    border: 1px solid #e6a642;
+    background: #f83601;
 
 }
 
@@ -218,11 +219,11 @@
 #calendarEvent .c-event-item .title{
     border-left: none;
     /*border: 1px solid #ddd;*/
-    background:#fff;
+    background:#f83601;
     font-size: 14px;
     height: 0.8rem;
     line-height: 0.45rem;
-    color: #e6a642;
+    color: #fff;
     margin-bottom: 0px;
     margin-top: 0px;
     padding: 0 0.6rem;
@@ -232,7 +233,7 @@
 
 #calendarEvent .c-event-item.active .title{
     /*border: 1px solid rgb(213,0,95);*/
-    background:url(../img/m-datepicker-sel.png)no-repeat right bottom;
+    /*background:url(../img/m-datepicker-sel.png)no-repeat right bottom;*/
 }
 
 

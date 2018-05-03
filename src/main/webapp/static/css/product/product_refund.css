@@ -1,16 +1,16 @@
-.productrefund .good img{
+.productrefund .productorder-good img{
     width: 1.7066rem;
     height: 2.4rem;
 }
-.productrefund .good .refund-result{
+.productrefund .productorder-good .refund-result{
     float: right;
     margin-right: 0.5rem;
 }
-.productrefund .good div i.arrow{
+.productrefund .productorder-good div i.arrow{
     background: url(../../img/arrow.png);
     background-size: 100%;
 }
-.productrefund .good div i{
+.productrefund .productorder-good div i{
     width: 0.1866rem;
     height: 0.32rem;
     margin-top: 0.13333rem;
@@ -18,38 +18,37 @@
     position: absolute;
     right: 0.48rem;
 }
-.productrefund .good ul li{
+.productrefund .productorder-good ul li{
     font-size: 12px;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 6rem;
 }
-.productrefund .good ul .good-property{
+.productrefund .productorder-good ul .productorder-good-property{
     font-size: 12px;
     color: #ccc;
 }
-.productrefund .good{
+.productrefund .productorder-good{
     padding: 0.32rem 0.4266rem;
 }
-.productrefund .good .price{
+.productrefund .productorder-good .price{
     color: red;
 }
-.productrefund .good .good-list .list{
+.productrefund .productorder-good .productorder-good-list .list{
     display: inline-block;
     vertical-align: top;
 }
-.productrefund .good .refund-line{
-    height: 1px;
-    background: #ccc;
+.productrefund .productorder-good .refund_div{
+   border-bottom: 1px solid #ccc;
     width: 100%;
-    margin: 0.4rem 0rem;
+   padding: 0.4rem 0rem;
 }
-.productrefund .good div span{
+.productrefund .productorder-good div span{
     font-size: 14px;
 }
 .productrefund .photo{
-    margin: -0.45rem 0.45rem 0rem;
+    margin: 0.45rem 0.45rem 0rem;
 }
 .productrefund .photo .photo-title{
     font-size: 14px;

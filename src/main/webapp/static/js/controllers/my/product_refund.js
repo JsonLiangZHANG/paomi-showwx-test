@@ -3,6 +3,7 @@
 stareal
     .controller("ProductRefundController", function ($scope, $stateParams, $api, $state, $alert, localStorageService,$interval,$window) {
         $scope.orderId = $stateParams.id;
+        $scope.refundReason='';
         $api.get("app/product/order/detail",{orderId:$scope.orderId},true)
             .then(function (ret) {
                 $scope.good = ret.orderDetail;
@@ -42,11 +43,10 @@ stareal
         $scope.change = function($event,value){
             var imgs = document.getElementsByClassName("img");
             for(var i = 0;i<imgs.length;i++){
-                $(imgs[i]).attr("src","static\\img\\Group 5.png");
+                $(imgs[i]).attr("src","static/img/Group 5.png");
             }
-            $($event.target).attr("src","static\\img\\order_complete.png");
-            var refundresult = $($event.target).prev()[0].innerText;
-            console.log(refundresult);
+            $($event.target).attr("src","static/img/order_complete.png");
+            $scope.refundReason = $($event.target).prev()[0].innerText;
         }
         $scope.alertsure = function(){
             $(".mask").fadeOut();

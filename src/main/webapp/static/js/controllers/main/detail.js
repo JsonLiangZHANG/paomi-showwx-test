@@ -130,16 +130,16 @@ stareal
                 }
                 if ( $scope.goodType==1) {
                     console.log("12");
-                    angular.element('.good_conten').css({
+                    angular.element('.xuanzuo_content').css({
                         'display': 'block',
                         'height': alertTic
                     });
 
-                    angular.element('.good_conten .l_con').css({
+                    angular.element('.xuanzuo_content .good_conten').css({
                         'display': 'block',
                         'bottom': -alertBox2
                     });
-                    angular.element('.good_conten .l_con').animate({bottom: '0px'}, 200);
+                    angular.element('.xuanzuo_content .good_conten').animate({bottom: '0px'}, 200);
 
                 }
             }
@@ -183,211 +183,10 @@ stareal
                 e.stopPropagation();
             }
 
-            // if ( $scope.goodType==1) {
-            //     angular.element('.tic').css({
-            //         'display': 'block',
-            //         'height': alertTic
-            //     });
-            //
-            //     angular.element('.tic .alertBox').css({
-            //         'display': 'block',
-            //         'bottom': -alertBox1
-            //     });
-            //     angular.element('.tic .alertBox').animate({bottom: '0px'}, 200);
-            //
-            // }
-            // if ( $scope.goodType==0) {
-            //     angular.element('.good_conten').css({
-            //         'display': 'block',
-            //         'height': alertTic
-            //     });
-            //
-            //     angular.element('.good_conten .l_con').css({
-            //         'display': 'block',
-            //         'bottom': -alertBox2
-            //     });
-            //     angular.element('.good_conten .l_con').animate({bottom: '0px'}, 200);
-            //
-            // }
         }
 
 
 
-
-        // //弹窗购票
-        // $api.get("app/detail/ticket/retrieve", {id: $stateParams.good_id})
-        //     .then(function (re) {
-        //         console.log(re);
-        //         $scope.remark = re.remark;
-        //         $scope.plans = re.data;
-        //         $scope.paras = {};
-        //         $scope.max = 6;
-        //         console.log(re);
-        //
-        //         // 获取第一个可以选择的场次
-        //         var getAvailablePlanIndex = function () {
-        //             return 0;
-        //         };
-        //
-        //
-        //         var getAvailableCatIndex = function () {
-        //             var _index = [null, null];
-        //
-        //             catsLoop:
-        //                 for (var _i = 0; _i < $scope.cats.length; _i++) {
-        //                     var _gory = $scope.cats[_i].children;
-        //                     for (var _j = 0; _j < _gory.length; _j++) {
-        //                         if (_gory[_j].status) {
-        //                             _index = [_i, _j];
-        //                             break catsLoop;
-        //                         }
-        //                     }
-        //                 }
-        //             return _index;
-        //         };
-        //         // 获取第一个可以选择的价格
-        //         var getAvailablePriceIndex = function () {
-        //             var _index = null;
-        //
-        //             for (var _i = 0; _i < $scope.prices.length; _i++) {
-        //                 if ($scope.prices[_i].status) {
-        //                     _index = _i;
-        //                     break;
-        //                 }
-        //             }
-        //             return _index;
-        //         };
-        //
-        //         // 更改场次
-        //         var switchPlan = function (index) {
-        //             if (true) {
-        //                 $scope.paras.planIndex = index;
-        //                 $scope.cats = $scope.plans[index].children;
-        //                 $scope.max = $scope.plans[index].max_num;
-        //                 localStorageService.set('date',$scope.plans[index].name)
-        //                 $scope.time=$scope.plans[index].name.replace(/#/g,"");
-        //                 // 联动切换价位
-        //                 var _index = getAvailableCatIndex();
-        //                 switchCat(_index[0], _index[1], true);
-        //             }
-        //         };
-        //
-        //         // 更改价位
-        //         var switchCat = function (index1, index2, choosable,e) {
-        //             if(choosable==''){
-        //                 $scope.pop(e)
-        //             }
-        //             if (choosable) {
-        //                 $scope.paras.catIndex1 = index1;
-        //                 $scope.paras.catIndex2 = index2;
-        //                 localStorageService.set('cat',$scope.plans[$scope.paras.planIndex].children[index1].children[index2].name)
-        //                 // 没有可选择的价位
-        //                 if (index1 == null) {
-        //                     $scope.prices = [];
-        //                 } else {
-        //                     $scope.prices = $scope.plans[$scope.paras.planIndex].children[index1].children[index2].children;
-        //                 }
-        //                 // 联动切换价格
-        //                 var _index = getAvailablePriceIndex();
-        //                 switchPrice(_index, true)
-        //             }else {
-        //                 $scope.price2 = $scope.plans[$scope.paras.planIndex].children[index1].children[index2].name;
-        //                 $scope.ticketId=$scope.plans[$scope.paras.planIndex].children[index1].children[index2].id;
-        //             }
-        //         };
-        //
-        //         // 更改价格
-        //         var switchPrice = function (index, choosable) {
-        //             if (choosable) {
-        //                 $scope.paras.priceIndex = index;
-        //             }
-        //         };
-        //
-        //         // ****************************************  加载计算张数部分  ****************************************
-        //         $scope.num = 1;
-        //
-        //         $scope.subNum = function () {
-        //             if ($scope.num == 1) {
-        //                 return;
-        //             }
-        //             $scope.num = $scope.num - 1;
-        //             calTotal();
-        //         };
-        //
-        //         $scope.addNum = function () {
-        //             if ($scope.num == $scope.max) {
-        //                 $alert.show("最多只能购买"+$scope.max+"张!")
-        //                 return;
-        //             }
-        //             $scope.num = $scope.num + 1;
-        //             calTotal();
-        //         };
-        //
-        //         $scope.$watch("paras", function (newValue) {
-        //             // 张数还原到1
-        //             $scope.num = 1;
-        //             calTotal();
-        //         }, true);
-        //
-        //         var calTotal = function () {
-        //             var _po = $scope.prices[$scope.paras.priceIndex];
-        //             var _price = (_po ? _po.price : 0);
-        //             $scope.total = _price * $scope.num;
-        //         }
-        //
-        //         var createOrder = function () {
-        //             console.log("333");
-        //             if ($scope.paras.priceIndex == null) {
-        //                 $alert.show("请选择座位!")
-        //             }
-        //
-        //             var _po = $scope.prices[$scope.paras.priceIndex];
-        //             var _sku = _po.num;
-        //             if (_sku < $scope.num) {
-        //                 $alert.show("库存不足!");
-        //                 return false
-        //             }
-        //             localStorageService.set('seat',_po.name);
-        //             localStorageService.set('price',_po.price);
-        //             localStorageService.set('ticketId',_po.id);
-        //             localStorageService.set('total',$scope.total);
-        //             localStorageService.set('num',$scope.num);
-        //             $state.go('main.pay',{order_id:$stateParams.good_id})
-        //         }
-        //
-        //         // ****************************************  初始化  ****************************************
-        //         if($scope.plans.length>3){
-        //             $timeout(function () {
-        //                 var swiper = new Swiper('.swiper-container', {
-        //                     slidesPerView: 'auto',
-        //                     spaceBetween:0,
-        //                     observer:true//修改swiper自己或子元素时，自动初始化swiper
-        //                 })
-        //             },0)
-        //         }
-        //         //设置票类型
-        //         $scope.ticketType = function (price1,price2) {
-        //             var price1 = Number(price1);
-        //             var price2 = Number(price2);
-        //             $scope.ticketObj = {};
-        //             if(price1>price2){//折扣票
-        //                 $scope.ticketObj.defstyle = {
-        //                     "background":"#4899FE"
-        //                 }
-        //                 $scope.ticketObj.ticketText = '折'
-        //             }else if(price1==price2){
-        //                 $scope.ticketObj.defstyle = {
-        //                     "display":"none"
-        //                 }
-        //             }else{//议价票
-        //                 $scope.ticketObj.defstyle = {
-        //                     "background":"#FF5000"
-        //                 }
-        //                 $scope.ticketObj.ticketText = '溢'
-        //             }
-        //             return $scope.ticketObj
-        //         }
-        //     });
         //到货提醒弹窗
         $scope.telphone_no = localStorageService.get("telphone_no");
         var alertHe =  angular.element('.mask1 .alert_box1').outerHeight();
@@ -431,7 +230,10 @@ stareal
             angular.element('.tic .alertBox').animate({bottom:-alertBox1},200);
             angular.element('.tic').fadeOut();
         }
-
+        $scope.Xuanclose=function(){
+            angular.element('.xuanzuo_content .good_conten').animate({bottom:-alertBox1},200);
+            angular.element('.xuanzuo_content').fadeOut();
+        }
         //提交预约
         $scope.submitPop = function (){
             var myreg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
@@ -1008,73 +810,74 @@ stareal
                 }
             }
 
-            //选座提交订单
-            $scope.xuanCreateOrder=function(gf){
-                // if (!localStorageService.get('token')) {
-                //     $scope.$broadcast('to-child');
-                //     return;
-                // }
-                var _po = $scope.prices[$scope.paras.priceIndex];
-                console.log(_po);
-                if ( $scope.seatsList.length == 0) {
-                    $alert.show("请选择座位!");
-                    return;
-                }
-
-                if(gf==1){
-                    $(angular.element("body")[0]).css('overflow','auto');
-                    localStorageService.set('seatscart', $scope.seatscart);
-                    localStorageService.set('title',$scope.title);
-                    localStorageService.set('ticketId',_po.id);
-                    localStorageService.set('site_title',$scope.site_title);
-                    localStorageService.set('eventShowId',$scope.eventShowId);
-                    localStorageService.set('thumb',$scope.thumb);
-                    localStorageService.set('seatsList',$scope.seatsList);
-                    $state.go('main.pay',{order_id:$stateParams.good_id})
-                }
-                if($scope.gf == 2) {
-                    if (!localStorageService.get('token')) {
-                        // $state.go("main.login",{})
-                        // return false;
-                        var ua = window.navigator.userAgent.toLowerCase();
-                        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                            // 正式地址
-                            location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                                // "appid=wxd39f7e740343d507&" +
-                                // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                                "appid=wxda73ac8ac7af1261&" +
-                                "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
-                                "&response_type=code&scope=snsapi_userinfo&state=";
-
-                            // //测试redirect_uri
-                            // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                            //     "appid=wxd39f7e740343d507&" +
-                            //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
-                            //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-                        } else {
-                            // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
-                            //     "appid=wx05c47c7db58b03aa&" +
-                            //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
-                            //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
-                            location.href = "#/main/login/";
-                        }
-                    }
-                }
-                if(gf==0){//预约登记
-                    var height = $(window).height();
-                    $(".subscribe").css("height", height);
-                    $(".subscribe").fadeIn();
-                    return false
-                }
-                if(gf==3){
-                    $alert.show("演出结束");
-                    return false
-                }
-                if(gf==4){
-                    $alert.show("您已预约！")
-                    return false;
-                }
-            }
+            // //选座提交订单
+            // $scope.xuanCreateOrder=function(gf){
+            //     // if (!localStorageService.get('token')) {
+            //     //     $scope.$broadcast('to-child');
+            //     //     return;
+            //     // }
+            //     var _po = $scope.prices[$scope.paras.priceIndex];
+            //     console.log(_po);
+            //     if ( $scope.seatsList.length == 0) {
+            //         $alert.show("请选择座位!");
+            //         return;
+            //     }
+            //
+            //     if(gf==1){
+            //         $(angular.element("body")[0]).css('overflow','auto');
+            //         localStorageService.set('xuanzuo',true);
+            //         localStorageService.set('seatscart', $scope.seatscart);
+            //         localStorageService.set('title',$scope.title);
+            //         localStorageService.set('ticketId',_po.id);
+            //         localStorageService.set('site_title',$scope.site_title);
+            //         localStorageService.set('eventShowId',$scope.eventShowId);
+            //         localStorageService.set('thumb',$scope.thumb);
+            //         localStorageService.set('seatsList',$scope.seatsList);
+            //         $state.go('main.pay',{order_id:$stateParams.good_id})
+            //     }
+            //     if($scope.gf == 2) {
+            //         if (!localStorageService.get('token')) {
+            //             // $state.go("main.login",{})
+            //             // return false;
+            //             var ua = window.navigator.userAgent.toLowerCase();
+            //             if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            //                 // 正式地址
+            //                 location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+            //                     // "appid=wxd39f7e740343d507&" +
+            //                     // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
+            //                     "appid=wxda73ac8ac7af1261&" +
+            //                     "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+            //                     "&response_type=code&scope=snsapi_userinfo&state=";
+            //
+            //                 // //测试redirect_uri
+            //                 // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+            //                 //     "appid=wxd39f7e740343d507&" +
+            //                 //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
+            //                 //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+            //             } else {
+            //                 // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
+            //                 //     "appid=wx05c47c7db58b03aa&" +
+            //                 //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
+            //                 //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
+            //                 location.href = "#/main/login/";
+            //             }
+            //         }
+            //     }
+            //     if(gf==0){//预约登记
+            //         var height = $(window).height();
+            //         $(".subscribe").css("height", height);
+            //         $(".subscribe").fadeIn();
+            //         return false
+            //     }
+            //     if(gf==3){
+            //         $alert.show("演出结束");
+            //         return false
+            //     }
+            //     if(gf==4){
+            //         $alert.show("您已预约！")
+            //         return false;
+            //     }
+            // }
             // ****************************************  初始化  ****************************************
             $scope.switchPlan = switchPlan;
             $scope.switchCat = switchCat;
@@ -1158,7 +961,7 @@ stareal
                 $scope.$apply(function(){
                     $scope.switchPlan(ind,eventDAYiD);
                 });
-                // console.log(ind);
+                 console.log(ind);
             }else{
 
                 $('div.c-event-item').removeClass('c-event-over1').removeClass('active');

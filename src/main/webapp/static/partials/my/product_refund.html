@@ -16,15 +16,15 @@
         <div class="good-list clear" ng-repeat="goods in good.orderItems">
             <img ng-src="{{goods.productImg}}" alt="" class="fl">
             <ul class="list fl">
-                <li>{{goods.productName}}</li>
-                <li>{{goods.good_name}}</li>
+                <li class="good-productName">{{goods.productName}}</li>
+                <li class="good-good-name">{{goods.good_name}}</li>
                 <li class="good-property">颜色分类：{{goods.specificationValueNames}}</li>
             </ul>
         </div>
         <!--<div class="refund-line"></div>-->
         <div ng-click="result()" class="refund_div"><span>退款原因</span><span class="refund-result" ng-model="refundReason">{{refundReason}}</span><i class="arrow"></i></div>
         <!--<div class="refund-line"></div>-->
-        <div class="refund_div"><span>退款金额：<span class="price">￥{{good.totalPrice}}</span></span><i class="arrow"></i></div>
+        <div class="refund_div"><span>退款金额：<span class="price">￥{{good.totalPrice}}</span></span></div>
         <!--<div class="refund-line"></div>-->
         <div class="refund_div"><span>退款说明：选填</span></div>
         <!--<div class="refund-line"></div>-->

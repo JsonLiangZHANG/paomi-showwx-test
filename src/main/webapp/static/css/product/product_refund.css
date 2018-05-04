@@ -24,6 +24,14 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     width: 6rem;
+    margin-left: 0.15rem;
+}
+.productrefund .productorder-good .list .good-productName,.productrefund .productorder-good .list .good-good-name{
+    font-size: 12px;
+    font-weight: 600;
+}
+.productrefund .productorder-good .list .good-property{
+    color: #999;
 }
 .productrefund .productorder-good ul .productorder-good-property{
     font-size: 12px;

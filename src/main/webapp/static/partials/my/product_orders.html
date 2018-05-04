@@ -49,14 +49,18 @@
                     </div>
                 </div>
             </div>
-            <div class="orders_row_btns clear" style="padding:0.21333rem 0" ng-hide="(order.status=='待发货')||(order.status=='已完成'&&order.deliver_type==2)">  <!--无按钮的时候-->
-                <div class="Btn_time fl" ng-show="order.status=='待支付'" style="height:0.72rem;line-height:0.72rem;"><p change-product-state1 order-state="order.status" create-time="order.time" ></p></div>
+            <!--<div class="orders_row_btns clear" style="padding:0.21333rem 0" ng-hide="(order.status=='待发货')||(order.status=='已完成'&&order.deliver_type==2)">  &lt;!&ndash;无按钮的时候&ndash;&gt;-->
+            <div class="orders_row_btns clear" style="padding:0.21333rem 0">
+               <div class="Btn_time fl" ng-show="order.status=='待支付'" style="height:0.72rem;line-height:0.72rem;"><p change-product-state1 order-state="order.status" create-time="order.time" ></p></div>
                 <div class="btns">
                     <a href="" ng-if="order.status=='待支付'" ng-click="cancelOrder(order.orderId,order)">取消订单</a>
                     <a href="" ng-if="order.status=='待支付'" ng-click="verify(order.orderId,order.time,order)">立即支付</a>
                     <a href="" ng-if="order.status=='已取消'" ng-click="deleteOrder(order.orderId,order)">删除订单</a>
-                    <a href="" ng-if="(order.status=='已完成'||order.status=='待收货')&&(order.deliver_type!=2)" ui-sref="my.logistics_information({order_id:{{order.orderId}}})">查看物流</a>
-                    <a href="" ng-if="order.status=='待收货'" ng-click="donelOrder(order.orderId,order)">确认收货</a>
+                    <a href="" ng-if="order.status=='已退款'" ng-click="deleteOrder(order.orderId,order)">删除订单</a>
+                    <a href="" ng-if="order.status=='待发货'" ui-sref="my.product_refund({id:{{order.orderId}}})">我要退款</a>
+                    <a href="" ng-if="order.status=='已发货'" ui-sref="my.product_refund({id:{{order.orderId}}})">我要退货</a>
+                    <a href="" ng-if="(order.status=='已完成'||order.status=='已发货')&&(order.deliver_type!=2)" ui-sref="my.logistics_information({order_id:{{order.orderId}}})">查看物流</a>
+                    <a href="" ng-if="order.status=='已发货'" ng-click="donelOrder(order.orderId,order)">确认收货</a>
                 </div>
             </div>
         </div>

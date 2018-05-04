@@ -494,6 +494,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             templateUrl: 'static/partials/my/product_refund.html',
             resolve: loadLazyjs([
                 'static/js/controllers/my/product_refund.js',
+                'static/js/controllers/public/public.js',
                 'static/css/public.css',
                 'static/css/product/product_refund.css',
             ])
@@ -504,6 +505,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             templateUrl: 'static/partials/my/product_order.html',
             resolve: loadLazyjs([
                 'static/js/controllers/my/product_order.js',
+                'static/js/controllers/public/public.js',
                 'static/css/public.css',
                 'static/css/product/product_order.css',
             ])

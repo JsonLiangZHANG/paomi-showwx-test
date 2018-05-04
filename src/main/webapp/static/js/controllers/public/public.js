@@ -97,6 +97,12 @@ stareal
             if(status=='待发货'){
                 $scope.text = '待发货';
             }
+            if(status=='已支付'){
+                $scope.text = '待发货';
+            }
+            if(status=='已退款'){
+                $scope.text = '已退款';
+            }
             if(status=='待收货'){
                 $scope.text = '待收货';
             }
@@ -106,6 +112,10 @@ stareal
             if(status=='已取消'){
                 $scope.text = '已取消';
             }
+            if(status=='退货中'){
+                $scope.text = '退货处理中';
+            }
+
             return $scope.text;
         }
         //发表时间转换

@@ -26,22 +26,35 @@
         <!--<div class="refund-line"></div>-->
         <div class="refund_div"><span>退款金额：<span class="price">￥{{good.totalPrice}}</span></span></div>
         <!--<div class="refund-line"></div>-->
-        <div class="refund_div"><span>退款说明：选填</span></div>
+        <div class="refund_div"><span>退款说明：<input type="text" placeholder="选填" class="input_explain" id="remark"></span></div>
         <!--<div class="refund-line"></div>-->
     </div>
     <!--商品区域结束-->
     <!--上传凭证开始-->
-    <div class="photo">
+
+    <div class="photo" ng-if="good.orderStatus=='已发货'">
         <span class="photo-title">上传凭证</span>
-        <div class="box">
-            <img src="static\img\CombinedShape@2x.png" alt="">
+        <div class="row" style="overflow:visible;">
+            <div class="thumb-box clear" style="overflow:visible">
+                <div ng-repeat="item in uploader.queue|limitTo:6" class="thumb fl">
+                    <div class="img" ng-show="uploader.isHTML5" ng-thumb="{ file: item._file}"></div>
+                    <span ng-click="item.remove()"></span>
+                </div>
+            </div>
+        </div>
+        <div class="box" ng-hide="uploader.queue.length==6">
+            <img ng-src="static\img\CombinedShape@2x.png" alt="">
             <span class="text">上传凭证</span>
             <span class="text">（最多6张）</span>
+            <input type="file" nv-file-select uploader="uploader" multiple id="uploader_file">
         </div>
     </div>
     <!--上传凭证结束-->
-    <div class="submit">
-        <div class="refund-submit">提交</div>
+    <div class="submit" ng-if="good.orderStatus=='已发货'">
+        <div class="refund-submit" ng-click="submit0()">申请退货</div>
+    </div>
+    <div class="submit" ng-if="good.orderStatus=='已支付'">
+        <div class="refund-submit" ng-click="submit()">申请退款</div>
     </div>
     <!--退款原因弹出框开始-->
     <div class="mask">

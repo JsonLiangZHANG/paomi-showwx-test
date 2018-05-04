@@ -13,7 +13,7 @@
     <!--标题结束-->
     <!--取消开始-->
     <div class="bgc">
-        <span class="text">已取消</span>
+        <span class="text">{{good.orderStatus}}</span>
     </div>
     <!--取消结束-->
     <!--地址详情开始-->
@@ -31,7 +31,7 @@
     <div class="goods-list clear">
         <div class="productorder-good clear" ng-repeat="goods in good.orderItems">
             <img ng-src="{{goods.productImg}}"  alt="">
-            <ul>
+            <ul class="good_infoul">
                 <li>{{goods.productName}}</li>
                 <li>{{goods.good_name}}</li>
                 <li class="good-name">{{goods.specificationValueNames}}</li>
@@ -41,17 +41,56 @@
                 <p class="number">×{{goods.quantity}}</p>
             </span>
         </div>
-        <div class="line2"></div>
-        <ul>
+
+        <ul class="good_priceul">
             <li class="good-price">商品金额：￥{{good.totalPrice}}</li>
             <li class="good-price">快递金额：￥{{good.postFee}}</li>
             <li class="good-price">合计金额：￥{{good.payFee}}</li>
         </ul>
-        <div class="line2"></div>
     </div>
     <div class="btn">
-        <div class="btn-tui" ng-click="refund()">申请退款</div>
-        <div class="btn-shan">删除订单</div>
+        <div class="btn-tui" ng-if="good.orderStatus=='已发货'" ng-click="refund()">申请退货</div>
+        <div class="btn-tui" ng-if="good.orderStatus=='已支付'" ng-click="refund()">申请退款</div>
+
+        <div class="btn-shan" ng-if="good.orderStatus=='待支付'"  ng-click="cancelOrder(orderId)">取消订单</div>
+        <div class="btn-shan" ng-if="good.orderStatus=='待支付'"  ng-click="verify(orderId,good.orderCreated)">立即支付</div>
+
+
+
+        <div class="btn-shan" ng-if="good.orderStatus=='已取消'" ng-click="deleteOrder(orderId)">删除订单</div>
+        <div class="btn-shan" ng-if="good.orderStatus=='已完成'" ng-click="deleteOrder(orderId)">删除订单</div>
+        <div class="btn-shan" ng-if="good.orderStatus=='已退款'" ng-click="deleteOrder(orderId)">删除订单</div>
     </div>
     <!--商品详情结束-->
+    <!--支付方式开始-->
+    <div class="mask_pay" ng-click="close()">
+        <div class="pay_box br" ng-click="bubble($event)">
+            <div class="pay_title f14 pd_rl16">
+                <span>支付方式</span>
+                <i class="off" ng-click="close()"></i>
+            </div>
+            <div class="timer pd_tb8 linear">
+                <p>支付剩余时间{{date|date:'mm:ss'}}</p>
+            </div>
+            <div class="pay_method pd_rl12">
+                <ul>
+                    <li ng-show="!showPay" ng-click="pay()">
+                        <i class="alipay"></i>
+                        <span>支付宝</span>
+                        <i class="arrow"></i>
+                    </li>
+                    <li ng-show="showPay" ng-click="pay()">
+                        <i class="pay_wechat"></i>
+                        <span>微信</span>
+                        <i class="arrow"></i>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--支付方式结束-->
+    <form id="alipaysubmit" name="alipaysubmit" action="" method="post">
+        <input type="hidden" name="biz_content" value=""/>
+    </form>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.0.0.js"></script>
 </div>

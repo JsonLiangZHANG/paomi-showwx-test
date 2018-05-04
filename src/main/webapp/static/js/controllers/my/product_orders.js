@@ -98,7 +98,7 @@ stareal
                 //支付
                 $api.post("app/pay/gateway/create", {
                     orderId: $scope.orderId,
-                    tradeType: 0,
+                    tradeType: 4,
                     payType: 4
                 }, true)
                     .then(function (ret) {
@@ -107,14 +107,14 @@ stareal
                         document.forms['alipaysubmit'].submit();
                     }, function (err) {
                         $alert.show(err);
-                        $state.go("my.orders", {})
+                        $state.go("my.productorders", {})
                     })
             }
             //微信支付
             if($scope.payType==0){
                 $api.post("app/pay/gateway/create",{
                     orderId: $scope.orderId,
-                    tradeType: 0,
+                    tradeType: 4,
                     payType: 0,
                     openid: localStorageService.get('openid')
                 },true)

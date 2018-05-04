@@ -50,9 +50,13 @@
 /*.Productorder .good{*/
     /*margin: 10px 0;*/
 /*} */
-.Productorder ul{
+.Productorder ul.good_infoul{
     display: inline-block;
     vertical-align: top;
+}
+.Productorder .good_priceul{
+    border-top: 2px solid #ddd;
+    font-size: 0.34rem;
 }
 .Productorder ul .good-name,.Productorder ul .good-price{
     color: #999;

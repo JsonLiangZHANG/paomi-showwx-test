@@ -108,7 +108,7 @@ stareal
         };
         //计算价格
         var calculate = function (num, price, deliverType, couponId, addressId, belly) {
-            var _params = {num: num, price: price, deliverType: deliverType};
+            var _params = {num: num, price: price, deliverType: deliverType,good_id:$scope.order_id};
             if (deliverType == 1) {
                 _params.addressId = addressId;
             }
@@ -130,6 +130,10 @@ stareal
                         $scope.showpay = false;
                     } else {
                         $scope.showpay = true;
+                    }
+                    if($scope.deliver_price==1001){
+                        $alert.show('超出配送范围内，请重新选择地址!');
+                        //  return;
                     }
                 });
         };
@@ -155,6 +159,10 @@ stareal
         $scope.verify = function () {
             console.log(798)
             // 校验
+            if($scope.deliver_price==1001){
+                $alert.show('超出配送范围内，请重新选择地址!');
+                return false;
+            }
             // 快递
             if ($scope.param.deliverType == 1) {
                 if (!$scope.param.addressId) {

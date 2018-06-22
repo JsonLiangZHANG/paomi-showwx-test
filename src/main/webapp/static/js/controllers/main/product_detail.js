@@ -303,26 +303,30 @@ stareal
                     entity.speci = JSON.stringify(speciArray);
                 }
                 itemsArray.push(entity);
-
-                $api.post("app/product/order/balance", {items:JSON.stringify(itemsArray)}, true)
-                    .then(function (ret) {
-                        //var productcartOrderDto= new Object();
-                        // console.log(ret);
-                        var orderDto=ret.data.orderDto;
-                        // console.log("很久很久很久机会");
-                        // console.log(orderDto);
-                        // console.log($scope.skuParr);
-                        // console.log(productspeedPays);
-                        productspeedPays.payFee=orderDto.payFee;
-                        productspeedPays.postFee=orderDto.postFee;
-                        localStorageService.set('productspeedPays', productspeedPays);
-                        localStorageService.set('productspeeditemsArray',itemsArray);
-                        localStorageService.set('skuParr',$scope.skuParr);
-                        $state.go('main.productspay',{order_id:$stateParams.good_id},{reload:true});
-                    }, function (err) {
-                        $alert.show(err)
-
-                    })
+                // console.log(productspeedPays);
+                localStorageService.set('productspeedPays', productspeedPays);
+                localStorageService.set('productspeeditemsArray',itemsArray);
+                localStorageService.set('skuParr',$scope.skuParr);
+                $state.go('main.productspay',{order_id:$stateParams.good_id},{reload:true});
+                // $api.post("app/product/order/balance", {items:JSON.stringify(itemsArray)}, true)
+                //     .then(function (ret) {
+                //         //var productcartOrderDto= new Object();
+                //         // console.log(ret);
+                //         var orderDto=ret.data.orderDto;
+                //         // console.log("很久很久很久机会");
+                //         // console.log(orderDto);
+                //         // console.log($scope.skuParr);
+                //         // console.log(productspeedPays);
+                //         productspeedPays.payFee=orderDto.payFee;
+                //         productspeedPays.postFee=orderDto.postFee;
+                //         localStorageService.set('productspeedPays', productspeedPays);
+                //         localStorageService.set('productspeeditemsArray',itemsArray);
+                //         localStorageService.set('skuParr',$scope.skuParr);
+                //         $state.go('main.productspay',{order_id:$stateParams.good_id},{reload:true});
+                //     }, function (err) {
+                //         $alert.show(err)
+                //
+                //     })
             }
         }
         // $scope.productSpeedpay=function(){//立即购买

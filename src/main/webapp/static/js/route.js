@@ -72,8 +72,45 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             ])
         })
 
-
-
+        //新闻详情
+        .state('main.newdetail', {
+            url: '/newdetail/:newId',
+            templateUrl: 'static/partials/main/new_detail.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/new_detail.js',
+                'static/css/public.css'
+            ])
+        })
+        //新闻详情 app展示
+        .state('main.newappdetail', {
+            url: '/newappdetail/:newId',
+            templateUrl: 'static/partials/main/new_appdetail.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/new_detail.js',
+                'static/css/public.css'
+            ])
+        })
+        //新闻列表
+        .state('main.newslist', {
+            url: '/newslist/:kind/:sort/:direct/:keyword',
+            templateUrl: 'static/partials/main/newslist.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/newslist.js',
+                'static/js/controllers/public/public.js',
+                'static/css/public.css',
+                'static/css/product.css',
+                'static/css/new.css',
+                'static/css/special.css'
+            ])
+        })
+        .state('main.gooddetail', {
+            url: '/gooddetail',
+            templateUrl: 'static/partials/main/gooddetail.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/gooddetail.js',
+                'static/css/public.css'
+            ])
+        })
         //衍生品
         .state('main.product', {
             url: '/product/:kind/:sort/:direct/:keyword',

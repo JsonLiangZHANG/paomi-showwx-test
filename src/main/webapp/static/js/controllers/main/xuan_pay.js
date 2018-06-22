@@ -26,7 +26,7 @@ stareal
         $scope.total = 0//总价
         $.each($scope.seatsListArray,function(index,data){
             console.log(data);
-            $scope.total+=parseInt(data.unit_price);
+            $scope.total+=parseInt(data.price);
         })
         $scope.num = $scope.seatscart.length;//数量
         $scope.is_coupon = localStorageService.get('is_coupon')
@@ -124,7 +124,7 @@ stareal
         };
         // 计算价格
         var calculate = function (eventId, tickets, deliverType, couponId, addressId,belly) {
-            var _params = {eventId: eventId, tickets: tickets, deliverType: deliverType};
+            var _params = {eventId: eventId, tickets: tickets, deliverType: deliverType,good_id:$scope.order_id};
             console.log(tickets)
             if (deliverType == 1) {
                 _params.addressId = addressId;
@@ -141,6 +141,10 @@ stareal
                     $scope.total_price = ret.data.actually_paid;//总价
                     $scope.beily_price = ret.data.belly_value / 100//贝里值
                     $scope.copon_price = ret.data.coupon_value;//优惠值
+                    if($scope.deliver_price=='1001'){
+                        $alert.show('超出配送范围内，请重新选择地址!');
+                        //  return;
+                    }
                 });
         };
 
@@ -162,10 +166,16 @@ stareal
         }
         $scope.live_mobile = localStorageService.get("telphone_no");
         //支付前校验信息
-        var _params = {ticketId: $scope.ticketId, ticketNum: $scope.num};
+        var seatcart=$scope.seatscart.join(',');
+        var _params = {ticketId: $scope.ticketId, ticketNum:  $scope.seatsListlength, deliverType: $scope.param.deliverType,eventId:$scope.eventId,tickets:seatcart,totalprice:$scope.total,seats:JSON.stringify($scope.seatsListArray),good_id:$scope.order_id};
         $scope.verify = function () {
             console.log(798)
             // 校验
+            // 快递
+            if($scope.deliver_price=='1001'){
+                $alert.show('超出配送范围内，请重新选择地址!');
+                return false;
+            }
             // 快递
             if ($scope.param.deliverType == 1) {
                 if (!$scope.param.addressId) {
@@ -216,7 +226,7 @@ stareal
             //支付宝
             if ($scope.payType == 4) {
                 //生成订单
-                $api.post("app/order/index/create", _params, true)
+                $api.post("app/order/index/createorder", _params, true)
                     .then(function (ret) {
                         $scope.orderId = ret.data.orderId
                         $api.post("app/pay/gateway/create", {//支付订单
@@ -240,7 +250,7 @@ stareal
             //微信支付
             if ($scope.payType == 0) {
                 //生成订单
-                $api.post("app/order/index/create", _params, true)
+                $api.post("app/order/index/createorder", _params, true)
                     .then(function (ret) {
                         $scope.orderId = ret.data.orderId
                         $api.post("app/pay/gateway/create", {//支付订单

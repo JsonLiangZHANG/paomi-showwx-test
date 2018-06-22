@@ -9,8 +9,9 @@
         <!--<i class="location"></i>-->
         <!--<div class="home-search-btn fl f14">上海</div>-->
         <div class="home-search-input f10 home_weixin">
-            <img src="static/img/logo_weixin.png" alt=""class="logo_weixin">
-            <i class="search" ui-sref="main.search"></i>
+            <!--<img src="static/img/logo_weixin.png" alt=""class="logo_weixin">-->
+              <span style="text-align: center; width: 100%;display: block;font-size: 0.45rem;line-height: 1.0rem;">首页</span>
+            <!--<i class="search" ui-sref="main.search"></i>-->
             <!--<input type="text" placeholder="搜索明星、演出、场馆...">-->
         </div>
     </div>
@@ -21,11 +22,11 @@
             <li ng-repeat="slide in advs" >
                 <div ng-style="{'background-image': 'url(' + slide.thumb + ')'}"  class="bgimage">
                     <!--添加按钮-->
-                    <div class="carousel_dailog" ui-sref="main.topic"></div>
-                    <div class="carousel_btnGroup">
-                        <a class="flag-btn ng-binding Purchase_btn" ui-sref="main.detail({good_id:{{slide.id}}})">购票</a>
-                        <a class="flag-btn ng-binding review_btn" ui-sref="main.special">精彩回顾 <img src="static/img/bofang.png" alt="" class="review_img"></a>
-                    </div>
+                    <div class="carousel_dailog" ></div>
+                    <!--<div class="carousel_btnGroup">-->
+                        <!--<a class="flag-btn ng-binding Purchase_btn" ui-sref="main.detail({good_id:{{slide.id}}})">购票</a>-->
+                        <!--<a class="flag-btn ng-binding review_btn" ui-sref="main.special">精彩回顾 <img src="static/img/bofang.png" alt="" class="review_img"></a>-->
+                    <!--</div>-->
 
                 </div>
             </li>
@@ -94,7 +95,7 @@
             <i class="fl"></i>
             <div class="text-scroll fl slide">
                 <ul class="slideUl">
-                    <li ng-repeat = "data in datasetData"  ui-sref="main.detail({good_id:{{data.id}}})"><p><span style="color:#000;">{{data.title}}</span></p></li>
+                    <li ng-repeat = "data in datasetData"  ui-sref="main.newdetail({newId:{{data.id}}})"><p><span style="color:#000;">{{data.title}}</span></p></li>
                 </ul>
             </div>
         </div>
@@ -112,46 +113,46 @@
         </div>
     </div>-->
     <!--更多精彩剧目-->
-    <div class="Repertoire">
-        <h4 class="f14 pd_rl12" style="line-height:50px;">更多精彩剧目</h4>
-        <div class="swiper-container Repertoire_container" >
-            <ul class="swiper-wrapper Repertoire-wrapper clear" >
-                    <li ng-repeat="lat in latest" class="Repertoire_li swiper-slide">
-                        <img ng-src="{{lat.thumb}}" alt="" class="Repertoire_img">
-                        <div class="figcaption flag-item Repertoire_item">
-                            <div class="flag-title Repertoire_item_title">
-                                <a title="" ng-bind="lat.title"></a>
-                            </div>
-                            <div class="flag-price Repertoire_item_data" ng-bind="lat.date"></div>
-                            <!--<div class="flag-type Repertoire_item_site" ng-bind="lat.site_title" ></div>-->
-                            <!--<a class="flag-btn" href="" ng-style="btnSetColor(lat.state)" ng-bind="btnText(lat.state)"></a>-->
+    <!--<div class="Repertoire">-->
+        <!--<h4 class="f14 pd_rl12" style="line-height:50px;">更多精彩剧目</h4>-->
+        <!--<div class="swiper-container Repertoire_container" >-->
+            <!--<ul class="swiper-wrapper Repertoire-wrapper clear" >-->
+                    <!--<li ng-repeat="lat in latest" class="Repertoire_li swiper-slide">-->
+                        <!--<img ng-src="{{lat.thumb}}" alt="" class="Repertoire_img">-->
+                        <!--<div class="figcaption flag-item Repertoire_item">-->
+                            <!--<div class="flag-title Repertoire_item_title">-->
+                                <!--<a title="" ng-bind="lat.title"></a>-->
+                            <!--</div>-->
+                            <!--<div class="flag-price Repertoire_item_data" ng-bind="lat.date"></div>-->
+                            <!--&lt;!&ndash;<div class="flag-type Repertoire_item_site" ng-bind="lat.site_title" ></div>&ndash;&gt;-->
+                            <!--&lt;!&ndash;<a class="flag-btn" href="" ng-style="btnSetColor(lat.state)" ng-bind="btnText(lat.state)"></a>&ndash;&gt;-->
 
-                            <a class="flag-btn ng-binding Repertoire_Purchase" ui-sref="main.detail({good_id:{{lat.id}}})">购票</a>
+                            <!--<a class="flag-btn ng-binding Repertoire_Purchase" ui-sref="main.detail({good_id:{{lat.id}}})">购票</a>-->
 
-                        </div>
-                    </li>
-            </ul>
-            <div class="swiper-pagination Repertoire-pagination" style="display: none;"></div>
-        </div>
-      <!--  <ul>
-            <li ng-repeat="lat in latest" class="Repertoire_li">
-                <img ng-src="{{lat.thumb}}" alt="" class="Repertoire_img">
-                <div class="figcaption flag-item Repertoire_item">
-                    <div class="flag-title Repertoire_item_title">
-                        <a title="" ng-bind="lat.title"></a>
-                    </div>
-                    <div class="flag-price Repertoire_item_data" ng-bind="lat.date"></div>
+                        <!--</div>-->
+                    <!--</li>-->
+            <!--</ul>-->
+            <!--<div class="swiper-pagination Repertoire-pagination" style="display: none;"></div>-->
+        <!--</div>-->
+      <!--&lt;!&ndash;  <ul>-->
+            <!--<li ng-repeat="lat in latest" class="Repertoire_li">-->
+                <!--<img ng-src="{{lat.thumb}}" alt="" class="Repertoire_img">-->
+                <!--<div class="figcaption flag-item Repertoire_item">-->
+                    <!--<div class="flag-title Repertoire_item_title">-->
+                        <!--<a title="" ng-bind="lat.title"></a>-->
+                    <!--</div>-->
+                    <!--<div class="flag-price Repertoire_item_data" ng-bind="lat.date"></div>-->
 
 
-                        <a class="flag-btn ng-binding Repertoire_Purchase" ui-sref="main.detail({good_id:{{lat.id}}})"></a>
+                        <!--<a class="flag-btn ng-binding Repertoire_Purchase" ui-sref="main.detail({good_id:{{lat.id}}})"></a>-->
 
-                </div>
-            </li>
-        </ul>-->
-    </div>
+                <!--</div>-->
+            <!--</li>-->
+        <!--</ul>&ndash;&gt;-->
+    <!--</div>-->
     <!--活动专区结束-->
     <!--热门推荐开始-->
-   <!-- <div class="hot" ng-controller="PublicController">
+   <div class="hot" ng-controller="PublicController">
         <h4>更多精彩剧目</h4>
         <div class="hot-list">
             <ul>
@@ -176,7 +177,7 @@
                 </li>
             </ul>
         </div>
-    </div>-->
+    </div>
     <!--热门推荐结束-->
     <!--底部菜单开始-->
     <menu></menu>

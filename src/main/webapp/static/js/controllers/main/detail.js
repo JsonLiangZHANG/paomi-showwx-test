@@ -107,6 +107,34 @@ stareal
         var alertBox2 = angular.element('.good_conten .l_con').outerHeight();
         $scope.go = function (gf, e) {
             var alertTic = angular.element('body').height();
+            if (!localStorageService.get('token')) {
+                // $state.go("main.login",{})
+                // return false;
+                var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
+                var ua = window.navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    // 正式地址
+                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                        // "appid=wxd39f7e740343d507&" +
+                        // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
+                        "appid=wxda73ac8ac7af1261&" +
+                        "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                        "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
+
+                    // //测试redirect_uri
+                    // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    //     "appid=wxd39f7e740343d507&" +
+                    //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
+                    //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                } else {
+                    // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
+                    //     "appid=wx05c47c7db58b03aa&" +
+                    //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
+                    //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
+                    location.href = "#/main/login/"+encodeURIComponent(rs);
+                }
+                return false;
+            }
             if ($scope.gf == 1) {
                 localStorageService.set('title', $scope.title);
                 console.log($scope.title);
@@ -144,32 +172,7 @@ stareal
                 }
             }
             if ($scope.gf == 2) {
-                if (!localStorageService.get('token')) {
-                    // $state.go("main.login",{})
-                    // return false;
-                    var ua = window.navigator.userAgent.toLowerCase();
-                    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                        // 正式地址
-                        location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                            // "appid=wxd39f7e740343d507&" +
-                            // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                            "appid=wxda73ac8ac7af1261&" +
-                            "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
-                            "&response_type=code&scope=snsapi_userinfo&state=";
 
-                        // //测试redirect_uri
-                        // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        //     "appid=wxd39f7e740343d507&" +
-                        //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
-                        //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-                    } else {
-                        // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
-                        //     "appid=wx05c47c7db58b03aa&" +
-                        //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
-                        //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
-                        location.href = "#/main/login/";
-                    }
-                }
                 var bodyH = angular.element('body').height();
                 angular.element('.mask').css({
                     'display': 'block',
@@ -293,6 +296,7 @@ stareal
             if (!localStorageService.get('token')) {
                 // $state.go("main.login",{})
                 // return false;
+                var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                     // 正式地址
@@ -301,7 +305,7 @@ stareal
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
                         "appid=wxda73ac8ac7af1261&" +
                         "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
-                        "&response_type=code&scope=snsapi_userinfo&state=" ;
+                        "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
                     // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
@@ -313,7 +317,7 @@ stareal
                     //     "appid=wx05c47c7db58b03aa&" +
                     //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
                     //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
-                    location.href = "#/main/login/";
+                    location.href = "#/main/login/"+encodeURIComponent(rs);
                 }
                 return false;
             }
@@ -324,6 +328,7 @@ stareal
             if (!localStorageService.get('token')) {
                 // $state.go("main.login",{})
                 // return false;
+                var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                     // 正式地址
@@ -332,7 +337,7 @@ stareal
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
                         "appid=wxda73ac8ac7af1261&" +
                         "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
-                        "&response_type=code&scope=snsapi_userinfo&state=" ;
+                        "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
                     // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
@@ -344,7 +349,7 @@ stareal
                     //     "appid=wx05c47c7db58b03aa&" +
                     //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
                     //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
-                    location.href = "#/main/login/";
+                    location.href = "#/main/login/"+encodeURIComponent(rs);
                 }
                 return false;
             }
@@ -959,16 +964,17 @@ stareal
                 var ind= $($('div.c-event-item[data-event-day="' + d  + '"]')[0]).index();
                 // console.log(eventDAYiD);
                 $scope.$apply(function(){
+                    console.log(ind);
                     $scope.switchPlan(ind,eventDAYiD);
                 });
                  console.log(ind);
             }else{
-
                 $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
                 $('div.c-event-item[data-event-day="0' + d  + '"]').addClass('c-event-over1');
                 $($('div.c-event-item[data-event-day="0' + d  + '"]')[0]).addClass('active');
                 var ind= $($('div.c-event-item[data-event-day="0' + d  + '"]')[0]).index();
                 // console.log(eventDAYiD);
+                console.log(ind);
                 $scope.$apply(function(){
                     $scope.switchPlan(ind,eventDAYiD);
                 });
@@ -992,29 +998,38 @@ stareal
             var eventDAYiD= $($('div.c-event[data-event-day="' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
             if($scope.dshow>=10){
                 // console.log("hbjhjbhjhj");
-                $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
-                $('div.c-event-item[data-event-day="' + $scope.dshow  + '"]').addClass('c-event-over1');
-                $($('div.c-event-item[data-event-day="' + $scope.dshow  + '"]')[0]).addClass('active');
+
                 // console.log( $($('div.c-event-item[data-event-day="' + d  + '"]')[0]).index());
                 var ind= $($('div.c-event-item[data-event-day="' + $scope.dshow  + '"]')[0]).index();
                 // var eventDAYiD= $($('div.c-event[data-event-day="' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
                 // // console.log(ind);
                 // console.log(eventDAYiD);
-                $scope.$apply(function(){
-                    $scope.switchPlan(ind,eventDAYiD);
-                });
+                console.log(ind);
+                if(ind!=-1){
+                    $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
+                    $('div.c-event-item[data-event-day="' + $scope.dshow  + '"]').addClass('c-event-over1');
+                    $($('div.c-event-item[data-event-day="' + $scope.dshow  + '"]')[0]).addClass('active');
+                    $scope.$apply(function(){
+                        $scope.switchPlan(ind,eventDAYiD);
+                    });
+                }
+
             }else{
                 // console.log("hbjhjbhjhj*********");
-                $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
-                $('div.c-event-item[data-event-day="0' +$scope.dshow + '"]').addClass('c-event-over1');
-                $($('div.c-event-item[data-event-day="0' + $scope.dshow+ '"]')[0]).addClass('active');
+
                 var ind= $($('div.c-event-item[data-event-day="0' + $scope.dshow + '"]')[0]).index();
                 // var eventDAYiD= $($('div.c-event[data-event-day="0' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
                 // // console.log(ind);
                 // console.log(eventDAYiD);
-                $scope.$apply(function(){
-                    $scope.switchPlan(ind,eventDAYiD);
-                });
+                console.log(ind);
+                if(ind!=-1){
+                    $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
+                    $('div.c-event-item[data-event-day="0' +$scope.dshow + '"]').addClass('c-event-over1');
+                    $($('div.c-event-item[data-event-day="0' + $scope.dshow+ '"]')[0]).addClass('active');
+                    $scope.$apply(function(){
+                        $scope.switchPlan(ind,eventDAYiD);
+                    });
+                }
             }
 
         };
@@ -1029,29 +1044,38 @@ stareal
             var eventDAYiD= $($('div.c-event[data-event-day="' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
             if($scope.dshow>=10){
                 // console.log("hbjhjbhjhj");
-                $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
-                $('div.c-event-item[data-event-day="' + $scope.dshow  + '"]').addClass('c-event-over1');
-                $($('div.c-event-item[data-event-day="' + $scope.dshow  + '"]')[0]).addClass('active');
+
                 // console.log( $($('div.c-event-item[data-event-day="' + d  + '"]')[0]).index());
                 var ind= $($('div.c-event-item[data-event-day="' + $scope.dshow + '"]')[0]).index();
                 // var eventDAYiD= $($('div.c-event-item[data-event-day="' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
                 // // console.log(ind);
                 //console.log(eventDAYiD);
-                $scope.$apply(function(){
-                    $scope.switchPlan(ind,eventDAYiD);
-                });
+                console.log(ind);
+                if(ind!=-1){
+                    $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
+                    $('div.c-event-item[data-event-day="' + $scope.dshow  + '"]').addClass('c-event-over1');
+                    $($('div.c-event-item[data-event-day="' + $scope.dshow  + '"]')[0]).addClass('active');
+                    $scope.$apply(function(){
+                        $scope.switchPlan(ind,eventDAYiD);
+                    });
+
+                }
             }else{
                 // console.log("hbjhjbhjhj*********");
-                $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
-                $('div.c-event-item[data-event-day="0' +$scope.dshow + '"]').addClass('c-event-over1');
-                $($('div.c-event-item[data-event-day="0' + $scope.dshow+ '"]')[0]).addClass('active');
+
                 var ind= $($('div.c-event-item[data-event-day="0' +  $scope.dshow  + '"]')[0]).index();
                 // var eventDAYiD= $($('div.c-event-item[data-event-day="0' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
                 // // console.log(ind);
                 //console.log(eventDAYiD);
-                $scope.$apply(function(){
-                    $scope.switchPlan(ind,eventDAYiD);
-                });
+                console.log(ind);
+                if(ind!=-1){
+                    $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
+                    $('div.c-event-item[data-event-day="0' +$scope.dshow + '"]').addClass('c-event-over1');
+                    $($('div.c-event-item[data-event-day="0' + $scope.dshow+ '"]')[0]).addClass('active');
+                    $scope.$apply(function(){
+                        $scope.switchPlan(ind,eventDAYiD);
+                    });
+                }
             }
         };
 

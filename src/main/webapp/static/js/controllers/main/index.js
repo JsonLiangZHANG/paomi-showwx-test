@@ -4,7 +4,7 @@ stareal
     .controller("IndexController", function ($scope, $api, $alert, $document, localStorageService, $state,$timeout,$compile) {
         $scope.mypage = 1;
         $scope.my_sing = 1;//我的页面隐藏gif图
-       $api.get("app/main/latest/local",{},true) //本地最近五条信息
+       $api.get("app/news/list",{},true) //本地最近五条信息
             .then(function (ret) {
                 $scope.datasetData = ret.data.slice(0,5);
                 console.log($scope.datasetData)
@@ -49,7 +49,7 @@ stareal
                 $scope.advs = ret.data; //首页轮播
                 console.log($scope.advs);
                 //修改比例29/50
-                angular.element('#carousel-demo').height($document.width() * 0.95);
+                angular.element('#carousel-demo').height($document.width()/2.08);
             })
         //列表
         $api.get("app/main/latest/good",{})
@@ -83,26 +83,26 @@ stareal
         //     });
         // },0)
         //列表
-            var swiper = new Swiper('.Repertoire_container', {
-                slidesPerView: 'auto',
-                spaceBetween:0,
-                 pagination: '.Repertoire-pagination',//分页容器
-                // prevButton:'.swiper-button-prev',
-                // nextButton:'.swiper-button-next',
-                observer:true,//修改swiper自己或子元素时，自动初始化swiper
-
-            })
-            $timeout(function () {
-                /**增加class */
-                // swiper.prevButton.addClass("swiper-button-disabled");
-                // /**移除class */
-                // swiper.nextButton.removeClass("swiper-button-disabled");
-                swiper.setWrapperTransition(0);
-                /**设置位移0 显示第一页 */
-                swiper.setWrapperTranslate(0);
-              //console.log(swiper.realIndex);
-              // $(".Repertoire-wrapper").css('transform','translate3d(0px, 0px, 0px)');
-           },500)
+        //     var swiper = new Swiper('.Repertoire_container', {
+        //         slidesPerView: 'auto',
+        //         spaceBetween:0,
+        //          pagination: '.Repertoire-pagination',//分页容器
+        //         // prevButton:'.swiper-button-prev',
+        //         // nextButton:'.swiper-button-next',
+        //         observer:true,//修改swiper自己或子元素时，自动初始化swiper
+        //
+        //     })
+        //     $timeout(function () {
+        //         /**增加class */
+        //         // swiper.prevButton.addClass("swiper-button-disabled");
+        //         // /**移除class */
+        //         // swiper.nextButton.removeClass("swiper-button-disabled");
+        //         swiper.setWrapperTransition(0);
+        //         /**设置位移0 显示第一页 */
+        //         swiper.setWrapperTranslate(0);
+        //       //console.log(swiper.realIndex);
+        //       // $(".Repertoire-wrapper").css('transform','translate3d(0px, 0px, 0px)');
+        //    },500)
         //点击跳转
        /* var _wrapper = document.getElementById("swiper-wrapper");
         _wrapper.addEventListener("click",function (e) {

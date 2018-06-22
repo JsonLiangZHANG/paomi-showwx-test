@@ -42,8 +42,8 @@ stareal
             };
         }
         var token = localStorageService.get('token')
-        // var url = 'https://api.mydeershow.com/mobile/app/upload/image?accessToken='+token;//正式
-        var url = 'http://192.168.1.4/mobile/app/upload/image?accessToken='+token;//测试
+         var url = 'http://api.mldfzj.com/mobile/app/upload/image?accessToken='+token;//正式
+       // var url = 'http://192.168.1.4/mobile/app/upload/image?accessToken='+token;//测试
         var uploader = $scope.uploader = new FileUploader({
             url:url,
             alias:'image',

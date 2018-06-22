@@ -6,8 +6,9 @@ stareal
         $scope.order_id = $stateParams.order_id;
         $scope.productspay = localStorageService.get('productspeedPays');//商品信息
         $scope.productspeeditemsArray=localStorageService.get('productspeeditemsArray');//slu信息
-        $scope.sumTotal =$scope.productspay.payFee;//总价
-        console.log($scope.sumTotal);
+        $scope.productspeedPaysSku =localStorageService.get('skuParr');//商品sku
+
+       // console.log($scope.sumTotal);
         // console.log($scope.productspay.sum);
         $scope.param = {};
         $scope.param.deliverType = 1;
@@ -25,11 +26,11 @@ stareal
         $scope.isActive=true;
         $scope.subNum = function () {
             var num=parseInt($('#num').val());
-            if ( num == 1) {
+            if ( $scope.productspay.num == 1) {
                 return;
             }
 
-            $scope.productspay.num= num - 1;
+            $scope.productspay.num= $scope.productspay.num - 1;
             // calTotal();
             $scope.changeSum();
 
@@ -38,16 +39,52 @@ stareal
         $scope.addNum = function () {
 
             var num=parseInt($('#num').val());
-            if (num == $scope.max) {
-                $alert.show("最多只能购买"+$scope.max+"个")
-                return;
-            }
-            $scope.productspay.num= num + 1;
+            // if (num == $scope.max) {
+            //     $alert.show("最多只能购买"+$scope.max+"个")
+            //     return;
+            // }
+            $scope.productspay.num=  $scope.productspay.num + 1;
            $scope.changeSum();
         };
         $scope.changeSum=function(){
             $scope.productspay.sum=   $scope.productspay.num* $scope.productspay.price;
         }
+        // 计算价格
+        var calculate = function (num, price, deliverType, couponId, addressId,belly) {
+            var _params = {num: num, price: price, deliverType: deliverType};
+            if (deliverType == 1) {
+                _params.addressId = addressId;
+            }
+            if (couponId) {
+                _params.couponId = couponId;
+            }
+            if (belly) {
+                _params.belly = belly
+            }
+            $api.post("app/product/order/balance", {items:JSON.stringify($scope.productspeeditemsArray),addressId:addressId}, true)
+                .then(function (ret) {
+                    //var productcartOrderDto= new Object();
+                    // console.log(ret);
+                    var orderDto=ret.data.orderDto
+                    $scope.flagaddress=orderDto.flag;
+                    $scope.productspay.payFee=orderDto.payFee;
+                    $scope.productspay.postFee=orderDto.postFee;
+                    $scope.sumTotal =$scope.productspay.payFee;//总价
+                    // localStorageService.set('productcartOrderDtopostFee',productcartOrderDtopostFee);
+                    //  localStorageService.set('productcartOrderDtopayFee',productcartOrderDtopayFee);
+                    if($scope.flagaddress=='0'){
+                        $alert.show('超出配送范围内，请重新选择地址!');
+                        return false;
+                    }
+                }, function (err) {
+                    $alert.show(err)
+
+                })
+        };
+        // 监听取票方式/地址/优惠券的变化,实时计算价格
+        $scope.$watch('param', function (a, b) {
+            calculate($scope.param.num, $scope.param.price, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId,$scope.param.beily);
+        }, true);
         //监控数据
         $scope.$watch('productspay',function(newValue,oldValue,scope){
             $scope.sumTotal=0; //总计
@@ -106,7 +143,10 @@ stareal
             console.log($scope.param.addressId);
             // 校验
             // 快递
-
+            if($scope.flagaddress=='0'){
+                $alert.show('超出配送范围内，请重新选择地址!');
+                return false;
+            }
             if (!$scope.param.addressId) {
                 $alert.show('请添加收货地址!');
                 return;

@@ -16,14 +16,14 @@ stareal
                         $scope.Grade = '普通'
                         $scope.UpGrade = '白银';
                         $scope.bar = $scope.value/1000*100;
-                        $scope.barcolor = {background:'#98A4B2 '};
+                        $scope.barcolor = {background:'#FB5E83 '};
                         $scope.bar_icon = "vip_ordinary";
                     }
                     if($scope.level==2){
                         $scope.Grade = '白银'
                         $scope.UpGrade = '黄金';
                         $scope.bar = ($scope.value-1001)/2000*100;
-                        $scope.barcolor = {background:'#C2C2C2 '}
+                        $scope.barcolor = {background:'#FB5E83 '}
                         $scope.bar_icon = "vip_silver";
                     }
                     if($scope.level==3){

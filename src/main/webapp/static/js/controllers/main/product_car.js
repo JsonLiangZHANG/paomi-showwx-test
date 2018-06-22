@@ -185,23 +185,27 @@ stareal
                     itemsArray.push(entity);
                 }
             }
-            $api.post("app/product/order/balance", {items:JSON.stringify(itemsArray)}, true)
-                .then(function (ret) {
-                    //var productcartOrderDto= new Object();
-                    // console.log(ret);
-                    var orderDto=ret.data.orderDto
-                    var  productcartOrderDtopostFee=orderDto.postFee;
-                    var  productcartOrderDtopayFee=orderDto.payFee;
-                    localStorageService.set('productcartOrderDtopostFee',productcartOrderDtopostFee);
-                    localStorageService.set('productcartOrderDtopayFee',productcartOrderDtopayFee);
-                    localStorageService.set('productitemsArray',itemsArray);
-                    localStorageService.set('productcart',productCart);
-                    localStorageService.set('productTotalPrice',$scope.sumTotal);
-                    $state.go('main.productpay',{},{reload:true});
-                }, function (err) {
-                    $alert.show(err)
-
-                })
+            localStorageService.set('productitemsArray',itemsArray);
+            localStorageService.set('productcart',productCart);
+            localStorageService.set('productTotalPrice',$scope.sumTotal);
+            $state.go('main.productpay',{},{reload:true});
+            // $api.post("app/product/order/balance", {items:JSON.stringify(itemsArray)}, true)
+            //     .then(function (ret) {
+            //         //var productcartOrderDto= new Object();
+            //         // console.log(ret);
+            //         var orderDto=ret.data.orderDto
+            //         var  productcartOrderDtopostFee=orderDto.postFee;
+            //         var  productcartOrderDtopayFee=orderDto.payFee;
+            //         localStorageService.set('productcartOrderDtopostFee',productcartOrderDtopostFee);
+            //         localStorageService.set('productcartOrderDtopayFee',productcartOrderDtopayFee);
+            //         localStorageService.set('productitemsArray',itemsArray);
+            //         localStorageService.set('productcart',productCart);
+            //         localStorageService.set('productTotalPrice',$scope.sumTotal);
+            //         $state.go('main.productpay',{},{reload:true});
+            //     }, function (err) {
+            //         $alert.show(err)
+            //
+            //     })
             //  console.log(itemsArray);
             //  console.log("----------11444----------");
             // console.log(productCart);

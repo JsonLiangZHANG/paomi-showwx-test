@@ -6,86 +6,90 @@
                 <a class="back" ui-sref="main.detail({good_id:{{currentId}}})"></a>
                 <span class="headline f18">选择座位</span>
             </div>
-
-            <div class="min-top">
-                <a ui-sref="main.detail({good_id:{{currentId}}})">{{goodTitle}}></a>
-            </div>
-            <div class="m-scree"  ng-mouseleave="hide()">
-                <a href="javascript:;" class="m-scree-title " ng-click="show()" ng-class="{true:'m-scree-on',false:''}[timeshow]"><label style="width:auto;">
-                    <span id="pt">{{date}} </span>
-                    <!--<span style="padding: 0px 0px 0px 30px;" id="swt">更换场次<span class="new-down-arrow"></span></span></span>-->
-                </label>
-                </a>
-                <!--ng-if="timeshow"-->
-                <div class="ct" ng-if="timeshow">
-                    <ul class="lst clear">
-                        <li class="itm {{timeId== timeItem.id?'active':''}}" ng-repeat=" timeItem in timesList" ng-click="switch({{timeItem.id}},$index)">{{timeItem.name}}</li>
-                    </ul>
+            <div class="clear" style="padding: 0 0.32rem;position: relative;">
+                <div class="min-top fl">
+                    <a ui-sref="main.detail({good_id:{{currentId}}})">{{goodTitle}}></a>
+                </div>
+                <div class="m-scree fl"  ng-mouseleave="hide()">
+                    <a href="javascript:;" class="m-scree-title " ng-click="show()" ng-class="{true:'m-scree-on',false:''}[timeshow]"><label style="width:auto;">
+                        <span id="pt">{{date}} </span>
+                        <!--<span style="padding: 0px 0px 0px 30px;" id="swt">更换场次<span class="new-down-arrow"></span></span></span>-->
+                    </label>
+                    </a>
+                    <!--ng-if="timeshow"-->
+                    <div class="ct" ng-if="timeshow">
+                        <ul class="lst clear">
+                            <li class="itm {{timeId== timeItem.id?'active':''}}" ng-repeat=" timeItem in timesList" ng-click="switch({{timeItem.id}},$index)">{{timeItem.name}}</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
+
         </div>
         <div ng-bind-html="specialHtml" id="table_seats" style="background: #fff;border: 1px solid #ddd;">
 
         </div>
         <!--头部结束-->
 
+       <div class="seat_dailog" ng-click="hideShow()">
+           <div class="seat_box2"  id="seats_list" >
+               <table id="Seat_alertBox">
+                   <!--<thead>-->
+                   <!--<tr>-->
+                   <!--<td>区域</td>-->
+                   <!--<td>排</td>-->
+                   <!--<td>座位号</td>-->
+                   <!--<td>票价</td>-->
+                   <!--<td>操作</td>-->
+                   <!--</tr>-->
+                   <!--</thead>-->
+                   <tbody ng-show="seatsList.length!=0">
+                   <tr ng-repeat="seat in seatsList track by $index" on-finish-render-filters="completecarRepeat" data-svg="{{seat.seat_no}}" data-id="{{seat.seat_id}}">
+                       <td>{{seat.section_name}}</td>
+                       <td>{{seat.row}}</td>
+                       <td>{{seat.column}}</td>
+                       <td style="color: rgb(241,0,95);">￥{{seat.price}}</td>
+                       <td ><span class="detele_seat" ng-click="seats(seat.seat_no)">&times;</span></td>
 
-        <div class="seat_box2"  id="seats_list" >
-            <table id="Seat_alertBox">
-                <!--<thead>-->
-                <!--<tr>-->
-                    <!--<td>区域</td>-->
-                    <!--<td>排</td>-->
-                    <!--<td>座位号</td>-->
-                    <!--<td>票价</td>-->
-                    <!--<td>操作</td>-->
-                <!--</tr>-->
-                <!--</thead>-->
-                <tbody ng-show="seatsList.length!=0">
-                <tr ng-repeat="seat in seatsList track by $index" on-finish-render-filters="completecarRepeat" data-svg="{{seat.seat_no}}" data-id="{{seat.seat_id}}">
-                    <td>{{seat.section_name}}</td>
-                    <td>{{seat.row}}</td>
-                    <td>{{seat.column}}</td>
-                    <td style="color: rgb(241,0,95);">￥{{seat.unit_price}}</td>
-                    <td ><span class="detele_seat" ng-click="seats(seat.seat_no)">&times;</span></td>
+                       <!--<td>-->
+                       <!--<span>6 排</span>-->
+                       <!--<span>6 号</span>-->
+                       <!--</td>-->
 
-                    <!--<td>-->
-                        <!--<span>6 排</span>-->
-                        <!--<span>6 号</span>-->
-                    <!--</td>-->
+                       <!--<td>-->
+                       <!--<span>280￥</span>-->
+                       <!--</td>-->
+                       <!--<td>-->
+                       <!--<span>203区</span>-->
 
-                    <!--<td>-->
-                        <!--<span>280￥</span>-->
-                    <!--</td>-->
-                    <!--<td>-->
-                        <!--<span>203区</span>-->
+                       <!--</td>-->
+                       <!--<td>-->
+                       <!--<span>X</span>-->
 
-                    <!--</td>-->
-                    <!--<td>-->
-                        <!--<span>X</span>-->
+                       <!--</td>-->
+                   </tr>
+                   </tbody>
 
-                    <!--</td>-->
-                </tr>
-                </tbody>
+                   <tbody ng-show="seatsList.length==0">
+                   <tr>
+                       <td colspan="4">您还没选票！</td>
+                       <td>￥0</td>
+                   </tr>
+                   </tbody>
 
-                <tbody ng-show="seatsList.length==0">
-                <tr>
-                    <td colspan="4">您还没选票！</td>
-                    <td>￥0</td>
-                </tr>
-                </tbody>
-
-            </table>
+               </table>
 
 
-            <!--<div ng-show="seatsList.length!=0">您已选择&nbsp;<span style="color: rgb(241,0,91);">{{seatsnum}}</span>&nbsp;张票 &nbsp;&nbsp;&nbsp;总价：<span style="color: rgb(241,0,91);">￥{{total}}</span></div>-->
-            <!--&lt;!&ndash;<div class="create_seatsCart" ng-click="xuanCreateOrder(gf)" ng-show="seatsList.length!=0"> 立即购票 </div>&ndash;&gt;-->
-            <!--<div id="loading_img" style="position: absolute;top:50%;left:50%;width: 50px; height: 50px;margin-left: -25px;margin-top: -25px;z-index: 999999;"ng-show="seatsList.length!=0"><img src="static/img/loading1.gif" alt=""></div>-->
-        <!--</div>-->
+               <!--<div ng-show="seatsList.length!=0">您已选择&nbsp;<span style="color: rgb(241,0,91);">{{seatsnum}}</span>&nbsp;张票 &nbsp;&nbsp;&nbsp;总价：<span style="color: rgb(241,0,91);">￥{{total}}</span></div>-->
+               <!--&lt;!&ndash;<div class="create_seatsCart" ng-click="xuanCreateOrder(gf)" ng-show="seatsList.length!=0"> 立即购票 </div>&ndash;&gt;-->
+               <!--<div id="loading_img" style="position: absolute;top:50%;left:50%;width: 50px; height: 50px;margin-left: -25px;margin-top: -25px;z-index: 999999;"ng-show="seatsList.length!=0"><img src="static/img/loading1.gif" alt=""></div>-->
+               <!--</div>-->
 
-        <!--<div class="retractable" ng-class="{true:'',false:'active'}[seatsShow]" ng-click="retractableFn();">-->
-            <!--<i></i>-->
-        </div>
+               <!--<div class="retractable" ng-class="{true:'',false:'active'}[seatsShow]" ng-click="retractableFn();">-->
+               <!--<i></i>-->
+           </div>
+
+       </div>
 
 
         <!--&lt;!&ndash;选座弹窗&ndash;&gt;-->
@@ -129,5 +133,15 @@
             //   $scope.getseats();
             // alert('我是www.aaa.com域名下 a页面的方法');
         }
+
+
+        function v(){
+            var curPageUrl = window.document.location.href;
+            var rootPath = curPageUrl.split("//")[0] + curPageUrl.split("//")[1].split("/")[0]
+                + curPageUrl.split("//")[1].split("/")[1];
+            alert("我是网址1"+curPageUrl+"我是网址2"+rootPath);
+            return rootPath;
+        }
+
     </script>
 </div>

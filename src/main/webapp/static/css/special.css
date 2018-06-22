@@ -44,7 +44,7 @@
     line-height:1.06rem;
     color:#333;
     border-right:1px solid #e5e5e5;
-    padding:0.06rem 0;
+    /*padding:0.06rem 0;*/
 }
 #list_nav .nav_ul li.last{
     border:none;
@@ -57,7 +57,17 @@
 
 
 #list_nav .nav_ul li.active{
-    color: #f83601;
-    border-bottom: 1px solid #f83601;
+    color:#e83147;
+    border-bottom: 2px solid #e83147;
+}
+.list_style .list_top{
+    background: #e83147;
+}
+.list_style .list_top .title{
+    display:block;
+    width: 8.5rem;
+    height: 0.8rem;
+    background: #ffff;
+    border-radius: 0.8rem;
 }
 

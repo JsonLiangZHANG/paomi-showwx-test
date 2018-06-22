@@ -1,16 +1,39 @@
 .min-top{
-    height:0.8rem;
-    line-height: 1.2rem;
-    font-size:0.14rem;
-    width: 100%;
+    height:1.0rem;
+    line-height: 1.0rem;
+    font-size:0.32rem;
+    width: 4.0rem;
     overflow: hidden;
     text-align: left;
-    /*border-right: 1px solid #ddd;*/
+    border-right: 1px solid #ddd;
 }
-.min-top a,.m-scree a{
-    display: block;
+.min-top a{
+    height: 1.0rem;
+    line-height: 1.0rem;
+    font-size: 0.32rem;
+    width: 4.0rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
     color: #333;
     cursor: pointer;
+    /*border-right: 1px solid #ddd;*/
+}
+.m-scree a{
+    height: 1.0rem;
+    line-height: 1.0rem;
+    font-size: 0.32rem;
+    width: 4.5rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: #333;
+    cursor: pointer;
+
 }
 .m-scree a span{
     cursor: pointer;
@@ -26,24 +49,25 @@
 .m-scree{
     cursor: pointer;
     float: left;
-    width: 100%;
-    height: 1rem;
-    line-height: 1rem;
-    font-size: 0.14rem;
-    border-right: 1px solid #ddd;
+    width: 4.5rem;
+    height: 1.0rem;
+    line-height: 1.08rem;
+    font-size: 0.32rem;
+    /*border-right: 1px solid #ddd;*/
     /*margin-left: 1.555rem;*/
-    text-align: left;
+    text-align: center;
 }
 .ct .itm{
     float: left;
     display: block;
-    min-width: 122px;
+    min-width: 4.0rem;
     _width: 130px;
-    line-height: 24px;
-    padding: 4px;
+    line-height: 0.8rem;
+    /* padding: 4px; */
     text-align: center;
     border: 1px solid #fff;
-    margin:0 0 10px 10px;
+    /* margin: 0 0 10px 10px; */
+    margin: 0.2rem;
     border: 1px solid #eaeceb;
     display: inline;
     background-color: #fff;
@@ -53,14 +77,14 @@
     /*background: url(../img/m-datepicker-sel.png)no-repeat right bottom;*/
 }
 .ct{
-    /*display: none;*/
-    width: 780px;
+    /* display: none; */
+    width: 100%;
     background: #FFF;
-    padding: 20px;
+    /* padding: 20px; */
     position: absolute;
-    left: 50%;
-    margin-left: -445px;
-    top: 49px;
+    left: 0px;
+    /* margin-left: -445px; */
+    top: 1.0rem;
     border: 1px solid #a8a8a8;
     z-index: 200;
     /* display: none; */
@@ -100,14 +124,14 @@
 
 .seat_zj{
     position: fixed;
-    bottom: 0px;
+    bottom:0.1rem;
     left: 0;
     height: 1.1rem;
     width: 100%;
 }
 .zj_btn{
     width: 30%;
-    background: orange;
+    background: #e83147;
     height: 1.1rem;
     display: inline-block;
     line-height: 1.1rem;
@@ -131,21 +155,21 @@
 
 .seat_car_car{
     width: 15%;
-    /*background: beige;*/
+    /* background: beige; */
     display: inline-block;
     text-align: center;
     margin-left: 2%;
     height: 1.1rem;
     line-height: 1.1rem;
     float: left;
-    background: url(../img/car.jpg);
-    background-size: cover;
+    background: url(../img/car.png)no-repeat center center;
+    background-size: 100% 100%;
     position: relative;
 }
 
 .zj_total span:nth-child(1){
     font-size:16px;
-    color: orange;
+    color:#e83147;
 }
 a{
     text-decoration: none;
@@ -153,15 +177,23 @@ a{
 
 
 /*//弹窗样式*/
-
-.seat_box2 {
+.seat_dailog{
     width: 100%;
+    height: 100%;
     position: fixed;
     left: 0;
     bottom: 1.4rem;
     z-index: 1001;
     overflow: hidden;
     display: none;
+    background: rgba(0,0,0,.8);
+}
+.seat_box2 {
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    background: #fff;
 }
 
 #Seat_alertBox{
@@ -174,9 +206,17 @@ a{
     line-height:0.8rem
 }
 
-.seat_car_car span{
+.seat_car_car span.seat_num{
+    color: #fff;
+    display: block;
+    width: 0.7rem;
+    height: 0.7rem;
+    background: #e83147;
+    border-radius: 50%;
+    line-height: 0.7rem;
+    font-size: 0.4rem;
     position: absolute;
-    top: -15px;
-    right: 0px;
+    top: 0px;
+    right: -0.4rem;
 }
 

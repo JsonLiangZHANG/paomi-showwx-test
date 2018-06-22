@@ -13,20 +13,20 @@ stareal
             if(dataDpr==1){
                 $(".good_Detail").css({"font-size":28})
                 $(".good_Detail").find("p").find("span").css({"font-size":14})
-                $Img.width(img_w*1)
-                $Img.height(img_h*1)
+                // $Img.width(img_w*1)
+                // $Img.height(img_h*1)
             }
             if(dataDpr==2){
                 $(".good_Detail").css({"font-size":42})
                 $(".good_Detail").find("p").find("span").css({"font-size":28})
-                $Img.width(img_w*2)
-                $Img.height(img_h*2)
+                // $Img.width(img_w*2)
+                // $Img.height(img_h*2)
             }
             if(dataDpr==3){
                 $(".good_Detail").css({"font-size":56})
                 $(".good_Detail").find("p").find("span").css({"font-size":42})
-                $Img.width(img_w*3)
-                $Img.height(img_h*3)
+                // $Img.width(img_w*3)
+                // $Img.height(img_h*3)
             }
         },0)
     });

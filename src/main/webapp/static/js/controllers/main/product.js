@@ -3,7 +3,7 @@
 stareal
     .controller("ProductController", function ($scope, $api, $stateParams, $state, $lazyLoader,$timeout) {
         $scope.mypage = 2;
-        $scope.listpage= 2;
+        $scope.listpage= 1;
         $scope.kind = "";
         $scope.sort ='hot';
         $scope.direct = "desc";

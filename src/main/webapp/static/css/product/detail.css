@@ -47,7 +47,7 @@
 }
  .alert_productdetail p.product_price{
     font-size:0.5rem;
-    color:rgb(213,0,95);
+    color:#e83147;
 }
  .alert_productdetail p{
     font-size: 0.36rem;
@@ -73,8 +73,8 @@
     border-radius: 0.3rem;
 }
  .mask .sku_ul li span.active{
-    color: rgb(213,0,95);
-    border: 1px solid rgb(213,0,95);
+    color:#e83147;
+    border: 1px solid #e83147;
     background: #fff;
 }
 /** 添加货物*/
@@ -130,10 +130,15 @@
     font-size: 0.4rem;
     color: #fff;
     border-radius: 0.2rem;
-    background: url("../../img/shop_bg.png") no-repeat center center;
-    -webkit-background-size: 100% 100%;
-    background-size: 100% 100%;
+    background: #e83147;
+    /*-webkit-background-size: 100% 100%;*/
+    /*background-size: 100% 100%;*/
     margin-top: 0.8rem;
+}
+.productDetail .product_desciptionContent img{
+    width: 100% !important;
+    height: auto;
+    display: block;
 }
 /*衍生品详情*/
 .productDetail .product_imgcontent{
@@ -179,7 +184,7 @@
     font-size: 0.4rem;
 }
 .productDetail .product_contentPrice .new_price span{
-    color:rgb(213,0,95);
+    color:#e83147;
 }
 .productDetail .product_contentPrice .old_price{
     padding-left:0.3rem;
@@ -209,7 +214,7 @@
     border-bottom: 1px solid #ddd;
 }
 .productDetail .descript_btngroup .descript_btn.hover{
-    border-bottom: 5px solid rgb(241,0,91);
+    border-bottom: 5px solid #e83147;
 }
 .productDetail .product_NoticeContent{
     padding:0.3rem;
@@ -239,15 +244,15 @@
 .productDetail  .car_num{
     position: absolute;
     font-size: 0.34rem;
-    line-height: 1.0rem;
+    line-height: 0.8rem;
     text-align: center;
-    right: -0.85rem;
-    top:0.67rem;
-    margin-top:-0.5rem;
+    right: -0.5rem;
+    top: 0.67rem;
+    margin-top: -0.5rem;
     display: block;
-    width: 1.0rem;
-    height: 1.0rem;
-    background: rgb(213,0,95);
+    width: 0.8rem;
+    height: 0.8rem;
+    background: #e83147;
     border-radius: 0.5rem;
     color: #fff;
 }
@@ -262,8 +267,8 @@
 }
 .productDetail .product_btn  .add_car{
     font-size:0.34rem;
-    color:rgb(241,0,95);
-    border: 1px solid rgb(241,0,95);
+    color:#e83147;
+    border: 1px solid #e83147;
     background: #fff;
     padding:0.3rem;
     border-radius: 0.2rem;
@@ -273,8 +278,8 @@
 .productDetail .product_btn .sale{
     font-size:0.34rem;
     color:#fff;
-    background:url("../../img/shop_bg.png")no-repeat center center;
-    background-size: 100% 100%;
+    background:#e83147;
+    /*background-size: 100% 100%;*/
     padding:0.3rem 0.42rem;
     border-radius: 0.2rem;
 

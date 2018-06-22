@@ -52,6 +52,7 @@
 }
 .good .good_con .thumb img{
     width:100%;
+    height: 100%;
     border-radius: 0.10666rem;
 }
 .good .good_con .info{
@@ -74,7 +75,7 @@
 }
 .good .good_con .info .good_type .price p:first-child span{
     font-size:16px;
-    color:#FF5000;
+    color:#e83147;
 }
 [data-dpr="2"] .good .good_con .info .good_type .price p:first-child span{
     font-size:32px;
@@ -93,11 +94,11 @@
     font-size:30px;
 }
 .good .good_con .info .good_type .price p:last-child span{
-    color:#FF5000;
+    color:#e83147;
 }
 .good .good_con .info .good_type .price p:last-child{
     margin-top:-0.15rem;
-    color:#FF5000;
+    color:#e83147;
 }
 .good .good_con .info .good_type .price p:last-child span:first-child{
     font-size:24px;
@@ -221,11 +222,11 @@
     margin-right:0.32rem;
 }
 .tour .swiper-slide.active .xunyan{
-    border:1px solid #4899FE;
-    color:#4899FE;
+    border:1px solid #e83147;
+    color:#e83147;
 }
 .tour .swiper-slide.active p{
-    color:#4899FE;
+    color:#e83147;
 }
 .tour .swiper-slide .xunyan{
     width: 1.4rem;
@@ -256,7 +257,7 @@
 .intro .more{
     display: table;
     margin:0 auto;
-    color:#4899FE;
+    color:#e83147;
     margin-top:0.2666rem;
     font-size:12px;
 }
@@ -318,7 +319,7 @@
 }
 .comment_row > ul > li .comment_cont .itme_1 .name p:first-child{
     font-size: 12px;
-    color: #4899FE;
+    color:#000;
 }
 [data-dpr="2"] .comment_row > ul > li .comment_cont .itme_1 .name p:first-child{
     font-size: 24px;
@@ -445,7 +446,7 @@
 }
 .comment_row > ul > li .comment_cont > .more{
     font-size: 12px;
-    color: #4899FE;
+    color: #e83147;
 }
 [data-dpr="2"] .comment_row > ul > li .comment_cont > .more{
     font-size: 24px;
@@ -474,7 +475,7 @@
     text-align:center;
     background:#fff;
     padding:0.42666rem 0;
-    color:#4899FE;
+    color:#e83147;
     font-size:14px;
 }
 [data-dpr="2"] .more_all{
@@ -544,19 +545,19 @@
 .shop_box .shop_btn span{
     color:#fff;
     padding:0.1333rem 0.2666rem;
-    background: -webkit-linear-gradient(left, #FF9D00 , #FF5000); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #FF9D00, #FF5000); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #FF9D00, #FF5000); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #FF9D00 , #FF5000); /* 标准的语法（必须放在最后） */
+    background: -webkit-linear-gradient(left, #e83147 , #e83147); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right, #e83147, #e83147); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#e83147, #e83147); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right,#e83147 , #e83147); /* 标准的语法（必须放在最后） */
 }
 .shop_box .shop_btn span.disable{
     background:#999;
 }
 .shop_box .shop_btn span.subscribe{
-    background: -webkit-linear-gradient(left, #907CF5 , #3D50F0);
-    background: -o-linear-gradient(right, #907CF5, #3D50F0);
-    background: -moz-linear-gradient(right, #907CF5, #3D50F0);
-    background: linear-gradient(to right, #907CF5 , #3D50F0);
+    background: -webkit-linear-gradient(left, #e83147 ,#e83147);
+    background: -o-linear-gradient(right, #e83147, #e83147);
+    background: -moz-linear-gradient(right, #e83147, #e83147);
+    background: linear-gradient(to right, #e83147 , #e83147);
 }
 [data-dpr="2"] .shop_box .shop_btn{
     font-size:32px;
@@ -827,7 +828,7 @@
     width: 100%;
     height: 100%;
     border-radius: 50%;
-    background-color: #67CF22;
+    background-color: #e83147;
     opacity: 0.6;
     position: absolute;
     top: 0;
@@ -914,8 +915,8 @@
     text-align:center;
 }
 .detail .time_scroll ul li.active{
-     color: #e6a642;
-     border: 1px solid #e6a642;
+     color: #e83147;
+     border: 1px solid #e83147;
 }
 [data-dpr="2"] .detail  .time_scroll ul li{
     font-size:24px;
@@ -969,8 +970,8 @@
 
 
 .detail .fare .fare_list ul li.active{
-    color: #e6a642;
-    border: 1px solid #e6a642;
+    color:#e83147;
+    border: 1px solid #e83147;
 }
 /*缺货登记*/
 .detail .fare .fare_list ul li.disabled{
@@ -982,7 +983,7 @@
     margin-top:0.08rem;
 }
 .detail .fare .fare_list ul li.disabled p:last-child{
-    color:#4899FE;
+    color:#e83147;
 }
 [data-dpr="2"].detail .fare .fare_list ul li{
     font-size: 24px;
@@ -1068,7 +1069,7 @@
     border-radius:50%;
     text-align: center;
     line-height:.5333rem;
-    color:#FF5000;
+    color:#e83147;
     background:url("../img/plus_s.png") no-repeat center;
     background-size:100%;
 }
@@ -1099,7 +1100,7 @@
     padding-left: 0.5333rem;
 }
 .detail .total_box .total_price{
-    color:#FF5000;
+    color:#e83147;
 }
 .detail .total_box .total_price p span:first-child{
     font-size:16px;
@@ -1129,10 +1130,10 @@
     color:#fff;
     font-size:16px;
     margin: 0.2666rem auto 0 auto;
-    background: -webkit-linear-gradient(left, #FF9D00 , #FF5000); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right, #FF9D00, #FF5000); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right, #FF9D00, #FF5000); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #FF9D00 , #FF5000); /* 标准的语法（必须放在最后） */
+    background: -webkit-linear-gradient(left, #e83147 , #e83147); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right,#e83147, #e83147); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right, #e83147, #e83147); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right,#e83147 , #e83147); /* 标准的语法（必须放在最后） */
 }
 [data-dpr="2"].detail .total_box .total_btn{
     font-size:32px;
@@ -1254,7 +1255,7 @@
     display:inline-block;
     width:1.3333rem;
     height:1.3333rem;
-    background:#FF5000;
+    background:#e83147;
     border-radius:50%;
 }
 .detail .pay .address{
@@ -1331,7 +1332,7 @@
     padding-bottom:0;
 }
 .detail .pay .state p:last-child{
-    color:#FF5000;
+    color:#e83147;
 }
 .detail .pay .orders_itme .orders_row_info{
     width:7.4rem;
@@ -1374,43 +1375,44 @@
 }
 .alert_box1 .cloes{
     position:absolute;
-    right:0.32rem;
-    top:0.4266rem;
-    width: 0.4rem;
-    height: 0.4rem;
+    right:0.05rem;
+    top:0rem;
+    width: 0.5rem;
+    height: 0.5rem;
+    border-radius: 50%;
 }
  .alert_box1 .cloes{
-    background: url("../img/classify_off.png");
+    background: url("../img/comments_delete.png");
     background-size: 100%;
 }
 
  .alertBox .cloes{
-    position:absolute;
-    right:0.32rem;
-    top:0.1266rem;
-    width: 0.4rem;
-    height: 0.4rem;
-    cursor: pointer;
+     position:absolute;
+     right:0.05rem;
+     top:0rem;
+     width: 0.5rem;
+     height: 0.5rem;
+     border-radius:50%;
 }
 .alertBox .cloes{
-    background: url("../img/classify_off.png");
+    background: url("../img/comments_delete.png");
     background-size: 100%;
 }
 
 
 [data-dpr="2"].alertBox .cloes{
-    background: url("../img/classify_off@2x.png");
+    background: url("../img/comments_delete@2x.png");
     background-size: 100%;
 }
 [data-dpr="3"] .alertBox .cloes{
-    background: url("../img/classify_off@3x.png");
+    background: url("../img/comments_delete@3x.png");
     background-size: 100%;
 }
 
 
 
 [data-dpr="2"].alert_box1 .cloes{
-    background: url("../img/classify_off@2x.png");
+    background: url("../img/comments_delete@2x.png");
     background-size: 100%;
 }
 [data-dpr="3"] .alert_box1 .cloes{
@@ -1438,7 +1440,7 @@
     position: absolute;
     left:0;
     top:0.04rem;
-    background: #FF5000;
+    background: #e83147;
     border-radius: 2px;
 }
  .alert_box1 .alert_con .subscribe_btn,.alert_box .alert_con .subscribe_tips{
@@ -1464,10 +1466,10 @@
     border-radius: .10666rem;
     float: right;
     color: #fff;
-    background: -webkit-linear-gradient(left, #FF9D00 , #FF5000);
-    background: -o-linear-gradient(right, #FF9D00, #FF5000);
-    background: -moz-linear-gradient(right, #FF9D00, #FF5000);
-    background: linear-gradient(to right, #FF9D00 , #FF5000);
+    background: -webkit-linear-gradient(left,#e83147 , #e83147);
+    background: -o-linear-gradient(right, #e83147, #e83147);
+    background: -moz-linear-gradient(right, #e83147, #e83147);
+    background: linear-gradient(to right,#e83147 , #e83147);
 }
 
 .detail .fare_type ul li{
@@ -1546,7 +1548,7 @@
 }
 .good_conten .l_con .goupiao .bookbox .book_row_table h3{
     text-align:center;
-    color:rgb(213,0,95);
+    color:#e83147;
 }
 .shop_box{
     width: 100%!important;
@@ -1594,7 +1596,7 @@
 
 .good_conten .l_con .goupiao .create-order .order-price p{
     font-size: 32px;
-    color:rgb(213,0,95);
+    color:#e83147;
     margin:5px 0px;
 }
 .good_conten .l_con .goupiao .create-order .order-price .create-btn{
@@ -1605,7 +1607,7 @@
     color:#fff;
     border-radius:4px;
     font-size:16px;
-    background:#ff5b02;
+    background:#e83147;
     -webkit-background-size: 100%;
     background-size: 100%;
     cursor:pointer;

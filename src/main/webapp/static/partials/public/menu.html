@@ -1,14 +1,14 @@
 <!--底部菜单开始-->
 <div>
-    <div style="height:1.333rem"></div>
+    <div style="height:1.433rem"></div>
     <div class="menu_bar f10" ng-controller="PublicController">
         <ul class="clear">
             <li ui-sref="main.index">
-                <i class="menu-home" ng-class="{true: 'active',false:''}[mypage==1]" ng-bind="currentDate|date:'dd'"></i>
+                <i class="menu-home" ng-class="{true: 'active',false:''}[mypage==1]" ></i>
                 <p ng-class="{true: 'active',false:''}[mypage==1]">首页</p>
             </li>
             <!--修改传入的kind参数-->
-            <li ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
+            <li ui-sref="main.product({kind:'',sort:'hot',direct:'desc',keyword:''})">
                 <i class="menu-classify" ng-class="{true: 'active',false:''}[mypage==2]"></i>
                 <p ng-class="{true: 'active',false:''}[mypage==2]">分类</p>
             </li>

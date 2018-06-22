@@ -46,17 +46,19 @@
 }
 .list .top i{
     display: block;
-    width: 0.64rem;
-    height: 0.64rem;
+    width: 0.5rem;
+    height: 0.5rem;
     background: #D8D8D8;
     position: absolute;
 }
 .list .top i.search{
-    top: 0.2666rem;
-    right: 1.2666rem;
+    /*width: 0.64rem;*/
+    /*width: 0.64rem;*/
+    top: 0.35rem;
+    right: 1.4rem;
 }
 .list .top i.screen{
-    top: 0.2666rem;
+    top: 0.35rem;
     right: 0.32rem;
     background: url("../img/classify_screen_n.png");
     background-size: 100%;

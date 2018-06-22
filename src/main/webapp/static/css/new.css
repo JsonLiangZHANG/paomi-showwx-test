@@ -1,0 +1,36 @@
+.newscontainer{
+    margin-top: 2.2rem;
+}
+.newscontainer .news-list {
+    padding:0 0.32rem ;
+}
+
+.newscontainer .news-list .news_list_img{
+    width:100%;
+    height: 5.77rem;
+    border-radius: 0.2rem;
+}
+.newscontainer .news-list .news_list_title{
+    font-size: 0.42rem;
+    line-height: 0.8rem;
+    color: #000;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+}
+.newscontainer .news-list .news-list-li{
+    padding: 0.2rem 0rem;
+    border-bottom: 1px solid #D0CCCC;
+}
+.newscontainer .news-list .news_list_description{
+    font-size: 0.34rem;
+    line-height: 0.6rem;
+    color: #999;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}

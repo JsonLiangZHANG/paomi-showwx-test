@@ -5,8 +5,8 @@ stareal
         //获取本地存储
         $scope.productcart = localStorageService.get('productcart');//商品信息
         $scope.total = localStorageService.get('productTotalPrice');//总价
-        $scope.productcartOrderDtopostFee=localStorageService.get('productcartOrderDtopostFee');//订单信息
-        $scope.productcartOrderDtopayFee=localStorageService.get('productcartOrderDtopayFee');//订单信息
+        // $scope.productcartOrderDtopostFee=localStorageService.get('productcartOrderDtopostFee');//订单信息
+        // $scope.productcartOrderDtopayFee=localStorageService.get('productcartOrderDtopayFee');//订单信息
         $scope.productitemsArray= localStorageService.get('productitemsArray');//确认订单信息
         console.log( $scope.productcart);
         $scope.param = {};
@@ -99,38 +99,44 @@ stareal
                 $alert.show("此项目不能使用优惠券")
             }
         };
-        //计算价格
-        var calculate = function (num, price, deliverType, couponId, addressId, belly) {
-            var _params = {num: num, price: price, deliverType: deliverType};
-            if (deliverType == 1) {
-                _params.addressId = addressId;
-            }
-            if (couponId) {
-                _params.couponId = couponId;
-            }
-            if (belly) {
-                _params.belly = belly
-            }
-            //$scope.beily_price = localStorageService.get('belly')
-
-            $api.get("app/order/index/calculate", _params, true)
+        // 计算价格
+        var calculate = function ( addressId) {
+            // var _params = {num: num, price: price, deliverType: deliverType,good_id:$scope.order_id };
+            // if (deliverType == 1) {
+            //     _params.addressId = addressId;
+            // }
+            /*  if (couponId) {
+                  _params.couponId = couponId;
+              }*/
+            /* if (belly) {
+                 _params.belly = belly
+             }*/
+            $api.post("app/product/order/balance", {items:JSON.stringify($scope.productitemsArray),addressId:addressId}, true)
                 .then(function (ret) {
-                    $scope.deliver_price = ret.data.express_value; //快递费
-                    $scope.total_price = ret.data.actually_paid;//总价
-                    $scope.beily_price = ret.data.belly_value / 100//贝里值
-                    $scope.copon_price = ret.data.coupon_value;//优惠值
-                    if ($scope.total_price == 0) {
-                        $scope.showpay = false;
-                    } else {
-                        $scope.showpay = true;
+                    //var productcartOrderDto= new Object();
+                    // console.log(ret);
+                    var orderDto=ret.data.orderDto
+                    $scope.flagaddress=orderDto.flag;
+                    var  productcartOrderDtopostFee=orderDto.postFee;
+                    var  productcartOrderDtopayFee=orderDto.payFee;
+                    $scope.productcartOrderDtopostFee=productcartOrderDtopostFee;//订单信息
+                    $scope.productcartOrderDtopayFee=productcartOrderDtopayFee;//订单信息
+                    // localStorageService.set('productcartOrderDtopostFee',productcartOrderDtopostFee);
+                    //  localStorageService.set('productcartOrderDtopayFee',productcartOrderDtopayFee);
+                    if($scope.flagaddress=='0'){
+                        $alert.show('超出配送范围内，请重新选择地址!');
+                        return false;
                     }
-                });
+                }, function (err) {
+                    $alert.show(err)
+
+                })
         };
 
 
-        // 监听取票方式/地址/优惠券的变化,贝里，实时计算价格
+        // 监听取票方式/地址/优惠券的变化,实时计算价格
         $scope.$watch('param', function (a, b) {
-            calculate($scope.num, $scope.price, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId, $scope.param.beily);
+            calculate($scope.param.addressId);
         }, true);
 
 
@@ -161,7 +167,11 @@ stareal
             console.log($scope.param.addressId);
             // 校验
             // 快递
-
+            // 快递
+            if($scope.flagaddress=='0'){
+                $alert.show('超出配送范围内，请重新选择地址!');
+                return false;
+            }
             if (!$scope.param.addressId) {
                     $alert.show('请添加收货地址!');
                     return;

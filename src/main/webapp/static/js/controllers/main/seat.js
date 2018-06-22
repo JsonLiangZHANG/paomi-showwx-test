@@ -119,14 +119,19 @@ stareal
             $scope.date= $scope.timesList[index].name;
             $scope.currentEventId= $scope.timesList[index].eventId;
             $scope.timeshow = false;
+            var host_arg = "&hostname="+ location.host;
             if(!localStorageService.get('token')){
-                var mobile=localStorageService.get('mobile');
+                var mobile=localStorageService.get('telphone_no');
+                console.log(mobile)
                 //http://app.mydeershow.com/ 正式
-                //http://api.dd.com/  测试
-                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/mobile/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=wechat&ver='+Math.random()+'" frameborder="0" width="100%" height="500";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                //http://api.dd.com/  测试  http://192.168.191.1:9090/map/dome.do?mapId=5&mobile=18721481251&sellerId=1001&source=pc&eventId=16
+                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://192.168.1.7/map/phonedome.do?mapId=10&mobile='+mobile+'&sellerId=1001&source=h5&eventId=16'+$scope.currentEventId+'&ver='+Math.random()+ host_arg + '" frameborder="0" width="100%" height="500" ;style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                // $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/webpc/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=pc&ver='+Math.random()+'" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
             }else{
-                var mobile=localStorageService.get('mobile');
-                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/mobile/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=wechat&ver='+Math.random()+'" frameborder="0" width="100%" height="500";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                var mobile=localStorageService.get('telphone_no');
+                console.log(mobile);
+                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://192.168.1.7/map/phonedome.do?mapId=10&mobile='+mobile+'&sellerId=1001&source=h5&eventId='+$scope.currentEventId+'&ver='+Math.random()+ host_arg + '" frameborder="0" width="100%" height="500" ;style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                //$scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/webpc/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=pc&ver='+Math.random()+'" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>')
 
             }
             $scope.getseats();
@@ -134,40 +139,58 @@ stareal
         }
 
         $scope.getseats=function(){
-            //正式  http://app.mydeershow.com/mobile/getCartP
-            var myUrl = 'http://app.mydeershow.com/mobile/getCartP?EventId='+ $scope.currentEventId+'&UserId='+localStorageService.get('mobile')+'&AppId=FEQWEe&m=wechat';
-            $http.jsonp(myUrl).success(
-                function (response) {
-                    var carts=response.data;
-                    console.log(carts);
-                    console(1111);
-
-                    $scope.seatsList=carts.seats;
-                    $scope.seatscart=carts.cart;
-                    $scope.seatsnum=$scope.seatscart.length;
+            //console.log("调用");
+            $scope.seatscart=[];
+            //正式  http://app.mydeershow.com/mobile/getCartP    http://ticket.blackwan.cn/
+            // var myUrl = 'http://app.mydeershow.com/webpc/getCartP?EventId='+ $scope.currentEventId+'&UserId='+localStorageService.get('mobile')+'&AppId=FEQWEe&m=pc';
+            var myUrl='http://192.168.1.7/shoppingcart_v2/usercart-cors?eventid='+$scope.currentEventId+'&userid='+localStorageService.get('telphone_no')+'&mapid=10&source=h5&callback=JSON_CALLBACK';
+            $http.jsonp(myUrl)
+                .success(function (data) {
+                    console.log(data);
+                    var data=data.data;
+                    $scope.seatsList=data;
+                    // $scope.seatscart=carts.cart;
+                    $scope.seatsnum=$scope.seatsList.length;
+                    // console.log(carts);
                     $(".seats_list").show();
                     $scope.total=0;
                     $.each($scope.seatsList,function(index,data){
-                        console.log(data);
-                        $scope.total+=parseInt(data.unit_price);
+                        //  console.log(data);
+                        $scope.seatscart.push(data.seatid);
+                        $scope.total+=parseInt(data.price);
                     })
 
                 })
-                .error(
-                    function(response,config){
-                        console.log(carts);
-                        $scope.seatsList=carts.seats;
-                        $scope.seatscart=carts.cart;
-                        $scope.seatsnum=$scope.seatscart.length;
-                        // console.log(carts);
-                        $(".seats_list").show();
-                        $scope.total=0;
-                        $.each($scope.seatsList,function(index,data){
-                            console.log(data);
-                            $scope.total+=parseInt(data.unit_price);
-                        })
+                .error(function (e) {
+                    // console.log(e);
+                });
+            /*  $http.jsonp(myUrl).success(
+                  function (response) {
+                      $scope.seatsList=carts.seats;
+                      $scope.seatscart=carts.cart;
+                      $scope.seatsnum=$scope.seatscart.length;
+                      $(".seats_list").show();
+                      $scope.total=0;
+                      $.each($scope.seatsList,function(index,data){
+                          console.log(data);
+                          $scope.total+=parseInt(data.unit_price);
+                      })
 
-                    });
+                  })
+                  .error(
+                      function(response,config){
+                          $scope.seatsList=carts.seats;
+                          $scope.seatscart=carts.cart;
+                          $scope.seatsnum=$scope.seatscart.length;
+                          // console.log(carts);
+                          $(".seats_list").show();
+                          $scope.total=0;
+                          $.each($scope.seatsList,function(index,data){
+                               console.log(data);
+                              $scope.total+=parseInt(data.unit_price);
+                          })
+
+                      });*/
 
         }
         $scope.retractableFn=function(){
@@ -188,7 +211,7 @@ stareal
         //选座弹
         // var alertSeatBox = angular.element('.seat_box2 #Seat_alertBox').outerHeight();
         $scope.goShow=function () {
-            $(".seat_box2").fadeIn();
+            $(".seat_dailog").fadeIn();
 
         //
         //     angular.element('.seat_box2 #Seat_alertBox').css({
@@ -198,25 +221,53 @@ stareal
         //     angular.element('.seat_box2 #Seat_alertBox').animate({bottom: '0px'}, 200);
         //
         }
+        $scope.hideShow=function () {
+            $(".seat_dailog").fadeOut();
+
+            //
+            //     angular.element('.seat_box2 #Seat_alertBox').css({
+            //         'display': 'block',
+            //         'bottom': -alertSeatBox
+            //     });
+            //     angular.element('.seat_box2 #Seat_alertBox').animate({bottom: '0px'}, 200);
+            //
+        }
 
 
 
         //删除选的座位
-        $scope.seats=function(seatNo){
+        $scope.seats=function(seatNo,seatId,section_name){
+            // shoppingcart_v2/pcdeltocart  callback userid id appid eventid
             // console.log(seatNo);
-            var iframes="http://app.mydeershow.com/webpc/js?EventId="+$scope.eventShowId+"&UserId=3f34&AppId=FEQWED&m=android&seatNo="+seatNo;
+
+            // var myUrl='http://sxzc67.natappfree.cc/shoppingcart_v2/pcdeltocart?eventid=16&id='+seatNo+'&userid='+localStorageService.get('mobile')+'&mapid=5&source=pc&callback=JSON_CALLBACK';
+            // $http.jsonp(myUrl)
+            //     .success(function (data) {
+            //
+            //       if(data.success){
+            //$scope.getseats();
+            var iframes='http://192.168.1.7/map/temp.do?eventid='+$scope.currentEventId+'&id='+seatNo+'&seatId='+seatId+'&seat_area='+section_name+'&userid='+localStorageService.get('telphone_no')+'&mapid=10&source=h5';
             var  oFrame = document.createElement('iframe');
             if(typeof(oFrame)=='undefined'){
-                oFrame.src = iframes +'&a='+ Math.random();
+                oFrame.src = iframes +'&a='+ Math.random()+'&time='+new Date();
                 oFrame.style.display = 'none';
                 document.body.appendChild(oFrame);
                 //console.log('a');
-            }else{
-                oFrame.src = iframes +'&a='+ Math.random();
+            }else {
+                oFrame.src = iframes + '&a=' + Math.random() + '&time=' + new Date();
                 oFrame.style.display = 'none';
                 document.body.appendChild(oFrame);
-                // console.log('b');
             }
+            // console.log('b');
+            //   }else{
+            //       $alert.show(data.msg);
+            //   }
+            //
+            //
+            // })
+            // .error(function (e) {
+            //     $alert.show(e);
+            // });
 
         }
         $scope.completecarRepeat=function(){

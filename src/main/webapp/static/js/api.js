@@ -15,8 +15,11 @@ stareal.config(function ($httpProvider, localStorageServiceProvider) {
         .setStorageType('sessionStorage');
 
 }).factory('$api', function ($q, $http, localStorageService) {
-
-    var host_prefix = "https://api.mydeershow.com/mobile/";
+    var host_prefix = "http://api.mldfzj.com/mobile/";
+   // var host_prefix = "https://api.mydeershow.com/mobile/";
+    //var host_prefix = "http://api.sat-show.com/mobile/";
+    //var host_prefix = " http://api.owe108.com.cn/mobile/";
+   // var host_prefix = "http://api.amazingmusicals.com/mobile/";
     //var host_prefix = "http://192.168.1.4/mobile/";
     var service = {
         get: function (url, params, needToken) {

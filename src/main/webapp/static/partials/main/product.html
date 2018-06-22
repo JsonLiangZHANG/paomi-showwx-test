@@ -1,10 +1,10 @@
-<div class="product" ng-controller="ProductController">
+<div class="product list_style" ng-controller="ProductController">
         <!--头部开始-->
-        <div class="top">
-            <span class="title">分类</span>
-            <i class="search" ui-sref="main.search"></i>
-            <i class="screen {{sf==true?'active':''}}" ng-click="toggle()"></i>
-        </div>
+    <div class="top list_top">
+        <span class="title"  ui-sref="main.search"></span>
+        <i class="search" ui-sref="main.search"></i>
+        <i class="screen {{sf==true?'active':''}}" ng-click="toggle()"></i>
+    </div>
         <!--头部结束-->
         <!--筛选开始-->
         <div ng-show="sf">
@@ -36,15 +36,25 @@
     <!--导航-->
     <div class="nav" id="list_nav">
         <ul class="nav_ul">
-            <li  class="list_piao" ng-class="{true: 'active',false:''}[listpage==1]" ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
-                <div class="clear" style="width: 1.8rem;margin: 0 auto;text-align: center;">
-                    <span class="fl"style="width: 1.0rem;line-height: 1.0rem;font-size: 0.4rem;">票务</span>
-                </div>
+            <!--<li  class="list_piao" ng-class="{true: 'active',false:''}[listpage==1]" ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">-->
+                <!--<div class="clear" style="width: 1.8rem;margin: 0 auto;text-align: center;">-->
+                    <!--<span class="fl"style="width: 1.0rem;line-height: 1.0rem;font-size: 0.4rem;">票务</span>-->
+                <!--</div>-->
 
-            </li>
-            <li  class="list_product active last" ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product">
+            <!--</li>-->
+            <!--<li  class="list_product active last" ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product">-->
+                <!--<div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">-->
+                    <!--<span class="fl" style="width: 1.4rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>-->
+                <!--</div>-->
+            <!--</li>-->
+            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==1]" ui-sref="main.product({kind:'',sort:'hot',direct:'desc',keyword:''})">
                 <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
-                    <span class="fl" style="width: 1.4rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>
+                    <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>
+                </div>
+            </li>
+            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.newslist({kind:'',sort:'hot',direct:'desc',keyword:''})">
+                <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
+                    <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">资讯</span>
                 </div>
             </li>
         </ul>
@@ -84,9 +94,9 @@
     </div>
         <!--列表结束-->
         <!--暂无数据开始-->
-        <div class="nodata" ng-show="false">
+        <div class="nodata" ng-show="goods.nodata">
             <div class="no_classify"></div>
-            <p class="f14">这里没演出，去隔壁看看吧</p>
+            <p class="f14">这里没衍生品，去隔壁看看吧</p>
         </div>
         <!--暂无数据结束-->
         <menu></menu>

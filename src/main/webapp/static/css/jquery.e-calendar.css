@@ -104,7 +104,7 @@
 }
 
 .c-nav-btn-over {
-    background-color: rgb(249,68,99) !important;
+    background-color: #e83147 !important;
     font-weight: bold;
 }
 
@@ -114,7 +114,7 @@
 
 .c-event {
     background-color:#fff;
-    color: rgb(213,0,95);
+    color: #e83147;
     /*font-weight: bold;*/
     cursor: pointer;
 }
@@ -147,7 +147,7 @@
     height: 12%;
     text-align: center;
     font-weight: bold;
-    background-color: rgb(213,0,95);
+    background-color: #e83147;
     color: white;
 }
 
@@ -185,14 +185,14 @@
 .c-event-over1 {
     background-color:#fff;
     font-weight: bold;
-    color: rgb(213,0,95);
+    color:  #e83147;
     display: block;
 }
 .c-event-over0 {
-	background-color:#f83601!important ;
+	background-color: #e83147!important ;
     /*background:url(../img/m-datepicker-sel.png)no-repeat right bottom;*/
     /*font-weight: bold;*/
-    border: 1px solid #f83601!important;
+    border: 1px solid  #e83147!important;
     border-radius: 50%;
     color:#fff;
     display: block;
@@ -219,7 +219,7 @@
 #calendarEvent .c-event-item .title{
     order-left: none;
     /* border: 1px solid #ddd; */
-    background: #f83601;
+    background:  #e83147;
     font-size: 0.3rem;
     border-radius: 0.1rem;
     height: 0.8rem;

@@ -11,8 +11,8 @@
         <div class="experience_box">
             <div class="bar">
                 <div class="bar_bg"></div>
-                <div class="bar_bg1" style="width: {{bar+'%'}}" ng-style="barcolor"></div>
-                <i ng-class="bar_icon" style="left: {{bar-4+'%'}}"></i>
+                <div class="bar_bg1" style="width:{{bar+'%'}}" ng-style="barcolor"></div>
+                <i ng-class="bar_icon" style="left:{{bar-4+'%'}}"></i>
             </div>
             <div class="experience">
                 <p ng-hide="level==5">还差{{member.up_value}}经验升级</p>
@@ -84,7 +84,7 @@
     <!--升级后的特权开始-->
     <div class="privilege pd_rl12 pd_rl16 f14 no_bg" ng-show="level==1">
         <div class="privilege_title">
-            <h4 class="f14">升级后可享白银会员特权</h4>
+            <h4 class="f14">升级后可享白银会员特权（还差{{member.up_value}}经验升级）</h4>
         </div>
         <div class="privilege_list">
             <ul>

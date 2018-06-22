@@ -76,7 +76,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#FF5000;
+    background:#e83147;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -84,7 +84,7 @@
     transform:translateX(-50%);
 }
 .myorder .orders-tab ul li.active a{
-    color:#FF5000;
+    color:#e83147;
 }
 .myorder .orders_row_list .itme-order{
     background:#fff;
@@ -102,7 +102,7 @@
     padding-bottom:0.26rem;
 }
 .myorder .orders_row_list .state p:last-child{
-    color:#FF5000;
+    color:#e83147;
 }
 .myorder .orders_row_list .orders_row_con .orders_row_info{
     width:7.4rem;
@@ -133,8 +133,8 @@
 }
 .myorder .orders_row_list .orders_row_btns > .btns a:last-child{
     margin-left:0.28rem;
-    color:#FF5000;
-    border:1px solid #FF5000;
+    color:#e83147;
+    border:1px solid #e83147;
 }
 /**************************************************************************************************************************/
 /*订单详情*/
@@ -144,7 +144,7 @@
     border-bottom:1px solid #E5E5E5;
 }
 .order .state p:last-child{
-    color:#FF5000;
+    color:#e83147;
 }
 .order .orders_itme .orders_row_info{
     width:7.4rem;
@@ -178,27 +178,27 @@
 }
 .order .ticket_delivery > i.express{
     background: url("../img/order_icon_express.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .order .ticket_delivery > i.express{
     background: url("../img/order_icon_express@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .order .ticket_delivery > i.express{
     background: url("../img/order_icon_express@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .order .ticket_delivery > i.scene{
     background: url("../img/order_icon_scene.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .order .ticket_delivery > i.scene{
     background: url("../img/order_icon_scene@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .order .ticket_delivery > i.scene{
     background: url("../img/order_icon_scene@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .order .ticket_delivery > h4{
     float:left;
@@ -252,15 +252,15 @@
 }
 .set_top .personal_set{
     background:url("../img/personal_set.png") no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .set_top .personal_set{
     background:url("../img/personal_set@2x.png") no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .set_top .personal_set{
     background:url("../img/personal_set@3x.png") no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .icon {
     display: inline-block;
@@ -294,63 +294,63 @@
 }
 .head_name i.vip_ordinary{
     background: url("../img/vip_ordinary.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_ordinary{
     background: url("../img/vip_ordinary@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .head_name i.vip_ordinary{
     background: url("../img/vip_ordinary@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .head_name i.vip_silver{
     background: url("../img/vip_silver.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_silver{
     background: url("../img/vip_silver@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .head_name i.vip_silver{
     background: url("../img/vip_silver@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .head_name i.vip_gold{
     background: url("../img/vip_gold.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_gold{
     background: url("../img/vip_gold@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .head_name i.vip_gold{
     background: url("../img/vip_gold@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .head_name i.vip_platinum{
     background: url("../img/vip_platinum.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_platinum{
     background: url("../img/vip_platinum@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .head_name i.vip_platinum{
     background: url("../img/vip_platinum@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .head_name i.vip_diamond{
     background: url("../img/vip_diamond.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_diamond{
     background: url("../img/vip_diamond@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .head_name i.vip_diamond{
     background: url("../img/vip_diamond@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .head_name i.arrow{
     width: 0.1866rem;
@@ -361,15 +361,15 @@
 }
 .head_name i.arrow{
     background: url("../img/arrow.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.arrow{
     background: url("../img/arrow@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .head_name i.arrow{
     background: url("../img/arrow@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .name_birthday {
     margin-left: 0.42666rem;
@@ -391,24 +391,24 @@
 }
 .beli_sign .i-beily{
     background:url("../img/personal_beili.png") no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .beli_sign .i-beily{
     background:url("../img/personal_beili.png") no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .beli_sign .i-beily{
     background:url("../img/personal_beili@2x.png") no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .beli_sign .i-beily{
     background:url("../img/personal_beili@3x.png") no-repeat;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .beli_sign .beli .number {
     padding-top: 0.04rem;
     padding-left: 0.2133rem;
-    color: #FF5000;
+    color:#e83147;
 }
 
 .beli_sign .sign button {
@@ -437,77 +437,106 @@
 }
 .good_state ul li > a{
     display:inline-block;
-    width:0.64rem;
-    height:0.64rem;
-    background:#F1F1F1;
+    width:0.6rem;
+    height:0.6rem;
+    /*background:#F1F1F1;*/
 }
 .good_state ul li > a.i-all{
     background:url("../img/order_all.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-all{
     background:url("../img/order_all@2x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .good_state ul li > a.i-all{
     background:url("../img/order_all@3x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .good_state ul li > a.i-waiting-pay{
     background:url("../img/order_waiting-pay.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-waiting-pay{
     background:url("../img/order_waiting-pay@2x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .good_state ul li > a.i-waiting-pay{
     background:url("../img/order_waiting-pay@3x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .good_state ul li > a.i-waiting-delivery{
     background:url("../img/order_waiting-delivery.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-waiting-delivery{
     background:url("../img/order_waiting-delivery@2x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .good_state ul li > a.i-waiting-delivery{
     background:url("../img/order_waiting-delivery@3x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .good_state ul li > a.i-waiting-receipt{
     background:url("../img/order_waiting-receipt.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-waiting-receipt{
     background:url("../img/order_waiting-receipt@2x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .good_state ul li > a.i-waiting-receipt{
     background:url("../img/order_waiting-receipt@3x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .good_state ul li > a.i-complete{
     background:url("../img/order_complete.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-complete{
     background:url("../img/order_complete@2x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .good_state ul li > a.i-complete{
     background:url("../img/order_complete@3x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .good_state ul li p{
     margin-top: 0.21333rem;
 }
+.my_list.vip_member{
+    width: 100%;
+    height: 2.0rem;
+    background: url("../img/huiyuan_beijin.png")no-repeat center center;
+    background-size: 100% 100%;
+}
+.vip_member .vip_member_div .member{
+    width: 1.5rem;
+    height:1.5rem;
+    margin-top: 0.25rem;
+    background: url("../img/wd_huiyuan@2x.png")no-repeat center center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}
+.vip_member .vip_member_div .member_info{
+    width: 74%;
+    margin-left: 0.4rem;
+}
+.vip_member .vip_member_div .member_info .member_grade{
+    font-size: 0.34rem;
+    line-height: 0.8rem;
+    color: #999;
+}
+.vip_member .vip_member_div .member_info p.member_title{
+    font-size: 0.42rem;
+    font-weight: bold;
+    line-height: 1.0rem;
+}
+
 .my_list {
     background: #ffffff;
     margin-top: 0.16rem;
@@ -517,119 +546,132 @@
     position: relative;
 }
 .my_list > ul li a{
-    display:inline-block;
-    width:0.64rem;
-    height:0.64rem;
-    background:#F1F1F1;
+    display: inline-block;
+    width: 0.5rem;
+    height: 0.5rem;
+    /*background: #F1F1F1;*/
     float: left;
+    margin-top: 0.07rem;
 }
 .my_list > ul li a.i-beily{
     background:url("../img/personal_beili.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-beily{
     background:url("../img/personal_beili@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-beily{
     background:url("../img/personal_beili@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
+}
+.my_list > ul li a.i-yanding{
+    background:url("../img/wd_dingdan.png");
+    background-size: 100% 100%;
+}
+[data-dpr="2"] .my_list > ul li a.i-yanding{
+    background:url("../img/wd_dingdan@2x.png");
+    background-size: 100% 100%;
+}
+[data-dpr="3"] .my_list > ul li a.i-yanding{
+    background:url("../img/wd_dingdan@3x.png");
+    background-size: 100% 100%;
 }
 .my_list > ul li a.i-member{
     background:url("../img/personal_vip.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-member{
     background:url("../img/personal_vip@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-member{
     background:url("../img/personal_vip@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .my_list > ul li a.i-coupon{
     background:url("../img/personal_coupon.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-coupon{
     background:url("../img/personal_coupon@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-coupon{
     background:url("../img/personal_coupon@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .my_list > ul li a.i-comment{
     background:url("../img/personal_comment.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-comment{
     background:url("../img/personal_comment@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-comment{
     background:url("../img/personal_comment@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .my_list > ul li a.i-favorite{
     background:url("../img/personal_collect.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-favorite{
     background:url("../img/personal_collect@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-favorite{
     background:url("../img/personal_collect@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .my_list > ul li a.i-treasure{
     background:url("../img/personal_purchase.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-treasure{
     background:url("../img/personal_purchase@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-treasure{
     background:url("../img/personal_purchase@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .my_list > ul li a.i-invita{
     background:url("../img/persona_Invitation.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-invita{
     background:url("../img/persona_Invitation@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-invita{
     background:url("../img/persona_Invitation@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .my_list > ul li a.i-service{
     background:url("../img/personal_privilege.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-service{
     background:url("../img/personal_privilege@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-service{
     background:url("../img/personal_privilege@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .my_list > ul li a.i-problem{
     background:url("../img/personal_issue.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-problem{
     background:url("../img/personal_issue@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-problem{
     background:url("../img/personal_issue@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .my_list > ul li span{
     display: inline-block;
@@ -653,15 +695,15 @@
 }
 .my_list > ul li i.arrow{
     background: url("../img/arrow.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li i.arrow{
     background: url("../img/arrow@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li i.arrow{
     background: url("../img/arrow@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 /*物流信息*/
@@ -700,7 +742,7 @@
     margin-top: 0.1333rem;
 }
 .express_status > ul li:first-child a{
-    background: #ff5000;
+    background: #e83147;
 }
 .express_status > ul li p{
     padding-left: 0.453rem;
@@ -763,7 +805,7 @@
     float: left;
     background: #b5b5b5;
     background: url("../img/showdetails_comments.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_list .right_block .topside .operation span{
     margin-left: 0.1066rem;
@@ -771,39 +813,39 @@
 }
 .comment_list .right_block .topside .operation .fabulous i{
     background: url("../img/showdetails_praise_n.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_list .right_block .topside .operation .fabulous i{
     background: url("../img/showdetails_praise_n@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_list .right_block .topside .operation .fabulous i{
     background: url("../img/showdetails_praise_n@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_list .right_block .topside .operation .fabulous .liked{
     background: url("../img/showdetails_praise_s.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_list .right_block .topside .operation .fabulous .liked{
     background: url("../img/showdetails_praise_s@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_list .right_block .topside .operation .fabulous .liked{
     background: url("../img/showdetails_praise_s@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_detail .comment_list .right_block .topside .operation i.i_comment{
     background: url("../img/showdetails_comments.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_list .right_block .topside .operation i.i_comment{
     background: url("../img/showdetails_comments@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_list .right_block .topside .operation i.i_comment{
     background: url("../img/showdetails_comments@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_list .right_block .topside .operation{
     color: #999999;
@@ -872,7 +914,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#FF5000;
+    background:#e83147;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -880,7 +922,7 @@
     transform:translateX(-50%);
 }
 .precious .precious-tab ul li.active a{
-    color:#FF5000;
+    color:#e83147;
 }
 /*夺宝列表*/
 .precious .precious-list > ul .flag .flag-item{
@@ -915,7 +957,7 @@
     left:0;
     top:0;
     width:20%;
-    background:#FF5000;
+    background:#e83147;
     height:0.106666rem;
     border-top-left-radius:8px;
     border-bottom-left-radius:8px;
@@ -930,13 +972,13 @@
     height:0.373333rem;
     line-height:0.373333rem;
     text-align:center;
-    color:#FF5000;
-    border:1px solid #FF5000;
+    color:#e83147;
+    border:1px solid #e83147;
     border-radius:0.8rem;
     transform:translateY(-35%);
 }
 .precious .precious-list > ul .flag .flag-item em{
-    color:#FF5000;
+    color:#e83147;
 }
 .precious .precious-list > ul .flag .flag-item .award_xq .flag-type span{
     font-size:12px;
@@ -1005,63 +1047,63 @@
 }
 .member .member_top .experience_box .bar i.vip_ordinary{
     background: url("../img/vip_ordinary.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_ordinary{
     background: url("../img/vip_ordinary@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .member_top .experience_box .bar i.vip_ordinary{
     background: url("../img/vip_ordinary@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .member_top .experience_box .bar i.vip_silver{
     background: url("../img/vip_silver.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_silver{
     background: url("../img/vip_silver@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .member_top .experience_box .bar i.vip_silver{
     background: url("../img/vip_silver@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .member_top .experience_box .bar i.vip_gold{
     background: url("../img/vip_gold.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_gold{
     background: url("../img/vip_gold@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .member_top .experience_box .bar i.vip_gold{
     background: url("../img/vip_gold@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .member_top .experience_box .bar i.vip_platinum{
     background: url("../img/vip_platinum.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_platinum{
     background: url("../img/vip_platinum@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .member_top .experience_box .bar i.vip_platinum{
     background: url("../img/vip_platinum@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .member_top .experience_box .bar i.vip_diamond{
     background: url("../img/vip_diamond.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_diamond{
     background: url("../img/vip_diamond@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .member_top .experience_box .bar i.vip_diamond{
     background: url("../img/vip_diamond@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .member_top .experience_box .experience{
     color:#6b6b6b;
@@ -1089,111 +1131,111 @@
 }
 .member .privilege .privilege_list ul li i.ordinary_coupon{
     background: url("../img/vip_ordinary_coupon.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.ordinary_coupon{
     background: url("../img/vip_ordinary_coupon@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.ordinary_coupon{
     background: url("../img/vip_ordinary_coupon@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.silver_coupon{
     background: url("../img/vip_silver_coupon.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.silver_coupon{
     background: url("../img/vip_silver_coupon@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.silver_coupon{
     background: url("../img/vip_silver_coupon@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.silver_mail{
     background: url("../img/vip_silver_mail.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.silver_mail{
     background: url("../img/vip_silver_mail@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.silver_mail{
     background: url("../img/vip_silver_mail@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.gold_coupon{
     background: url("../img/vip_gold_coupon.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.gold_coupon{
     background: url("../img/vip_gold_coupon@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.gold_coupon{
     background: url("../img/vip_gold_coupon@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.gold_mail{
     background: url("../img/vip_gold_mail.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.gold_mail{
     background: url("../img/vip_gold_mail@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.gold_mail{
     background: url("../img/vip_gold_mail@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.platinum_coupon{
     background: url("../img/vip_platinum_coupon.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.platinum_coupon{
     background: url("../img/vip_platinum_coupon@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.platinum_coupon{
     background: url("../img/vip_platinum_coupon@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.platinum_mail{
     background: url("../img/vip_platinum_mail.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.platinum_mail{
     background: url("../img/vip_platinum_mail@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.platinum_mail{
     background: url("../img/vip_platinum_mail@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.diamond_coupon{
     background: url("../img/vip_diamond_coupon.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.diamond_coupon{
     background: url("../img/vip_diamond_coupon@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.diamond_coupon{
     background: url("../img/vip_diamond_coupon@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.diamond_mail{
     background: url("../img/vip_diamond_mail.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.diamond_mail{
     background: url("../img/vip_diamond_mail@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .member .privilege .privilege_list ul li i.diamond_mail{
     background: url("../img/vip_diamond_mail@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li p{
     margin-left: 0.32rem;
@@ -1219,7 +1261,7 @@
     display:inline-block;
     width:0.21333rem;
     height:0.21333rem;
-    border:1px solid #FF5000;
+    border:1px solid #e83147;
     border-radius:50%;
     margin-right:0.5333rem;
     margin-top:0.4rem;
@@ -1231,7 +1273,7 @@
 .beili .beili_top .beili_remaining p:first-child,
 .record .beili_top .beili_remaining p:first-child{
     font-size:30px;
-    color:#FF5000;
+    color:#e83147;
 }
 .beili .beili_top .beili_remaining p:last-child,
 .record .beili_top .beili_remaining p:last-child{
@@ -1262,25 +1304,25 @@
     display: inline-block;
     width: 0.48rem;
     height: 0.4rem;
-    background: #FFD300;
+    background: #e83147;
 }
 .beili .beili_top .ranking_btn p i{
     background: url("../img/beili_icon_ranking.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .beili .beili_top .ranking_btn p i{
     background: url("../img/beili_icon_ranking@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .beili .beili_top .ranking_btn p i{
     background: url("../img/beili_icon_ranking@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .record .beili_top .ranking_btn p i{
     display: inline-block;
     width: 0.3733rem;
     height: 0.3733rem;
-    background: #FFD300;
+    background:#e83147;
     margin-left: 0.18rem;
     margin-top: 0.2rem;
 }
@@ -1289,15 +1331,15 @@
 }
 .record .beili_top .ranking_btn p i{
     background: url("../img/record_rule.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .record .beili_top .ranking_btn p i{
     background: url("../img/record_rule@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .record .beili_top .ranking_btn p i{
     background: url("../img/record_rule@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .beili .beili_get_way .beili_list ul li{
     border-bottom:1px solid #E5E5E5;
@@ -1308,7 +1350,7 @@
     color:#fff;
 }
 .beili .beili_get_way .beili_list ul li p:first-child span:last-child{
-    color:#FF5000;
+    color:#e83147;
     padding-left:0.53333rem;
 }
 /**********************************************************************************************************/
@@ -1337,15 +1379,15 @@
 }
 .coupon .preferences i.icon{
     background: url("../img/coupon_icon_coupon.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .coupon .preferences i.icon{
     background: url("../img/coupon_icon_coupon@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .coupon .preferences i.icon{
     background: url("../img/coupon_icon_coupon@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .coupon .preferences input{
     background: #F9F9F9;
@@ -1367,36 +1409,36 @@
 .coupon .certificate{
     background: url("../img/coupon_bg_coupon_n.png")no-repeat center;
     margin: 0.4266rem 0.32rem;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .coupon .certificate{
     background: url("../img/coupon_bg_coupon_n@2x.png")no-repeat center;
     margin: 0.4266rem 0.32rem;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .coupon .certificate{
     background: url("../img/coupon_bg_coupon_n@3x.png")no-repeat center;
     margin: 0.4266rem 0.32rem;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .coupon .certificate.active{
     background: url("../img/coupon_bg_coupon.png")no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .coupon .certificate.active{
     background: url("../img/coupon_bg_coupon@2x.png")no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .coupon .certificate.active{
     background: url("../img/coupon_bg_coupon@3x.png")no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .coupon .certificate .price{
     width: 3.36rem;
     height: 3.36rem;
     text-align: center;
     line-height: 3.36rem;
-    color: #FF5000;
+    color: #e83147;
 }
 .coupon .certificate .price.active{
     color: #999999;
@@ -1437,7 +1479,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#FF5000;
+    background:#e83147;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -1445,7 +1487,7 @@
     transform:translateX(-50%);
 }
 .coupon .treasure-tabs ul li.active a{
-    color:#FF5000;
+    color:#e83147;
 }
 /**********************************************************************************************************/
 /*贝里记录*/
@@ -1460,7 +1502,7 @@
     display:block;
     width:2px;
     height:0.8rem;
-    background:#ff5000;
+    background:#e83147;
     margin-left:0.08rem;
     /*visibility:visible;*/
 }
@@ -1483,7 +1525,7 @@
     display:inline-block;
     width:0.21333rem;
     height:0.213333rem;
-    background:#FF5000;
+    background:#e83147;
     border-radius:50%;
 }
 .record .record_list .beili_info{
@@ -1519,7 +1561,7 @@
     color:#222;
 }
 .rank .rank_top .rank_info .rank_beili{
-    color:#ff5000;
+    color:#e83147;
 }
 .rank .rank_list .rank_num{
     width:0.8rem;
@@ -1604,15 +1646,15 @@
 }
 .settings .settings_list > ul li i.arrow{
     background: url("../img/arrow.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .settings .settings_list > ul li i.arrow{
     background: url("../img/arrow@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .settings .settings_list > ul li i.arrow{
     background: url("../img/arrow@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 /**********************************************************************************************************/
@@ -1640,15 +1682,15 @@
 }
 .account_settings .personal_data i.arrow{
     background: url("../img/arrow.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .account_settings .personal_data i.arrow{
     background: url("../img/arrow@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .account_settings .personal_data i.arrow{
     background: url("../img/arrow@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .account_settings .personal_data ul li{
     border-bottom: 1px solid #e5e5e5;
@@ -1706,7 +1748,7 @@
     border-bottom: 1px solid #e5e5e5;
 }
 .sex_box ul li.active{
-    color: #FF5000;
+    color: #e83147;
 }
 .sex_box ul li i{
     display: inline-block;
@@ -1718,15 +1760,15 @@
 }
 .sex_box ul li i.check{
     background: url("../img/location_choice.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .sex_box ul li i.check{
     background: url("../img/location_choice@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .sex_box ul li i.check{
     background: url("../img/location_choice@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 /***********************************************************************************************************************************/
 /*设置生日*/
@@ -1800,15 +1842,15 @@
 }
 .address_management .address_list .default_address .active{
     background: url("../img/Group 6.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .address_management .address_list .default_address .active{
     background: url("../img/Group 6@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .address_management .address_list .default_address .active{
     background: url("../img/Group 6@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .address_management .address_list .delete i{
     display: inline-block;
@@ -1820,15 +1862,15 @@
 }
 .address_management .address_list .delete i{
     background: url("../img/Group3.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .address_management .address_list .delete i{
     background: url("../img/Group3@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .address_management .address_list .delete i{
     background: url("../img/Group3@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .address_management .address_list .default_address span{
     margin-left: 0.2666rem;
@@ -1839,7 +1881,7 @@
 }
 .address_management .add_address{
     text-align: center;
-    color: #FF5000;
+    color: #e83147;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -1884,27 +1926,27 @@
 }
 .edit_address .default_address i.no_choose{
     background:url("../img/Group 5.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .edit_address .default_address i.no_choose{
     background:url("../img/Group 5@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .edit_address .default_address i.no_choose{
     background:url("../img/Group 5@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .edit_address .default_address i.choose{
     background:url("../img/Group 6.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .edit_address .default_address i.choose{
     background:url("../img/Group 6@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .edit_address .default_address i.choose{
     background:url("../img/Group 6@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .edit_address .default_address span{
     display: inline-block;
@@ -2046,7 +2088,7 @@
 .settings_feedback .feedback button{
     width: 100%;
     border: none;
-    background: #4899FE;
+    background: #e83147;
     border-radius: 0.1066rem;
     color: #ffffff;
     margin-top: 0.8rem;
@@ -2081,19 +2123,19 @@
 }
 .about_stars .picture .bg{
     background: url("../img/Group.png");
-    background-size: 100%;
+    background-size: 100% 100%;
     width: 4.88rem;
     height: 2.4rem;
 }
 [data-dpr="2"] .about_stars .picture .bg{
     background: url("../img/Group@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
     width: 4.88rem;
     height: 2.4rem;
 }
 [data-dpr="3"] .about_stars .picture .bg{
     background: url("../img/Group@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
     width: 4.88rem;
     height: 2.4rem;
 }
@@ -2146,56 +2188,61 @@
 /**********************************************************************************************************/
 /*消息*/
 .message .message_list ul li{
-    margin-left: 1.3866rem;
+    margin-left: 1.0rem;
     border-bottom: 1px solid #e5e5e5;
     padding: 0.56rem 0;
     position: relative;
 }
 .message .message_list ul li .icon{
     display: inline-block;
-    width: 0.9rem;
-    height: 0.9rem;
-    background: #D8D8D8;
-    border-radius: 50%;
+    width: 0.6rem;
+    /*background: #D8D8D8;*/
+    /*border-radius: 50%;*/
     position: absolute;
-    left: -1.3866rem;
-    top: 0.45rem;
+    left: -1.0rem;
+
 }
 .message .message_list ul li .icon.reply{
     background: url("../img/message_reply.png");
-    background-size: 100%;
+    background-size: 100% 100%;
+    height: 0.6rem;
+    top: 0.6rem;
 }
 [data-dpr="2"] .message .message_list ul li .icon.reply{
     background: url("../img/message_reply@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .message .message_list ul li .icon.reply{
     background: url("../img/message_reply@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .message .message_list ul li .icon.praise{
     background: url("../img/message_praise.png");
-    background-size: 100%;
+    background-size: 100% 100%;
+    height: 0.6rem;
+    top: 0.6rem;
 }
 [data-dpr="2"] .message .message_list ul li .icon.praise{
     background: url("../img/message_praise@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .message .message_list ul li .icon.praise{
     background: url("../img/message_praise@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .message .message_list ul li .icon.system{
     background: url("../img/message_system.png");
-    background-size: 100%;
+    background-size: 100% 100%;
+    height: 0.5rem;
+    top: 0.6rem;
 }
 [data-dpr="2"] .message .message_list ul li .icon.system{
     background: url("../img/message_system@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .message .message_list ul li .icon.system{
     background: url("../img/message_system@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .message .message_list ul li .list .into{
     display: inline-block;
@@ -2207,21 +2254,21 @@
 }
 .message .message_list ul li .list .into{
     background: url("../img/arrow.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .message .message_list ul li .list .into{
     background: url("../img/arrow@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .message .message_list ul li .list .into{
     background: url("../img/arrow@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .message .message_list ul li .list .unread{
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #FF5000;
+    background: #e83147;
     border-radius: 50%;
     position: absolute;
     right: 0.4533rem;
@@ -2246,13 +2293,13 @@
     color: #999999;
 }
 .message_praise .praise_list ul li .words .name{
-    color: #4899fe;
+    color: #e83147;
 }
 .message_praise .praise_list ul li .words .unread{
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #FF5000;
+    background: #e83147;
     border-radius: 50%;
     float: right;
     margin-top: 0.12rem;
@@ -2279,7 +2326,7 @@
     color: #999999;
 }
 .message_reply .reply_list ul li .words .name{
-    color: #4899fe;
+    color:#e83147;
 }
 .message_reply .reply_list ul li .words .content{
     display: inline-block;
@@ -2292,7 +2339,7 @@
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #FF5000;
+    background: #e83147;
     border-radius: 50%;
     float: right;
     margin-top: 0.12rem;
@@ -2331,15 +2378,15 @@
 }
 .message_system .system_list ul li .message_more_btn i{
     background: url("../img/arrow.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .message_system .system_list ul li .message_more_btn i{
     background: url("../img/arrow@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .message_system .system_list ul li .message_more_btn i{
     background: url("../img/arrow@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 /**********************************************************************************************************/
 /*评论详情*/
@@ -2373,15 +2420,15 @@
 }
 .comment_detail .detail_list ul li .right_block .topside .name_stars i.stars{
     background: url("../img/star.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .name_stars i.stars{
     background: url("../img/star@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_detail .detail_list ul li .right_block .topside .name_stars i.stars{
     background: url("../img/star@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_detail .detail_list ul li .right_block .topside .operation i{
     display: inline-block;
@@ -2393,39 +2440,39 @@
 }
 .comment_detail .detail_list ul li .right_block .topside .operation i.i_review{
     background: url("../img/showdetails_comments.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .operation i.i_review{
     background: url("../img/showdetails_comments@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_detail .detail_list ul li .right_block .topside .operation i.i_review{
     background: url("../img/showdetails_comments@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i{
     background: url("../img/showdetails_praise_n.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i{
     background: url("../img/showdetails_praise_n@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i{
     background: url("../img/showdetails_praise_n@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i.liked{
     background: url("../img/showdetails_praise_s.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i.liked{
     background: url("../img/showdetails_praise_s@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i.liked{
     background: url("../img/showdetails_praise_s@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_detail .detail_list ul li .right_block .topside .operation .review{
     margin-right: 0.266rem;
@@ -2500,15 +2547,15 @@
 }
 .comment_detail .reply p i.reply-btn{
     background: url("../img/comments_issue_n.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .reply p i.reply-btn{
     background: url("../img/comments_issue_n@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_detail .reply p i.reply-btn{
     background: url("../img/comments_issue_n@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .comment_detail .reply p i.reply-btn.active{
     background:url("../img/comments_issue_s.png")no-repeat;
@@ -2557,15 +2604,15 @@
     height: 6.5rem;
     margin: auto;
     background: url("../img/Share.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .Share .picture{
     background: url("../img/Share@2x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 [data-dpr="3"] .Share .picture{
     background: url("../img/Share@3x.png") no-repeat center;
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 .Share .all{
     text-align: center;
@@ -2681,7 +2728,7 @@
 .activity .hot_list .more p {
     text-align: center;
     margin: 6% 0;
-    color: #70A0EC
+    color:#e83147;
 }
 
 .activity .attention {
@@ -2714,8 +2761,8 @@
 }
 
 .activity .attention .btnatten .btn {
-    border: 1px solid #56A600;
-    color: #56A600;
+    border: 1px solid #e83147;
+    color: #e83147;
     float: right;
     width: 1.44rem;
     height: 0.9066rem;
@@ -2817,7 +2864,7 @@
     bottom:0;
     width:100%;
     text-align:center;
-    color:#FF5000;
+    color:#e83147;
     background: #FFFFFF;
     border-top:1px solid #E5E5E5;
 }

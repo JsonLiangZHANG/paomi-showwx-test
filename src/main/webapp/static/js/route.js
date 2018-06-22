@@ -801,8 +801,8 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                         //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                            "appid=wxda73ac8ac7af1261&" +
-                            "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                            "appid=wx7b0222c401e61396&" +
+                            "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
                             "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                         // //测试redirect_uri

@@ -156,7 +156,7 @@ stareal
                     $scope.total=0;
                     $.each($scope.seatsList,function(index,data){
                         //  console.log(data);
-                        $scope.seatscart.push(data.seatid);
+                        $scope.seatscart.push(data.price_seat_id);
                         $scope.total+=parseInt(data.price);
                     })
 

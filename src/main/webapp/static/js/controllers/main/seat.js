@@ -125,12 +125,12 @@ stareal
                 console.log(mobile)
                 //http://app.mydeershow.com/ 正式
                 //http://api.dd.com/  测试  http://192.168.191.1:9090/map/dome.do?mapId=5&mobile=18721481251&sellerId=1001&source=pc&eventId=16
-                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://192.168.1.7/map/phonedome.do?mapId=10&mobile='+mobile+'&sellerId=1001&source=h5&eventId=16'+$scope.currentEventId+'&ver='+Math.random()+ host_arg + '" frameborder="0" width="100%" height="500" ;style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://ticket.blackwan.cn/map/phonedome.do?mapId=10&mobile='+mobile+'&sellerId=1001&source=h5&eventId='+$scope.currentEventId+'&ver='+Math.random()+ host_arg + '" frameborder="0" width="100%" height="500" ;style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
                 // $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/webpc/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=pc&ver='+Math.random()+'" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
             }else{
                 var mobile=localStorageService.get('telphone_no');
                 console.log(mobile);
-                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://192.168.1.7/map/phonedome.do?mapId=10&mobile='+mobile+'&sellerId=1001&source=h5&eventId='+$scope.currentEventId+'&ver='+Math.random()+ host_arg + '" frameborder="0" width="100%" height="500" ;style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://ticket.blackwan.cn/map/phonedome.do?mapId=10&mobile='+mobile+'&sellerId=1001&source=h5&eventId='+$scope.currentEventId+'&ver='+Math.random()+ host_arg + '" frameborder="0" width="100%" height="500" ;style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
                 //$scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/webpc/GetEvent?EventId='+$scope.currentEventId+'&UserId='+mobile+'&AppId=FEQWEe&m=pc&ver='+Math.random()+'" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>')
 
             }
@@ -143,7 +143,7 @@ stareal
             $scope.seatscart=[];
             //正式  http://app.mydeershow.com/mobile/getCartP    http://ticket.blackwan.cn/
             // var myUrl = 'http://app.mydeershow.com/webpc/getCartP?EventId='+ $scope.currentEventId+'&UserId='+localStorageService.get('mobile')+'&AppId=FEQWEe&m=pc';
-            var myUrl='http://192.168.1.7/shoppingcart_v2/usercart-cors?eventid='+$scope.currentEventId+'&userid='+localStorageService.get('telphone_no')+'&mapid=10&source=h5&callback=JSON_CALLBACK';
+            var myUrl='http://ticket.blackwan.cn/shoppingcart_v2/usercart-cors?eventid='+$scope.currentEventId+'&userid='+localStorageService.get('telphone_no')+'&mapid=10&source=h5&callback=JSON_CALLBACK';
             $http.jsonp(myUrl)
                 .success(function (data) {
                     console.log(data);
@@ -246,7 +246,7 @@ stareal
             //
             //       if(data.success){
             //$scope.getseats();
-            var iframes='http://192.168.1.7/map/temp.do?eventid='+$scope.currentEventId+'&id='+seatNo+'&seatId='+seatId+'&seat_area='+section_name+'&userid='+localStorageService.get('telphone_no')+'&mapid=10&source=h5';
+            var iframes='http://ticket.blackwan.cn/map/temp.do?eventid='+$scope.currentEventId+'&id='+seatNo+'&seatId='+seatId+'&seat_area='+section_name+'&userid='+localStorageService.get('telphone_no')+'&mapid=10&source=h5';
             var  oFrame = document.createElement('iframe');
             if(typeof(oFrame)=='undefined'){
                 oFrame.src = iframes +'&a='+ Math.random()+'&time='+new Date();

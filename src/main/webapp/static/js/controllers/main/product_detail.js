@@ -151,8 +151,8 @@ stareal
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxda73ac8ac7af1261&" +
-                        "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                        "appid=wx7b0222c401e61396&" +
+                        "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                 } else {
@@ -201,8 +201,8 @@ stareal
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxda73ac8ac7af1261&" +
-                        "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                        "appid=wx7b0222c401e61396&" +
+                        "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                 } else {
@@ -219,8 +219,8 @@ stareal
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxda73ac8ac7af1261&" +
-                        "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                        "appid=wx7b0222c401e61396&" +
+                        "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                 } else {
@@ -260,10 +260,20 @@ stareal
                 })
         }
         $scope.productSpeedpay=function(){//立即购买
-            if (!localStorageService.get('token')) {
+            if(!localStorageService.get('token')){
                 var  rs = "main.productdetail-" + JSON.stringify({good_id: $stateParams.good_id});
-                location.href = "#/main/login/"+ encodeURIComponent(rs);;
+                var ua = window.navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
+                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                        "appid=wx7b0222c401e61396&" +
+                        "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
+                        "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
+                } else {
+                    location.href = "#/main/login/"+ encodeURIComponent(rs);
+                }
+
+                return;
             }else {
                 if (!$scope.skuTrue) {
                     if ($scope.skUarr.length != $scope.productSkus.length) {

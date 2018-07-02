@@ -47,7 +47,7 @@
                    <tr ng-repeat="seat in seatsList track by $index" on-finish-render-filters="completecarRepeat" data-svg="{{seat.seat_no}}" data-id="{{seat.seat_id}}">
                        <td>{{seat.section_name}}</td>
                        <td>{{seat.row}}</td>
-                       <td>{{seat.column}}</td>
+                       <td>{{seat.columns}}</td>
                        <td style="color: rgb(241,0,95);">￥{{seat.price}}</td>
                        <td ><span class="detele_seat" ng-click="seats(seat.seat_no)">&times;</span></td>
 

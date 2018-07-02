@@ -117,8 +117,8 @@ stareal
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         // "appid=wxd39f7e740343d507&" +
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        "appid=wxda73ac8ac7af1261&" +
-                        "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                        "appid=wx7b0222c401e61396&" +
+                        "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
@@ -303,8 +303,8 @@ stareal
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         // "appid=wxd39f7e740343d507&" +
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        "appid=wxda73ac8ac7af1261&" +
-                        "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                        "appid=wx7b0222c401e61396&" +
+                        "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
@@ -335,8 +335,8 @@ stareal
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         // "appid=wxd39f7e740343d507&" +
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        "appid=wxda73ac8ac7af1261&" +
-                        "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                        "appid=wx7b0222c401e61396&" +
+                        "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
@@ -781,8 +781,8 @@ stareal
                             location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                                 // "appid=wxd39f7e740343d507&" +
                                 // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                                "appid=wxda73ac8ac7af1261&" +
-                                "redirect_uri=http%3A%2F%2Fm.mydeershow.com%2Foauth%2Findex" +
+                                "appid=wx7b0222c401e61396&" +
+                                "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
                                 "&response_type=code&scope=snsapi_userinfo&state=";
 
                             // //测试redirect_uri

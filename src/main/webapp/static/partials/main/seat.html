@@ -44,12 +44,12 @@
                    <!--</tr>-->
                    <!--</thead>-->
                    <tbody ng-show="seatsList.length!=0">
-                   <tr ng-repeat="seat in seatsList track by $index" on-finish-render-filters="completecarRepeat" data-svg="{{seat.seat_no}}" data-id="{{seat.seat_id}}">
+                   <tr ng-repeat="seat in seatsList track by $index" on-finish-render-filters="completecarRepeat" >
                        <td>{{seat.section_name}}</td>
                        <td>{{seat.row}}</td>
                        <td>{{seat.columns}}</td>
                        <td style="color: rgb(241,0,95);">￥{{seat.price}}</td>
-                       <td ><span class="detele_seat" ng-click="seats(seat.seat_no)">&times;</span></td>
+                       <td ><span class="detele_seat" ng-click="seats(seat.price_seat_id,seat.seatid,seat.section_name)">&times;</span></td>
 
                        <!--<td>-->
                        <!--<span>6 排</span>-->

@@ -1,0 +1,51 @@
+<div class="searchs list_style" ng-controller="NewsSearchController">
+    <style>
+        html,body{background:#fff}
+    </style>
+    <!--搜索框开始-->
+    <div class="search_top pd_rl12 pd_tb8 clear">
+        <div class="search_input fl pd_rl12 pd_tb8 f10">
+            <input type="search" placeholder="搜索资讯名称..." id="searchBtn" ng-model="keyword">
+        </div>
+        <div class="search_cancel fr f14" go-back>取消</div>
+    </div>
+    <!--搜索框结束-->
+    <!--热门搜索开始-->
+    <!--<div class="search_hot pd_rl12" ng-show="hwf">-->
+    <!--<h4>热门搜索</h4>-->
+    <!--<div class="search_hot_box">-->
+    <!--<ul class="clear">-->
+    <!--<li class="f14" ng-repeat="hot in hots.slice(0,8)" ng-bind="hot.word" ng-click="hws('{{hot.word}}')"></li>-->
+    <!--</ul>-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--热门搜索结束-->
+    <!--历史搜索开始-->
+    <div class="search_history_list pd_rl12" ng-show="hwf">
+        <ul>
+            <li class="pd_rl16 f16 hd1" ng-repeat="history in history_list.slice(0,8) track by $index"><sapn ng-bind="history.word" ng-click="hws('{{history.word}}')"></sapn><i class="fr" ng-click="dele($index)"></i></li>
+        </ul>
+    </div>
+    <!--历史搜索结束-->
+    <!--搜索结果开始-->
+    <!--列表开始 -->
+    <div class="newscontainer" style="margin-top: 0px;">
+        <div class="news-list">
+            <ul infinite-scroll="goods.nextPage()" infinite-scroll-disabled='goods.busy' infinite-scroll-distance="1">
+                <li class="flag news-list-li" ng-repeat="good in goods.items" on-list-finish-render="listFinishRender" ui-sref="main.newdetail({newId:{{good.id}}})">
+                    <img ng-src="{{good.img}}" alt="" class="news_list_img">
+                    <div ng-bind="good.title" class="news_list_title"></div>
+                    <div ng-bind="good.description" class="news_list_description"></div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!--列表结束-->
+    <!--搜索结果结束-->
+    <!--暂无数据开始-->
+    <div class="nodata" ng-show="goods.nodata">
+        <div class="no_classify"></div>
+        <p class="f14">这里空空如也，去隔壁看看吧</p>
+    </div>
+    <!--暂无数据结束-->
+</div>

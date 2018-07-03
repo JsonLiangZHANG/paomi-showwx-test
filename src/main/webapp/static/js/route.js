@@ -187,6 +187,32 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/main.css'
             ])
         })
+        .state('main.psearch', { //衍生品
+            url: '/psearch',
+            templateUrl: 'static/partials/main/psearch.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/psearch.js',
+                'static/js/controllers/public/public.js',
+                'static/css/public.css',
+                'static/css/main.css',
+                'static/css/product.css',
+                'static/css/special.css'
+            ])
+        })
+        .state('main.newssearch', { //资讯
+            url: '/newssearch',
+            templateUrl: 'static/partials/main/newsearch.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/newsearch.js',
+                'static/js/controllers/public/public.js',
+                'static/css/public.css',
+                'static/css/main.css',
+                'static/css/product.css',
+                'static/css/new.css',
+                'static/css/special.css'
+
+            ])
+        })
         .state('main.detail', {
             url: '/detail/good/:good_id',
             templateUrl: 'static/partials/main/detail.html',

@@ -1,0 +1,71 @@
+<div class="searchs" ng-controller="PSearchController">
+    <style>
+        html,body{background:#fff}
+    </style>
+    <!--搜索框开始-->
+    <div class="search_top pd_rl12 pd_tb8 clear">
+        <div class="search_input fl pd_rl12 pd_tb8 f10">
+            <input type="search" placeholder="搜索衍生品名称..." id="searchBtn" ng-model="keyword">
+        </div>
+        <div class="search_cancel fr f14" go-back>取消</div>
+    </div>
+    <!--搜索框结束-->
+    <!--热门搜索开始-->
+    <!--<div class="search_hot pd_rl12" ng-show="hwf">-->
+        <!--<h4>热门搜索</h4>-->
+        <!--<div class="search_hot_box">-->
+            <!--<ul class="clear">-->
+                <!--<li class="f14" ng-repeat="hot in hots.slice(0,8)" ng-bind="hot.word" ng-click="hws('{{hot.word}}')"></li>-->
+            <!--</ul>-->
+        <!--</div>-->
+    <!--</div>-->
+    <!--热门搜索结束-->
+    <!--历史搜索开始-->
+    <div class="search_history_list pd_rl12" ng-show="hwf">
+        <ul>
+            <li class="pd_rl16 f16 hd1" ng-repeat="history in history_list.slice(0,8) track by $index"><sapn ng-bind="history.word" ng-click="hws('{{history.word}}')"></sapn><i class="fr" ng-click="dele($index)"></i></li>
+        </ul>
+    </div>
+    <!--历史搜索结束-->
+    <!--搜索结果开始-->
+    <!--列表开始 -->
+    <div class="hot" ng-controller="PublicController">
+        <!--你好-->
+        <div class="hot-list product_list">
+            <ul infinite-scroll="goods.nextPage()" infinite-scroll-disabled='goods.busy' infinite-scroll-distance="1" >
+                <li class="flag" ng-repeat="good in goods.items"  on-list-finish-render="listFinishRender" ui-sref="main.productdetail({good_id:{{good.id}}})">
+                    <a class="figure flag-item">
+                        <i class="label f8"ng-show="good.coupon_label"><span ng-bind="good.coupon_label"></span></i>
+                        <img ng-src="{{good.image}}" alt="">
+                    </a>
+                    <div class="figcaption flag-item">
+                        <div class="flag-title">
+                            <a title="" ng-bind="good.name"></a>
+                        </div>
+                        <!--<div class="flag-price" ng-bind="good.date"></div>-->
+                        <div class="flag-type" ng-bind="good.good_name"></div>
+                        <div class="flag-type">
+                            <strong>￥{{good.price}}</strong>
+                            <strong class="black">元</strong>
+                            <span>{{good.sales}}人付款</span>
+                            <!--<strong ng-hide="good.state=='即将开票'&&good.price=='0'" ng-bind="good.price"></strong>-->
+                            <!--<strong ng-show="good.state=='即将开票'&&good.price=='0'" class="state_f12">待定</strong>-->
+                            <!--<span ng-hide="good.state=='即将开票'&&good.price=='0'">元起</span>-->
+                        </div>
+                        <!--<a class="flag-btn" href="" ng-style="btnSetColor(good.state)" ng-bind="btnText(good.state)"></a>-->
+                        <a class="flag-btn" href="" style="color:rgb(255,80,0);border: 1px solid rgb(255,80,0);" ui-sref="main.productdetail({good_id:{{good.id}}})">售卖中</a>
+                    </div>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+    <!--列表结束-->
+    <!--搜索结果结束-->
+    <!--暂无数据开始-->
+    <div class="nodata" ng-show="goods.nodata">
+        <div class="no_classify"></div>
+        <p class="f14">这里空空如也，去隔壁看看吧</p>
+    </div>
+    <!--暂无数据结束-->
+</div>

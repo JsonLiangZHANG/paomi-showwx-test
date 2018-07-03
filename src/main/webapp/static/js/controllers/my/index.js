@@ -14,13 +14,42 @@ stareal
             .then(function (ret) {
                 $scope.bellyremain = ret.data.l3ft;
                 localStorageService.set("beili",$scope.bellyremain)
+                $scope.GetCheck();
             })
         //连续签到可获得贝里
+        $scope.GetCheck = function () {
+            $api.get("app/member/checkin/thismonth",{},true)
+                .then(function (ret) {
+                    $scope.Sameday = ret.data
+                    $scope.days = $scope.Sameday.length //当月共签到天数
+                    $scope.Isday = [];  //需不需给默认值
+                    for(var i =0;i<$scope.days;i++){
+                        $scope.Isday.push($scope.Sameday[i].date.substring(6,8))
+                    }
+                    //日历函数
+                    var d_Date = new Date();
+                    var d_y = d_Date.getFullYear();
+                    var d_m = d_Date.getMonth()+1;
+                    var d_d = d_Date.getDate();
+                    if(Number($scope.Isday[0])<Number(d_d)||$scope.Isday[0]==undefined){//和当天比较
+                        $scope.showRIlInfo = true;   //没签到
+                       // localStorageService.set("sign-state","1")
+                        $scope.sign_state=1
+                       // $scope.qianSign();
+                    }else{
+                        $scope.showRIlInfo = false;  //已签到
+                        $scope.sign_state=2
+                        //localStorageService.set("sign-state","2")
+                    }
+
+
+                })
+        }
         $api.post("app/member/checkin/getCheckTips",{},true)
             .then(function (ret) {
                 $scope.daybeily = ret.data;
             })
-        $scope.sign_state = localStorageService.get("sign-state")
+       // $scope.sign_state = localStorageService.get("sign-state")
         console.log('----------------')
         console.log($scope.sign_state);
         //获取会员信息

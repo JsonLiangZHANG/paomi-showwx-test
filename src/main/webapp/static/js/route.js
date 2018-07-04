@@ -296,7 +296,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             ])
         })
         .state('main.pay_coupon', {
-            url: '/pay/coupon/:order_id/:good_id/:total',
+            url: '/pay/coupon/:order_id/:good_id/:total/:xuanzuo',
             templateUrl: 'static/partials/main/pay_coupon.html',
             resolve: loadLazyjs([
                 'static/js/controllers/main/pay_coupon.js',

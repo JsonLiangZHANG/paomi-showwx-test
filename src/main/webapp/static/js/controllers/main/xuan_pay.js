@@ -116,7 +116,8 @@ stareal
                 $state.go('main.pay_coupon', {
                     order_id: $scope.order_id,
                     good_id: $scope.order_id,
-                    total: $scope.total
+                    total: $scope.total,
+                    xuanzuo:1
                 });
             }else{
                 $alert.show("此项目不能使用优惠券")

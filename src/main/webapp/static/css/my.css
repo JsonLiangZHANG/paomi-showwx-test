@@ -177,7 +177,7 @@
     float:left;
 }
 .order .ticket_delivery > i.express{
-    background: url("../img/order_icon_express.png");
+    background: url("../img/order_icon_express@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .order .ticket_delivery > i.express{
@@ -189,7 +189,7 @@
     background-size: 100% 100%;
 }
 .order .ticket_delivery > i.scene{
-    background: url("../img/order_icon_scene.png");
+    background: url("../img/order_icon_scene@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .order .ticket_delivery > i.scene{
@@ -251,7 +251,7 @@
     text-align:center;
 }
 .set_top .personal_set{
-    background:url("../img/personal_set.png") no-repeat;
+    background:url("../img/personal_set@2x.png") no-repeat;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .set_top .personal_set{
@@ -293,7 +293,7 @@
     left: 0.8533rem;
 }
 .head_name i.vip_ordinary{
-    background: url("../img/vip_ordinary.png");
+    background: url("../img/vip_ordinary@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_ordinary{
@@ -305,7 +305,7 @@
     background-size: 100% 100%;
 }
 .member .head_name i.vip_silver{
-    background: url("../img/vip_silver.png");
+    background: url("../img/vip_silver@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_silver{
@@ -317,7 +317,7 @@
     background-size: 100% 100%;
 }
 .member .head_name i.vip_gold{
-    background: url("../img/vip_gold.png");
+    background: url("../img/vip_gold@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_gold{
@@ -329,7 +329,7 @@
     background-size: 100% 100%;
 }
 .member .head_name i.vip_platinum{
-    background: url("../img/vip_platinum.png");
+    background: url("../img/vip_platinum@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_platinum{
@@ -341,7 +341,7 @@
     background-size: 100% 100%;
 }
 .head_name i.vip_diamond{
-    background: url("../img/vip_diamond.png");
+    background: url("../img/vip_diamond@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.vip_diamond{
@@ -360,7 +360,7 @@
     background: #E5E5E5;
 }
 .head_name i.arrow{
-    background: url("../img/arrow.png");
+    background: url("../img/arrow@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .head_name i.arrow{
@@ -390,11 +390,11 @@
     overflow: hidden;
 }
 .beli_sign .i-beily{
-    background:url("../img/personal_beili.png") no-repeat;
+    background:url("../img/personal_beili@2x.png") no-repeat;
     background-size: 100% 100%;
 }
 .beli_sign .i-beily{
-    background:url("../img/personal_beili.png") no-repeat;
+    background:url("../img/personal_beili@2x.png") no-repeat;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .beli_sign .i-beily{
@@ -442,7 +442,7 @@
     /*background:#F1F1F1;*/
 }
 .good_state ul li > a.i-all{
-    background:url("../img/order_all.png") no-repeat center;
+    background:url("../img/order_all@2x.png") no-repeat center;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-all{
@@ -455,7 +455,7 @@
 }
 
 .good_state ul li > a.i-waiting-pay{
-    background:url("../img/order_waiting-pay.png") no-repeat center;
+    background:url("../img/order_waiting-pay@2x.png") no-repeat center;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-waiting-pay{
@@ -468,7 +468,7 @@
 }
 
 .good_state ul li > a.i-waiting-delivery{
-    background:url("../img/order_waiting-delivery.png") no-repeat center;
+    background:url("../img/order_waiting-delivery@2x.png") no-repeat center;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-waiting-delivery{
@@ -481,7 +481,7 @@
 }
 
 .good_state ul li > a.i-waiting-receipt{
-    background:url("../img/order_waiting-receipt.png") no-repeat center;
+    background:url("../img/order_waiting-receipt@2x.png") no-repeat center;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-waiting-receipt{
@@ -494,7 +494,7 @@
 }
 
 .good_state ul li > a.i-complete{
-    background:url("../img/order_complete.png") no-repeat center;
+    background:url("../img/order_complete@2x.png") no-repeat center;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .good_state ul li > a.i-complete{
@@ -511,7 +511,7 @@
 .my_list.vip_member{
     width: 100%;
     height: 2.0rem;
-    background: url("../img/huiyuan_beijin.png")no-repeat center center;
+    background: url("../img/huiyuan_beijin@2x.png")no-repeat center center;
     background-size: 100% 100%;
 }
 .vip_member .vip_member_div .member{
@@ -554,7 +554,7 @@
     margin-top: 0.07rem;
 }
 .my_list > ul li a.i-beily{
-    background:url("../img/personal_beili.png");
+    background:url("../img/personal_beili@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-beily{
@@ -566,7 +566,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-yanding{
-    background:url("../img/wd_dingdan.png");
+    background:url("../img/wd_dingdan@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-yanding{
@@ -578,7 +578,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-member{
-    background:url("../img/personal_vip.png");
+    background:url("../img/personal_vip@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-member{
@@ -590,7 +590,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-coupon{
-    background:url("../img/personal_coupon.png");
+    background:url("../img/personal_coupon@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-coupon{
@@ -602,7 +602,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-comment{
-    background:url("../img/personal_comment.png");
+    background:url("../img/personal_comment@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-comment{
@@ -614,7 +614,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-favorite{
-    background:url("../img/personal_collect.png");
+    background:url("../img/personal_collect@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-favorite{
@@ -626,7 +626,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-treasure{
-    background:url("../img/personal_purchase.png");
+    background:url("../img/personal_purchase@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-treasure{
@@ -638,7 +638,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-invita{
-    background:url("../img/persona_Invitation.png");
+    background:url("../img/persona_Invitation@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-invita{
@@ -650,7 +650,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-service{
-    background:url("../img/personal_privilege.png");
+    background:url("../img/personal_privilege@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-service{
@@ -662,7 +662,7 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-problem{
-    background:url("../img/personal_issue.png");
+    background:url("../img/personal_issue@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-problem{
@@ -694,7 +694,7 @@
     right: 0;
 }
 .my_list > ul li i.arrow{
-    background: url("../img/arrow.png");
+    background: url("../img/arrow@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li i.arrow{
@@ -777,7 +777,7 @@
     margin-left: 0.2133rem;
 }
 .comment_list .right_block .topside a.star{
-    background: url("../img/star.png");
+    background: url("../img/star@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .comment_list .right_block .topside a.star{
@@ -812,7 +812,7 @@
     margin-top: 0.1rem;
 }
 .comment_list .right_block .topside .operation .fabulous i{
-    background: url("../img/showdetails_praise_n.png");
+    background: url("../img/showdetails_praise_n@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_list .right_block .topside .operation .fabulous i{
@@ -824,7 +824,7 @@
     background-size: 100% 100%;
 }
 .comment_list .right_block .topside .operation .fabulous .liked{
-    background: url("../img/showdetails_praise_s.png");
+    background: url("../img/showdetails_praise_s@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_list .right_block .topside .operation .fabulous .liked{
@@ -836,7 +836,7 @@
     background-size: 100% 100%;
 }
 .comment_detail .comment_list .right_block .topside .operation i.i_comment{
-    background: url("../img/showdetails_comments.png");
+    background: url("../img/showdetails_comments@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_list .right_block .topside .operation i.i_comment{
@@ -1046,7 +1046,7 @@
     top: -0.28rem;
 }
 .member .member_top .experience_box .bar i.vip_ordinary{
-    background: url("../img/vip_ordinary.png");
+    background: url("../img/vip_ordinary@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_ordinary{
@@ -1070,7 +1070,7 @@
     background-size: 100% 100%;
 }
 .member .member_top .experience_box .bar i.vip_gold{
-    background: url("../img/vip_gold.png");
+    background: url("../img/vip_gold@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_gold{
@@ -1082,7 +1082,7 @@
     background-size: 100% 100%;
 }
 .member .member_top .experience_box .bar i.vip_platinum{
-    background: url("../img/vip_platinum.png");
+    background: url("../img/vip_platinum@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_platinum{
@@ -1094,7 +1094,7 @@
     background-size: 100% 100%;
 }
 .member .member_top .experience_box .bar i.vip_diamond{
-    background: url("../img/vip_diamond.png");
+    background: url("../img/vip_diamond@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .member_top .experience_box .bar i.vip_diamond{
@@ -1130,7 +1130,7 @@
     float: left;
 }
 .member .privilege .privilege_list ul li i.ordinary_coupon{
-    background: url("../img/vip_ordinary_coupon.png");
+    background: url("../img/vip_ordinary_coupon@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.ordinary_coupon{
@@ -1142,7 +1142,7 @@
     background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.silver_coupon{
-    background: url("../img/vip_silver_coupon.png");
+    background: url("../img/vip_silver_coupon@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.silver_coupon{
@@ -1154,7 +1154,7 @@
     background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.silver_mail{
-    background: url("../img/vip_silver_mail.png");
+    background: url("../img/vip_silver_mail@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.silver_mail{
@@ -1166,7 +1166,7 @@
     background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.gold_coupon{
-    background: url("../img/vip_gold_coupon.png");
+    background: url("../img/vip_gold_coupon@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.gold_coupon{
@@ -1178,7 +1178,7 @@
     background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.gold_mail{
-    background: url("../img/vip_gold_mail.png");
+    background: url("../img/vip_gold_mail@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.gold_mail{
@@ -1190,7 +1190,7 @@
     background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.platinum_coupon{
-    background: url("../img/vip_platinum_coupon.png");
+    background: url("../img/vip_platinum_coupon@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.platinum_coupon{
@@ -1202,7 +1202,7 @@
     background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.platinum_mail{
-    background: url("../img/vip_platinum_mail.png");
+    background: url("../img/vip_platinum_mail@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.platinum_mail{
@@ -1214,7 +1214,7 @@
     background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.diamond_coupon{
-    background: url("../img/vip_diamond_coupon.png");
+    background: url("../img/vip_diamond_coupon@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.diamond_coupon{
@@ -1226,7 +1226,7 @@
     background-size: 100% 100%;
 }
 .member .privilege .privilege_list ul li i.diamond_mail{
-    background: url("../img/vip_diamond_mail.png");
+    background: url("../img/vip_diamond_mail@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .member .privilege .privilege_list ul li i.diamond_mail{
@@ -1307,7 +1307,7 @@
     background: #e83147;
 }
 .beili .beili_top .ranking_btn p i{
-    background: url("../img/beili_icon_ranking.png");
+    background: url("../img/beili_icon_ranking@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .beili .beili_top .ranking_btn p i{
@@ -1330,7 +1330,7 @@
     margin-left: 0.08rem;
 }
 .record .beili_top .ranking_btn p i{
-    background: url("../img/record_rule.png");
+    background: url("../img/record_rule@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .record .beili_top .ranking_btn p i{
@@ -1378,7 +1378,7 @@
     top: 0.32rem;
 }
 .coupon .preferences i.icon{
-    background: url("../img/coupon_icon_coupon.png");
+    background: url("../img/coupon_icon_coupon@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .coupon .preferences i.icon{
@@ -1407,7 +1407,7 @@
     margin-left: 0.2133rem;
 }
 .coupon .certificate{
-    background: url("../img/coupon_bg_coupon_n.png")no-repeat center;
+    background: url("../img/coupon_bg_coupon_n@2x.png")no-repeat center;
     margin: 0.4266rem 0.32rem;
     background-size: 100% 100%;
 }
@@ -1422,7 +1422,7 @@
     background-size: 100% 100%;
 }
 .coupon .certificate.active{
-    background: url("../img/coupon_bg_coupon.png")no-repeat center;
+    background: url("../img/coupon_bg_coupon@2x.png")no-repeat center;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .coupon .certificate.active{
@@ -1570,7 +1570,7 @@
     line-height:0.8rem;
 }
 .rank .rank_list li:nth-of-type(1) .rank_num{
-    background: url("../img/ranking_1.png")no-repeat left center;
+    background: url("../img/ranking_1@2x.png")no-repeat left center;
 }
 [data-dpr="2"] .rank .rank_list li:nth-of-type(1) .rank_num{
     background: url("../img/ranking_1@2x.png")no-repeat left center;
@@ -1579,7 +1579,7 @@
     background: url("../img/ranking_1@3x.png")no-repeat left center;
 }
 .rank .rank_list li:nth-of-type(2) .rank_num{
-    background: url("../img/ranking_2.png")no-repeat left center;
+    background: url("../img/ranking_2@2x.png")no-repeat left center;
 }
 [data-dpr="2"] .rank .rank_list li:nth-of-type(2) .rank_num{
     background: url("../img/ranking_2@2x.png")no-repeat left center;
@@ -1588,7 +1588,7 @@
     background: url("../img/ranking_2@3x.png")no-repeat left center;
 }
 .rank .rank_list li:nth-of-type(3) .rank_num{
-    background: url("../img/ranking_3.png")no-repeat left center;
+    background: url("../img/ranking_3@2x.png")no-repeat left center;
 }
 [data-dpr="2"] .rank .rank_list li:nth-of-type(3) .rank_num{
     background: url("../img/ranking_3@2x.png")no-repeat left center;
@@ -1645,7 +1645,7 @@
     background: #E5E5E5;
 }
 .settings .settings_list > ul li i.arrow{
-    background: url("../img/arrow.png");
+    background: url("../img/arrow@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .settings .settings_list > ul li i.arrow{
@@ -1681,7 +1681,7 @@
     margin-top: 7px;
 }
 .account_settings .personal_data i.arrow{
-    background: url("../img/arrow.png");
+    background: url("../img/arrow@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .account_settings .personal_data i.arrow{
@@ -1759,7 +1759,7 @@
     float: right;
 }
 .sex_box ul li i.check{
-    background: url("../img/location_choice.png");
+    background: url("../img/location_choice@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .sex_box ul li i.check{
@@ -1861,7 +1861,7 @@
     margin-right: 0.2133rem;
 }
 .address_management .address_list .delete i{
-    background: url("../img/Group3.png");
+    background: url("../img/Group3@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .address_management .address_list .delete i{
@@ -1925,7 +1925,7 @@
     margin-top: 0.1066rem;
 }
 .edit_address .default_address i.no_choose{
-    background:url("../img/Group 5.png");
+    background:url("../img/Group 5@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .edit_address .default_address i.no_choose{
@@ -2122,7 +2122,7 @@
     text-align: -webkit-center;
 }
 .about_stars .picture .bg{
-    background: url("../img/Group.png");
+    background: url("../img/Group@2x.png");
     background-size: 100% 100%;
     width: 4.88rem;
     height: 2.4rem;
@@ -2203,7 +2203,7 @@
 
 }
 .message .message_list ul li .icon.reply{
-    background: url("../img/message_reply.png");
+    background: url("../img/message_reply@2x.png");
     background-size: 100% 100%;
     height: 0.6rem;
     top: 0.6rem;
@@ -2217,7 +2217,7 @@
     background-size: 100% 100%;
 }
 .message .message_list ul li .icon.praise{
-    background: url("../img/message_praise.png");
+    background: url("../img/message_praise@2x.png");
     background-size: 100% 100%;
     height: 0.6rem;
     top: 0.6rem;
@@ -2231,7 +2231,7 @@
     background-size: 100% 100%;
 }
 .message .message_list ul li .icon.system{
-    background: url("../img/message_system.png");
+    background: url("../img/message_system@2x.png");
     background-size: 100% 100%;
     height: 0.5rem;
     top: 0.6rem;
@@ -2253,7 +2253,7 @@
     margin-top: 0.0933rem;
 }
 .message .message_list ul li .list .into{
-    background: url("../img/arrow.png");
+    background: url("../img/arrow@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .message .message_list ul li .list .into{
@@ -2377,7 +2377,7 @@
     margin-top: 0.1rem;
 }
 .message_system .system_list ul li .message_more_btn i{
-    background: url("../img/arrow.png");
+    background: url("../img/arrow@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .message_system .system_list ul li .message_more_btn i{
@@ -2419,7 +2419,7 @@
     margin-left: 0.2133rem;
 }
 .comment_detail .detail_list ul li .right_block .topside .name_stars i.stars{
-    background: url("../img/star.png");
+    background: url("../img/star@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .name_stars i.stars{
@@ -2439,7 +2439,7 @@
     margin-right: 0.1066rem;
 }
 .comment_detail .detail_list ul li .right_block .topside .operation i.i_review{
-    background: url("../img/showdetails_comments.png");
+    background: url("../img/showdetails_comments@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .operation i.i_review{
@@ -2451,7 +2451,7 @@
     background-size: 100% 100%;
 }
 .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i{
-    background: url("../img/showdetails_praise_n.png");
+    background: url("../img/showdetails_praise_n@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i{
@@ -2463,7 +2463,7 @@
     background-size: 100% 100%;
 }
 .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i.liked{
-    background: url("../img/showdetails_praise_s.png");
+    background: url("../img/showdetails_praise_s@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i.liked{
@@ -2546,7 +2546,7 @@
     margin-right: 0.12rem;
 }
 .comment_detail .reply p i.reply-btn{
-    background: url("../img/comments_issue_n.png");
+    background: url("../img/comments_issue_n@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .reply p i.reply-btn{
@@ -2558,7 +2558,7 @@
     background-size: 100% 100%;
 }
 .comment_detail .reply p i.reply-btn.active{
-    background:url("../img/comments_issue_s.png")no-repeat;
+    background:url("../img/comments_issue_s@2x.png")no-repeat;
     background-size:100%;
 }
 [data-dpr="2"] .comment_detail .reply p i.reply-btn.active{
@@ -2603,7 +2603,7 @@
     width: 7.5rem;
     height: 6.5rem;
     margin: auto;
-    background: url("../img/Share.png") no-repeat center;
+    background: url("../img/Share@2x.png") no-repeat center;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .Share .picture{

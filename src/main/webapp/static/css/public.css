@@ -826,7 +826,7 @@ body{
     font-size:42px;
 }
 .td_hao.active1{
-    background:url("../img/Oval4.png") no-repeat center bottom;
+    background:url("../img/Oval4@2x.png") no-repeat center bottom;
 }
 [data-dpr="2"] .td_hao.active1{
     background:url("../img/Oval4@2x.png") no-repeat center bottom;
@@ -835,7 +835,7 @@ body{
     background:url("../img/Oval4@3x.png") no-repeat center bottom;
 }
 #now.td_hao{
-    background:url("../img/calendar.png") no-repeat center;
+    background:url("../img/calendar@2x.png") no-repeat center;
     color:#fff;
 }
 [data-dpr="2"] #now.td_hao{
@@ -879,7 +879,7 @@ table{width:9.33333rem;background:#fff;}
 .sign_box .calendar_close{
     width:0.8rem;
     height:0.8rem;
-    background:url("../img/calendar_x.png") no-repeat;
+    background:url("../img/calendar_x2@x.png") no-repeat;
     background-size:100%;
     margin: 0 auto;
     position:fixed;
@@ -900,7 +900,7 @@ table{width:9.33333rem;background:#fff;}
     width:9.33333rem;
     height:2.4rem;
     float:left;
-    background:url("../img/sign.png") no-repeat;
+    background:url("../img/sign@2x.png") no-repeat;
     background-size:100%;
 }
 [data-dpr="2"] .sign_succee{
@@ -961,7 +961,7 @@ table{width:9.33333rem;background:#fff;}
     right: 0.32rem;
 }
 .pay_box .pay_title i.off{
-    background: url("../img/classify_off.png");
+    background: url("../img/classify_off@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .pay_box .pay_title i.off{
@@ -993,7 +993,7 @@ table{width:9.33333rem;background:#fff;}
     float: left;
 }
 .pay_box .pay_method ul li i.alipay{
-    background: url("../img/pay_alipay.png");
+    background: url("../img/pay_alipay@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .pay_box .pay_method ul li i.alipay{
@@ -1012,7 +1012,7 @@ table{width:9.33333rem;background:#fff;}
     float: left;
 }
 .pay_box .pay_method ul li i.pay_wechat{
-    background: url("../img/pay_wechat.png");
+    background: url("../img/pay_wechat@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .pay_box .pay_method ul li i.pay_wechat{
@@ -1030,7 +1030,7 @@ table{width:9.33333rem;background:#fff;}
     background: #E5E5E5;
 }
 .pay_box .pay_method ul li i.arrow{
-    background: url("../img/arrow.png");
+    background: url("../img/arrow@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .pay_box .pay_method ul li i.arrow{
@@ -1059,7 +1059,7 @@ table{width:9.33333rem;background:#fff;}
     background: #D8D8D8;
 }
 .nodata .currency{
-    background: url("../img/404.png");
+    background: url("../img/404@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .currency{
@@ -1071,7 +1071,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_beili{
-    background: url("../img/404_beili.png");
+    background: url("../img/404_beili@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_beili{
@@ -1083,7 +1083,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_collection{
-    background: url("../img/404_collection.png");
+    background: url("../img/404_collection@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_collection{
@@ -1095,7 +1095,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_comments{
-    background: url("../img/404_comments.png");
+    background: url("../img/404_comments@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_comments{
@@ -1107,7 +1107,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_coupon{
-    background: url("../img/404_coupon.png");
+    background: url("../img/404_coupon@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_coupon{
@@ -1119,7 +1119,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_location{
-    background: url("../img/404_location.png");
+    background: url("../img/404_location@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_location{
@@ -1131,7 +1131,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_order{
-    background: url("../img/404_order.png");
+    background: url("../img/404_order@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_order{
@@ -1143,7 +1143,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_praise{
-    background: url("../img/404_praise.png");
+    background: url("../img/404_praise@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_praise{
@@ -1155,7 +1155,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_reply{
-    background: url("../img/404_reply.png");
+    background: url("../img/404_reply@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_reply{
@@ -1167,7 +1167,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_signal{
-    background: url("../img/404_signal.png");
+    background: url("../img/404_signal@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_signal{
@@ -1179,7 +1179,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_system{
-    background: url("../img/404_system.png");
+    background: url("../img/404_system@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_system{
@@ -1191,7 +1191,7 @@ table{width:9.33333rem;background:#fff;}
     background-size: 100%;
 }
 .nodata .no_classify{
-    background: url("../img/404_classify.png");
+    background: url("../img/404_classify@2x.png");
     background-size: 100%;
 }
 [data-dpr="2"] .nodata .no_classify{

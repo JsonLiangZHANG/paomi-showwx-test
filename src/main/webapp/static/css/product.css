@@ -67,7 +67,7 @@
 .product .top i.screen {
     top: 0.35rem;
     right: 0.32rem;
-    background: url("../img/classify_screen_n.png");
+    background: url("../img/classify_screen_n@2x.png");
     background-size: 100%;
 }
 
@@ -82,7 +82,7 @@
 }
 
 .product .top i.screen.active {
-    background: url("../img/classify_off.png");
+    background: url("../img/classify_off@2x.png");
     background-size: 100%;
 }
 
@@ -97,7 +97,7 @@
 }
 
 .product .top i.search {
-    background: url("../img/classify_search.png");
+    background: url("../img/classify_search@2x.png");
     background-size: 100%;
 }
 
@@ -183,7 +183,7 @@
 }
 
 .product .Sortsearch i.hotter {
-    background: url("../img/classify_hot_n.png");
+    background: url("../img/classify_hot_n@2x.png");
     background-size: 100%;
 }
 
@@ -198,7 +198,7 @@
 }
 
 .product .Sortsearch i.hotter_active {
-    background: url("../img/classify_hot_s.png");
+    background: url("../img/classify_hot_s@2x.png");
     background-size: 100%;
 }
 
@@ -213,7 +213,7 @@
 }
 
 .product .Sortsearch i.time {
-    background: url("../img/classify_time_n.png");
+    background: url("../img/classify_time_n@2x.png");
     background-size: 100%;
 }
 
@@ -228,7 +228,7 @@
 }
 
 .product .Sortsearch i.time_active {
-    background: url("../img/classify_time_s.png");
+    background: url("../img/classify_time_s@2x.png");
     background-size: 100%;
 }
 
@@ -243,7 +243,7 @@
 }
 
 .product .Sortsearch i.check {
-    background: url("../img/location_choice.png");
+    background: url("../img/location_choice@2x.png");
     background-size: 100%;
 }
 

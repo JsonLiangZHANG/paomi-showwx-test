@@ -80,10 +80,10 @@ stareal
 
             var num=parseInt($('#'+id).val());
             // console.log(num);
-            if (num == $scope.max) {
-                $alert.show("最多只能购买"+$scope.max+"件!")
-                return;
-            }
+            // if (num == $scope.max) {
+            //     $alert.show("最多只能购买"+$scope.max+"件!")
+            //     return;
+            // }
             $scope.cartList[id].quantity= num + 1;
             $scope.changeSum(id);
         };

@@ -179,11 +179,7 @@ stareal
         };
 
         $scope.addNum = function () {
-            if ($scope.num == $scope.max) {
-                $alert.show("最多只能购买"+$scope.max+"件");
-                return;
-            }
-            else if( $scope.num>=$scope.good.stock){
+            if( $scope.num>=$scope.good.stock){
                 $alert.show("该商品库存不足！");
                 return;
             }
@@ -192,7 +188,7 @@ stareal
         };
         //计算小计
         $scope.changeTotal=function(num){
-            $scope.priceTotal=num* $scope.price;
+            $scope.priceTotal=(num* $scope.price).toFixed(2);
         }
         //查看购物车
         $scope.goCar=function(){

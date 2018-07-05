@@ -15,7 +15,7 @@ stareal
             if($scope.xuanzuo==1){
                 localStorageService.set($scope.order_id + '_coupon_id', couponId);
                 localStorageService.set($scope.order_id + '_coupon_name', (type == '折扣' ? ratio1 + '折' : ratio2 + '元'));
-                $state.go('main.xuan_pay', {order_id: $scope.order_id, _: '_'});
+                $state.go('main.xuanpay', {order_id: $scope.order_id, _: '_'});
             }else{
                 localStorageService.set($scope.order_id + '_coupon_id', couponId);
                 localStorageService.set($scope.order_id + '_coupon_name', (type == '折扣' ? ratio1 + '折' : ratio2 + '元'));

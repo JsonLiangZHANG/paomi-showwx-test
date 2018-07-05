@@ -1,5 +1,5 @@
 .Productorder .bgc{
-    background: #FF5000;
+    background:#e83147;
     height: 3rem;
     line-height: 3rem;
 }
@@ -16,7 +16,7 @@
     float: right;
 }
 .Productorder  .left p{
-    color: red;
+    color:#e83147;
     font-size: 14px;
 }
 .Productorder .left .number{
@@ -41,11 +41,12 @@
     background: #e5e5e5;
 }
 .Productorder .goods-list{
-    padding:0.2rem 0.4266rem;
+    padding:0.2rem 0.32rem;
 }
 .Productorder .goods-list img{
-    width: 1.7066rem;
+    width: 1.7rem;
     height: 2.4rem;
+    float: left;
 }
 /*.Productorder .good{*/
     /*margin: 10px 0;*/
@@ -53,10 +54,23 @@
 .Productorder ul.good_infoul{
     display: inline-block;
     vertical-align: top;
+    float: left;
+    margin-left: 1%;
+    width: 80%;
+    font-size: 0.34rem;
+}
+.Productorder ul.good_infoul .good_infoul_title{
+    font-size: 0.4rem;
+    font-weight: bold;
+    line-height: 0.8rem;
+}
+.Productorder ul.good_infoul li{
+    line-height:0.6rem ;
 }
 .Productorder .good_priceul{
-    border-top: 2px solid #ddd;
-    font-size: 0.34rem;
+    border-top: 1px solid #ddd;
+    font-size: 0.32rem;
+    line-height: 0.6rem;
 }
 .Productorder ul .good-name,.Productorder ul .good-price{
     color: #999;

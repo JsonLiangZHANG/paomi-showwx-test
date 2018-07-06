@@ -691,19 +691,20 @@ stareal
                                 'Content-Type': undefined
                             }
                         }).success(function (data) {
-                            $api.post("app/login/userinfo/update",{
-                                headimgurl:data.url
-                            },true)
-                                .then(function (ret) {
-                                    if(ret.retCode==0){
-                                        $alert.show("修改成功")
-                                    }else{
-                                        $alert.show(ret.message);
-                                    }
+                            if(data.retCode=='0'){
+                                $api.post("app/login/userinfo/update",{
+                                    headimgurl:data.url
+                                },true)
+                                    .then(function (ret) {
+                                            $alert.show("修改成功")
 
-                                },function (err) {
-                                    $alert.show(err)
-                                })
+                                    },function (err) {
+                                        $alert.show(err)
+                                    })
+                            }else{
+                                $alert.show(data.message);
+                            }
+
                         })
                     }else{
                         alert('上传图片不能为空!');

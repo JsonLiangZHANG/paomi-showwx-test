@@ -302,7 +302,7 @@
     white-space: nowrap;
 }
 .news > .news-con .text-scroll li p span:first-child{
-    color:#FF5000;
+    color:#e83147;
 }
 /*活动专区*/
 .activity-box{
@@ -367,6 +367,7 @@
 .searchs .search_top .search_input{
     width:8.2666rem;
     /*background: #F1F1F1;*/
+    font-size: 0.34rem;
     border-radius:0.56rem;
     background:url("../img/home_navigation_search.png") 0.2rem center no-repeat #F1F1F1;
     padding-left:0.8rem;
@@ -387,9 +388,9 @@
     width:100%;
 }
 .searchs .search_top .search_cancel{
-    height:0.7333rem;
-    line-height:0.7533rem;
-    color:#222;
+    height: 0.9rem;
+    line-height: 0.9rem;
+    color: #222;
 }
 .searchs .search_hot{
     margin-top:0.4266rem;

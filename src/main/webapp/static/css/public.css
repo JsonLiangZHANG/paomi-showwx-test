@@ -1,14 +1,14 @@
 a:link {
-    text-decoration: none;
+    text-decoration: none!important;
 }
 a:visited {
-    text-decoration: none;
+    text-decoration: none!important;
 }
 a:hover {
-    text-decoration: none;
+    text-decoration: none!important;
 }
 a:active {
-    text-decoration: none;
+    text-decoration: none!important;
 }
 div{box-sizing: border-box;}
 .fl{
@@ -101,11 +101,11 @@ body{
 }
 [data-dpr="2"] .flag .flag-item.figure i.label{
     background: url("../img/Label label@2x.png");
-    background-size: 100%;
+    background-size: 100% ;
 }
 [data-dpr="3"] .flag .flag-item.figure i.label{
     background: url("../img/Label label@3x.png");
-    background-size: 100%;
+    background-size: 100% ;
 }
 .flag .flag-item {
     display: table-cell;

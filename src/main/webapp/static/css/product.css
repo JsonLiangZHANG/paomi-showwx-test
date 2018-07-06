@@ -98,17 +98,17 @@
 
 .product .top i.search {
     background: url("../img/classify_search@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="2"] .product .top i.search {
     background: url("../img/classify_search@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="3"] .product .top i.search {
     background: url("../img/classify_search@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .product .bg {
@@ -199,17 +199,17 @@
 
 .product .Sortsearch i.hotter_active {
     background: url("../img/classify_hot_s@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="2"] .product .Sortsearch i.hotter_active {
     background: url("../img/classify_hot_s@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="3"] .product .Sortsearch i.hotter_active {
     background: url("../img/classify_hot_s@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .product .Sortsearch i.time {
@@ -219,42 +219,42 @@
 
 [data-dpr="2"] .product .Sortsearch i.time {
     background: url("../img/classify_time_n@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="3"] .product .Sortsearch i.time {
     background: url("../img/classify_time_n@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .product .Sortsearch i.time_active {
     background: url("../img/classify_time_s@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="2"] .product .Sortsearch i.time_active {
     background: url("../img/classify_time_s@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="3"] .product .Sortsearch i.time_active {
     background: url("../img/classify_time_s@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 .product .Sortsearch i.check {
     background: url("../img/location_choice@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="2"] .product .Sortsearch i.check {
     background: url("../img/location_choice@2x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 
 [data-dpr="3"] .product .Sortsearch i.check {
     background: url("../img/location_choice@3x.png");
-    background-size: 100%;
+    background-size: 100% 100%;
 }
 /*衍生品列表*/
 .flag .flag-type strong.black{

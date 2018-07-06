@@ -29,9 +29,9 @@
             <div class="sign fr">
                 <div class="explain f10 fl">
                     <div class="fist" ng-if="sign_state=='1'">开始连续签到</div>
-                    <div ng-if="sign_state=='1'">今日签到可获得{{daybeily.today}}贝里</div>
+                    <div ng-if="sign_state=='1'">今日签到可获得{{daybeily.today}}积分</div>
                     <div class="fist" ng-if="sign_state=='2'">今日已签到</div>
-                    <div ng-if="sign_state=='2'">明日签到可得{{daybeily.tomorrow}}贝里</div>
+                    <div ng-if="sign_state=='2'">明日签到可得{{daybeily.tomorrow}}积分</div>
                 </div>
                 <button class="sign_button f14 linear fr" ng-click="sign(bellyremain,daybeily.today)" ng-if="sign_state=='1'">立即签到</button>
                 <button class="sign_button f14 linear fr" ng-if="sign_state=='2'">已签到</button>

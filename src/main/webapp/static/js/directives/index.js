@@ -670,6 +670,7 @@ stareal
                     scope.$apply();
                     scope.reader = new FileReader();    //创建一个FileReader接口
                     if (scope.file) {
+                        $alert.show("图片上传中..");
                         //获取图片（预览图片）
                         scope.reader.readAsDataURL(scope.file[0]);    //FileReader的方法，把图片转成base64
                         scope.reader.onload = function(ev) {
@@ -694,7 +695,12 @@ stareal
                                 headimgurl:data.url
                             },true)
                                 .then(function (ret) {
-                                    $alert.show("修改成功")
+                                    if(ret.retCode==0){
+                                        $alert.show("修改成功")
+                                    }else{
+                                        $alert.show(ret.message);
+                                    }
+
                                 },function (err) {
                                     $alert.show(err)
                                 })

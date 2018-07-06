@@ -1579,7 +1579,7 @@
     background: url("../img/ranking_1@3x.png")no-repeat left center;
 }
 .rank .rank_list li:nth-of-type(2) .rank_num{
-    background: url("../img/ranking_2@2x.png")no-repeat left center;
+    background: url("../img/ranking_2.png")no-repeat left center;
 }
 [data-dpr="2"] .rank .rank_list li:nth-of-type(2) .rank_num{
     background: url("../img/ranking_2@2x.png")no-repeat left center;
@@ -1588,7 +1588,7 @@
     background: url("../img/ranking_2@3x.png")no-repeat left center;
 }
 .rank .rank_list li:nth-of-type(3) .rank_num{
-    background: url("../img/ranking_3@2x.png")no-repeat left center;
+    background: url("../img/ranking_3.png")no-repeat left center;
 }
 [data-dpr="2"] .rank .rank_list li:nth-of-type(3) .rank_num{
     background: url("../img/ranking_3@2x.png")no-repeat left center;

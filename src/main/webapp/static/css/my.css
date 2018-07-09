@@ -69,32 +69,34 @@
 .myorder .orders-tab ul li a{
     color:#222;
 }
-.myorder .orders-tab ul li.active{
+.myorder .orders-tab ul li.active a{
     position:relative;
+    padding-bottom: 0.2rem;
+    border-bottom: 3px solid #e83147;
 }
-.myorder .orders-tab ul li:after{
-    content:'';
-    width:0rem;
-    height:0rem;
-    background:#e83147;
-    border: none!important;
-    border-radius:0.21333rem;
-    position:absolute;
-    left:50%;
-    bottom:0;
-    transform:translateX(-50%);
-}
-.myorder .orders-tab ul li.active:after{
-    content:'';
-    width:0.42666rem;
-    height:0.10666rem;
-    background:#e83147;
-    border-radius:0.21333rem;
-    position:absolute;
-    left:50%;
-    bottom:0;
-    transform:translateX(-50%);
-}
+/*.myorder .orders-tab ul li:after{*/
+    /*content:'';*/
+    /*width:0rem;*/
+    /*height:0rem;*/
+    /*background:#e83147;*/
+    /*border: none!important;*/
+    /*border-radius:0.21333rem;*/
+    /*position:absolute;*/
+    /*left:50%;*/
+    /*bottom:0;*/
+    /*transform:translateX(-50%);*/
+/*}*/
+/*.myorder .orders-tab ul li.active:after{*/
+    /*content:'';*/
+    /*width:0.42666rem;*/
+    /*height:0.10666rem;*/
+    /*background:#e83147;*/
+    /*border-radius:0.21333rem;*/
+    /*position:absolute;*/
+    /*left:50%;*/
+    /*bottom:0;*/
+    /*transform:translateX(-50%);*/
+/*}*/
 .myorder .orders-tab ul li.active a{
     color:#e83147;
 }

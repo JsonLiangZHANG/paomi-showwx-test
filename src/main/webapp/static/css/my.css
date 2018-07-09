@@ -72,6 +72,18 @@
 .myorder .orders-tab ul li.active{
     position:relative;
 }
+.myorder .orders-tab ul li:after{
+    content:'';
+    width:0rem;
+    height:0rem;
+    background:#e83147;
+    border: none!important;
+    border-radius:0.21333rem;
+    position:absolute;
+    left:50%;
+    bottom:0;
+    transform:translateX(-50%);
+}
 .myorder .orders-tab ul li.active:after{
     content:'';
     width:0.42666rem;

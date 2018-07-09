@@ -612,8 +612,31 @@ stareal
                     //拿座位信息
                     $scope.selectsiteModa = function () {
                         if (!localStorageService.get('token')) {
+                            // $state.go("main.login",{})
+                            // return false;
                             var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
-                            location.href = "#/main/login/"+ encodeURIComponent(rs);
+                            var ua = window.navigator.userAgent.toLowerCase();
+                            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                                // 正式地址
+                                location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                                    // "appid=wxd39f7e740343d507&" +
+                                    // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
+                                    "appid=wx7b0222c401e61396&" +
+                                    "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
+                                    "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
+
+                                // //测试redirect_uri
+                                // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                                //     "appid=wxd39f7e740343d507&" +
+                                //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
+                                //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                            } else {
+                                // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
+                                //     "appid=wx05c47c7db58b03aa&" +
+                                //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
+                                //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
+                                location.href = "#/main/login/"+encodeURIComponent(rs);
+                            }
                             return false;
                         }
                         // console.log("ggggggg ")
@@ -645,9 +668,32 @@ stareal
                     $scope.selectseats=function(){
                         $scope.eventShowId=eventId;
                         if (!localStorageService.get('token')) {
+                            // $state.go("main.login",{})
+                            // return false;
                             var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
-                            location.href = "#/main/login/"+ encodeURIComponent(rs);
-                            return;
+                            var ua = window.navigator.userAgent.toLowerCase();
+                            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                                // 正式地址
+                                location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                                    // "appid=wxd39f7e740343d507&" +
+                                    // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
+                                    "appid=wx7b0222c401e61396&" +
+                                    "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
+                                    "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
+
+                                // //测试redirect_uri
+                                // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                                //     "appid=wxd39f7e740343d507&" +
+                                //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
+                                //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                            } else {
+                                // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
+                                //     "appid=wx05c47c7db58b03aa&" +
+                                //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
+                                //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
+                                location.href = "#/main/login/"+encodeURIComponent(rs);
+                            }
+                            return false;
                         }
                         console.log($scope.eventShowId);
                         localStorageService.set('good_title',$scope.title);
@@ -775,6 +821,7 @@ stareal
                     if (!localStorageService.get('token')) {
                         // $state.go("main.login",{})
                         // return false;
+                        var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
                         var ua = window.navigator.userAgent.toLowerCase();
                         if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                             // 正式地址
@@ -783,7 +830,7 @@ stareal
                                 // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
                                 "appid=wx7b0222c401e61396&" +
                                 "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
-                                "&response_type=code&scope=snsapi_userinfo&state=";
+                                "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                             // //测试redirect_uri
                             // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
@@ -795,8 +842,9 @@ stareal
                             //     "appid=wx05c47c7db58b03aa&" +
                             //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
                             //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
-                            location.href = "#/main/login/";
+                            location.href = "#/main/login/"+encodeURIComponent(rs);
                         }
+                        return false;
                     }
                 }
                 if(gf==0){//预约登记

@@ -659,14 +659,14 @@ stareal
                 ele.bind('change', function() {
                     scope.file = ele[0].files;
                     scope.fileName = scope.file[0].name;
-                    var postfix = scope.fileName.substring(scope.fileName.lastIndexOf(".")+1).toLowerCase();
-                    if(postfix !="jpg" && postfix !="png"){
-                        $alert.show("图片仅支持png、jpg类型的文件");
-                        scope.fileName = "";
-                        scope.file = null;
-                        scope.$apply();
-                        return false;
-                    }
+                    // var postfix = scope.fileName.substring(scope.fileName.lastIndexOf(".")+1).toLowerCase();
+                    // if(postfix!="jpg" && postfix!="png"){
+                    //     $alert.show("图片仅支持png、jpg类型的文件");
+                    //     scope.fileName = "";
+                    //     scope.file = null;
+                    //     scope.$apply();
+                    //     return false;
+                    // }
                     scope.$apply();
                     scope.reader = new FileReader();    //创建一个FileReader接口
                     if (scope.file) {

@@ -63,6 +63,8 @@ public class OAuthController extends BaseController {
         System.out.println(token+"-"+nickname +"-"+sex+"-"+province+"-"+city+"-"+country+"-"+headimgurl+"-"+openid);
         System.out.println("============================================================================");
         this.setSessionAttr("accessToken", getUserAccessToken(params).getString("accessToken"));
+        System.out.println("accessToken。。。"+getUserAccessToken(params).getString("accessToken"));
+        System.out.println("isbind。。。"+getUserAccessToken(params).getString("isbind"));
         this.setSessionAttr("isbind", getUserAccessToken(params).getString("isbind"));
         this.setSessionAttr("openid", openid);
 //        render("/index.html");
@@ -166,6 +168,7 @@ public class OAuthController extends BaseController {
         JSONObject dataMap = JSON.parseObject(HttpKit.get(loginApi, params));
 //        String accessToken = dataMap.getString("accessToken");
 //        String isbind = dataMap.getString("isbind");
+        System.out.println("dataMap:" + dataMap.toString());
         return dataMap;
     }
 

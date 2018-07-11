@@ -35,7 +35,7 @@ stareal
         // return url 回挑
         var iband=localStorageService.get('isbind');
         var rs = localStorageService.get('rs');
-        if(iband==0){
+        if(iband==='0'){
             if (rs) {
                 localStorageService.remove('rs');
                 console.log(rs);

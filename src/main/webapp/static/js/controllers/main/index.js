@@ -33,16 +33,31 @@ stareal
                 $alert.show(err)
             })
         // return url 回挑
+        var iband=localStorageService.get('isbind');
         var rs = localStorageService.get('rs');
-        if (rs) {
-            localStorageService.remove('rs');
-            console.log(rs);
-            var _state = rs.substring(0, rs.indexOf('-'));
-            var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
+        if(iband==0){
+            if (rs) {
+                localStorageService.remove('rs');
+                console.log(rs);
+                var _state = rs.substring(0, rs.indexOf('-'));
+                var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
+                $state.go('main.speedlogin', eval('(' + _param + ')'));
+                return;
+            }
+           // $state.go('main.login',{},true);
+        }else{
+            if (rs) {
+                localStorageService.remove('rs');
+                console.log(rs);
+                var _state = rs.substring(0, rs.indexOf('-'));
+                var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
 
-            $state.go(_state, eval('(' + _param + ')'));
-            return;
+                $state.go(_state, eval('(' + _param + ')'));
+                return;
+            }
         }
+
+
         //首页轮播
         $api.get("app/main/ad/retrieve",{})
             .then(function (ret) {

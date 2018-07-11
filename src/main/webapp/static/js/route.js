@@ -313,6 +313,15 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/my.css'
             ])
         })
+        .state('main.speedlogin', {
+            url: '/speedlogin/:good_id',
+            templateUrl: 'static/partials/main/speedlogin.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/login.js',
+                'static/css/public.css',
+                'static/css/my.css'
+            ])
+        })
         .state('main.user_register', {
             url: '/user/register',
             templateUrl: 'static/partials/main/user_register.html',

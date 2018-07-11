@@ -62,7 +62,8 @@ public class OAuthController extends BaseController {
         System.out.println("============================================================================");
         System.out.println(token+"-"+nickname +"-"+sex+"-"+province+"-"+city+"-"+country+"-"+headimgurl+"-"+openid);
         System.out.println("============================================================================");
-        this.setSessionAttr("accessToken", getUserAccessToken(params));
+        this.setSessionAttr("accessToken", getUserAccessToken(params).getString("accessToken"));
+        this.setSessionAttr("isbind", getUserAccessToken(params).getString("isbind"));
         this.setSessionAttr("openid", openid);
 //        render("/index.html");
 
@@ -160,11 +161,12 @@ public class OAuthController extends BaseController {
      * @return void    返回类型
      * @throws
      */
-    public String getUserAccessToken(Map<String, String> params) {
+    public JSONObject getUserAccessToken(Map<String, String> params) {
         String loginApi = "http://api.amazingmusicals.com/mobile/app/login/social/retrieve";
         JSONObject dataMap = JSON.parseObject(HttpKit.get(loginApi, params));
-        String accessToken = dataMap.getString("accessToken");
-        return accessToken;
+//        String accessToken = dataMap.getString("accessToken");
+//        String isbind = dataMap.getString("isbind");
+        return dataMap;
     }
 
 }

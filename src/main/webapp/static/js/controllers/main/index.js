@@ -43,6 +43,8 @@ stareal
                 var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
                 $state.go('main.speedlogin', eval('(' + _param + ')'));
                 return;
+            }else{
+                $state.go('main.speedlogin');
             }
            // $state.go('main.login',{},true);
         }else{

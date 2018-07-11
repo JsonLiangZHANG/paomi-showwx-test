@@ -7,6 +7,7 @@ stareal
             link: function (scope, element, attrs) {
                 localStorageService.set('token', attrs.token);
                 localStorageService.set('openid', attrs.openid);
+                localStorageService.set('isbind', attrs.isbind);
 
                 if (attrs.rs) {
                     localStorageService.set('rs', attrs.rs);

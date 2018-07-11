@@ -81,6 +81,35 @@ stareal
                         $alert.show(err);
                     });
             },
+            speadlogin:function (telphone_no,code,state){
+                if (!this.validatemobile(telphone_no)) {
+                    return;
+                }
+                if(state==1){//验证码登录
+                    if (!localStorageService.get('code_token')) {
+                        $alert.show("请先获取验证码！");
+                        return false;
+                    }
+                    console.log(code+'n')
+                    var _params = {
+                        mobile:telphone_no,
+                        code:code,
+                        openId:localStorageService.get('openid'),
+                        accessToken: localStorageService.get('code_token')
+                    };
+                }
+
+                $api.post("app/login/user/retrieve", _params)
+                    .then(function (ret) {
+                        localStorageService.set("telphone_no",telphone_no);
+                        localStorageService.set("user",ret); //存储用户信息
+                        $scope.accessToken = ret.accessToken;
+                        localStorageService.set('login_token', ret.accessToken);
+                        location.href = "oauth/web?accessToken=" + ret.accessToken + "&state="+encodeURIComponent($stateParams.good_id);
+                    }, function (err) {
+                        $alert.show(err);
+                    });
+            },
             validatemobile:function (mobile) {
                 if(!mobile){
                     return false

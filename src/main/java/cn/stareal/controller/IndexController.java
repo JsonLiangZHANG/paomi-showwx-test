@@ -13,6 +13,7 @@ public class IndexController extends Controller {
         this.setAttr("accessToken", getSessionAttr("accessToken"));
         this.setAttr("openid",getSessionAttr("openid"));
         this.setAttr("isbind",getSessionAttr("isbind"));
+        System.out.println("/-------"+getSessionAttr("isbind"));
         this.setAttr("rs",getSessionAttr("rs"));
         this.removeSessionAttr("rs");
         render("index.html");

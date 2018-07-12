@@ -43,6 +43,7 @@ public class OAuthController extends BaseController {
         String country = json.getString("country");
         String headimgurl = json.getString("headimgurl");
         String token = json.getString("access_token");
+        String unionid = json.getString("");
 
 
         if (token == null || token.equals("") || openid == null || openid.equals("")) {
@@ -59,6 +60,7 @@ public class OAuthController extends BaseController {
         params.put("country", country);
         params.put("headimgurl", headimgurl);
         params.put("openid", openid);
+        params.put("unionid", unionid);
         System.out.println("============================================================================");
         System.out.println(token+"-"+nickname +"-"+sex+"-"+province+"-"+city+"-"+country+"-"+headimgurl+"-"+openid);
         System.out.println("============================================================================");

@@ -13,7 +13,7 @@ stareal
                 $scope.invitation_num = $scope.data.invitation_num//邀请朋友注册的次数
 
                 if($scope.isCheck){
-                    $scope.gbs = {background:'#999 '} //领取过
+                    $scope.gbs = {color:'#999 '} //领取过
                     $scope.gbn = '已完成'
                 }else{
                     // $scope.gbs = {background:'#ed3b3b '} //为完成
@@ -24,14 +24,24 @@ stareal
                 }
 
                 if($scope.isComment){
-                    $scope.gbs1 = {background:'#999 '} //领取过
+                    $scope.gbs1 = {color:'#999 '} //领取过
                     $scope.gbn1 = '已完成'
                 }else{
                     $scope.GoComment = function () {
-                        $state.go('main.list', {kind:'0',sort:'hot',direct:'desc'});
+                        $state.go('main.list', {kind:'',sort:'hot',direct:'desc'});
                     }
-                    // $scope.gbs1 = {background:'#ed3b3b '} //领取过
+                    $scope.gbs1 = {color:'#fdcd55 '} //领取过
                     $scope.gbn1 = '去完成'
+                }
+                if($scope.invitation_num > 0){
+                    $scope.gbs2 = {color:'#999 '} //领取过
+                    $scope.gbn2 = '已完成'
+                }else{
+                    $scope.GoShare = function () {
+                        $state.go('my.share', {});
+                    }
+                    $scope.gbs2 = {color:'#fdcd55 '} //领取过
+                    $scope.gbn2= '去完成'
                 }
 
             })

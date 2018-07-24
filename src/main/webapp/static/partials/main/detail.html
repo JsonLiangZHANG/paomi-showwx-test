@@ -138,11 +138,11 @@
     <!--查看全部评论结束-->
     <!--立即购票开始-->
     <div class="gogo">
-        <div class="footer" style="height:1.3333rem"></div>  <!--解决fixed显示不全bug--->
+        <div class="footer" style="height:1.3333rem"></div>  <!--解决fixed显示不全bug-->
         <div class="shop_box clear">
             <div class="fun_btn fl clear">
-                <a href="" class="fl" ng-click="write()"></a>
-                <a href="" class="fl {{favor==0?'':'liked'}}" ng-click="collect(good.id)"></a>
+                <a href="" class="fl" ng-click="write()">评论</a>
+                <a href="" class="fl {{favor==0?'':'liked'}}" ng-click="collect(good.id)">收藏</a>
             </div>
             <div class="shop_btn fr">
                 <span class="br {{shop_bg}}" ng-click="go(gf,$event)" ng-bind="gbn"></span>
@@ -274,7 +274,7 @@
                     <a href="" class="f16" ng-click="submitPop()">提交</a>
                 </div>
             </div>
-            <div class="cloes" ng-click="close()"></div>
+            <div class="cloes" ng-click="arriveClose()"></div>
         </div>
     </div>
     <!--到货提醒弹窗结束-->

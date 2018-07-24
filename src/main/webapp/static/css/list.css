@@ -19,7 +19,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#e83147;
+    background:#FDCD55;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -148,7 +148,7 @@
     margin-left: 0.2666rem;
 }
 .list .Sortsearch span.active{
-    color:#e83147;
+    color:#FDCD55;
 }
 .list .Sortsearch .hotter{
     float: left;
@@ -157,66 +157,90 @@
     float: right;
 }
 .list .Sortsearch i.hotter{
-    background: url("../img/classify_hot_n.png");
+    /* background: url("../img/classify_hot_n.png"); */
+    background: url("../img/hot@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .list .Sortsearch i.hotter{
-    background: url("../img/classify_hot_n@2x.png");
+    /* background: url("../img/classify_hot_n@2x.png"); */
+    background: url("../img/hot@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="3"] .list .Sortsearch i.hotter{
-    background: url("../img/classify_hot_n@3x.png");
+    /* background: url("../img/classify_hot_n@3x.png"); */
+    background: url("../img/hot@3x.png");
     background-size: 100% 100%;
 }
 .list .Sortsearch i.hotter_active{
-    background: url("../img/classify_hot_s@3x.png");
+    /* background: url("../img/classify_hot_s@3x.png"); */
+    background: url("../img/hot@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .list .Sortsearch i.hotter_active{
-    background: url("../img/classify_hot_s@2x.png");
+    /* background: url("../img/classify_hot_s@2x.png"); */
+    background: url("../img/hot@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="3"] .list .Sortsearch i.hotter_active{
-    background: url("../img/classify_hot_s@3x.png");
+    /* background: url("../img/classify_hot_s@3x.png"); */
+    background: url("../img/hot@3x.png");
     background-size: 100% 100%;
 }
 .list .Sortsearch i.time{
-    background: url("../img/classify_time_n@3x.png");
+    /* background: url("../img/classify_time_n@3x.png"); */
+    background: url("../img/time@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .list .Sortsearch i.time{
-    background: url("../img/classify_time_n@2x.png");
+    /* background: url("../img/classify_time_n@2x.png"); */
+    background: url("../img/time@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="3"] .list .Sortsearch i.time{
-    background: url("../img/classify_time_n@3x.png");
+    /* background: url("../img/classify_time_n@3x.png"); */
+    background: url("../img/time@3x.png");
     background-size: 100% 100%;
 }
 .list .Sortsearch i.time_active{
-    background: url("../img/classify_time_s@3x.png");
+    /* background: url("../img/classify_time_s@3x.png"); */
+    background: url("../img/time@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .list .Sortsearch i.time_active{
-    background: url("../img/classify_time_s@2x.png");
+    /* background: url("../img/classify_time_s@2x.png"); */
+    background: url("../img/time@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="3"] .list .Sortsearch i.time_active{
-    background: url("../img/classify_time_s@3x.png");
+    /* background: url("../img/classify_time_s@3x.png"); */
+    background: url("../img/time@3x.png");
     background-size: 100% 100%;
 }
 .list .Sortsearch i.check{
-    background: url("../img/location_choice@3x.png");
+    /* background: url("../img/location_choice@3x.png"); */
+    background: url("../img/fenlei_gouxuan@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .list .Sortsearch i.check{
-    background: url("../img/location_choice@2x.png");
+    /* background: url("../img/location_choice@2x.png"); */
+    background: url("../img/fenlei_gouxuan@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="3"] .list .Sortsearch i.check{
-    background: url("../img/location_choice@3x.png");
+    /* background: url("../img/location_choice@3x.png"); */
+    background: url("../img/fenlei_gouxuan@3x.png");
     background-size: 100% 100%;
 }
-
+.list .cart{
+    position: fixed;
+    bottom: 12%;
+    right: 12%;
+    width: 1.6rem;
+    height: 1.6rem;
+    background: url("../img/fenlei_gwcfb@2x.png");
+    background-size: 100%;
+    /* z-index: 9999999; */
+}
 
 
 

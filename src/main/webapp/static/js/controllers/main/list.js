@@ -17,6 +17,7 @@ stareal
         $api.get("app/main/category/retrieve")
             .then(function (ret) {
                 var nav  = ret.data;
+                console.log(nav)
                 $scope.navs = nav;
                 $timeout(function () {
                     var swiper = new Swiper('.swiper-container', {
@@ -65,4 +66,5 @@ stareal
                 }
             }
         });
+        
     });

@@ -3,6 +3,7 @@
 stareal
     .controller("DetailController", function ($rootScope,$scope,$http,$compile,$interval,$stateParams,$location,$anchorScroll,$api, $sce, base64, $state, $alert, localStorageService,FileUploader) {
         $scope.current = $stateParams.good_id;
+        
 
         $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
             .then(function (ret) {
@@ -25,6 +26,7 @@ stareal
                 if (good.state == '售票中') {
                     $scope.shop_bg = '';
                     $scope.gbn = '立即购票';
+                    $scope.isdisabled = true;
                     $scope.gf = 1;
                 }
                 if (good.state == '预售中') {
@@ -48,13 +50,19 @@ stareal
                     $scope.gbn = '立即预定';
                     $scope.gf = 2;
                 }
+                if (good.state == '已售罄') {
+                    $scope.shop_bg = 'disable';
+                    $scope.gbn = good.state;
+                    $scope.gf = 0;
+                }
 
                 if (good.state == '演出结束') {
                     $scope.shop_bg = 'disable';
                     $scope.gbn = good.state;
                     $scope.gf = 0;
                 }
-
+                
+                
             });
         //巡演开始
         $api.get("app/detail/good/tour", {id: $stateParams.good_id}, true)
@@ -211,7 +219,7 @@ stareal
             e.stopPropagation();
         })
         angular.element('.mask1').click(function () {
-            $scope.close();
+            $scope.arriveClose();
         })
 
         angular.element('.tic .alertBox ').click(function (e) {
@@ -224,7 +232,7 @@ stareal
 
 
         //关闭
-        $scope.close = function () {
+        $scope.arriveClose = function () {
             angular.element('.mask1 .alert_box1').animate({bottom:-alertHe},200);
             angular.element('.mask1').fadeOut()
         }

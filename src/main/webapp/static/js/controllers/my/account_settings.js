@@ -130,4 +130,8 @@ stareal
         $scope.tip = function () {
             $alert.show("请前往APP中修改")
         }
+        //保存提示
+        $scope.saveIn = function(){
+            $alert.show("保存成功")
+        }
     });

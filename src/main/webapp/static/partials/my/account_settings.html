@@ -6,13 +6,13 @@
     </div>
     <!--标题结束-->
     <!--个人资料开始-->
-    <div class="personal_data pd_rl12">
+    <div class="personal_data">
         <p class="title f16">个人资料</p>
         <ul>
             <li class="pd_rl16 clear">
                 <span class="f14" style="display: inline-block;line-height: 1.333rem">头像</span>
                 <div class="fr">
-                    <img class="head_portrait" src="{{thumb.imgSrc}}" err-src="static/img/userdefault.png">
+                    <img class="head_portrait" src="{{thumb.imgSrc}}" err-src="static/img/touxiang@2x.png">
                     <input type="file" img-upload>
                     <i class="arrow" style="margin-bottom: 0.4266rem"></i>
                 </div>
@@ -49,7 +49,7 @@
     </div>
     <!--个人资料结束-->
     <!--账号安全开始-->
-    <div class="personal_data pd_rl12" ng-show="!show">
+    <div class="personal_data" ng-show="!show">
         <p class="title f16">账号安全</p>
         <ul>
             <li class="pd_rl16 clear" ng-click="tip()">
@@ -97,4 +97,7 @@
         </div>
     </div>
     <!--设置生日弹窗结束-->
+    <div class="saveIn-btn pd_rl12" ui-sref="my.index" ng-click="saveIn()">
+        <div class="saveIn pd_rl16 f16">保存</div>
+    </div>
 </div>

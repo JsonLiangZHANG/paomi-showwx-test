@@ -13,8 +13,9 @@ stareal
             }
             if(statu=='售票中'){
                 $rootScope.defstyle = {
-                    "color": "#FF5000",
-                    "border":"1px solid #FF5000"
+                    "color": "#fff",
+                    "border":"1px solid #FDCD55",
+                    "background":"#FDCD55"
                 }
                 $rootScope.btn = '售票中'
             }

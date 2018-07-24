@@ -13,7 +13,7 @@
     <!--资料信息开始-->
     <div class="information">
         <div class="head_name clear" ui-sref="my.account_settings">
-            <img src="{{user.headimgurl}}" err-src="static/img/userdefault.png">
+            <img src="{{user.headimgurl}}" err-src="static/img/touxiang@2x.png">
             <i  class="icon_member" ng-class="icon_member"></i>
             <div class="name_birthday fl">
                 <div class="name f16" ng-bind="user.nickname"></div>
@@ -27,12 +27,12 @@
                 <div class="number f20 fr" ng-bind="bellyremain"></div>
             </div>
             <div class="sign fr">
-                <div class="explain f10 fl">
+                <!-- <div class="explain f10 fl">
                     <div class="fist" ng-if="sign_state=='1'">开始连续签到</div>
                     <div ng-if="sign_state=='1'">今日签到可获得{{daybeily.today}}积分</div>
                     <div class="fist" ng-if="sign_state=='2'">今日已签到</div>
                     <div ng-if="sign_state=='2'">明日签到可得{{daybeily.tomorrow}}积分</div>
-                </div>
+                </div> -->
                 <button class="sign_button f14 linear fr" ng-click="sign(bellyremain,daybeily.today)" ng-if="sign_state=='1'">立即签到</button>
                 <button class="sign_button f14 linear fr" ng-if="sign_state=='2'">已签到</button>
             </div>
@@ -66,36 +66,36 @@
     </div>
     <!--列表结束-->
     <!--列表开始-->
-    <!--<div class="my_list pd_rl12 vip_member">-->
-        <!--&lt;!&ndash;<ul>&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<li class="pd_tb14 clear" ui-sref="my.beili">&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<a class="i-beily"></a>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<span>我的贝里</span>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<i class="arrow"></i>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;</li>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<li class="pd_tb14 clear" ui-sref="my.member">&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<a class="i-member"></a>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<span>我的会员</span>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<div class="fr">{{grade}}</div>&ndash;&gt;&ndash;&gt;-->
-                <!--&lt;!&ndash;&lt;!&ndash;<i class="arrow"></i>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;</li>&ndash;&gt;&ndash;&gt;-->
-        <!--&lt;!&ndash;</ul>&ndash;&gt;-->
-        <!--<div class="clear vip_member_div" ui-sref="my.member">-->
-            <!--<i class="member fl"></i>-->
-            <!--<div class="fl member_info">-->
-                <!--&lt;!&ndash;<p class="member_title">成为 <span style="color:#e83147">超级会员</span>*每月拿<span style="color:#e83147">20元</span>优惠券</p>&ndash;&gt;-->
-                <!--<p class="member_title">您当前是：<span style="color:#e83147">{{grade}}</span></p>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+    <div class="my_list pd_rl12 vip_member">
+       <ul>
+            <li class="pd_tb14 clear" ui-sref="my.beili">
+                <a class="i-beily"></a>
+                <span>我的积分</span>
+                <i class="arrow"></i>
+            </li>
+           
+            <!-- <li class="pd_tb14 clear" ui-sref="my.member">
+                <a class="i-member"></a>
+                <span>我的会员</span>
+                <div class="fr">{{grade}}</div>
+                <i class="arrow"></i>
+            </li> -->
+       </ul>
+        <!-- <div class="clear vip_member_div" ui-sref="my.member">
+            <i class="member fl"></i>
+            <div class="fl member_info">
+               <p class="member_title">成为 <span style="color:#e83147">超级会员</span>*每月拿<span style="color:#e83147">20元</span>优惠券</p>
+                <p class="member_title">您当前是：<span style="color:#e83147">{{grade}}</span></p>
+            </div>
+        </div> -->
+    </div>
     <div class="my_list pd_rl12">
         <ul>
-            <!--<li class="pd_tb14 clear" ui-sref="my.productorders({status:'', order_status:'', payment_status:'',shipping_status:''})">-->
-                <!--<a class="i-yanding"></a>-->
-                <!--<span>衍生品订单</span>-->
-                <!--<i class="arrow"></i>-->
-            <!--</li>-->
+            <li class="pd_tb14 clear" ui-sref="my.productorders({status:'', order_status:'', payment_status:'',shipping_status:''})">
+                <a class="i-yanding"></a>
+                <span>商品订单</span>
+                <i class="arrow"></i>
+            </li>
             <li class="pd_tb14 clear" ui-sref="my.coupon({status:'0'})">
                 <a class="i-coupon"></a>
                 <span>我的卡劵</span>
@@ -122,21 +122,21 @@
     <!--列表结束-->
     <div class="my_list pd_rl12">
         <ul>
-            <!--<li class="pd_tb14 clear" ui-sref="my.share">-->
-                <!--<a class="i-invita"></a>-->
-                <!--<span>邀请好友</span>-->
-                <!--<i class="arrow"></i>-->
-            <!--</li>-->
+            <li class="pd_tb14 clear" ui-sref="my.share">
+                <a class="i-invita"></a>
+                <span>邀请好友</span>
+                <i class="arrow"></i>
+            </li>
             <li class="pd_tb14 clear">
                 <a class="i-service"></a>
                 <span><a href="tel:021-68775253" style="width: 100%;color: #222222;background:none;">联系客服</a></span>
                 <i class="arrow"></i>
             </li>
-            <!--<li class="pd_tb14 clear" ui-sref="my.settings_problems">-->
-                <!--<a class="i-problem"></a>-->
-                <!--<span>常见问题</span>-->
-                <!--<i class="arrow"></i>-->
-            <!--</li>-->
+            <li class="pd_tb14 clear" ui-sref="my.settings_problems">
+                <a class="i-problem"></a>
+                <span>常见问题</span>
+                <i class="arrow"></i>
+            </li>
         </ul>
     </div>
     <menu></menu>

@@ -5,24 +5,24 @@
         <span class="headline f18">积分记录</span>
     </div>
     <!--头部结束-->
-    <!--贝里头部开始-->
+    <!--积分头部开始-->
     <div class="beili_top clear">
         <div class="beili_q fl"></div>
         <div class="beili_remaining fl">
-            <p ng-bind="beily"></p>
-            <p class="f2">可用积分</p>
+            <span ng-bind="beily"></span>
+            <span class="f2" style="color:#999;">可用积分</span>
         </div>
-        <!--<div class="linw fr">-->
-            <!--<div class="ranking_btn">-->
-                <!--<p class="f14 clear">-->
-                    <!--<i class="fl"></i>-->
-                    <!--<span class="fl f14">贝里规则</span>-->
-                <!--</p>-->
-            <!--</div>-->
-        <!--</div>-->
+        <div class="linw fr">
+            <div class="ranking_btn">
+                <p class="f14 clear">
+                    <i class="fl"></i>
+                    <span class="fl f14">积分规则</span>
+                </p>
+            </div>
+        </div>
     </div>
-    <!--贝里头部结束-->
-    <!--贝里记录列表开始-->
+    <!--积分头部结束-->
+    <!--积分记录列表开始-->
     <div class="record_list pd_rl12">
         <ul infinite-scroll="records.nextPage()" infinite-scroll-disabled='records.busy' infinite-scroll-distance="0">
             <li class="clear" ng-repeat="record in records.items">
@@ -35,5 +35,5 @@
             </li>
         </ul>
     </div>
-    <!--贝里记录列表结束-->
+    <!--积分记录列表结束-->
 </div>

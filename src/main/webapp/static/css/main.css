@@ -96,8 +96,8 @@
  #home .carousel-indicator{
     /*修改*/
     position:absolute;
-    right:8%;
-    /*left:8%;*/
+    /* right:8%; */
+    left:50%;
     bottom:4%;
     transform: translate(-50%);
     -ms-transform: translate(-50%);
@@ -274,17 +274,20 @@
     margin-right:0.2666rem;
     margin-top:0.08rem;
     /*background:url("../img/home_calendar.png") no-repeat left center;*/
-    background:url("../img/news.png") no-repeat left center;
+    /* background:url("../img/news.png") no-repeat left center; */
+    background:url("../img/img_s_xiaoaxi@2x.png") no-repeat left center;
     background-size: 100%;
 }
 [data-dpr="2"] .news > .news-con i{
     /*background:url("../img/home_calendar@2x.png") no-repeat left center;*/
-    background:url("../img/news.png") no-repeat left center;
+    /* background:url("../img/news.png") no-repeat left center; */
+    background:url("../img/img_s_xiaoaxi@2x.png") no-repeat left center;
     background-size: 100%;
 }
 [data-dpr="3"] .news > .news-con i{
     /*background:url("../img/home_calendar@3x.png") no-repeat left center;*/
-    background:url("../img/news.png") no-repeat left center;
+    /* background:url("../img/news.png") no-repeat left center; */
+    background:url("../img/img_s_xiaoaxi@2x.png") no-repeat left center;
     background-size: 100%;
 }
 .news > .news-con .text-scroll{
@@ -302,7 +305,7 @@
     white-space: nowrap;
 }
 .news > .news-con .text-scroll li p span:first-child{
-    color:#e83147;
+    color:#FDCD55;
 }
 /*活动专区*/
 .activity-box{

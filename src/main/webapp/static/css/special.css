@@ -57,11 +57,11 @@
 
 
 #list_nav .nav_ul li.active{
-    color:#e83147;
-    border-bottom: 2px solid #e83147;
+    color:#FDCD55;
+    border-bottom: 2px solid #FDCD55;
 }
 .list_style .list_top{
-    background: #e83147;
+    background: #FDCD55;
 }
 .list_style .list_top .title{
     display:block;

@@ -38,7 +38,7 @@
           <ul class="nav_ul">
               <li  class="list_piao last" ng-class="{true: 'active',false:''}[listpage==1]"  ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
                   <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
-                      <span class="fl"style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">票务</span>
+                      <span class="fl"style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">周边</span>
                   </div>
 
               </li>
@@ -56,7 +56,7 @@
      </div>
     <!--导航结束-->
     <!--列表开始 -->
-    <div class="hot" ng-controller="PublicController">
+    <div class="hot" ng-controller="PublicController" >
         <div class="hot-list">
             <ul infinite-scroll="goods.nextPage()" infinite-scroll-disabled='goods.busy' infinite-scroll-distance="1">
                 <li class="flag" ng-repeat="good in goods.items" on-list-finish-render="listFinishRender" ui-sref="main.detail({good_id:{{good.id}}})">
@@ -68,12 +68,13 @@
                         <div class="flag-title">
                             <a title="" ng-bind="good.title"></a>
                         </div>
-                        <div class="flag-price" ng-bind="good.date"></div>
+                        <!-- <div class="flag-price" ng-bind="good.date"></div> -->
                         <div class="flag-type" ng-bind="good.site_title"></div>
                         <div class="flag-type">
                             <strong ng-hide="good.state=='即将开票'&&good.price=='0'" ng-bind="good.price"></strong>
                             <strong ng-show="good.state=='即将开票'&&good.price=='0'" class="state_f12">待定</strong>
-                            <span ng-hide="good.state=='即将开票'&&good.price=='0'">元起</span>
+                            <span ng-hide="good.state=='即将开票'&&good.price=='0'">元</span>
+                            <span style="color:rgb(180,180,180);margin-left:0.4rem">0人付款</span>
                         </div>
                         <a class="flag-btn" href="" ng-style="btnSetColor(good.state)" ng-bind="btnText(good.state)"></a>
                     </div>
@@ -89,4 +90,5 @@
     </div>
     <!--暂无数据结束-->
     <menu></menu>
+    <div class="cart"></div>
 </div>

@@ -164,15 +164,18 @@
     float: left;
 }
 .good .good_con .message .time i{
-    background: url("../img/show details_time.png");
+    /* background: url("../img/show details_time.png"); */
+    background: url("../img/img_gp_shijian.png");
     background-size: 100%;
 }
 [data-dpr="2"] .good .good_con .message .time i{
-    background: url("../img/show details_time@2x.png");
+    /* background: url("../img/show details_time@2x.png"); */
+    background: url("../img/img_gp_shijian@2x.png");
     background-size: 100%;
 }
 [data-dpr="3"] .good .good_con .message .time i{
-    background: url("../img/show details_time@3x.png");
+    /* background: url("../img/show details_time@3x.png"); */
+    background: url("../img/img_gp_shijian@3x.png");
     background-size: 100%;
 }
 .good .good_con .message .addres1 i{
@@ -759,16 +762,16 @@
     padding-bottom:0.4266rem;
 }
 .writereviews .score-con .preview-img .img-item{
-    width:1.6rem;
-    height:1.6rem;
+    width:1.6666rem;
+    height:1.6666rem;
     background: #E5E5E5;
-    margin-right:0.34rem;
+    margin-right:0.2555rem;
     position:relative;
     float:left;
 }
 .writereviews .score-con .preview-img .img-item img{
-    width:1.6rem;
-    height:1.6rem;
+    width:1.6666rem;
+    height:1.6666rem;
 }
 .writereviews .score-con .preview-img .img-item i{
     position:absolute;

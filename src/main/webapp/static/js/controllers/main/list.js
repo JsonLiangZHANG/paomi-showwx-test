@@ -35,6 +35,9 @@ stareal
             direct: $scope.direct
         });
 
+        console.log($scope.goods);
+        
+        
         var refresh = function(){
             $state.go('main.list',{kind:$scope.kind,sort:$scope.sort,direct:$scope.direct});
         };

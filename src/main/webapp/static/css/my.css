@@ -1894,15 +1894,18 @@
     float: right;
 }
 .sex_box ul li i.check{
-    background: url("../img/location_choice@2x.png");
+    /* background: url("../img/location_choice@2x.png"); */
+    background: url("../img/fenlei_gouxuan@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .sex_box ul li i.check{
-    background: url("../img/location_choice@2x.png");
+    /* background: url("../img/location_choice@2x.png"); */
+    background: url("../img/fenlei_gouxuan@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="3"] .sex_box ul li i.check{
-    background: url("../img/location_choice@3x.png");
+    /* background: url("../img/location_choice@3x.png"); */
+    background: url("../img/fenlei_gouxuan@2x.png");
     background-size: 100% 100%;
 }
 /***********************************************************************************************************************************/

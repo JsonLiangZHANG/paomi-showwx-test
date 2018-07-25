@@ -74,7 +74,7 @@
                             <strong ng-hide="good.state=='即将开票'&&good.price=='0'" ng-bind="good.price"></strong>
                             <strong ng-show="good.state=='即将开票'&&good.price=='0'" class="state_f12">待定</strong>
                             <span ng-hide="good.state=='即将开票'&&good.price=='0'">元</span>
-                            <span style="color:rgb(180,180,180);margin-left:0.4rem">0人付款</span>
+                            <span style="color:rgb(180,180,180);margin-left:0.4rem">{{good.favour}}人付款</span>
                         </div>
                         <a class="flag-btn" href="" ng-style="btnSetColor(good.state)" ng-bind="btnText(good.state)"></a>
                     </div>

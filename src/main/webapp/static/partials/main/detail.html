@@ -29,7 +29,7 @@
                                 <span ng-show="good.state=='即将开票'&&good.price=='0'" class="state_f12">待定</span>
                                 <em ng-show="!(good.state=='即将开票'&&good.price=='0')">元起</em>
                             </p>
-                            <p class="fl seat_pic" ng-click="lookSeat()"></p>
+                            <!-- <p class="fl seat_pic" ng-click="lookSeat()"></p> -->
                             <p class="fr" ng-if="star"><span ng-bind="star[0]"></span>.<span>{{star[1]}}分</span></p>
                             <p ng-if="!star" class="fr">暂无评分</p>
                         </div>

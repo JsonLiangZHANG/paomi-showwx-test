@@ -110,6 +110,7 @@ stareal
                     star:scor
                 },true)
                     .then(function (ret) {
+                        console.log('ret');
                         $alert.show("评论成功!");
                         history.back();
                     },function (err) {

@@ -498,16 +498,16 @@
     font-size:42px;
 }
 .shop_box .fun_btn{
-    width:26%;
-    height:1.6rem;
+    width:30%;
+    height:1.7rem;
     background:#fff;
     padding:0.32rem;
 }
 .shop_box .fun_btn a{
     display:inline-block;
-    width:0.6666rem;
-    height:0.6666rem;
-    line-height: 1.6rem;
+    width:0.7666rem;
+    height:0.7666rem;
+    line-height: 1.9rem;
     /* background:#F1F1F1; */
     color: #333;
     font-weight: bold;
@@ -559,7 +559,7 @@
     background-size: 100%;
 }
 .shop_box .shop_btn{
-    width:74%;
+    width:70%;
     height:1.3333rem;
     line-height:1.3333rem;
     text-align:right;

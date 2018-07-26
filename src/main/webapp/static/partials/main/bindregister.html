@@ -1,4 +1,4 @@
-<div class="login" ng-controller="BindRegisterController">
+<div class="login BindRegister" ng-controller="BindRegisterController">
     <!--头部开始-->
     <div>
         <div style="height:1.17333rem"></div>  <!--解决fixed显示不全bug--->
@@ -11,14 +11,14 @@
     <div class="login_box pd_rl12">
         <ul>
             <li class="f16">
-                <p><span>手机号</span><input type="number" ng-model="telphone_no"></p>
+                <input type="number" ng-model="telphone_no" placeholder="手机号"></p>
             </li>
             <li class="f16 clear">
-                <p class="fl"><span>动态码</span><input type="number" maxlength="4" ng-model="code"></p>
+                <p class="fl"><input type="number" maxlength="4" ng-model="code" placeholder="动态码"></p>
                 <p class="fr" ng-click="login.sendCode(telphone_no)" ng-bind="paracont"></p>
             </li>
             <li class="f16 clear" style="margin-top:0.5333rem">
-                <p class="fl"><span style="width:50%;">设置密码（6～18位）</span><input type="password" minlength="6" maxlength="18" ng-model="pass" style="width:36%;"></p>
+                <p class="fl"><input type="password" minlength="6" maxlength="18" ng-model="pass" style="width:36%;" placeholder="设置密码（6～18位）"></p>
             </li>
         </ul>
         <div class="cdid" style="margin-top:0.5333rem">

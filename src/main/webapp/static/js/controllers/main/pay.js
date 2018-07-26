@@ -142,7 +142,9 @@ stareal
 
         // 监听取票方式/地址/优惠券的变化,贝里，实时计算价格
         $scope.$watch('param', function (a, b) {
-            calculate($scope.num, $scope.price, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId, $scope.param.beily);
+            if($scope.param.addressId!='') {
+                calculate($scope.num, $scope.price, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId, $scope.param.beily);
+            }
         }, true);
 
 
@@ -211,6 +213,7 @@ stareal
             if ($scope.param.beily) {
                 _params.belly = $scope.param.beily;
             }
+            _params.good_id=$scope.order_id;
             //支付宝
             if ($scope.payType == 4) {
                 //生成订单
@@ -223,9 +226,10 @@ stareal
                             payType: 4
                         }, true)
                             .then(function (ret) {
+                                console.log(ret);
                                 document.forms['alipaysubmit'].action = ret.data.action;
                                 document.forms['alipaysubmit'].biz_content.value = ret.data.biz_content;
-                                document.forms['alipaysubmit'].submit();
+                                //  document.forms['alipaysubmit'].submit();
                             }, function (err) {
                                 $alert.show(err);
                                 $state.go("my.orders", {})
@@ -249,7 +253,7 @@ stareal
                         }, true)
                             .then(function (ret) {
                                 $(".mask_pay").fadeOut();
-                                 function onBridgeReady() {
+                                function onBridgeReady() {
                                     WeixinJSBridge.invoke(
                                         'getBrandWCPayRequest',
                                         {

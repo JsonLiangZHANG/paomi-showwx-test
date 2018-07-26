@@ -186,22 +186,23 @@
     <div class="tic" >
         <div class="alertBox"  ng-show="good.good_type==0">
             <div class="time">
-                <div class="time_scroll swiper-container">
+                <div class="time_scroll swiper-container detailepertoire_container">
                     <ul class="clear swiper-wrapper">
-                        <li class="swiper-slide {{$index == paras.planIndex?'active':''}}" ng-repeat="plan in plans" ng-click="switchPlan($index)" ng-style="{width:'{{plans.length<=3?'2.85rem':''}}'}">
+                        <li class="swiper-slide {{$index == paras.planIndex?'active':''}}" ng-repeat="plan in plans" ng-click="switchPlan($index)" on-finish-render-filters="completeplansRepeat">
                             <p ng-bind="plan.name | buildDate:'before'">03月11日</p>
                             <p ng-bind="plan.name | buildDate:'after'">周六20:00</p>
                         </li>
                     </ul>
+                    <div class="swiper-pagination detailepertoire-pagination" style="display: none;"></div>
                 </div>
             </div>
             <!--时间结束-->
             <!--票面价格开始-->
             <div class="fare fare_type">
                 <h4>票面价格</h4>
-                <div class="fare_list">
-                    <ul class="clear" ng-repeat="cat in cats">
-                        <li class="{{gory.status?'':'disabled'}} {{$parent.$index == paras.catIndex1 && $index == paras.catIndex2 ?'active':''}}" ng-repeat="gory in cat.children" ng-click="switchCat($parent.$index,$index,gory.status,$event)">
+                <div class="fare_list clear">
+                    <ul ng-repeat="cat in cats">
+                        <li    class="{{gory.status?'':'disabled'}} {{$parent.$index == paras.catIndex1 && $index == paras.catIndex2 ?'active':''}}" ng-repeat="gory in cat.children" ng-click="switchCat($parent.$index,$index,gory.status,$event)">
                             <span ng-hide="gory.status==''" ng-style="ticketType(gory.name,gory.children[0].price).defstyle" ng-bind="ticketType(gory.name,gory.children[0].price).ticketText"></span>
                             <p ng-bind="cat.id+gory.name">内场755元</p>
                             <p ng-show="gory.status==''">到货提醒</p>

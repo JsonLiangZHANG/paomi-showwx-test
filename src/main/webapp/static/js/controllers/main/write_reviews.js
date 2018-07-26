@@ -42,7 +42,7 @@ stareal
             };
         }
         var token = localStorageService.get('token')
-         var url = 'http://api.amazingmusicals.com/mobile/app/upload/image?accessToken='+token;//正式
+         var url = 'http://api.xiuhelive.com/mobile/app/upload/image?accessToken='+token;//正式
        // var url = 'http://192.168.1.4/mobile/app/upload/image?accessToken='+token;//测试
         var uploader = $scope.uploader = new FileUploader({
             url:url,

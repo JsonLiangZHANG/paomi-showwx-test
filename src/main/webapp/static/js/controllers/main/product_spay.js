@@ -8,7 +8,7 @@ stareal
         $scope.productspeeditemsArray=localStorageService.get('productspeeditemsArray');//slu信息
         $scope.productspeedPaysSku =localStorageService.get('skuParr');//商品sku
 
-       // console.log($scope.sumTotal);
+        // console.log($scope.sumTotal);
         // console.log($scope.productspay.sum);
         $scope.param = {};
         $scope.param.deliverType = 1;
@@ -44,7 +44,7 @@ stareal
             //     return;
             // }
             $scope.productspay.num=  $scope.productspay.num + 1;
-           $scope.changeSum();
+            $scope.changeSum();
         };
         $scope.changeSum=function(){
             $scope.productspay.sum=   $scope.productspay.num* $scope.productspay.price;
@@ -83,15 +83,17 @@ stareal
         };
         // 监听取票方式/地址/优惠券的变化,实时计算价格
         $scope.$watch('param', function (a, b) {
-            calculate($scope.param.num, $scope.param.price, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId,$scope.param.beily);
+            if($scope.param.addressId!='') {
+                calculate($scope.param.num, $scope.param.price, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId, $scope.param.beily);
+            }
         }, true);
         //监控数据
         $scope.$watch('productspay',function(newValue,oldValue,scope){
             $scope.sumTotal=0; //总计
-                var sumN = newValue.num * newValue.price; //计算出新的结果
-                $scope.productspay.sum = sumN.toFixed(2); //保留两位小数并且把它赋值给元数据;
-                    $scope.sumTotal += sumN+ $scope.productspay.postFee;
-                    console.log( $scope.sumTotal);
+            var sumN = newValue.num * newValue.price; //计算出新的结果
+            $scope.productspay.sum = sumN.toFixed(2); //保留两位小数并且把它赋值给元数据;
+            $scope.sumTotal += sumN+ $scope.productspay.postFee;
+            console.log( $scope.sumTotal);
         },true);
 
         /**

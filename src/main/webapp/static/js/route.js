@@ -859,17 +859,17 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
         },
             $rootScope.$on("$stateChangeSuccess",  function(event, toState, toParams, fromState, fromParams) {
                 // to be used for back button //won't work when page is reloaded.
-                console.log(fromState);
-                console.log("成功");
-                console.log( fromState.name);
-                console.log("----------------");
+                // console.log(fromState);
+                // console.log("成功");
+                // console.log( fromState.name);
+                // console.log("----------------");
                 $rootScope.previousState_name = fromState.name;
                 $rootScope.previousState_params = fromParams;
             }),
             $rootScope.back = function() {//实现返回的函数
-                console.log("555")
-                console.log($rootScope.previousState_name);
-                console.log($rootScope.previousState_params);
+                // console.log("555")
+                // console.log($rootScope.previousState_name);
+                // console.log($rootScope.previousState_params);
                 if($rootScope.previousState_name){
                     $state.go($rootScope.previousState_name,$rootScope.previousState_params,{reload:true});
                 }else{

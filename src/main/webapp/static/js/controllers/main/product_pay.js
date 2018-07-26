@@ -136,7 +136,9 @@ stareal
 
         // 监听取票方式/地址/优惠券的变化,实时计算价格
         $scope.$watch('param', function (a, b) {
-            calculate($scope.param.addressId);
+            if($scope.param.addressId!='') {
+                calculate($scope.param.addressId);
+            }
         }, true);
 
 
@@ -173,12 +175,12 @@ stareal
                 return false;
             }
             if (!$scope.param.addressId) {
-                    $alert.show('请添加收货地址!');
-                    return;
-                }
+                $alert.show('请添加收货地址!');
+                return;
+            }
             _params.addressId=$scope.param.addressId;
-                // _params.deliverType = 1;
-                // _params.addressId = $scope.param.addressId;
+            // _params.deliverType = 1;
+            // _params.addressId = $scope.param.addressId;
 
             // 校验
             // 现场取票
@@ -237,7 +239,7 @@ stareal
                             }, function (err) {
                                 $alert.show(err);
                                 $state.go("my.productorders", {});
-                              //  $state.go("my.orders", {})
+                                //  $state.go("my.orders", {})
                             })
                     }, function (err) {
                         $alert.show(err)
@@ -295,11 +297,11 @@ stareal
                                 }
                             }, function (err) {
                                 $alert.show(err);
-                               // $state.go("my.orders", {})
+                                // $state.go("my.orders", {})
                             })
                     }, function (err) {
                         $alert.show(err)
-                      //  $state.go("my.orders", {})
+                        //  $state.go("my.orders", {})
                     })
             }
         }

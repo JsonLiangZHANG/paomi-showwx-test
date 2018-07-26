@@ -8,7 +8,7 @@ stareal
         $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
             .then(function (ret) {
                 var good = ret.data;
-                console.log(good)
+               // console.log(good)
                 localStorageService.set("goodDetail", good)
                 good.detail = $sce.trustAsHtml(base64.decode(good.detail));
                 $scope.good = good;
@@ -145,13 +145,13 @@ stareal
             }
             if ($scope.gf == 1) {
                 localStorageService.set('title', $scope.title);
-                console.log($scope.title);
+             //   console.log($scope.title);
                 localStorageService.set('site_title', $scope.site_title);
                 localStorageService.set('thumb', $scope.thumb);
                 localStorageService.set('is_coupon', $scope.is_coupon);
                 // $state.go('main.ticket', {good_id: $stateParams.good_id});
                 if ( $scope.goodType==0) {
-                    console.log("11");
+               //     console.log("11");
                     angular.element('.tic').css({
                         'display': 'block',
                         'height': alertTic
@@ -165,7 +165,7 @@ stareal
 
                 }
                 if ( $scope.goodType==1) {
-                    console.log("12");
+                  //  console.log("12");
                     angular.element('.xuanzuo_content').css({
                         'display': 'block',
                         'height': alertTic
@@ -237,7 +237,7 @@ stareal
             angular.element('.mask1').fadeOut()
         }
         $scope.ticClose = function () {
-            console.log("11");
+         //   console.log("11");
             angular.element('.tic .alertBox').animate({bottom:-alertBox1},200);
             angular.element('.tic').fadeOut();
         }
@@ -295,7 +295,7 @@ stareal
                 .then(function (ret) {
                     $scope.totalRe = ret.total_row;
                     $scope.reviews = ret.data;
-                    console.log($scope.reviews);
+               //     console.log($scope.reviews);
                 })
         }
         $scope.GetCooments()
@@ -418,14 +418,14 @@ stareal
             .then(function (ret) {
 
                 if (ret) {
-                    console.log(ret);
+               //     console.log(ret);
                     var data=ret.data;
-                    console.log('-------------------------------');
-                    console.log(data);
-                    console.log(data.appid);
-                    console.log(data.timestamp);
-                    console.log(data.nonceStr);
-                    console.log(data.signature);
+                    // console.log('-------------------------------');
+                    // console.log(data);
+                    // console.log(data.appid);
+                    // console.log(data.timestamp);
+                    // console.log(data.nonceStr);
+                    // console.log(data.signature);
 
                     wx.config({
                         debug: false,
@@ -444,10 +444,10 @@ stareal
                     wx.ready(function(){
                         //分享到朋友圈
                         wx.onMenuShareTimeline({
-                            title: '上海魅鲸文化传播有限公司', // 分享标题
-                            desc: '魅鲸文化,精彩无限', // 分享描述
+                            title: '上海修合文化传播有限公司', // 分享标题
+                            desc: '修合文化,精彩无限', // 分享描述
                             link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.amazingmusicals.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
                                 //alert('你好');
@@ -459,10 +459,10 @@ stareal
                         });
                         //分享给朋友
                         wx.onMenuShareAppMessage({
-                            title: '上海魅鲸文化传播有限公司', // 分享标题
-                            desc: '魅鲸文化,精彩无限', // 分享描述
+                            title: '上海修合文化传播有限公司', // 分享标题
+                            desc: '修合文化,精彩无限', // 分享描述
                             link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.amazingmusicals.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
@@ -474,10 +474,10 @@ stareal
                             }
                         });
                         wx.onMenuShareQQ({
-                            title: '上海魅鲸文化传播有限公司', // 分享标题
-                            desc: '魅鲸文化,精彩无限', // 分享描述
+                            title: '上海修合文化传播有限公司', // 分享标题
+                            desc: '修合文化,精彩无限', // 分享描述
                             link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.amazingmusicals.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },
@@ -486,10 +486,10 @@ stareal
                             }
                         });
                         wx.onMenuShareQZone({
-                            title: '上海魅鲸文化传播有限公司', // 分享标题
-                            desc: '魅鲸文化,精彩无限', // 分享描述
+                            title: '上海修合文化传播有限公司', // 分享标题
+                            desc: '修合文化,精彩无限', // 分享描述
                             link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.amazingmusicals.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },
@@ -520,7 +520,7 @@ stareal
             $scope.paras = {};
             $scope.max = 6;
             $scope.eventId=$scope.plans[0].eventId;
-            console.log($scope.plans);
+          //  console.log($scope.plans);
             // $scope.specialHtml = $sce.trustAsHtml('<iframe id="iframe-projects"  src="http://app.mydeershow.com/index/event/16" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
             //获取演出时间表
             $scope.FIRSTdate=$scope.plans[0].name.split("#")[0];
@@ -703,7 +703,7 @@ stareal
                             }
                             return false;
                         }
-                        console.log($scope.eventShowId);
+                       // console.log($scope.eventShowId);
                         localStorageService.set('good_title',$scope.title);
                         $state.go("main.seat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
 
@@ -745,7 +745,7 @@ stareal
                 }
                 var _po = $scope.prices[$scope.paras.priceIndex];
                 localStorageService.set('_po',_po);
-                console.log(_po);
+             //   console.log(_po);
             };
 
             // ****************************************  加载计算张数部分  ****************************************
@@ -801,8 +801,8 @@ stareal
                 //     $scope.$broadcast('to-child');
                 //     return;
                 // }
-              console.log("333");
-              console.log(gf);
+              // console.log("333");
+              // console.log(gf);
                 if ($scope.paras.priceIndex == null) {
                     $alert.show("请选择座位!")
                 }
@@ -946,6 +946,18 @@ stareal
             $scope.createOrder = createOrder;
             switchPlan(0,$scope.eventId);
             eCalendar( $scope.dayList,'#calendar');
+            $scope.completeplansRepeat=function(){
+                if($scope.plans.length>3){
+                    var swiper = new Swiper('.detailepertoire_container', {
+                        slidesPerView: 'auto',
+                        spaceBetween:0,
+                        pagination: '.detailepertoire-pagination',//分页容器
+                        observer:true,//修改swiper自己或子元素时，自动初始化swiper
+                        observeParents: true//修改swiper的父元素时，自动初始化swiper
+                    })
+                }
+            }
+
 
 
 
@@ -1020,17 +1032,17 @@ stareal
                 var ind= $($('div.c-event-item[data-event-day="' + d  + '"]')[0]).index();
                 // console.log(eventDAYiD);
                 $scope.$apply(function(){
-                    console.log(ind);
+                 //   console.log(ind);
                     $scope.switchPlan(ind,eventDAYiD);
                 });
-                 console.log(ind);
+                // console.log(ind);
             }else{
                 $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
                 $('div.c-event-item[data-event-day="0' + d  + '"]').addClass('c-event-over1');
                 $($('div.c-event-item[data-event-day="0' + d  + '"]')[0]).addClass('active');
                 var ind= $($('div.c-event-item[data-event-day="0' + d  + '"]')[0]).index();
                 // console.log(eventDAYiD);
-                console.log(ind);
+              //  console.log(ind);
                 $scope.$apply(function(){
                     $scope.switchPlan(ind,eventDAYiD);
                 });
@@ -1060,7 +1072,7 @@ stareal
                 // var eventDAYiD= $($('div.c-event[data-event-day="' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
                 // // console.log(ind);
                 // console.log(eventDAYiD);
-                console.log(ind);
+               // console.log(ind);
                 if(ind!=-1){
                     $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
                     $('div.c-event-item[data-event-day="' + $scope.dshow  + '"]').addClass('c-event-over1');
@@ -1077,7 +1089,7 @@ stareal
                 // var eventDAYiD= $($('div.c-event[data-event-day="0' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
                 // // console.log(ind);
                 // console.log(eventDAYiD);
-                console.log(ind);
+               // console.log(ind);
                 if(ind!=-1){
                     $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
                     $('div.c-event-item[data-event-day="0' +$scope.dshow + '"]').addClass('c-event-over1');
@@ -1106,7 +1118,7 @@ stareal
                 // var eventDAYiD= $($('div.c-event-item[data-event-day="' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
                 // // console.log(ind);
                 //console.log(eventDAYiD);
-                console.log(ind);
+                //console.log(ind);
                 if(ind!=-1){
                     $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
                     $('div.c-event-item[data-event-day="' + $scope.dshow  + '"]').addClass('c-event-over1');
@@ -1123,7 +1135,7 @@ stareal
                 // var eventDAYiD= $($('div.c-event-item[data-event-day="0' + $scope.dshow + '"]')[0]).attr('data-event-eventid');
                 // // console.log(ind);
                 //console.log(eventDAYiD);
-                console.log(ind);
+              //  console.log(ind);
                 if(ind!=-1){
                     $('div.c-event-item').removeClass('c-event-over1').removeClass('active');
                     $('div.c-event-item[data-event-day="0' +$scope.dshow + '"]').addClass('c-event-over1');

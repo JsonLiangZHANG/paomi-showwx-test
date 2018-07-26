@@ -371,7 +371,7 @@
     background: #D8D8D8;
     /* background:url("../img/showdetails_comments.png") no-repeat left center; */
     background:url("../img/pinglun-xiao@2x.png") no-repeat left center;
-    background-size:100%;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_row > ul > li .comment_cont .itme_1 .fun .like span:first-child{
     /* background:url("../img/showdetails_comments@2x.png") no-repeat left center; */
@@ -504,7 +504,7 @@
     width:30%;
     height:1.7rem;
     background:#fff;
-    padding:0.32rem;
+    padding: 0.2rem 0.32rem;
 }
 .shop_box .fun_btn a{
     display:inline-block;
@@ -568,6 +568,7 @@
     text-align:right;
     color:#fff;
     font-size:16px;
+    margin-top: 0.135rem;
     padding-right:0.53rem;
 }
 .shop_box .shop_btn span{
@@ -930,14 +931,14 @@
 
 
   .detail .tic .time{
-      /* width: 100%; */
+       width: 100%;
       background: #fff;
       padding: 0.4266rem 0.32rem 0.4266rem 0.32rem;
       border-bottom: 1px solid #E5E5E5;
 }
   .detail .time .time_scroll ul li{
     width:2.29333rem;
-    float:left;
+    /*float:left;*/
     padding:0.06rem 0;
     border: 1px solid #E5E5E5;
     border-radius:4px;
@@ -976,7 +977,7 @@
     margin-top:0.2666rem;
 }
 .detail .fare .fare_list ul li{
-    height:0.8rem;
+    /*height:0.8rem;*/
     line-height:0.8rem;
     text-align: center;
     border: 1px solid #E5E5E5;
@@ -987,11 +988,11 @@
     margin-bottom:0.2666rem;
     font-size: 12px;
     overflow:hidden;
-    /*padding: 0 0.2rem;*/
+    padding: 0 0.2rem;
 }
 
 .detail .fare_type  .fare_list ul li{
-    width: 1.6rem;
+    /*width: 1.6rem;*/
 }
 
 .detail .seat .fare_list ul li{

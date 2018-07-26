@@ -59,7 +59,7 @@ public class OAuthController extends BaseController {
         params.put("city", city);
         params.put("country", country);
         params.put("headimgurl", headimgurl);
-        params.put("openid", unionid);
+        params.put("openid", openid);
         // params.put("unionid", unionid);
         System.out.println("openid================================================"+openid+"--------------------------------------------unionid"+unionid);
         System.out.println("============================================================================");
@@ -69,7 +69,7 @@ public class OAuthController extends BaseController {
         this.setSessionAttr("isbind", getJson.getString("isbind")); //getJson.getString("isbind")
         this.setSessionAttr("accessToken", getJson.getString("accessToken"));
         this.setSessionAttr("openid",openid);
-        this.setSessionAttr("unionid",unionid);
+      //  this.setSessionAttr("unionid",unionid);
 //        render("/index.html");
 
 //        if(getJson.getString("isbind").equals("0")){

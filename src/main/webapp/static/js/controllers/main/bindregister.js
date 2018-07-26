@@ -85,11 +85,11 @@ stareal
                     password:$scope.password,
                     smsToken:localStorageService.get('code_token'),
                     accessToken: localStorageService.get('token'),
-                    openid:localStorageService.get('unionid'),
+                    openid:localStorageService.get('openid'),
                     plat: 'wx'
                 };
 
-                $api.post("app/login/user/reBind", _params)
+                $api.post("app/login/user/bind", _params)
                     .then(function (ret) {
                         $alert.show("绑定成功")
                         // localStorageService.set('isbind','1');

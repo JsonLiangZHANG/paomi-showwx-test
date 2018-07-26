@@ -37,6 +37,9 @@ stareal
         var rs = localStorageService.get('rs');
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
+        if(isbind!=1){
+            localStorageService.set('token',null);
+        }
         if(rs){
             if(isbind!=1&&openID!=''){
                 location.href = "#/main/bindregister/"+encodeURIComponent(rs);

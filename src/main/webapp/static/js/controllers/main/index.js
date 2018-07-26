@@ -43,15 +43,16 @@ stareal
         $api.get("app/login/userinfo/retrieve", null, true)
             .then(function (ret) {
                 $scope.user = ret.data;
-                if($scope.user.type!=1){
-                    localStorageService.set('token',null);
-                }
+
                 if(rs){
+                    // if($scope.user.type!=1){
+                    //     localStorageService.set('token',null);
+                    // }
                     console.log("222");
-                    if(isbind!=1&&openID!=''){
+                    if($scope.user.type!=1&&openID!=''){
                         location.href = "#/main/bindregister/"+encodeURIComponent(rs);
                         // return;
-                    }else if(isbind==1){
+                    }else if($scope.user.type==1){
                         console.log('33');
                         localStorageService.remove('rs');
                         //  console.log(rs);
@@ -65,7 +66,7 @@ stareal
                             localStorageService.remove('rs');
                             $state.go(_state,{},true);
                         }
-                    }else if(isbind!=1&&openID==''){
+                    }else if($scope.user.type!=1&&openID==''){
                         console.log('33');
                         localStorageService.remove('rs');
                         //  console.log(rs);

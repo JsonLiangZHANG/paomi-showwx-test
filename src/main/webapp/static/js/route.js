@@ -836,6 +836,8 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                     var rs = "";
                     if (stateName == 'main.ticket') {
                         rs = "main.detail-" + JSON.stringify({good_id: toParams.good_id});
+                    }else if(stateName.indexOf('my') == 0){
+                        rs = "main.index-";
                     }
                     var ua = window.navigator.userAgent.toLowerCase();
                     if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器

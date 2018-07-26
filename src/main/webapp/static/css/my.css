@@ -19,13 +19,13 @@
 .login_box > ul li:nth-of-type(2) p:first-child{
     width:65%;
 }
-/*.BindRegister .login_box > ul li input{*/
-    /*width: 84%;*/
-    /*border:none;*/
-/*}*/
-/*.BindRegister .login_box > ul li:nth-of-type(2) p:first-child input{*/
-    /*width:77%;*/
-/*}*/
+.BindRegister .login_box > ul li input{
+    width: 80%;
+    border:none;
+}
+.BindRegister .login_box > ul li:nth-of-type(2) p:first-child input{
+    width:77%;
+}
 .login_box > ul li:nth-of-type(2) p:first-child input{
     width:100%;
 }

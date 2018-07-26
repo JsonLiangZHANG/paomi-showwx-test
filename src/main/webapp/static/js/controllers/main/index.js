@@ -41,10 +41,12 @@ stareal
             localStorageService.set('token',null);
         }
         if(rs){
+            console.log("222");
             if(isbind!=1&&openID!=''){
                 location.href = "#/main/bindregister/"+encodeURIComponent(rs);
                 // return;
             }else if(isbind==1){
+                console.log('33');
                 localStorageService.remove('rs');
                 //  console.log(rs);
                 var _state = rs.substring(0, rs.indexOf('-'));
@@ -58,6 +60,7 @@ stareal
                     $state.go(_state,{},true);
                 }
             }else if(isbind!=1&&openID==''){
+                console.log('33');
                 localStorageService.remove('rs');
                 //  console.log(rs);
                 var _state = rs.substring(0, rs.indexOf('-'));

@@ -360,7 +360,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
         })
         //绑定手机号
         .state('main.bindregister', { //绑手机号
-            url: '/bindregister',
+            url: '/bindregister/:good_id',
             templateUrl: 'static/partials/main/bindregister.html',
             resolve: loadLazyjs([
                 'static/js/controllers/main/bindregister.js',

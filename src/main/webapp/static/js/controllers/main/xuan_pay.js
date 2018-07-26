@@ -153,7 +153,9 @@ stareal
         // 监听取票方式/地址/优惠券的变化,实时计算价格
         $scope.$watch('param', function (a, b) {
             var seatcart=$scope.seatscart.join(',');
-            calculate( $scope.eventId, seatcart, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId,$scope.param.beily);
+            if($scope.param.addressId!=''){
+                calculate( $scope.eventId, seatcart, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId,$scope.param.beily);
+            }
         }, true);
 
 

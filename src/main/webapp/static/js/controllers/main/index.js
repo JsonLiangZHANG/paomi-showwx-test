@@ -33,16 +33,43 @@ stareal
                 $alert.show(err)
             })
         // return url 回挑
-        var iband=localStorageService.get('isbind');
+        // return url 回挑
         var rs = localStorageService.get('rs');
-        if (rs) {
-            localStorageService.remove('rs');
-            console.log(rs);
-            var _state = rs.substring(0, rs.indexOf('-'));
-            var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
+        var isbind = localStorageService.get('isbind');
+        var openID = localStorageService.get('openid');
+        if(rs){
+            if(isbind!=1&&openID!=''){
+                location.href = "#/main/bindregister/"+encodeURIComponent(rs);
+                // return;
+            }else if(isbind==1){
+                localStorageService.remove('rs');
+                //  console.log(rs);
+                var _state = rs.substring(0, rs.indexOf('-'));
+                var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
+                console.log(_param);
+                if (_param!=''&&_param!=undefined&&_param!=null) {
+                    $state.go(_state, eval('(' + _param + ')'));
+                    // return;
+                }else{
+                    localStorageService.remove('rs');
+                    $state.go(_state,{},true);
+                }
+            }else if(isbind!=1&&openID==''){
+                localStorageService.remove('rs');
+                //  console.log(rs);
+                var _state = rs.substring(0, rs.indexOf('-'));
+                var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
+                console.log(_param);
+                if (_param!=''&&_param!=undefined&&_param!=null) {
+                    $state.go(_state, eval('(' + _param + ')'));
+                    // return;
+                }else{
+                    localStorageService.remove('rs');
+                    $state.go(_state,{},true);
+                }
 
-            $state.go(_state, eval('(' + _param + ')'));
-            return;
+            }
+
         }
         // if(iband==='0'){
         //     if (rs) {

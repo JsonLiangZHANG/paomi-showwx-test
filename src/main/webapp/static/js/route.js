@@ -358,6 +358,16 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/my.css'
             ])
         })
+        //绑定手机号
+        .state('main.bindregister', { //绑手机号
+            url: '/bindregister',
+            templateUrl: 'static/partials/main/bindregister.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/bindregister.js',
+                'static/css/public.css',
+                'static/css/my.css'
+            ])
+        })
         .state('main.treasure', {
             url: '/treasure/:kind',
             templateUrl: 'static/partials/main/treasure.html',
@@ -836,8 +846,8 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                         //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                            "appid=wx7b0222c401e61396&" +
-                            "redirect_uri=http%3A%2F%2Fm.amazingmusicals.com%2Foauth%2Findex" +
+                            "appid=wx0d1d2af6c50baa27&" +
+                            "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
                             "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                         // //测试redirect_uri

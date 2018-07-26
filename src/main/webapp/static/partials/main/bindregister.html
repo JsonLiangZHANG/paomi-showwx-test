@@ -1,0 +1,29 @@
+<div class="login" ng-controller="BindRegisterController">
+    <!--头部开始-->
+    <div>
+        <div style="height:1.17333rem"></div>  <!--解决fixed显示不全bug--->
+        <div class="headt top f18">
+            <p>手机号绑定</p>
+        </div>
+    </div>
+    <!--头部结束-->
+    <!--登录主体开始 注册开始-->
+    <div class="login_box pd_rl12">
+        <ul>
+            <li class="f16">
+                <p><span>手机号</span><input type="number" ng-model="telphone_no"></p>
+            </li>
+            <li class="f16 clear">
+                <p class="fl"><span>动态码</span><input type="number" maxlength="4" ng-model="code"></p>
+                <p class="fr" ng-click="login.sendCode(telphone_no)" ng-bind="paracont"></p>
+            </li>
+            <li class="f16 clear" style="margin-top:0.5333rem">
+                <p class="fl"><span style="width:50%;">设置密码（6～18位）</span><input type="password" minlength="6" maxlength="18" ng-model="pass" style="width:36%;"></p>
+            </li>
+        </ul>
+        <div class="cdid" style="margin-top:0.5333rem">
+            <div class="login_btn linear f16" ng-click="login.login()">登录</div>
+        </div>
+    </div>
+    <!--登录主体结束 注册结束-->
+</div>

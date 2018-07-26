@@ -37,46 +37,54 @@ stareal
         var rs = localStorageService.get('rs');
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
-        if(isbind!=1){
-            localStorageService.set('token',null);
-        }
-        if(rs){
-            console.log("222");
-            if(isbind!=1&&openID!=''){
-                location.href = "#/main/bindregister/"+encodeURIComponent(rs);
-                // return;
-            }else if(isbind==1){
-                console.log('33');
-                localStorageService.remove('rs');
-                //  console.log(rs);
-                var _state = rs.substring(0, rs.indexOf('-'));
-                var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
-                console.log(_param);
-                if (_param!=''&&_param!=undefined&&_param!=null) {
-                    $state.go(_state, eval('(' + _param + ')'));
-                    // return;
-                }else{
-                    localStorageService.remove('rs');
-                    $state.go(_state,{},true);
+        // if(isbind!=1){
+        //     localStorageService.set('token',null);
+        // }
+        $api.get("app/login/userinfo/retrieve", null, true)
+            .then(function (ret) {
+                $scope.user = ret.data;
+                if($scope.user.type!=1){
+                    localStorageService.set('token',null);
                 }
-            }else if(isbind!=1&&openID==''){
-                console.log('33');
-                localStorageService.remove('rs');
-                //  console.log(rs);
-                var _state = rs.substring(0, rs.indexOf('-'));
-                var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
-                console.log(_param);
-                if (_param!=''&&_param!=undefined&&_param!=null) {
-                    $state.go(_state, eval('(' + _param + ')'));
-                    // return;
-                }else{
-                    localStorageService.remove('rs');
-                    $state.go(_state,{},true);
+                if(rs){
+                    console.log("222");
+                    if(isbind!=1&&openID!=''){
+                        location.href = "#/main/bindregister/"+encodeURIComponent(rs);
+                        // return;
+                    }else if(isbind==1){
+                        console.log('33');
+                        localStorageService.remove('rs');
+                        //  console.log(rs);
+                        var _state = rs.substring(0, rs.indexOf('-'));
+                        var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
+                        console.log(_param);
+                        if (_param!=''&&_param!=undefined&&_param!=null) {
+                            $state.go(_state, eval('(' + _param + ')'));
+                            // return;
+                        }else{
+                            localStorageService.remove('rs');
+                            $state.go(_state,{},true);
+                        }
+                    }else if(isbind!=1&&openID==''){
+                        console.log('33');
+                        localStorageService.remove('rs');
+                        //  console.log(rs);
+                        var _state = rs.substring(0, rs.indexOf('-'));
+                        var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
+                        console.log(_param);
+                        if (_param!=''&&_param!=undefined&&_param!=null) {
+                            $state.go(_state, eval('(' + _param + ')'));
+                            // return;
+                        }else{
+                            localStorageService.remove('rs');
+                            $state.go(_state,{},true);
+                        }
+
+                    }
+
                 }
+            });
 
-            }
-
-        }
         // if(iband==='0'){
         //     if (rs) {
         //         localStorageService.remove('rs');

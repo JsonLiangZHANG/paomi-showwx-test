@@ -39,7 +39,7 @@ stareal
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
         if(isbind!=1){
-           rs=rs+JSON.stringify({token:localStorageService.get('token')});
+            localStorageService.set('cleartoken',token);
             localStorageService.set('token',null);
         }
         $api.get("app/login/userinfo/retrieve", null, true)

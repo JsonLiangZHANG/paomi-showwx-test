@@ -3,9 +3,10 @@
 stareal
     .controller("BindRegisterController", function ($scope, $api, $stateParams, $alert, $document, localStorageService, $state, $interval) {
         $scope.telphone_no = "";
-        $scope.accessToken = "";
+        $scope.accessToken = $stateParams.good_id;
         $scope.password = "";
         // $scope.password2 = "";
+        //console.log($stateParams.good_id);
         $scope.paracont = "获取验证码";
         $scope.code = "";
         $scope.$watch('code',function (newValue, oldValue) {
@@ -84,7 +85,7 @@ stareal
                     code:$scope.code,
                     password:$scope.password,
                     smsToken:localStorageService.get('code_token'),
-                    accessToken: localStorageService.get('token'),
+                    accessToken: $scope.accessToken,
                     openid:localStorageService.get('openid'),
                     plat: 'wx'
                 };

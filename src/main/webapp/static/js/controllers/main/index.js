@@ -35,11 +35,13 @@ stareal
         // return url 回挑
         // return url 回挑
         var rs = localStorageService.get('rs');
+       var token=localStorageService.get('token');
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
-        // if(isbind!=1){
-        //     localStorageService.set('token',null);
-        // }
+        if(isbind!=1){
+         //   rs=rs+JSON.stringify({token:localStorageService.get('token')});
+            localStorageService.set('token',null);
+        }
         $api.get("app/login/userinfo/retrieve", null, true)
             .then(function (ret) {
                 $scope.user = ret.data;
@@ -49,10 +51,10 @@ stareal
                     //     localStorageService.set('token',null);
                     // }
                     console.log("222");
-                    if($scope.user.type!=1&&openID!=''){
-                        location.href = "#/main/bindregister/"+encodeURIComponent(rs);
+                    if(isbind!=1&&openID!=''){
+                        location.href = "#/main/bindregister/"+token;
                         // return;
-                    }else if($scope.user.type==1){
+                    }else if(isbind==1){
                         console.log('33');
                         localStorageService.remove('rs');
                         //  console.log(rs);
@@ -66,7 +68,7 @@ stareal
                             localStorageService.remove('rs');
                             $state.go(_state,{},true);
                         }
-                    }else if($scope.user.type!=1&&openID==''){
+                    }else if(isbind!=1&&openID==''){
                         console.log('33');
                         localStorageService.remove('rs');
                         //  console.log(rs);

@@ -32,7 +32,7 @@ stareal.config(function ($httpProvider, localStorageServiceProvider) {
     function handleRepData(method, url, data, needToken) {
         var params = data || {};
         params.source = 'mobile';//标识
-        if (needToken) {
+        if (needToken|| params.accessToken===undefined) {
             params.accessToken = localStorageService.get('token');
         }
         url = host_prefix + url;

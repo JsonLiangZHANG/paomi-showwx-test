@@ -34,24 +34,37 @@ stareal
             })
         // return url 回挑
         // return url 回挑
+
         var rs = localStorageService.get('rs');
        var token=localStorageService.get('token');
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
-        if(isbind!=1){
+        if(isbind!=1&&openID!=''){
             localStorageService.set('cleartoken',token);
-            localStorageService.set('token',null);
+            location.href = "#/main/bindregister/"+encodeURIComponent(rs);
+            localStorageService.set('token','');
+            return false
         }
-        if(rs){
-                    // if($scope.user.type!=1){
-                    //     localStorageService.set('token',null);
-                    // }
-                    console.log("222");
-                    if(isbind!=1&&openID!=''){
-                        location.href = "#/main/bindregister/"+encodeURIComponent(rs);
-                        // return;
-                    }else if(isbind==1){
-                        console.log('33');
+        if (!localStorageService.get('token')) {
+            // $state.go("main.login",{})
+            // return false;
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                // 正式地址
+                location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    // "appid=wxd39f7e740343d507&" +
+                    // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
+                    "appid=wx0d1d2af6c50baa27&" +
+                    "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                    "&response_type=code&scope=snsapi_userinfo&state=";
+
+                // //测试redirect_uri
+                // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                //     "appid=wxd39f7e740343d507&" +
+                //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
+                //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+            }else {
+                if(rs){
                         localStorageService.remove('rs');
                         //  console.log(rs);
                         var _state = rs.substring(0, rs.indexOf('-'));
@@ -64,24 +77,11 @@ stareal
                             localStorageService.remove('rs');
                             $state.go(_state,{},true);
                         }
-                    }else if(isbind!=1&&openID==''){
-                        console.log('33');
-                        localStorageService.remove('rs');
-                        //  console.log(rs);
-                        var _state = rs.substring(0, rs.indexOf('-'));
-                        var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
-                        console.log(_param);
-                        if (_param!=''&&_param!=undefined&&_param!=null) {
-                            $state.go(_state, eval('(' + _param + ')'));
-                            // return;
-                        }else{
-                            localStorageService.remove('rs');
-                            $state.go(_state,{},true);
-                        }
-
-                    }
-
                 }
+            }
+            return false;
+        }
+
 
         // if(iband==='0'){
         //     if (rs) {

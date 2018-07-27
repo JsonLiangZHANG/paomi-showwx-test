@@ -42,11 +42,7 @@ stareal
             localStorageService.set('cleartoken',token);
             localStorageService.set('token',null);
         }
-        $api.get("app/login/userinfo/retrieve", null, true)
-            .then(function (ret) {
-                $scope.user = ret.data;
-
-                if(rs){
+        if(rs){
                     // if($scope.user.type!=1){
                     //     localStorageService.set('token',null);
                     // }
@@ -86,7 +82,6 @@ stareal
                     }
 
                 }
-            });
 
         // if(iband==='0'){
         //     if (rs) {

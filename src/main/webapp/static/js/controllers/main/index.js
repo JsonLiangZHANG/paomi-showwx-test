@@ -39,7 +39,7 @@ stareal
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
         if(isbind!=1){
-         //   rs=rs+JSON.stringify({token:localStorageService.get('token')});
+           rs=rs+JSON.stringify({token:localStorageService.get('token')});
             localStorageService.set('token',null);
         }
         $api.get("app/login/userinfo/retrieve", null, true)
@@ -52,7 +52,7 @@ stareal
                     // }
                     console.log("222");
                     if(isbind!=1&&openID!=''){
-                        location.href = "#/main/bindregister/"+token;
+                        location.href = "#/main/bindregister/"+encodeURIComponent(rs);
                         // return;
                     }else if(isbind==1){
                         console.log('33');

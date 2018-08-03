@@ -104,7 +104,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             ])
         })
         .state('main.gooddetail', {
-            url: '/gooddetail',
+            url: '/gooddetail/:id',
             templateUrl: 'static/partials/main/gooddetail.html',
             resolve: loadLazyjs([
                 'static/js/controllers/main/gooddetail.js',

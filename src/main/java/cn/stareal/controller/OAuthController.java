@@ -43,7 +43,7 @@ public class OAuthController extends BaseController {
         String country = json.getString("country");
         String headimgurl = json.getString("headimgurl");
         String token = json.getString("access_token");
-        String unionid = json.getString("unionid");
+        String unionid = json.getString("");
 
 
         if (token == null || token.equals("") || openid == null || openid.equals("")) {
@@ -60,22 +60,17 @@ public class OAuthController extends BaseController {
         params.put("country", country);
         params.put("headimgurl", headimgurl);
         params.put("openid", openid);
-        // params.put("unionid", unionid);
-        System.out.println("openid================================================"+openid+"--------------------------------------------unionid"+unionid);
+        params.put("unionid", unionid);
         System.out.println("============================================================================");
         System.out.println(token+"-"+nickname +"-"+sex+"-"+province+"-"+city+"-"+country+"-"+headimgurl+"-"+openid);
         System.out.println("============================================================================");
-        JSONObject getJson=getUserAccessToken(params);
-        this.setSessionAttr("isbind", getJson.getString("isbind")); //getJson.getString("isbind")
-        this.setSessionAttr("accessToken", getJson.getString("accessToken"));
-        this.setSessionAttr("openid",openid);
-      //  this.setSessionAttr("unionid",unionid);
+        this.setSessionAttr("accessToken", getUserAccessToken(params).getString("accessToken"));
+        System.out.println("accessToken。。。"+getUserAccessToken(params).getString("accessToken"));
+        System.out.println("isbind。。。"+getUserAccessToken(params).getString("isbind"));
+        this.setSessionAttr("isbind", getUserAccessToken(params).getString("isbind"));
+        this.setSessionAttr("openid", openid);
 //        render("/index.html");
 
-//        if(getJson.getString("isbind").equals("0")){
-//            System.out.println("============================================================================111");
-//            render("/login.html");
-//        }
         // 回调url
         String rs = this.getPara("state");
         if (rs != null && !"".equals(rs)) {

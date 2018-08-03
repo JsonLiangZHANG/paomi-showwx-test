@@ -7,6 +7,7 @@ stareal
         $scope.date=localStorageService.get('date') ;
         $scope.timeId=localStorageService.get('timeId') ;
         $scope.goodTitle=localStorageService.get('good_title');
+        $scope.max=  localStorageService.get('good_titlemax');
         $scope.timeIndex= localStorageService.get('timeIndex');
         $scope._po=localStorageService.get('_po');
         $scope.seatsShow=true;
@@ -124,6 +125,7 @@ stareal
         $scope.switch=function(timeId,index){
             $scope.timeId=timeId;
             $scope.date= $scope.timesList[index].name;
+            $scope.max=$scope.timesList[index].max_num;
             $scope.currentEventId= $scope.timesList[index].eventId;
             $scope.timeshow = false;
             var host_arg = "&hostname="+ location.host;
@@ -293,7 +295,10 @@ stareal
                 $alert.show("请选择座位!");
                 return;
             }
-
+            if ( $scope.seatsList.length >$scope.max) {
+                $alert.show("该演出一次只能购买"+$scope.max+'张！');
+                return;
+            }
             if(gf==1){
                 $(angular.element("body")[0]).css('overflow','auto');
                 localStorageService.set('seatscart', $scope.seatscart);

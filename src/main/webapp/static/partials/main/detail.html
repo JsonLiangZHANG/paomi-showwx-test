@@ -65,7 +65,7 @@
             <p ng-bind="good.introduction" ng-if="good.introduction.length>1"></p>
             <p style="text-align:center" ng-if="good.introduction.length==1">暂无简介</p>
         </div>
-        <div class="more" ng-if="good.introduction.length>1" ui-sref="main.gooddetail">查看全部</div>
+        <div class="more" ng-if="good.introduction.length>1" ui-sref="main.gooddetail({id:current})">查看全部</div>
     </div>
     <!--演出简介结束-->
     <!--购票须知开始-->

@@ -43,7 +43,7 @@ stareal
             $api.get("app/member/checkin/create",{},true)
                 .then(function (ret) {
                     $scope.GetCheck();
-                    var h = document.body.scrollHeight;
+                    var h = $(window).height();
                     $(".sign_mask").height(h);
                     $(".sign_box").css({"display":"block"});
                     document.body.style.overflow='hidden';

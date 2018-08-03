@@ -829,3 +829,25 @@ stareal
             }
         }
     })//时间到改状态
+    .directive('closeModel',function () {
+        return{
+            restrict:'EA',
+            link:function (scope,element,attrs) {
+                console.log("22")
+                element.bind('click',function () {
+                    $(".pubtps").fadeOut();
+
+                })
+            }
+        }
+    })
+    .directive('stopPropagation',function () {
+        return{
+            restrict:'EA',
+            link:function (scope,element,attrs) {
+                element.bind('click',function (e) {
+                    e.stopPropagation();
+                })
+            }
+        }
+    })

@@ -1,8 +1,8 @@
 <div class="myorder" ng-controller="OrdersController">
     <!--<style>-->
-        <!--html,body{-->
-            <!--background:#F1F1F1;-->
-        <!--}-->
+    <!--html,body{-->
+    <!--background:#F1F1F1;-->
+    <!--}-->
     <!--</style>-->
     <!--头部开始-->
     <div class="head pd_tb14">
@@ -52,13 +52,43 @@
             <div class="orders_row_btns clear" style="padding:0.21333rem 0" ng-hide="(order.new_state=='待发货')||(order.new_state=='已完成'&&order.deliver_type==2)">  <!--无按钮的时候-->
                 <div class="Btn_time fl" ng-show="order.new_state=='待付款'" style="height:0.72rem;line-height:0.72rem;"><p change-state1 order-state="order.new_state" create-time="order.create_timestamp" ></p></div>
                 <div class="btns">
-                    <a href="" ng-if="order.new_state=='待付款'" ng-click="cancelOrder(order.order_id,order)">取消订单</a>
+                    <a href="" ng-if="order.new_state=='待付款'"  ng-click="alertmodel('{{order.order_id+'cen'}}')">取消订单</a>
                     <a href="" ng-if="order.new_state=='待付款'" ng-click="verify(order.order_id,order.create_timestamp)">立即支付</a>
-                    <a href="" ng-if="order.new_state=='已取消'" ng-click="deleteOrder(order.order_id,order)">删除订单</a>
+                    <a href="" ng-if="order.new_state=='已取消'"  ng-click="alertmodel('{{order.order_id+'del'}}')">删除订单</a>
                     <a href="" ng-if="(order.new_state=='已完成'||order.new_state=='待收货')&&(order.deliver_type!=2)" ui-sref="my.logistics_information({order_id:{{order.order_id}}})">查看物流</a>
                     <a href="" ng-if="order.new_state=='待收货'" ng-click="donelOrder(order.order_id,order)">确认收货</a>
                 </div>
             </div>
+            <!--删除提示开始-->
+            <div class="pubtps {{order.order_id+'del'}}" close-model>
+                <div class="pubtps-box" stop-propagation>
+                    <div class="con-box">
+                        <div class="img"><img src="static/img/download2.png" alt=""></div>
+                        <div class="tips"><p>真的要删除这个订单吗?</p></div>
+                        <div class="tpsbtns">
+                            <a href="" class="a1" ng-click="deleteOrder(order.order_id,order)">残忍删除</a>
+                            <a href="" class="a2" close-model>再看看</a>
+                        </div>
+                    </div>
+                    <div class="pubtps-close" close-model></div>
+                </div>
+            </div>
+            <!--删除提示结束-->
+            <!--取消提示开始-->
+            <div class="pubtps {{order.order_id+'cen'}}" close-model>
+                <div class="pubtps-box" stop-propagation>
+                    <div class="con-box">
+                        <div class="img"><img src="static/img/download2.png" alt=""></div>
+                        <div class="tips"><p>真的要取消这个订单吗?</p></div>
+                        <div class="tpsbtns">
+                            <a href="" class="a1" ng-click="cancelOrder(order.order_id,order)">取消订单</a>
+                            <a href="" class="a2" close-model>再看看</a>
+                        </div>
+                    </div>
+                    <div class="pubtps-close" close-model></div>
+                </div>
+            </div>
+            <!--删除提示结束-->
         </div>
     </div>
     <!--订单列表结束-->
@@ -95,6 +125,7 @@
         </div>
     </div>
     <!--支付方式结束-->
+
     <form id="alipaysubmit" name="alipaysubmit" action="" method="post">
         <input type="hidden" name="biz_content" value=""/>
     </form>

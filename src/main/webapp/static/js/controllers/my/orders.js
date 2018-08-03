@@ -30,6 +30,11 @@ stareal
                     })
             }
         }
+        $scope.alertmodel = function (order_id) {
+            var height = $(window).height();
+            $("."+order_id).css("height", height);
+            $("."+order_id).fadeIn();
+        }
         //确认收货
         $scope.donelOrder = function (order_id,order) {
             if($scope.orders.items.indexOf(order)!=-1){

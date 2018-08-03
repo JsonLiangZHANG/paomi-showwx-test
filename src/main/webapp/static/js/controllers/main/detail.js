@@ -3,8 +3,7 @@
 stareal
     .controller("DetailController", function ($rootScope,$scope,$http,$compile,$interval,$stateParams,$location,$anchorScroll,$api, $sce, base64, $state, $alert, localStorageService,FileUploader) {
         $scope.current = $stateParams.good_id;
-        
-
+        $scope.sharUrl='http://www.xiuhelive.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
         $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
             .then(function (ret) {
                 var good = ret.data;
@@ -202,6 +201,34 @@ stareal
         $scope.telphone_no = localStorageService.get("telphone_no");
         var alertHe =  angular.element('.mask1 .alert_box1').outerHeight();
         $scope.pop = function (e) {
+            if (!localStorageService.get('token')) {
+                // $state.go("main.login",{})
+                // return false;
+                var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
+                var ua = window.navigator.userAgent.toLowerCase();
+                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    // 正式地址
+                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                        // "appid=wxd39f7e740343d507&" +
+                        // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
+                        "appid=wx0d1d2af6c50baa27&" +
+                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
+
+                    // //测试redirect_uri
+                    // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    //     "appid=wxd39f7e740343d507&" +
+                    //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
+                    //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                } else {
+                    // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
+                    //     "appid=wx05c47c7db58b03aa&" +
+                    //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
+                    //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
+                    location.href = "#/main/login/"+encodeURIComponent(rs);
+                }
+                return false;
+            }
             var bodyH = angular.element('body').height();
             angular.element('.mask1').css({
                 'display':'block',
@@ -446,7 +473,7 @@ stareal
                         wx.onMenuShareTimeline({
                             title: '上海修合文化传播有限公司', // 分享标题
                             desc: '修合文化,精彩无限', // 分享描述
-                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
@@ -461,7 +488,7 @@ stareal
                         wx.onMenuShareAppMessage({
                             title: '上海修合文化传播有限公司', // 分享标题
                             desc: '修合文化,精彩无限', // 分享描述
-                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
@@ -476,7 +503,7 @@ stareal
                         wx.onMenuShareQQ({
                             title: '上海修合文化传播有限公司', // 分享标题
                             desc: '修合文化,精彩无限', // 分享描述
-                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
@@ -488,7 +515,7 @@ stareal
                         wx.onMenuShareQZone({
                             title: '上海修合文化传播有限公司', // 分享标题
                             desc: '修合文化,精彩无限', // 分享描述
-                            link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
@@ -518,7 +545,7 @@ stareal
             $scope.remark = ret.remark;
             $scope.plans = ret.data;
             $scope.paras = {};
-            $scope.max = 6;
+            $scope.max = $scope.plans[0].max_num;
             $scope.eventId=$scope.plans[0].eventId;
           //  console.log($scope.plans);
             // $scope.specialHtml = $sce.trustAsHtml('<iframe id="iframe-projects"  src="http://app.mydeershow.com/index/event/16" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
@@ -705,6 +732,7 @@ stareal
                         }
                        // console.log($scope.eventShowId);
                         localStorageService.set('good_title',$scope.title);
+                        localStorageService.set('good_titlemax',$scope.max);
                         $state.go("main.seat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
 
                     }

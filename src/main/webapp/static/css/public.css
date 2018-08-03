@@ -1850,3 +1850,68 @@ button.swiper-pagination-bullet {
         transform: rotate(360deg)
     }
 }
+/*提示框*/
+.pubtps{
+    width:100%;
+    z-index:23;
+    position:fixed;
+    left:0px;
+    top:0px;
+    background:rgba(0,0,0,0.3);
+    display:none;
+}
+.pubtps .pubtps-box{
+    height: 185px;
+    width: 200px;
+    background:#fff;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    border-radius:4px;
+}
+.pubtps .pubtps-box .con-box{text-align:center;}
+.pubtps .pubtps-box .con-box .img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    margin:0 auto;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+.pubtps .pubtps-box .con-box .img >img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.pubtps .pubtps-box .con-box .tips{
+    margin:30px auto;
+}
+.pubtps .pubtps-box .con-box .tpsbtns{margin:0 auto}
+.pubtps .pubtps-box .con-box .tpsbtns{margin:0 auto}
+.pubtps .pubtps-box .con-box .tpsbtns a{
+    display: inline-block;
+    width:85px;
+    height: 30px;
+    margin: 0px 5px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+}
+.pubtps .pubtps-box .con-box .tpsbtns a.a1{
+    background:#adadad;
+}
+.pubtps .pubtps-box .con-box .tpsbtns a.a2{
+    background:rgb(253, 205, 85);
+    /*background-size: 100% 100%;*/
+}
+.pubtps .pubtps-box .pubtps-close{
+    width: 30px;
+    height: 30px;
+    background: url(../img/cencel.png) no-repeat;
+    position: absolute;
+    right:5px;
+    top: 5px;
+    cursor:pointer;
+}

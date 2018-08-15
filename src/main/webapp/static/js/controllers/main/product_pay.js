@@ -138,6 +138,10 @@ stareal
         $scope.$watch('param', function (a, b) {
             if($scope.param.addressId!='') {
                 calculate($scope.param.addressId);
+            }else{
+                $scope.productcartOrderDtopayFee=  $scope.total;
+                $scope.productcartOrderDtopostFee=0;
+                // $alert.show('请填写地址!')
             }
         }, true);
 

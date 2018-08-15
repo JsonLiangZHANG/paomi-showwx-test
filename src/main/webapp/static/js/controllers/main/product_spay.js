@@ -32,7 +32,9 @@ stareal
 
             $scope.productspay.num= $scope.productspay.num - 1;
             // calTotal();
-            $scope.changeSum();
+            $scope.param.num=  $scope.productspay.num;
+            $scope.productspeeditemsArray[0].pcount=  $scope.productspay.num;
+            //  $scope.changeSum();
 
         };
 
@@ -44,7 +46,9 @@ stareal
             //     return;
             // }
             $scope.productspay.num=  $scope.productspay.num + 1;
-            $scope.changeSum();
+            $scope.param.num=  $scope.productspay.num;
+            $scope.productspeeditemsArray[0].pcount=  $scope.productspay.num;
+            // $scope.changeSum();
         };
         $scope.changeSum=function(){
             $scope.productspay.sum=   $scope.productspay.num* $scope.productspay.price;
@@ -85,16 +89,20 @@ stareal
         $scope.$watch('param', function (a, b) {
             if($scope.param.addressId!='') {
                 calculate($scope.param.num, $scope.param.price, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId, $scope.param.beily);
+            } else{
+                $scope.productspay.postFee =0; //快递费
+                $scope.sumTotal =$scope.productspay.num* $scope.productspay.price;//总价
+                //  $alert.show('请填写收货地址!');
             }
         }, true);
         //监控数据
-        $scope.$watch('productspay',function(newValue,oldValue,scope){
-            $scope.sumTotal=0; //总计
-            var sumN = newValue.num * newValue.price; //计算出新的结果
-            $scope.productspay.sum = sumN.toFixed(2); //保留两位小数并且把它赋值给元数据;
-            $scope.sumTotal += sumN+ $scope.productspay.postFee;
-            console.log( $scope.sumTotal);
-        },true);
+        // $scope.$watch('productspay',function(newValue,oldValue,scope){
+        //     $scope.sumTotal=0; //总计
+        //     var sumN = newValue.num * newValue.price; //计算出新的结果
+        //     $scope.productspay.sum = sumN.toFixed(2); //保留两位小数并且把它赋值给元数据;
+        //     $scope.sumTotal += sumN+ $scope.productspay.postFee;
+        //     console.log( $scope.sumTotal);
+        // },true);
 
         /**
          *  返显地址

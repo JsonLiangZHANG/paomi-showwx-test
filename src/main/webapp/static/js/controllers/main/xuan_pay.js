@@ -155,6 +155,11 @@ stareal
             var seatcart=$scope.seatscart.join(',');
             if($scope.param.addressId!=''){
                 calculate( $scope.eventId, seatcart, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId,$scope.param.beily);
+            }else{
+                $scope.deliver_price =0; //快递费
+                $scope.total_price = $scope.total;//总价
+                $scope.beily_price = 0//贝里值
+                //  $alert.show('请填写收货地址!');
             }
         }, true);
 

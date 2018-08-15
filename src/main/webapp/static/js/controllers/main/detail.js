@@ -742,7 +742,8 @@ stareal
             // 更改价位
             var switchCat = function (index1, index2, choosable) {
                 if(choosable==''){
-                    $scope.pop()
+                    // $scope.pop()
+                    $alert.show('该价位票已售罄！');
                 }
 
                 if (choosable) {

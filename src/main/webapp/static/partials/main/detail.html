@@ -33,8 +33,8 @@
                             <p class="fr" ng-if="star"><span ng-bind="star[0]"></span>.<span>{{star[1]}}分</span></p>
                             <p ng-if="!star" class="fr">暂无评分</p>
                         </div>
-                        <div class="sold_num">已售出{{good.sold}}张</div>
-                    </div>
+                        <!--<div class="sold_num">已售出{{good.sold}}张</div>-->
+                </div>
                 </div>
             </div>
             <div class="message">
@@ -205,7 +205,7 @@
                         <li    class="{{gory.status?'':'disabled'}} {{$parent.$index == paras.catIndex1 && $index == paras.catIndex2 ?'active':''}}" ng-repeat="gory in cat.children" ng-click="switchCat($parent.$index,$index,gory.status,$event)">
                             <span ng-hide="gory.status==''" ng-style="ticketType(gory.name,gory.children[0].price).defstyle" ng-bind="ticketType(gory.name,gory.children[0].price).ticketText"></span>
                             <p ng-bind="cat.id+gory.name">内场755元</p>
-                            <p ng-show="gory.status==''">到货提醒</p>
+                            <p ng-show="gory.status==''">已售罄</p>
                         </li>
                     </ul>
                 </div>
@@ -326,7 +326,8 @@
                                     <ul ng-repeat="cat in cats" class="clear" style="margin-top: 15px;">
                                         <li class="fl {{gory.status?'':'disabled'}} {{$parent.$index == paras.catIndex1 && $index == paras.catIndex2 ?'active':''}}" ng-repeat="gory in cat.children" ng-click="switchCat($parent.$index,$index,gory.status)">
                                             <p ng-bind="gory.name" ng-show="gory.status!=''"></p>
-                                            <p ng-show="gory.status==''" ng-click="pop()" ng-bind="gory.name"></p>
+                                            <!--<p ng-show="gory.status==''" ng-click="pop()" ng-bind="gory.name"></p>-->
+                                            <p ng-show="gory.status==''" >已售罄</p>
                                         </li>
                                     </ul>
                                 </div>

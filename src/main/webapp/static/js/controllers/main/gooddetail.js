@@ -67,8 +67,8 @@ stareal
                     wx.ready(function(){
                         //分享到朋友圈
                         wx.onMenuShareTimeline({
-                            title: '上海修合文化传播有限公司', // 分享标题
-                            desc: '修合文化,精彩无限', // 分享描述
+                            title: '上海修合文化传媒有限公司', // 分享标题
+                            desc: '官方售票', // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {
@@ -82,8 +82,8 @@ stareal
                         });
                         //分享给朋友
                         wx.onMenuShareAppMessage({
-                            title: '上海修合文化传播有限公司', // 分享标题
-                            desc: '修合文化,精彩无限', // 分享描述
+                            title: '上海修合文化传媒有限公司', // 分享标题
+                            desc: '官方售票', // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
@@ -97,8 +97,8 @@ stareal
                             }
                         });
                         wx.onMenuShareQQ({
-                            title: '上海修合文化传播有限公司', // 分享标题
-                            desc: '修合文化,精彩无限', // 分享描述
+                            title: '上海修合文化传媒有限公司', // 分享标题
+                            desc: '官方售票', // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {
@@ -109,8 +109,8 @@ stareal
                             }
                         });
                         wx.onMenuShareQZone({
-                            title: '上海修合文化传播有限公司', // 分享标题
-                            desc: '修合文化,精彩无限', // 分享描述
+                            title: '上海修合文化传媒有限公司', // 分享标题
+                            desc: '官方售票', // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
                             success: function () {

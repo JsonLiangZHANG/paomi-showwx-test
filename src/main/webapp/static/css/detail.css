@@ -1426,8 +1426,8 @@
     border-radius: 50%;
 }
  .alert_box1 .cloes{
-    background: url("../img/comments_delete.png");
-    background-size: 100%;
+    background: url("../img/comments_delete@3x.png") no-repeat center center;
+    background-size: 100% 100%;
 }
 
  .alertBox .cloes{
@@ -1439,8 +1439,8 @@
      border-radius:50%;
 }
 .alertBox .cloes{
-    background: url("../img/comments_delete.png");
-    background-size: 100%;
+    background: url("../img/comments_delete@3x.png") no-repeat center center;
+    background-size: 100% 100%;
 }
 
 

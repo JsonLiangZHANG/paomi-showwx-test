@@ -30,7 +30,7 @@ stareal
                 }
                 if (good.state == '预售中') {
                     $scope.shop_bg = '';
-                    $scope.gbn = '立即购票';
+                    $scope.gbn = '立即预定';
                     $scope.gf = 1;
                 }
                 if (good.state == '扫尾票') {

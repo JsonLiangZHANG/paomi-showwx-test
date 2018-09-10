@@ -63,15 +63,16 @@ stareal
         var selectedAddressId = localStorageService.get($scope.order_id + '_address_id');
         if ($stateParams._ && selectedAddressId) {
             $scope.param.addressId = selectedAddressId;
-
             $api.get("app/address/getbyid", {id: selectedAddressId}, true)
                 .then(function (ret) {
+                    console.log('大大');
+                    console.log(ret.data);
                     $scope.address = ret.data;
                 });
-        }
-        else {
+        }else {
             $api.get("app/address/getDefault", {}, true)
                 .then(function (ret) {
+                    console.log(ret);
                     $scope.address = ret.data;
                     var _addressId = ret.data.id;
                     if (_addressId) {
@@ -156,10 +157,10 @@ stareal
             if($scope.param.addressId!=''){
                 calculate( $scope.eventId, seatcart, $scope.param.deliverType, $scope.param.couponId, $scope.param.addressId,$scope.param.beily);
             }else{
-                $scope.deliver_price =0; //快递费
-                $scope.total_price = $scope.total;//总价
-                $scope.beily_price = 0//贝里值
-                //  $alert.show('请填写收货地址!');
+                $scope.deliver_price=0;
+                $scope.beily_price=0;
+                $scope.total_price=$scope.total;
+                // $alert.show('请填写地址!')
             }
         }, true);
 
@@ -236,7 +237,8 @@ stareal
                 //生成订单
                 $api.post("app/order/index/createorder", _params, true)
                     .then(function (ret) {
-                        $scope.orderId = ret.data.orderId
+                        $scope.orderId = ret.data.orderId;
+                        localStorageService.set("myslectSeats",'');
                         $api.post("app/pay/gateway/create", {//支付订单
                             orderId: $scope.orderId,
                             tradeType: 0,
@@ -260,7 +262,8 @@ stareal
                 //生成订单
                 $api.post("app/order/index/createorder", _params, true)
                     .then(function (ret) {
-                        $scope.orderId = ret.data.orderId
+                        $scope.orderId = ret.data.orderId;
+                        localStorageService.set("myslectSeats",'');
                         $api.post("app/pay/gateway/create", {//支付订单
                             orderId: $scope.orderId,
                             tradeType: 0,

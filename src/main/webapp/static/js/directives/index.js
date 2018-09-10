@@ -55,6 +55,17 @@ stareal
             }
         }
     })
+    .directive('onFinish', function ($timeout) {  //检查Dom渲染玩
+        return {
+            restrict: 'A',
+            link: function (scope, element, attr) {
+                if (scope.$last === true) {
+                    $timeout(function () {
+                        scope.$emit('ngRepeatFinished');
+                    });
+                }
+            }
+        }})
     .directive('thumbSize', function () {
         return {
             restrict: 'A',

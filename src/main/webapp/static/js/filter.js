@@ -25,3 +25,17 @@ stareal.filter("buildDate", function () {
             return str.substr (3)
         }
     })
+    .filter("trustUrl", ['$sce', function ($sce) {
+        return function (recordingUrl) {
+            return $sce.trustAsResourceUrl(recordingUrl);
+        };
+    }])
+    .filter("split1",function () {
+        return function (str) {
+            if(str!=''&&str!=undefined){
+                return str.split(',')[0]
+            }
+
+
+        }
+    })

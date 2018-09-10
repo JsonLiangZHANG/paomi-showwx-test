@@ -159,10 +159,13 @@ stareal
             return result;
         }
         //获取用户相关信息
-        $api.get("app/login/userinfo/retrieve", null, true)
-            .then(function (ret) {
-                $rootScope.user = ret.data;
-            });
+        if(localStorageService.get('token')){
+            $api.get("app/login/userinfo/retrieve", null, true)
+                .then(function (ret) {
+                    $rootScope.user = ret.data;
+                });
+        }
+
         // $rootScope.user = localStorageService.get("user");
         //设置评论星星
         $scope.setPost = function (status) {

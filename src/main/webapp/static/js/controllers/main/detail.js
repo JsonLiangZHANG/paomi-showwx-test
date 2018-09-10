@@ -30,7 +30,7 @@ stareal
                 }
                 if (good.state == '预售中') {
                     $scope.shop_bg = '';
-                    $scope.gbn = '立即预定';
+                    $scope.gbn = '立即预订';
                     $scope.gf = 1;
                 }
                 if (good.state == '扫尾票') {
@@ -46,7 +46,7 @@ stareal
                         return false;
                     }
                     $scope.shop_bg = 'subscribe';
-                    $scope.gbn = '立即预定';
+                    $scope.gbn = '立即预订';
                     $scope.gf = 2;
                 }
                 if (good.state == '已售罄') {

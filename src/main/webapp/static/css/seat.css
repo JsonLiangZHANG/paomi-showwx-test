@@ -220,4 +220,15 @@ a{
     top: 0px;
     right: -0.4rem;
 }
+/*新svg*/
+#svg{
+    width: 320px;
+    margin: 0 auto;
+}
+#seats circle.seatselected{
+    stroke:red;
+}
+#seats circle.active{
+    fill: #ddd;
+}
 

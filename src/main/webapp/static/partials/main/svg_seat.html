@@ -1,0 +1,108 @@
+<div class="seat" ng-controller="SeatController" id="ngSection">
+    <div  class="seat_content">
+        <div class="clear">
+
+            <div class="head pd_tb14">
+                <a class="back" ui-sref="main.detail({good_id:{{currentId}}})"></a>
+                <span class="headline f18">选择座位</span>
+            </div>
+            <div class="clear" style="padding:0rem 0.32rem;position: relative;border-bottom: 1px solid #ddd;">
+                <div class="min-top fl">
+                    <a ui-sref="main.detail({good_id:{{currentId}}})">{{goodTitle}}></a>
+                </div>
+                <div class="m-scree fl"  ng-mouseleave="hide()">
+                    <a href="javascript:;" class="m-scree-title " ng-click="show()" ng-class="{true:'m-scree-on',false:''}[timeshow]"><label style="width:auto;">
+                        <span id="pt">{{date}} </span>
+                        <!--<span style="padding: 0px 0px 0px 30px;" id="swt">更换场次<span class="new-down-arrow"></span></span></span>-->
+                    </label>
+                    </a>
+                    <!--ng-if="timeshow"-->
+                    <div class="ct" ng-if="timeshow">
+                        <ul class="lst clear">
+                            <li class="itm {{timeId== timeItem.id?'active':''}}" ng-repeat=" timeItem in timesList" ng-click="switch({{timeItem.id}},$index)">{{timeItem.name}}</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div  id="table_seats" style="background: #fff;position: relative;">
+            <!--<div style="position: absolute;top: 0.3rem;right: 0.32rem;line-height:0.8rem;padding: 0 0.2rem;background:#EB03ED;color: #fff;z-index: 8;" ng-click="goTo360()" ng-show="Is360scan">-->
+                <!--查看全景图-->
+            <!--</div>-->
+            <div style="border:0;overflow: hidden;width:100%;margin-left:auto;margin-right:auto;position: relative;background:#fff;" id="inverted-contain">
+                <svg id="svg"  style="cursor: default; display: block; overflow: hidden; position: relative;" version="1.1" xmlns="http://www.w3.org/2000/svg">
+                    <g id="all" class="transform panzoom" transform="matrix(0.32,0,0,0.32,0,0)" style="backface-visibility: hidden; transform-origin: 0px 0px 0px; cursor: move;">
+                        <image id="bg" x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{setionSvgsImg.background | trustUrl }}"></image>
+                        <g class="map" id="map">
+                            <path  id="{{venusDetailsvgItem.section_name}}"  ng-attr-fill="{{venusDetailsvgItem.fillcolor}}"  ng-attr-d="{{venusDetailsvgItem.section_path}}" ng-repeat="venusDetailsvgItem in setionSvgs" data-id="{{venusDetailsvgItem.id}}" />
+                        </g>
+                        <g class="seats" id="seats">
+                            <circle ng-repeat="venusDetailsvgItem in seatSvgs" on-finish  ng-attr-cx="{{venusDetailsvgItem.cx}}" ng-attr-cy="{{venusDetailsvgItem.cy}}" r="6"  id="seats_{{venusDetailsvgItem.id}}"  ng-attr-fill="{{venusDetailsvgItem.fillcolor}}" seatrow="{{venusDetailsvgItem.row}}" seatcol="{{venusDetailsvgItem.columns}}" section_name="{{venusDetailsvgItem.section_name}}"  price="{{venusDetailsvgItem.price}}" status="{{venusDetailsvgItem.status}}" size="{{venusDetailsvgItem.size}}" ng-attr-transform="{{venusDetailsvgItem.transform}}" price_seat_id="{{venusDetailsvgItem.price_seat_id}}"
+                                    ng-mouseover="seatsDalogshow(venusDetailsvgItem.section_name,venusDetailsvgItem.row,venusDetailsvgItem.columns,venusDetailsvgItem.price,venusDetailsvgItem.status,venusDetailsvgItem.size,venusDetailsvgItem.price_seat_id,venusDetailsvgItem.id,$event)" ng-mouseleave="seatsDaloghide()" ng-click="selectSeats(venusDetailsvgItem.section_id,venusDetailsvgItem.status,venusDetailsvgItem.price_seat_id,venusDetailsvgItem.id,$event,venusDetailsvgItem.section_name,venusDetailsvgItem.row,venusDetailsvgItem.columns,venusDetailsvgItem.price)" ng-class="{'true':'active','false':''}[venusDetailsvgItem.status=='已售']"></circle>
+
+                        </g>
+                        <g class="price" id="price">
+                            <path  id="{{venusDetailsvgItem.section_id}}" on-finish  area="{{venusDetailsvgItem.section_id}}" ng-attr-fill="{{venusDetailsvgItem.fillcolor}}"  ng-attr-d="{{venusDetailsvgItem.price_path}}" ng-repeat="venusDetailsvgItem in priceSvgs" data-id="{{venusDetailsvgItem.id}}" ng-click="getSvgSeats(venusDetailsvgItem.section_id)"/>
+
+                        </g>
+                    </g>
+                </svg>
+
+                <div style="width:4.0rem;height:1.5rem;display: block;border: 1px solid #eee;padding: 5px;position: absolute;overflow: hidden;bottom: 5px;float:right;right: 16px;">
+                    <div class="zoom-btns clear">
+                        <button id="sm-zoom-in-btn" ng-click="big(1);" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAATCAMAAABFjsb+AAAABlBMVEX///////9VfPVsAAAAAXRSTlMAQObYZgAAABVJREFUeAFjgANGOGvQizFigqHoDwAc8gAmwNKSrQAAAABJRU5ErkJggg==);font-size: 0.8rem;text-decoration: none;color: #FFF;background-color: #afd8de;width: 1.0rem;height: 1.0rem;line-height:1.0rem;-webkit-border-radius: .1875rem;-moz-border-radius: .1875rem;border-radius: .1875rem;text-align: center;border: 0;padding: 0;outline: 0;background-position: 50% 50%;background-repeat: no-repeat;float:left;" aria-label="Zoom In"></button>
+                        <button id="sm-zoom-out-btn" ng-click="big(0);" style="background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABMAAAABCAMAAAALkGVuAAAAA1BMVEX///+nxBvIAAAACklEQVR4AWPAAgAAFAABYb2svwAAAABJRU5ErkJggg==);font-size: 0.8rem;text-decoration: none;color: #FFF;background-color: #afd8de;width: 1.0rem;height: 1.0rem;line-height:1.0rem;-webkit-border-radius: .1875rem;-moz-border-radius: .1875rem;border-radius: .1875rem;text-align: center;border: 0;padding: 0;outline: 0;background-position: 50% 50%;background-repeat: no-repeat;margin-left:0.8rem;float:right" aria-label="Zoom Out" ></button>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <!--头部结束-->
+
+        <div class="seat_dailog" ng-click="hideShow()">
+            <div class="seat_box2"  id="seats_list" >
+                <table id="Seat_alertBox">
+                    <tbody ng-show="slectSeats.length!=0">
+                    <tr ng-repeat="seat in slectSeats track by $index" on-finish-render-filters="completecarRepeat" >
+                        <td>{{seat.section_name}}</td>
+                        <td>{{seat.row}}</td>
+                        <td>{{seat.columns}}</td>
+                        <td style="color: rgb(241,0,95);">￥{{seat.price}}</td>
+                        <td ><span class="detele_seat" ng-click="deletseats($event,seat.id)">&times;</span></td>
+                    </tr>
+                    </tbody>
+
+                    <tbody ng-show="slectSeats.length==0">
+                    <tr>
+                        <td colspan="4">您还没选票！</td>
+                        <td>￥0</td>
+                    </tr>
+                    </tbody>
+
+                </table>
+            </div>
+
+        </div>
+
+        <div id="seatsLoading">
+            <img ng-src="static/img/dataLoading.gif" alt="">
+        </div>
+
+        <div class="seat_zj">
+            <a class="seat_car_car" ng-click="goShow()"><span class="seat_num" >{{slectSeats.length}}</span></a>
+
+            <a class="zj_total ">
+                <span >{{total}}</span><span>元</span>
+                <span>| {{slectSeats.length}}张</span>
+            </a>
+
+            <a class="zj_btn" ng-click="xuanCreateOrder(gf)" >确认选座</a>
+        </div>
+
+
+    </div>
+    <!--登录主体结束 手机号登录-->
+
+</div>

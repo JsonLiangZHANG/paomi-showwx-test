@@ -6,6 +6,7 @@ stareal
         $scope.accessToken = "";
         $scope.paracont = "获取验证码";
         // $scope.code = "";
+        $scope.sendCodeStatus=false;
         $scope.login = {
             sendCode:function (telphone_no) {
                 var second = 60;
@@ -13,33 +14,39 @@ stareal
                 if (!this.validatemobile(telphone_no)) {
                     return;
                 }
+                if($scope.sendCodeStatus){
+                    return;
+                }
                 // 演出分类
                 $api.get("app/login/code/retrieve", {mobile:telphone_no, type: "0"})
                     .then(function (ret) {
                         if (ret.retCode == "0") {
                             $alert.show("验证码已发送!");
+                            timerHandler = $interval(function () {
+                                if (second <= 0) {
+                                    $interval.cancel(timerHandler);
+                                    timerHandler = undefined;
+                                    second = 60;
+                                    $scope.paracont = "重发";
+                                    $scope.sendCodeStatus=false;
+                                } else {
+                                    $scope.sendCodeStatus=true;
+                                    $scope.paracont = second + "秒";
+                                    second--;
+
+                                }
+                            }, 1000, 100)
                             localStorageService.set('code_token', ret.accessToken);
-                            console.log(localStorageService.get('code_token'))
+                            // console.log(localStorageService.get('code_token'))
                         } else {
                             $alert.show("验证码发送失败，请稍后重试!");
                         }
                     });
 
-                if (timerHandler) {
-                    return;
-                }
-                timerHandler = $interval(function () {
-                    if (second <= 0) {
-                        $interval.cancel(timerHandler);
-                        timerHandler = undefined;
-                        second = 60;
-                        $scope.paracont = "重发";
-                    } else {
-                        $scope.paracont = second + "秒";
-                        second--;
+                // if (timerHandler) {
+                //     return;
+                // }
 
-                    }
-                }, 1000, 100)
             },
             login:function (telphone_no,code,pass){
                 if (!this.validatemobile(telphone_no)) {

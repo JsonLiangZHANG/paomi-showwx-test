@@ -1,5 +1,5 @@
 .Productorder .bgc{
-    background:#FDCD55;
+    background:#B0272B;
     height: 3rem;
     line-height: 3rem;
 }
@@ -16,7 +16,7 @@
     float: right;
 }
 .Productorder  .left p{
-    color:#FDCD55;
+    color:#B0272B;
     font-size: 14px;
 }
 .Productorder .left .number{

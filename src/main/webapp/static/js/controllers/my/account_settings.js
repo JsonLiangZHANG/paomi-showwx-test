@@ -28,10 +28,13 @@ stareal
                     $scope.mobile = mobileStr.replace(/^(\d{3})\d{4}(\d+)/,"$1****$2");
                 }
                 var b = ret.data.sex
-                if(b){
-                    $scope.sex = ret.data.sex;
-                }else{
-                    $scope.sex = '未设置'
+                if(b ==  "男"){
+                    $scope.isBoy = true;
+                    $scope.isGirl = false;
+                }
+                if(b ==  "女"){
+                    $scope.isBoy = false;
+                    $scope.isGirl = true;
                 }
                 //获取现在的时间
                 var yearNow = new Date().getFullYear();//获取年份
@@ -94,8 +97,16 @@ stareal
         }
         $scope.choose = function (sex) {
             $scope.sex = sex;
-            $scope.isBoy = ($scope.sex =="男");
-            $(".sex_mask").css({"display":"none"})
+            // $scope.isBoy = ($scope.sex =="男");
+            // $(".sex_mask").css({"display":"none"})
+            if($scope.sex ==  "男"){
+                $scope.isBoy = true;
+                $scope.isGirl = false;
+            }
+            if($scope.sex ==  "女"){
+                $scope.isBoy = false;
+                $scope.isGirl = true;
+            }
             set()
         }
         $(".sex_mask").click(function () {

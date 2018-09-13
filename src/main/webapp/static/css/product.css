@@ -21,7 +21,7 @@
     content: '';
     width: 0.42666rem;
     height: 0.10666rem;
-    background: #FDCD55;
+    background: #B0272B;
     border-radius: 0.21333rem;
     position: absolute;
     left: 50%;
@@ -171,7 +171,7 @@
 }
 
 .product .Sortsearch span.active {
-    color:#FDCD55;
+    color:#B0272B;
 }
 
 .product .Sortsearch .hotter {

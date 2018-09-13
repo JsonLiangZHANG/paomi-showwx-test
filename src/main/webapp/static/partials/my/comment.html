@@ -9,7 +9,7 @@
     <div class="comment_list" ng-controller="PublicController">
         <ul infinite-scroll="comments.nextPage()" infinite-scroll-disabled='comments.busy' infinite-scroll-distance="1">
             <li class="list pd_rl16 pd_rl12 clear" ng-repeat="comment in comments.items" ui-sref="my.comment_detail({comment_id:{{comment.id}}})">
-                <img class="head_portrait" src="{{comment.headimgurl}}">
+                <img class="head_portrait" src="{{comment.headimgurl}}" err-src="static/img/touxiang@2x.png">
                 <div class="right_block fl">
                     <div class="topside clear">
                         <div class="name f12 fl" ng-bind="comment.nickname"></div>

@@ -14,7 +14,7 @@
     <div class="orders_itme clear f12 pd_rl12 pd_rl16" style="color:#6b6b6b" ng-controller="PublicController">
         <div class="clear">
                 <p class="fl"><span>订单编号：</span><span ng-bind="good.order_id"></span></p>
-            <p class="fr" style="color:#FF5000" ng-bind="statusText(good.new_state)"></p>
+            <p class="fr" style="color:#B0272B" ng-bind="statusText(good.new_state)"></p>
         </div>
         <div class="clear" style="margin-top:0.1333rem;">
             <div class="thumb_size2 fl">
@@ -67,7 +67,7 @@
         <p class="clear"><span class="fl">优惠劵</span><span class="fr">-{{good.coupon_price | currency:'¥'}}</span></p>
         <p class="clear"><span class="fl">积分</span><span class="fr">-{{good.belly/100 | currency:'¥'}}</span></p>
         <p class="clear"><span class="fl">快递费</span><span class="fr">-{{good.deliver_fee | currency:'¥'}}</span></p>
-        <p class="clear f14" style="color:#222"><span class="fl">实付金额</span><span class="fr" style="color:#FF5000" ng-bind="good.total| currency:'¥'"></span></p>
+        <p class="clear f14" style="color:#222"><span class="fl">实付金额</span><span class="fr" style="color:#B0272B" ng-bind="good.total| currency:'¥'"></span></p>
     </div>
     <!--价格列表结束-->
     <!--订单信息开始-->

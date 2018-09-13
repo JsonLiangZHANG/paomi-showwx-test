@@ -30,7 +30,7 @@ stareal
                     $scope.GoComment = function () {
                         $state.go('main.list', {kind:'',sort:'hot',direct:'desc'});
                     }
-                    $scope.gbs1 = {color:'#fdcd55 '} //领取过
+                    $scope.gbs1 = {color:'#B0272B '} //领取过
                     $scope.gbn1 = '去完成'
                 }
                 if($scope.invitation_num > 0){
@@ -40,7 +40,7 @@ stareal
                     $scope.GoShare = function () {
                         $state.go('my.share', {});
                     }
-                    $scope.gbs2 = {color:'#fdcd55 '} //领取过
+                    $scope.gbs2 = {color:'#B0272B '} //领取过
                     $scope.gbn2= '去完成'
                 }
 

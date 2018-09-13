@@ -27,7 +27,21 @@
             <li class="pd_rl16 clear" ng-click="setSex()">
                 <div class="f14 fl">性别</div>
                 <div class="fr">
-                    <div class="edit f14 fl" ng-bind="sex"></div>
+                    <!-- <div class="edit f14 fl" ng-bind="sex"></div> -->
+                    <div class="fl">
+                        <div ng-click="choose('男')" class="check">
+                             <i ng-class="{true: 'active', false: ''}[isBoy]"></i>
+                             <span class="pd_rl12 pd_rl16"  ng-class="{true: 'active', false: ''}[isBoy]">
+                                 男
+                             </span>
+                        </div>
+                        <div ng-click="choose('女')" class="check">
+                             <i ng-class="{true: 'active', false: ''}[isGirl]"></i>
+                             <span class="pd_rl12 pd_rl16" ng-click="choose('女')" ng-class="{true: 'active', false: ''}[isGirl]">
+                                 女
+                             </span>
+                        </div>
+                     </div>
                     <i class="arrow"></i>
                 </div>
             </li>
@@ -70,7 +84,7 @@
     </div>
     <!--账号安全结束-->
     <!--设置性别弹窗开始-->
-    <div class="sex_mask">
+    <!-- <div class="sex_mask">
         <div class="sex_box">
             <ul>
                 <li class="pd_rl12 pd_rl16" ng-click="choose('男')" ng-class="{true: 'active', false: ''}[isBoy]">
@@ -83,7 +97,7 @@
                 </li>
             </ul>
         </div>
-    </div>
+    </div> -->
     <!--设置性别弹窗结束-->
     <!--设置生日弹窗开始-->
     <div class="birthday_mask">

@@ -79,13 +79,13 @@
 .myorder .orders-tab ul li.active a{
     position:relative;
     padding-bottom: 0.2rem;
-    border-bottom: 3px solid #FDCD55;
+    border-bottom: 3px solid #B0272B;
 }
 /*.myorder .orders-tab ul li:after{*/
     /*content:'';*/
     /*width:0rem;*/
     /*height:0rem;*/
-    /*background:#FDCD55;*/
+    /*background:#B0272B;*/
     /*border: none!important;*/
     /*border-radius:0.21333rem;*/
     /*position:absolute;*/
@@ -97,7 +97,7 @@
     /*content:'';*/
     /*width:0.42666rem;*/
     /*height:0.10666rem;*/
-    /*background:#FDCD55;*/
+    /*background:#B0272B;*/
     /*border-radius:0.21333rem;*/
     /*position:absolute;*/
     /*left:50%;*/
@@ -105,7 +105,7 @@
     /*transform:translateX(-50%);*/
 /*}*/
 .myorder .orders-tab ul li.active a{
-    color:#FDCD55;
+    color:#B0272B;
 }
 .myorder .orders_row_list .itme-order{
     background:#fff;
@@ -123,7 +123,7 @@
     padding-bottom:0.26rem;
 }
 .myorder .orders_row_list .state p:last-child{
-    color:#FDCD55;
+    color:#B0272B;
 }
 .myorder .orders_row_list .orders_row_con .orders_row_info{
     width:7.4rem;
@@ -154,8 +154,8 @@
 }
 .myorder .orders_row_list .orders_row_btns > .btns a:last-child{
     margin-left:0.28rem;
-    color:#FDCD55;
-    border:1px solid #FDCD55;
+    color:#B0272B;
+    border:1px solid #B0272B;
 }
 /**************************************************************************************************************************/
 /*订单详情*/
@@ -165,7 +165,7 @@
     border-bottom:1px solid #E5E5E5;
 }
 .order .state p:last-child{
-    color:#FDCD55;
+    color:#B0272B;
 }
 .order .orders_itme .orders_row_info{
     width:7.4rem;
@@ -440,7 +440,7 @@
     font-size: 0.45rem;
     padding-left: 0.2133rem;
     font-weight: bold;
-    color: #FDCD55;
+    color: #B0272B;
 }
 
 .beli_sign .sign button {
@@ -819,7 +819,7 @@
     margin-top: 0.1333rem;
 }
 .express_status > ul li:first-child a{
-    background: #FDCD55;
+    background: #B0272B;
 }
 .express_status > ul li p{
     padding-left: 0.453rem;
@@ -849,7 +849,7 @@
 .comment_list .right_block .topside a{
     display: block;
     width: 2rem;
-    height: 0.36rem;
+    height: 0.39rem;
     background: #b5b5b5;
     margin-left: 0.2133rem;
 }
@@ -1001,7 +1001,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#FDCD55;
+    background:#B0272B;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -1009,7 +1009,7 @@
     transform:translateX(-50%);
 }
 .precious .precious-tab ul li.active a{
-    color:#FDCD55;
+    color:#B0272B;
 }
 /*夺宝列表*/
 .precious .precious-list > ul .flag .flag-item{
@@ -1044,7 +1044,7 @@
     left:0;
     top:0;
     width:20%;
-    background:#FDCD55;
+    background:#B0272B;
     height:0.106666rem;
     border-top-left-radius:8px;
     border-bottom-left-radius:8px;
@@ -1059,13 +1059,13 @@
     height:0.373333rem;
     line-height:0.373333rem;
     text-align:center;
-    color:#FDCD55;
-    border:1px solid #FDCD55;
+    color:#B0272B;
+    border:1px solid #B0272B;
     border-radius:0.8rem;
     transform:translateY(-35%);
 }
 .precious .precious-list > ul .flag .flag-item em{
-    color:#FDCD55;
+    color:#B0272B;
 }
 .precious .precious-list > ul .flag .flag-item .award_xq .flag-type span{
     font-size:12px;
@@ -1351,13 +1351,13 @@
     padding-left:0.32rem;
     /* border-bottom:0.16rem solid #F1F1F1; */
     position:relative;
-    background: #FDCD55;
+    background: #B0272B;
 }
 .record .beili_top .beili_q,.beili .beili_top .beili_q{
     display:inline-block;
     /* width:0.21333rem;
     height:0.21333rem;
-    border:1px solid #FDCD55; */
+    border:1px solid #B0272B; */
     border-radius:50%;
     margin-right:0.5333rem;
     margin-top:0.4rem;
@@ -1372,7 +1372,7 @@
 }
 .record .beili_top .beili_remaining span:first-child{
     font-size:30px;
-    color:#fdcd55;
+    color:#B0272B;
 }
 .beili .beili_top .beili_remaining :last-child,
 .record .beili_top .beili_remaining p:last-child{
@@ -1413,7 +1413,7 @@
     display: inline-block;
     width: 0.48rem;
     height: 0.4rem;
-    background: #FDCD55;
+    background: #B0272B;
 }
 .beili .beili_top .ranking_btn p i{
     background: url("../img/beili_icon_ranking@2x.png");
@@ -1431,7 +1431,7 @@
     display: inline-block;
     width: 0.3733rem;
     height: 0.3733rem;
-    background:#FDCD55;
+    background:#B0272B;
     margin-left: 0.18rem;
     margin-top: 0.2rem;
 }
@@ -1462,7 +1462,7 @@
     background:#fff;
 }
 .beili .beili_get_way .beili_list ul li p:first-child span:last-child{
-    color:#FDCD55;
+    color:#B0272B;
     padding-left:0.53333rem;
 }
 .beili .beili_title{
@@ -1558,7 +1558,7 @@
     height: 3.36rem;
     text-align: center;
     line-height: 3.36rem;
-    color: #FDCD55;
+    color: #B0272B;
 }
 .coupon .certificate .price.active{
     color: #999999;
@@ -1599,7 +1599,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#FDCD55;
+    background:#B0272B;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -1607,7 +1607,7 @@
     transform:translateX(-50%);
 }
 .coupon .treasure-tabs ul li.active a{
-    color:#FDCD55;
+    color:#B0272B;
 }
 /**********************************************************************************************************/
 /*贝里记录*/
@@ -1626,7 +1626,7 @@
     display:block;
     width:2px;
     height:0.8rem;
-    background:#FDCD55;
+    background:#B0272B;
     margin-left:0.08rem;
     /*visibility:visible;*/
 }
@@ -1634,7 +1634,7 @@
     display:none;
 }
 .record .record_list .num{
-    color:#fdcd55;
+    color:#B0272B;
     /*padding-right:1.0666rem;*/
     height:0.8rem;
     line-height:0.8rem;
@@ -1649,7 +1649,7 @@
     display:inline-block;
     width:0.15333rem;
     height:0.153333rem;
-    background:#FDCD55;
+    background:#B0272B;
     border-radius:50%;
 }
 .record .record_list .beili_info{
@@ -1685,7 +1685,7 @@
     color:#222;
 }
 .rank .rank_top .rank_info .rank_beili{
-    color:#FDCD55;
+    color:#B0272B;
 }
 .rank .rank_list .rank_num{
     width:0.8rem;
@@ -1802,11 +1802,31 @@
 }
 .account_settings .personal_data i{
     display: inline-block;
-    width: 0.1866rem;
-    height: 0.32rem;
+    width: 0.2333rem;
+    height: 0.4rem;
     background: #b5b5b5;
-    margin-top: 5px;
+    margin-top: 3px;
 }
+.account_settings .personal_data .check {
+    position: relative;
+    display: inline-block;
+}
+.account_settings .personal_data .check>i{
+    width: 0.4rem;
+    position: absolute;
+    top: -1px;
+    left: -7px;
+    background: url("../img/icon_sz_xuanze@2x.png")no-repeat center;
+    background-size: 100%;
+}
+.account_settings .personal_data .check>i.active{
+    background: url("../img/icon_sz_xuanze_l@2x.png")no-repeat center;
+    background-size: 100%;
+}
+.account_settings .personal_data .check>span.active{
+    color: #333;
+}
+
 .account_settings .personal_data i.arrow{
     background: url("../img/arrow@2x.png");
     background-size: 100% 100%;
@@ -1848,7 +1868,7 @@
     cursor:pointer;
 }
 .account_settings .saveIn{
-    background: #FDCD55;
+    background: #B0272B;
     color: #fff;
     text-align: center;
     border-radius: 0.16rem;
@@ -1892,7 +1912,7 @@
     border-bottom: 1px solid #e5e5e5;
 }
 .sex_box ul li.active{
-    color: #FDCD55;
+    color: #B0272B;
 }
 .sex_box ul li i{
     display: inline-block;
@@ -2028,7 +2048,7 @@
 }
 .address_management .add_address{
     text-align: center;
-    color: #FDCD55;
+    color: #B0272B;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -2235,7 +2255,7 @@
 .settings_feedback .feedback button{
     width: 100%;
     border: none;
-    background: #FDCD55;
+    background: #B0272B;
     border-radius: 0.1066rem;
     color: #ffffff;
     margin-top: 0.8rem;
@@ -2272,19 +2292,19 @@
     background: url("../img/Group@2x.png");
     background-size: 100% 100%;
     width: 4.88rem;
-    height: 1.65rem;
+    height: 4.65rem;
 }
 [data-dpr="2"] .about_stars .picture .bg{
     background: url("../img/Group@2x.png");
     background-size: 100% 100%;
     width: 4.88rem;
-    height: 2.4rem;
+    height: 4.65rem;
 }
 [data-dpr="3"] .about_stars .picture .bg{
-    background: url("../img/Group@3x.png");
+    background: url("../img/Group@2x.png");
     background-size: 100% 100%;
     width: 4.88rem;
-    height: 2.4rem;
+    height: 4.65rem;
 }
 .about_stars .version_number{
     margin-top: 6.506rem;
@@ -2427,7 +2447,7 @@
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #FDCD55;
+    background: #B0272B;
     border-radius: 50%;
     position: absolute;
     right: 0.4533rem;
@@ -2452,13 +2472,13 @@
     color: #999999;
 }
 .message_praise .praise_list ul li .words .name{
-    color: #FDCD55;
+    color: #B0272B;
 }
 .message_praise .praise_list ul li .words .unread{
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #FDCD55;
+    background: #B0272B;
     border-radius: 50%;
     float: right;
     margin-top: 0.12rem;
@@ -2485,7 +2505,7 @@
     color: #999999;
 }
 .message_reply .reply_list ul li .words .name{
-    color:#FDCD55;
+    color:#B0272B;
 }
 .message_reply .reply_list ul li .words .content{
     display: inline-block;
@@ -2498,7 +2518,7 @@
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #FDCD55;
+    background: #B0272B;
     border-radius: 50%;
     float: right;
     margin-top: 0.12rem;
@@ -2819,12 +2839,12 @@
     left: -0.53333rem;
     width: 0.16rem;
     height: 0.16rem;
-    background:#FDCD55;
+    background:#B0272B;
     border-radius: 50%;
 }
 .Share .all .activate{
     padding: 0.4111rem 0.9666rem;
-    background: #FDCD55;
+    background: #B0272B;
     color: #fff;
     text-align: center;
     border-radius: 0.1666rem;
@@ -2931,7 +2951,7 @@
 .activity .hot_list .more p {
     text-align: center;
     margin: 6% 0;
-    color:#FDCD55;
+    color:#B0272B;
 }
 
 .activity .attention {
@@ -2964,8 +2984,8 @@
 }
 
 .activity .attention .btnatten .btn {
-    border: 1px solid #FDCD55;
-    color: #FDCD55;
+    border: 1px solid #B0272B;
+    color: #B0272B;
     float: right;
     width: 1.44rem;
     height: 0.9066rem;
@@ -3070,7 +3090,7 @@
 .logout{
     text-align:center;
     color: #fff;
-    background: #fdcd55;
-    border: 1px solid #fdcd55;
+    background: #B0272B;
+    border: 1px solid #B0272B;
     border-radius: 0.16rem;
 }

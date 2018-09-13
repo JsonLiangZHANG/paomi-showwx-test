@@ -15,8 +15,8 @@
     text-align:center;
 }
 .ticket > .time .time_scroll ul li.active{
-    color:#FDCD55;
-    border: 1px solid #FDCD55;
+    color:#B0272B;
+    border: 1px solid #B0272B;
 }
 [data-dpr="2"] .ticket > .time .time_scroll ul li{
     font-size:24px;
@@ -158,7 +158,7 @@
     border-radius:50%;
     text-align: center;
     line-height:.5333rem;
-    color:#FDCD55;
+    color:#B0272B;
     background:url("../img/plus_s.png") no-repeat center;
     background-size:100%;
 }
@@ -189,7 +189,7 @@
     padding-left:2.56rem;
 }
 .total_box .total_price{
-    color:#FDCD55;
+    color:#B0272B;
 }
 .total_box .total_price p span:first-child{
     font-size:16px;
@@ -218,10 +218,10 @@
     border-radius:.10666rem;
     color:#fff;
     font-size:16px;
-    background: -webkit-linear-gradient(left, #FDCD55 ,#FDCD55); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right,#FDCD55, #FDCD55); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right,#FDCD55, #FDCD55); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #FDCD55 ,#FDCD55); /* 标准的语法（必须放在最后） */
+    background: -webkit-linear-gradient(left, #B0272B ,#B0272B); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right,#B0272B, #B0272B); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#B0272B, #B0272B); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #B0272B ,#B0272B); /* 标准的语法（必须放在最后） */
 }
 [data-dpr="2"] .total_box .total_btn{
     font-size:32px;
@@ -299,7 +299,7 @@
     /* background:url("../img/order_express_s.png") no-repeat center; */
     background:url("../img/icon_dd_peisong.png") no-repeat center;
     /* background-size:100%; */
-    box-shadow: 0px 1px 1px 0px #ddd;
+    /* box-shadow: 0px 1px 1px 0px #ddd; */
 }
 [data-dpr="2"] .pay .mode .mode_type .express a.active{
     /* background:url("../img/order_express_s@2x.png") no-repeat center; */
@@ -350,7 +350,7 @@
     display:inline-block;
     width:1.3333rem;
     height:1.3333rem;
-    background:#FDCD55;
+    background:#B0272B;
     border-radius:50%;
 }
 .pay .address{
@@ -427,7 +427,7 @@
     padding-bottom:0;
 }
 .pay .state p:last-child{
-    color:#FDCD55;
+    color:#B0272B;
 }
 .pay .orders_itme .orders_row_info{
     width:7.4rem;
@@ -508,7 +508,7 @@
     position: absolute;
     left:0;
     top:0.04rem;
-    background: #FDCD55;
+    background: #B0272B;
     border-radius: 2px;
 }
 .alert_box1 .alert_con .subscribe_btn,.alert_box .alert_con .subscribe_tips{
@@ -534,10 +534,10 @@
     border-radius: .10666rem;
     float: right;
     color: #fff;
-    background: -webkit-linear-gradient(left,#FDCD55 ,#FDCD55);
-    background: -o-linear-gradient(right,#FDCD55,#FDCD55);
-    background: -moz-linear-gradient(right,#FDCD55,#FDCD55);
-    background: linear-gradient(to right, #FDCD55 ,#FDCD55);
+    background: -webkit-linear-gradient(left,#B0272B ,#B0272B);
+    background: -o-linear-gradient(right,#B0272B,#B0272B);
+    background: -moz-linear-gradient(right,#B0272B,#B0272B);
+    background: linear-gradient(to right, #B0272B ,#B0272B);
 }
 
 .fare_type ul li{

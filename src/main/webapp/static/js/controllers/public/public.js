@@ -6,16 +6,17 @@ stareal
         $rootScope.btnSetColor = function (statu) {
             if(statu=='预售中'){
                 $rootScope.defstyle = {
-                    "color": "#4899FE",
-                    "border":"1px solid #4899FE"
+                    "color": "#fff",
+                    "border":"1px solid #B0272B",
+                    "background":"#B0272B"
                 }
                 $rootScope.btn = '预售中'
             }
             if(statu=='售票中'){
                 $rootScope.defstyle = {
                     "color": "#fff",
-                    "border":"1px solid #FDCD55",
-                    "background":"#FDCD55"
+                    "border":"1px solid #B0272B",
+                    "background":"#B0272B"
                 }
                 $rootScope.btn = '售票中'
             }

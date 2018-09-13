@@ -104,7 +104,7 @@
 }
 
 .c-nav-btn-over {
-    background-color: #FDCD55 !important;
+    background-color: #B0272B !important;
     font-weight: bold;
 }
 
@@ -114,7 +114,7 @@
 
 .c-event {
     background-color:#fff;
-    color: #FDCD55;
+    color: #B0272B;
     /*font-weight: bold;*/
     cursor: pointer;
 }
@@ -147,7 +147,7 @@
     height: 12%;
     text-align: center;
     font-weight: bold;
-    background-color: #FDCD55;
+    background-color: #B0272B;
     color: white;
 }
 
@@ -185,15 +185,15 @@
 .c-event-over1 {
     background-color:#fff;
     /* font-weight: bold; */
-    color:  #FDCD55;
+    color:  #B0272B;
     display: block;
 }
 .c-event-over0 {
     background: url(../img/rli_yuan.png)no-repeat center!important;
-	/* background-color: #FDCD55!important ; */
+	/* background-color: #B0272B!important ; */
     /*background:url(../img/m-datepicker-sel.png)no-repeat right bottom;*/
     /*font-weight: bold;*/
-    /*border: 1px solid  #FDCD55!important;*/
+    /*border: 1px solid  #B0272B!important;*/
     /* border-radius: 50%; */
     color:#fff;
     display: block;
@@ -219,17 +219,17 @@
 }
 #calendarEvent .c-event-item .title{
     order-left: none;
-    /* background: #FDCD55; */
+    /* background: #B0272B; */
     font-size: 0.3rem;
     border-radius: 0.1rem;
     /* height: 0.8rem; */
     /* line-height: 0.4rem; */
-    color: #FDCD55;
+    color: #B0272B;
     margin-bottom: 0px;
     margin-top: 0px;
     padding: 0 0.3rem;
     text-align: center;
-    border: 1px solid #FDCD55;
+    border: 1px solid #B0272B;
     padding: 0.1333rem 0.26666rem
 }
 

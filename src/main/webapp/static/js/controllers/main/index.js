@@ -141,8 +141,8 @@ stareal
             }
         },false)*/
 
-       //微信分享http://192.168.1.4:9090/oauth/getSignature
-        $api.get("app/share/getSignature",{url: window.location.href.split('#')[0]})
+       //微信分享http://192.168.1.4:9090/oauth/getSignature  window.location.href.split('#')[0]
+        $api.get("app/share/getSignature",{url: 'http://www.fjzscb1997.com/?'})
             .then(function (ret) {
 
                 if (ret) {
@@ -173,10 +173,10 @@ stareal
                         //分享到朋友圈
                         console.log(res);
                         wx.onMenuShareTimeline({
-                            title: '上海修合文化传媒有限公司', // 分享标题
+                            title: '福建省中视传播有限公司', // 分享标题
                             desc: '官方售票', // 分享描述
-                            link: 'http://www.xiuhelive.com/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            link: 'http://www.fjzscb1997.com/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
                                 //alert('你好');
@@ -188,10 +188,10 @@ stareal
                         });
                         //分享给朋友
                         wx.onMenuShareAppMessage({
-                            title: '上海修合文化传媒有限公司', // 分享标题
+                            title: '福建省中视传播有限公司', // 分享标题
                             desc: '官方售票', // 分享描述
-                            link: 'http://www.xiuhelive.com/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            link: 'http://www.fjzscb1997.com/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
@@ -203,10 +203,10 @@ stareal
                             }
                         });
                         wx.onMenuShareQQ({
-                            title: '上海修合文化传媒有限公司', // 分享标题
+                            title: '福建省中视传播有限公司', // 分享标题
                             desc: '官方售票', // 分享描述
-                            link: 'http://www.xiuhelive.com/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            link: 'http://www.fjzscb1997.com/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },
@@ -215,10 +215,10 @@ stareal
                             }
                         });
                         wx.onMenuShareQZone({
-                            title: '上海修合文化传媒有限公司', // 分享标题
+                            title: '福建省中视传播有限公司', // 分享标题
                             desc: '官方售票', // 分享描述
-                            link: 'http://www.xiuhelive.com/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            link: 'http://www.fjzscb1997.com/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },
@@ -252,8 +252,8 @@ stareal
                 location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                     // "appid=wxd39f7e740343d507&" +
                     // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                    "appid=wx0d1d2af6c50baa27&" +
-                    "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                    "appid=wxae855abb1d0c1ba3&" +
+                    "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                     "&response_type=code&scope=snsapi_userinfo&state=";
 
                 // //测试redirect_uri

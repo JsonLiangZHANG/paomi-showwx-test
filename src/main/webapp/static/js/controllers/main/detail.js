@@ -3,7 +3,7 @@
 stareal
     .controller("DetailController", function ($rootScope,$scope,$http,$compile,$interval,$stateParams,$location,$anchorScroll,$api, $sce, base64, $state, $alert, localStorageService,FileUploader) {
         $scope.current = $stateParams.good_id;
-        $scope.sharUrl='http://www.xiuhelive.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
+        $scope.sharUrl='http://www.fjzscb1997.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
         $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
             .then(function (ret) {
                 var good = ret.data;
@@ -124,8 +124,8 @@ stareal
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         // "appid=wxd39f7e740343d507&" +
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
@@ -211,8 +211,8 @@ stareal
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         // "appid=wxd39f7e740343d507&" +
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
@@ -338,8 +338,8 @@ stareal
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         // "appid=wxd39f7e740343d507&" +
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
@@ -370,8 +370,8 @@ stareal
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         // "appid=wxd39f7e740343d507&" +
                         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                     // //测试redirect_uri
@@ -441,7 +441,7 @@ stareal
 
         //分享
         //微信分享http://192.168.1.4:9090/oauth/getSignature
-        $api.get("app/share/getSignature",{url: window.location.href.split('#')[0]})
+        $api.get("app/share/getSignature",{url: 'http://www.fjzscb1997.com'})
             .then(function (ret) {
 
                 if (ret) {
@@ -472,7 +472,7 @@ stareal
                         //分享到朋友圈
                         wx.onMenuShareTimeline({
                             title: $scope.title, // 分享标题
-                            desc: '官方售票', // 分享描述
+                            desc: $scope.good.introduction, // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl:  $scope.thumb, // 分享图标
                             success: function () {
@@ -487,7 +487,7 @@ stareal
                         //分享给朋友
                         wx.onMenuShareAppMessage({
                             title: $scope.title, // 分享标题
-                            desc: '官方售票', // 分享描述
+                            desc: $scope.good.introduction, // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl:  $scope.thumb, // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
@@ -502,7 +502,7 @@ stareal
                         });
                         wx.onMenuShareQQ({
                             title: $scope.title, // 分享标题
-                            desc: '官方售票', // 分享描述
+                            desc: $scope.good.introduction, // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl:  $scope.thumb, // 分享图标
                             success: function () {
@@ -514,7 +514,7 @@ stareal
                         });
                         wx.onMenuShareQZone({
                             title: $scope.title, // 分享标题
-                            desc: '官方售票', // 分享描述
+                            desc: $scope.good.introduction, // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl:  $scope.thumb, // 分享图标
                             success: function () {
@@ -656,8 +656,8 @@ stareal
                                 location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                                     // "appid=wxd39f7e740343d507&" +
                                     // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                                    "appid=wx0d1d2af6c50baa27&" +
-                                    "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                                    "appid=wxae855abb1d0c1ba3&" +
+                                    "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                                     "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                                 // //测试redirect_uri
@@ -712,8 +712,8 @@ stareal
                                 location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                                     // "appid=wxd39f7e740343d507&" +
                                     // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                                    "appid=wx0d1d2af6c50baa27&" +
-                                    "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                                    "appid=wxae855abb1d0c1ba3&" +
+                                    "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                                     "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                                 // //测试redirect_uri
@@ -865,8 +865,8 @@ stareal
                             location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                                 // "appid=wxd39f7e740343d507&" +
                                 // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                                "appid=wx0d1d2af6c50baa27&" +
-                                "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                                "appid=wxae855abb1d0c1ba3&" +
+                                "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                                 "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
 
                             // //测试redirect_uri

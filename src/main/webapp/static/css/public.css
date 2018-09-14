@@ -93,12 +93,22 @@ body{
     line-height: 0.575rem;
     font-style: normal;
 }
+img[ bn-lazy-src ].good_imglazy{
+    background-image: url(../img/img_z_zanweitu@3x.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+img[ bn-lazy-src ] {
+    background-image: url(../img/img_zanweitu_a@3x.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
 .flag .flag-item.figure i span{
     padding-left: 0.15rem;
 }
 .flag .flag-item.figure i.label{
-    background: url("../img/Label label@2x.png");
-    background-size: 100%;
+    background: url("../img/Label label@2x.png") no-repeat center center;
+    background-size: 100% 100%;
 }
 [data-dpr="2"] .flag .flag-item.figure i.label{
     background: url("../img/Label label@2x.png");

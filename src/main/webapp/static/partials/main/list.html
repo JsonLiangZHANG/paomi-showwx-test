@@ -8,19 +8,19 @@
     <!--头部结束-->
     <!--筛选开始-->
     <div ng-show="sf">
-      <div class="bg" ng-click="sf = false"></div>
-      <div class="Sortsearch pd_rl12">
-          <div class="hot_block" ng-click="filter('hot','desc')">
-              <i ng-class="{true: 'hotter_active fl', false: 'hotter'}[isHot]"></i>
-              <span ng-class="{true: 'active f14 fl', false: 'f14'}[isHot]">热度</span>
-              <i class="check" ng-show="isHot"></i>
-          </div>
-          <div class="time_block" ng-click="filter('date','asc')">
-              <i ng-class="{true: 'time', false: 'time_active fl'}[isHot]"></i>
-              <span ng-class="{true: 'f14', false: 'active f14 fl'}[isHot]">时间</span>
-              <i class="check" ng-hide="isHot"></i>
-          </div>
-      </div>
+        <div class="bg" ng-click="sf = false"></div>
+        <div class="Sortsearch pd_rl12">
+            <div class="hot_block" ng-click="filter('hot','desc')">
+                <i ng-class="{true: 'hotter_active fl', false: 'hotter'}[isHot]"></i>
+                <span ng-class="{true: 'active f14 fl', false: 'f14'}[isHot]">热度</span>
+                <i class="check" ng-show="isHot"></i>
+            </div>
+            <div class="time_block" ng-click="filter('date','asc')">
+                <i ng-class="{true: 'time', false: 'time_active fl'}[isHot]"></i>
+                <span ng-class="{true: 'f14', false: 'active f14 fl'}[isHot]">时间</span>
+                <i class="check" ng-hide="isHot"></i>
+            </div>
+        </div>
     </div>
     <!--筛选结束-->
     <!--导航开始-->
@@ -34,26 +34,26 @@
         </div>
     </div>-->
     <!--导航-->
-     <div class="nav" id="list_nav">
-          <ul class="nav_ul">
-              <li  class="list_piao last" ng-class="{true: 'active',false:''}[listpage==1]"  ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
-                  <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
-                      <span class="fl"style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">演出</span>
-                  </div>
+    <div class="nav" id="list_nav">
+        <ul class="nav_ul">
+            <li  class="list_piao last" ng-class="{true: 'active',false:''}[listpage==1]"  ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
+                <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
+                    <span class="fl"style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">演出</span>
+                </div>
 
-              </li>
-              <!--<li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product({kind:'',sort:'hot',direct:'desc',keyword:''})">-->
-                  <!--<div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">-->
-                      <!--<span class="fl" style="width: 1.4rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>-->
-                  <!--</div>-->
-              <!--</li>-->
-              <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.newslist({kind:'',sort:'hot',direct:'desc',keyword:''})">
-                  <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
-                      <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">资讯</span>
-                  </div>
-              </li>
-          </ul>
-     </div>
+            </li>
+            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product({kind:'',sort:'hot',direct:'desc',keyword:''})">
+                <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
+                    <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">周边</span>
+                </div>
+            </li>
+            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==3]" ui-sref="main.newslist({kind:'',sort:'hot',direct:'desc',keyword:''})">
+                <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
+                    <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">资讯</span>
+                </div>
+            </li>
+        </ul>
+    </div>
     <!--导航结束-->
     <!--列表开始 -->
     <div class="hot" ng-controller="PublicController" >
@@ -62,19 +62,20 @@
                 <li class="flag" ng-repeat="good in goods.items" on-list-finish-render="listFinishRender" ui-sref="main.detail({good_id:{{good.id}}})">
                     <a class="figure flag-item">
                         <i class="label f8" ng-show="good.coupon_label"><span ng-bind="good.coupon_label"></span></i>
-                        <img ng-src="{{good.thumb}}" alt="">
+                        <img ng-src="{{good.thumb}}" bn-lazy-src="{{good.thumb}}" alt="" class="good_imglazy">
                     </a>
                     <div class="figcaption flag-item">
                         <div class="flag-title">
                             <a title="" ng-bind="good.title"></a>
                         </div>
+                        <div class="status " style="color:#B0272B;margin-left: 20px;" ng-show="good.good_type==1">实景选座</div>
                         <!-- <div class="flag-price" ng-bind="good.date"></div> -->
                         <div class="flag-type" ng-bind="good.site_title"></div>
                         <div class="flag-type">
                             <strong ng-hide="good.state=='即将开票'&&good.price=='0'" ng-bind="good.price"></strong>
                             <strong ng-show="good.state=='即将开票'&&good.price=='0'" class="state_f12">待定</strong>
                             <span ng-hide="good.state=='即将开票'&&good.price=='0'">元</span>
-                            <span style="color:rgb(180,180,180);margin-left:0.4rem">{{good.favour}}人付款</span>
+                            <!--<span style="color:rgb(180,180,180);margin-left:0.4rem">{{good.favour}}人付款</span>-->
                         </div>
                         <a class="flag-btn" href="" ng-style="btnSetColor(good.state)" ng-bind="btnText(good.state)"></a>
                     </div>

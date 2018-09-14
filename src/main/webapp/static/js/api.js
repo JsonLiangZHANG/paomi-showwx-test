@@ -20,7 +20,8 @@ stareal.config(function ($httpProvider, localStorageServiceProvider) {
     // var host_prefix = "http://api.sat-show.com/mobile/";
     //var host_prefix = " http://api.owe108.com.cn/mobile/";
     // var host_prefix = "http://api.xiuhelive.com/mobile/";
-    var host_prefix = "http://10.1.100.151:80/mobile/";
+    //var host_prefix = "http://10.1.100.151:80/mobile/";
+    var host_prefix = "http://api.fjzscb1997.com/mobile/";
     var service = {
         get: function (url, params, needToken) {
             return handleRepData('get', url, params, needToken);

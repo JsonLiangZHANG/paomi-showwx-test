@@ -1,65 +1,65 @@
 <div class="product list_style" ng-controller="ProductController">
-        <!--头部开始-->
+    <!--头部开始-->
     <div class="top list_top">
-        <span class="title"  ui-sref="main.psearch"></span>
+        <span class="title"  ui-sref="main.psearch">搜索周边...</span>
         <i class="search" ui-sref="main.psearch"></i>
         <i class="screen {{sf==true?'active':''}}" ng-click="toggle()"></i>
     </div>
-        <!--头部结束-->
-        <!--筛选开始-->
-        <div ng-show="sf">
-            <div class="bg" ng-click="sf = false"></div>
-            <div class="Sortsearch pd_rl12">
-                <div class="hot_block" ng-click="filter('hot','desc')">
-                    <i ng-class="{true: 'hotter_active fl', false: 'hotter'}[isHot]"></i>
-                    <span ng-class="{true: 'active f14 fl', false: 'f14'}[isHot]">热度</span>
-                    <i class="check" ng-show="isHot"></i>
-                </div>
-                <div class="time_block" ng-click="filter('date','asc')">
-                    <i ng-class="{true: 'time', false: 'time_active fl'}[isHot]"></i>
-                    <span ng-class="{true: 'f14', false: 'active f14 fl'}[isHot]">时间</span>
-                    <i class="check" ng-hide="isHot"></i>
-                </div>
+    <!--头部结束-->
+    <!--筛选开始-->
+    <div ng-show="sf">
+        <div class="bg" ng-click="sf = false"></div>
+        <div class="Sortsearch pd_rl12">
+            <div class="hot_block" ng-click="filter('hot','desc')">
+                <i ng-class="{true: 'hotter_active fl', false: 'hotter'}[isHot]"></i>
+                <span ng-class="{true: 'active f14 fl', false: 'f14'}[isHot]">热度</span>
+                <i class="check" ng-show="isHot"></i>
+            </div>
+            <div class="time_block" ng-click="filter('date','asc')">
+                <i ng-class="{true: 'time', false: 'time_active fl'}[isHot]"></i>
+                <span ng-class="{true: 'f14', false: 'active f14 fl'}[isHot]">时间</span>
+                <i class="check" ng-hide="isHot"></i>
             </div>
         </div>
-        <!--筛选结束-->
-        <!--导航开始-->
-        <!--<div class="nav swiper-container">
-            <div class="swiper-wrapper clear" id="swiper-wrapper">
-                <div ng-repeat="nav in navs" class="swiper-slide" on-list-finish-render="navFinishRender">
-                    <a class="{{kind == nav.type?'active':''}}" ng-click="switch({{nav.type}})" >
-                        {{nav.name}}
-                    </a>
-                </div>
+    </div>
+    <!--筛选结束-->
+    <!--导航开始-->
+    <!--<div class="nav swiper-container">
+        <div class="swiper-wrapper clear" id="swiper-wrapper">
+            <div ng-repeat="nav in navs" class="swiper-slide" on-list-finish-render="navFinishRender">
+                <a class="{{kind == nav.type?'active':''}}" ng-click="switch({{nav.type}})" >
+                    {{nav.name}}
+                </a>
             </div>
-        </div>-->
+        </div>
+    </div>-->
     <!--导航-->
     <div class="nav" id="list_nav">
         <ul class="nav_ul">
-            <!--<li  class="list_piao" ng-class="{true: 'active',false:''}[listpage==1]" ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">-->
-                <!--<div class="clear" style="width: 1.8rem;margin: 0 auto;text-align: center;">-->
-                    <!--<span class="fl"style="width: 1.0rem;line-height: 1.0rem;font-size: 0.4rem;">票务</span>-->
-                <!--</div>-->
-
-            <!--</li>-->
-            <!--<li  class="list_product active last" ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product">-->
-                <!--<div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">-->
-                    <!--<span class="fl" style="width: 1.4rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>-->
-                <!--</div>-->
-            <!--</li>-->
-            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==1]" ui-sref="main.product({kind:'',sort:'hot',direct:'desc',keyword:''})">
+            <li  class="list_piao" ng-class="{true: 'active',false:''}[listpage==1]" ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
                 <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
-                    <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>
+                    <span class="fl"style="width:2.2rem;line-height: 1.0rem;font-size: 0.4rem;">演出</span>
+                </div>
+
+            </li>
+            <!--<li  class="list_product active last" ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product">-->
+            <!--<div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">-->
+            <!--<span class="fl" style="width: 1.4rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>-->
+            <!--</div>-->
+            <!--</li>-->
+            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product({kind:'',sort:'hot',direct:'desc',keyword:''})">
+                <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
+                    <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">周边 </span>
                 </div>
             </li>
-            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.newslist({kind:'',sort:'hot',direct:'desc',keyword:''})">
+            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==3]" ui-sref="main.newslist({kind:'',sort:'hot',direct:'desc',keyword:''})">
                 <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
                     <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">资讯</span>
                 </div>
             </li>
         </ul>
     </div>
-        <!--导航结束-->
+    <!--导航结束-->
     <!--列表开始 -->
     <div class="hot" ng-controller="PublicController">
         <!--你好-->
@@ -68,7 +68,7 @@
                 <li class="flag" ng-repeat="good in goods.items"  on-list-finish-render="listFinishRender" ui-sref="main.productdetail({good_id:{{good.id}}})">
                     <a class="figure flag-item">
                         <i class="label f8"ng-show="good.coupon_label"><span ng-bind="good.coupon_label"></span></i>
-                        <img ng-src="{{good.image}}" alt="">
+                        <img ng-src="{{good.image}}" bn-lazy-src="{{good.thumb}}" alt="" class="good_imglazy">
                     </a>
                     <div class="figcaption flag-item">
                         <div class="flag-title">
@@ -85,19 +85,19 @@
                             <!--<span ng-hide="good.state=='即将开票'&&good.price=='0'">元起</span>-->
                         </div>
                         <!--<a class="flag-btn" href="" ng-style="btnSetColor(good.state)" ng-bind="btnText(good.state)"></a>-->
-                        <a class="flag-btn" href="" style="color:rgb(255,80,0);border: 1px solid rgb(255,80,0);" ui-sref="main.productdetail({good_id:{{good.id}}})">售卖中</a>
+                        <a class="flag-btn" href="" style="color:#B71254;border: 1px solid #B71254;" ui-sref="main.productdetail({good_id:{{good.id}}})">售卖中</a>
                     </div>
                 </li>
 
             </ul>
         </div>
     </div>
-        <!--列表结束-->
-        <!--暂无数据开始-->
-        <div class="nodata" ng-show="goods.nodata">
-            <div class="no_classify"></div>
-            <p class="f14">这里没衍生品，去隔壁看看吧</p>
-        </div>
-        <!--暂无数据结束-->
-        <menu></menu>
+    <!--列表结束-->
+    <!--暂无数据开始-->
+    <div class="nodata" ng-show="goods.nodata">
+        <div class="no_classify"></div>
+        <p class="f14">这里没衍生品，去隔壁看看吧</p>
     </div>
+    <!--暂无数据结束-->
+    <menu></menu>
+</div>

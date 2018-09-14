@@ -207,8 +207,8 @@ stareal
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                         // "appid=wxd39f7e740343d507&" +
                         // "redirect_uri=http%3A%2F%2Fwww.mydeershow.com%2Foauth%2Findex" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" ;
 
                     // //测试redirect_uri

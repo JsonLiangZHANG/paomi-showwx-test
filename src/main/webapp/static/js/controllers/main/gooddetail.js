@@ -3,7 +3,7 @@
 stareal
     .controller("GoodDetaController", function ($scope,$interval,$document, $stateParams, $api, $sce, base64, $state, $alert,localStorageService,$timeout) {
         var good = localStorageService.get("goodDetail");
-        $scope.sharUrl='http://www.xiuhelive.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
+        $scope.sharUrl='http://www.fjzscb1997.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
         good.detail = $sce.trustAsHtml(base64.decode(good.detail));
         $scope.good = good;
         $timeout(function () {
@@ -37,7 +37,7 @@ stareal
             })
         //分享
         //微信分享http://192.168.1.4:9090/oauth/getSignature
-        $api.get("app/share/getSignature",{url: window.location.href.split('#')[0]})
+        $api.get("app/share/getSignature",{url: 'http://www.fjzscb1997.com/'})
             .then(function (ret) {
 
                 if (ret) {
@@ -67,10 +67,10 @@ stareal
                     wx.ready(function(){
                         //分享到朋友圈
                         wx.onMenuShareTimeline({
-                            title: '上海修合文化传媒有限公司', // 分享标题
-                            desc: '官方售票', // 分享描述
+                            title:  $scope.gooddetailm.title, // 分享标题
+                            desc: $scope.gooddetailm.introduction, // 分享描述
                             link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
                                 //alert('你好');
@@ -82,10 +82,10 @@ stareal
                         });
                         //分享给朋友
                         wx.onMenuShareAppMessage({
-                            title: '上海修合文化传媒有限公司', // 分享标题
-                            desc: '官方售票', // 分享描述
-                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            title:  $scope.gooddetailm.title, // 分享标题
+                            desc: $scope.gooddetailm.introduction, // 分享描述
+                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
@@ -97,10 +97,10 @@ stareal
                             }
                         });
                         wx.onMenuShareQQ({
-                            title: '上海修合文化传媒有限公司', // 分享标题
-                            desc: '官方售票', // 分享描述
-                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            title:  $scope.gooddetailm.title, // 分享标题
+                            desc: $scope.gooddetailm.introduction, // 分享描述
+                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },
@@ -109,10 +109,10 @@ stareal
                             }
                         });
                         wx.onMenuShareQZone({
-                            title: '上海修合文化传媒有限公司', // 分享标题
-                            desc: '官方售票', // 分享描述
-                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            title:  $scope.gooddetailm.title, // 分享标题
+                            desc: $scope.gooddetailm.introduction, // 分享描述
+                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },

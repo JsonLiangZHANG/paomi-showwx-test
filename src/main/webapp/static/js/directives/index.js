@@ -693,7 +693,7 @@ stareal
                             });
                         };
                         var token = localStorageService.get('token')
-                         var url = 'http://api.xiuhelive.com/mobile/app/upload/image?accessToken='+token; //正式
+                         var url = 'http://api.fjzscb1997.com/mobile/app/upload/image?accessToken='+token; //正式
                        // var url = 'http://t.stareal.cn:8080/api/app/upload/image?accessToken='+token;//测试
                         var fd = new FormData();
                         fd.append('image', scope.file[0]);

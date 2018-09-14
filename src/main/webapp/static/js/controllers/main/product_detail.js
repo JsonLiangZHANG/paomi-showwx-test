@@ -3,6 +3,7 @@
 stareal
     .controller("ProductDetailController", function ($scope,$timeout, $stateParams, $api, $sce, base64, $state, $alert,localStorageService) {
         $scope.deliverIndeType=2;
+        $scope.sharUrl='http://www.fjzscb1997.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
         $scope.current = $stateParams.good_id;
         $scope.deliverType = 1;
         $scope.productSkus='';
@@ -151,8 +152,8 @@ stareal
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                 } else {
@@ -197,8 +198,8 @@ stareal
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                 } else {
@@ -215,8 +216,8 @@ stareal
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                 } else {
@@ -261,8 +262,8 @@ stareal
                 var ua = window.navigator.userAgent.toLowerCase();
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wx0d1d2af6c50baa27&" +
-                        "redirect_uri=http%3A%2F%2Fm.xiuhelive.com%2Foauth%2Findex" +
+                        "appid=wxae855abb1d0c1ba3&" +
+                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
 
                 } else {
@@ -381,10 +382,10 @@ stareal
                     wx.ready(function(){
                         //分享到朋友圈
                         wx.onMenuShareTimeline({
-                            title: '上海修合文化传播有限公司', // 分享标题
-                            desc: '修合文化,精彩无限', // 分享描述
+                            title: '福建省中视传播有限公司', // 分享标题
+                            desc: '官方售票', // 分享描述
                             link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
                                 //alert('你好');
@@ -396,10 +397,10 @@ stareal
                         });
                         //分享给朋友
                         wx.onMenuShareAppMessage({
-                            title: '上海修合文化传播有限公司', // 分享标题
-                            desc: '修合文化,精彩无限', // 分享描述
+                            title: '福建省中视传播有限公司', // 分享标题
+                            desc: '官方售票', // 分享描述
                             link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
@@ -411,10 +412,10 @@ stareal
                             }
                         });
                         wx.onMenuShareQQ({
-                            title: '上海修合文化传播有限公司', // 分享标题
-                            desc: '修合文化,精彩无限', // 分享描述
+                            title: '福建省中视传播有限公司', // 分享标题
+                            desc: '官方售票', // 分享描述
                             link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },
@@ -423,10 +424,10 @@ stareal
                             }
                         });
                         wx.onMenuShareQZone({
-                            title: '上海修合文化传播有限公司', // 分享标题
-                            desc: '修合文化,精彩无限', // 分享描述
+                            title: '福建省中视传播有限公司', // 分享标题
+                            desc: '官方售票', // 分享描述
                             link: location.href, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'http://www.xiuhelive.com/static/img/download2.png', // 分享图标
+                            imgUrl: 'http://www.fjzscb1997.com/static/img/download2.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },

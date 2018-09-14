@@ -37,23 +37,23 @@
     <div class="nav" id="list_nav">
         <ul class="nav_ul">
             <li  class="list_piao " ng-class="{true: 'active',false:''}[listpage==1]"  ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">
-                <div class="clear" style="width: 1.8rem;margin: 0 auto;text-align: center;">
-                    <span class="fl"style="width: 1.0rem;line-height: 1.0rem;font-size: 0.4rem;">演出</span>
+                <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
+                    <span class="fl"style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">演出</span>
                 </div>
 
             </li>
-            <!--<li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==1]" ui-sref="main.product({kind:'',sort:'hot',direct:'desc',keyword:''})">-->
-                <!--<div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">-->
-                    <!--<span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">衍生品</span>-->
-                <!--</div>-->
-            <!--</li>-->
+            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.product({kind:'',sort:'hot',direct:'desc',keyword:''})">
+                <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
+                    <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">周边</span>
+                </div>
+            </li>
             <!--<li  class="list_piao last" ng-class="{true: 'active',false:''}[listpage==1]"  ui-sref="main.list({kind:'',sort:'hot',direct:'desc',keyword:''})">-->
-                <!--<div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">-->
-                    <!--<span class="fl"style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">周边</span>-->
-                <!--</div>-->
+            <!--<div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">-->
+            <!--<span class="fl"style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">周边</span>-->
+            <!--</div>-->
 
             <!--</li>-->
-            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==2]" ui-sref="main.newslist({kind:'',sort:'hot',direct:'desc',keyword:''})">
+            <li  class="list_product last"  ng-class="{true: 'active',false:''}[listpage==3]" ui-sref="main.newslist({kind:'',sort:'hot',direct:'desc',keyword:''})">
                 <div class="clear" style="width: 2.2rem;margin: 0 auto;text-align: center;">
                     <span class="fl" style="width: 2.2rem;line-height: 1.0rem;font-size: 0.4rem;">资讯</span>
                 </div>
@@ -66,7 +66,7 @@
         <div class="news-list">
             <ul infinite-scroll="goods.nextPage()" infinite-scroll-disabled='goods.busy' infinite-scroll-distance="1">
                 <li class="flag news-list-li" ng-repeat="good in goods.items" on-list-finish-render="listFinishRender" ui-sref="main.newdetail({newId:{{good.id}}})">
-                    <img ng-src="{{good.img}}" alt="" class="news_list_img">
+                    <img ng-src="{{good.img}}" bn-lazy-src="{{good.thumb}}"  alt="" class="news_list_img">
                     <div ng-bind="good.title" class="news_list_title"></div>
                     <div ng-bind="good.description" class="news_list_description"></div>
                 </li>

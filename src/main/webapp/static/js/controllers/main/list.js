@@ -13,20 +13,19 @@ stareal
             $scope.sf = !$scope.sf;
         }
 
-        // 加载导航栏
-        $api.get("app/main/category/retrieve")
-            .then(function (ret) {
-                var nav  = ret.data;
-                console.log(nav)
-                $scope.navs = nav;
-                $timeout(function () {
-                    var swiper = new Swiper('.swiper-container', {
-                        slidesPerView: 'auto',
-                        spaceBetween:0,
-                        observer:true//修改swiper自己或子元素时，自动初始化swiper
-                    })
-                },0)
-            });
+        // // 加载导航栏
+        // $api.get("app/main/category/retrieve")
+        //     .then(function (ret) {
+        //         var nav  = ret.data;
+        //         $scope.navs = nav;
+        //         $timeout(function () {
+        //             var swiper = new Swiper('.swiper-container', {
+        //                 slidesPerView: 'auto',
+        //                 spaceBetween:0,
+        //                 observer:true//修改swiper自己或子元素时，自动初始化swiper
+        //             })
+        //         },0)
+        //     });
 
         // 加载对应演出种类的内容
         $scope.goods = new $lazyLoader("app/search/list/index", {
@@ -35,9 +34,6 @@ stareal
             direct: $scope.direct
         });
 
-        console.log($scope.goods);
-        
-        
         var refresh = function(){
             $state.go('main.list',{kind:$scope.kind,sort:$scope.sort,direct:$scope.direct});
         };
@@ -69,5 +65,4 @@ stareal
                 }
             }
         });
-        
     });

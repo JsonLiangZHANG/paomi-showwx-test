@@ -147,18 +147,18 @@ stareal
         }
         // $scope.skus=[{name:'颜色',id:"0"},{name:'大小',id:"1"}];
         $scope.addcar=function(){
-            if(!localStorageService.get('token')){
-                var  rs = "main.productdetail-" + JSON.stringify({good_id: $stateParams.good_id});
-                var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
-                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-                        "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-
-                } else {
+            // if(!localStorageService.get('token')){
+            //     var  rs = "main.productdetail-" + JSON.stringify({good_id: $stateParams.good_id});
+            //     var ua = window.navigator.userAgent.toLowerCase();
+            //     if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
+            //         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+            //             "appid=wxae855abb1d0c1ba3&" +
+            //             "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+            //             "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+            //
+            //     } else {
                     location.href = "#/main/login/"+ encodeURIComponent(rs);
-                }
+              //  }
 
                 return;
             }
@@ -196,15 +196,15 @@ stareal
             if(!localStorageService.get('token')){
                 var  rs = "main.productdetail-" + JSON.stringify({good_id: $stateParams.good_id});
                 var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
-                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-                        "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-
-                } else {
+                // if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
+                //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                //         "appid=wxae855abb1d0c1ba3&" +
+                //         "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                //         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                //
+                // } else {
                     location.href = "#/main/login/"+ encodeURIComponent(rs);
-                }
+               // }
 
                 return;
             }
@@ -214,15 +214,15 @@ stareal
             if(!localStorageService.get('token')){
                 var  rs = "main.productdetail-" + JSON.stringify({good_id: $stateParams.good_id});
                 var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
-                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-                        "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-
-                } else {
+                // if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
+                //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                //         "appid=wxae855abb1d0c1ba3&" +
+                //         "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                //         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                //
+                // } else {
                     location.href = "#/main/login/"+ encodeURIComponent(rs);
-                }
+               // }
 
                 return;
             }
@@ -260,15 +260,15 @@ stareal
             if(!localStorageService.get('token')){
                 var  rs = "main.productdetail-" + JSON.stringify({good_id: $stateParams.good_id});
                 var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
-                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-                        "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-
-                } else {
+                // if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
+                //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                //         "appid=wxae855abb1d0c1ba3&" +
+                //         "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                //         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                //
+                // } else {
                     location.href = "#/main/login/"+ encodeURIComponent(rs);
-                }
+              //  }
 
                 return;
             }else {

@@ -851,30 +851,30 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                         rs = "main.index-";
                     }
                     var ua = window.navigator.userAgent.toLowerCase();
-                    if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
-                        // 正式地址
-                        // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        //     "appid=wxd39f7e740343d507&" +
-                        //     "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-
-                        location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                            "appid=wxae855abb1d0c1ba3&" +
-                            "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-                            "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-
-                        // //测试redirect_uri
-                        // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        //     "appid=wxd39f7e740343d507&" +
-                        //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
-                        //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-                    } else {
+                    // if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
+                    //     // 正式地址
+                    //     // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    //     //     "appid=wxd39f7e740343d507&" +
+                    //     //     "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
+                    //     //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                    //
+                    //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    //         "appid=wxae855abb1d0c1ba3&" +
+                    //         "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                    //         "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                    //
+                    //     // //测试redirect_uri
+                    //     // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    //     //     "appid=wxd39f7e740343d507&" +
+                    //     //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
+                    //     //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                    // } else {
                         // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
                         //     "appid=wx05c47c7db58b03aa&" +
                         //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
                         //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
                         location.href = "#/main/login/"+encodeURIComponent(rs);
-                    }
+                   // }
 
 
                 }

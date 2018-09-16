@@ -3,6 +3,7 @@
 stareal
     .controller("PublicController", function ($rootScope,$scope, $api, $stateParams, $alert, $document, localStorageService, $state, $interval) {
         //演出状态按钮
+        $rootScope.user=localStorageService.get("user");
         $rootScope.btnSetColor = function (statu) {
             if(statu=='预售中'){
                 $rootScope.defstyle = {
@@ -160,12 +161,12 @@ stareal
             return result;
         }
         //获取用户相关信息
-        if(localStorageService.get('token')){
-            $api.get("app/login/userinfo/retrieve", null, true)
-                .then(function (ret) {
-                    $rootScope.user = ret.data;
-                });
-        }
+        // if(localStorageService.get('token')){
+        //     $api.get("app/login/userinfo/retrieve", null, true)
+        //         .then(function (ret) {
+        //             $rootScope.user = ret.data;
+        //         });
+        // }
 
         // $rootScope.user = localStorageService.get("user");
         //设置评论星星
@@ -202,27 +203,27 @@ stareal
         $scope.IsPraise = function (commentid,Index,num,from,event){
             if (!localStorageService.get('token')) {
                 var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                    // 正式地址
-                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        // "appid=wxd39f7e740343d507&" +
-                        // "redirect_uri=http%3A%2F%2Fwww.mydeershow.com%2Foauth%2Findex" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-                        "&response_type=code&scope=snsapi_userinfo&state=" ;
-
-                    // //测试redirect_uri
-                    // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                    //     "appid=wxd39f7e740343d507&" +
-                    //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
-                    //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-                } else {
+                // if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                //     // 正式地址
+                //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                //         // "appid=wxd39f7e740343d507&" +
+                //         // "redirect_uri=http%3A%2F%2Fwww.mydeershow.com%2Foauth%2Findex" +
+                //         "appid=wxae855abb1d0c1ba3&" +
+                //         "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                //         "&response_type=code&scope=snsapi_userinfo&state=" ;
+                //
+                //     // //测试redirect_uri
+                //     // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                //     //     "appid=wxd39f7e740343d507&" +
+                //     //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
+                //     //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                // } else {
                     // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
                     //     "appid=wx05c47c7db58b03aa&" +
                     //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
                     //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
                     location.href = "#/main/login/";
-                }
+               // }
                 return false;
             }
             event.stopPropagation()//阻止冒泡
@@ -248,15 +249,15 @@ stareal
                     $alert.show(err)
                 })
         }
-        //消息状态
-        $scope.notify_show = false;
-        if(localStorageService.get('token')){
-            $api.get("app/notify/getUnreadNums",{},true)
-                .then(function (ret) {
-                    $scope.notify = ret.data;
-                    $scope.notify_show=true;
-                },function (err) {
-                    $alert.show(err)
-                })
-        }
+        // //消息状态
+        // $scope.notify_show = false;
+        // if(localStorageService.get('token')){
+        //     $api.get("app/notify/getUnreadNums",{},true)
+        //         .then(function (ret) {
+        //             $scope.notify = ret.data;
+        //             $scope.notify_show=true;
+        //         },function (err) {
+        //             $alert.show(err)
+        //         })
+        // }
     });

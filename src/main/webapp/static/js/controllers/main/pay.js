@@ -8,13 +8,13 @@ stareal
         $scope.thumb = localStorageService.get('thumb');//演出图片
         $scope.total = localStorageService.get('total')//总价
         $scope.num = localStorageService.get('num')//数量
-        console.log(11)
+       // console.log(11)
         $scope.cat = localStorageService.get('cat')//票面价格
         $scope.date = localStorageService.get('date').replace(/#/g," ")//时间日期
         $scope.seat = localStorageService.get('seat')//座位
-        $scope.ticketId = localStorageService.get('ticketId')//演出id
+        $scope.ticketId =localStorageService.get('ticketId')//演出id
         $scope.price = localStorageService.get('price');//单价
-        $scope.is_coupon = localStorageService.get('is_coupon')
+        $scope.is_coupon =localStorageService.get('is_coupon')
         $scope.order_id = $stateParams.order_id;
         $scope.param = {};
         $scope.param.deliverType = 1;
@@ -29,16 +29,28 @@ stareal
         $scope.beily_price = '0.0元';
 
         //获取我的贝里余额
-        $api.get("app/belly/getL3ft", {}, true)
-            .then(function (ret) {
-                $scope.deduction_max = ret.data.l3ft;
-                $scope.MaxBelly = function (belly) {
-                    if(belly>$scope.deduction_max){
-                        $scope.param.beily = $scope.deduction_max;
-                        $alert.show('最多可使用'+$scope.deduction_max)
+        if(localStorageService.get('MYbeilys')==undefined||localStorageService.get('MYbeilys')==null){
+            $api.get("app/belly/getL3ft", {}, true)
+                .then(function (ret) {
+                    $scope.deduction_max = ret.data.l3ft;
+                    localStorageService.set('MYbeilys',$scope.deduction_max);
+                    $scope.MaxBelly = function (belly) {
+                        if(belly>$scope.deduction_max){
+                            $scope.param.beily = $scope.deduction_max;
+                            $alert.show('最多可使用'+$scope.deduction_max)
+                        }
                     }
+                })
+        }else{
+            $scope.deduction_max= localStorageService.get('MYbeilys');
+            $scope.MaxBelly = function (belly) {
+                if(belly>$scope.deduction_max){
+                    $scope.param.beily = $scope.deduction_max;
+                    $alert.show('最多可使用'+$scope.deduction_max)
                 }
-            })
+            }
+        }
+
 
         /**
          *  返显地址

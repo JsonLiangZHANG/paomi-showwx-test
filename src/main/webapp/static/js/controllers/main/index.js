@@ -4,78 +4,97 @@ stareal
     .controller("IndexController", function ($scope, $api, $alert, $document, localStorageService, $state,$timeout,$compile) {
         $scope.mypage = 1;
         $scope.my_sing = 1;//我的页面隐藏gif图
-       $api.get("app/news/list",{},true) //本地最近五条信息
-            .then(function (ret) {
-                $scope.datasetData = ret.data.slice(0,5);
-                console.log($scope.datasetData)
-                $timeout(function(){
-                    var className = $(".slideUl");
-                    var i = 0,sh;
-                    var liLength = className.children("li").length;
-                    var liHeight = className.children("li").height() + parseInt(className.children("li").css('border-bottom-width'));
-                    var html = className.html() + className.html()
-                    var $html = $compile(html)($scope);
-                    className.append($html);
-                    sh = setInterval(slide,4000);
-                    function slide(){
-                        if (parseInt(className.css("margin-top")) > (-liLength *  liHeight)) {
-                            i++;
-                            className.animate({
-                                marginTop : -liHeight * i + "px"
-                            },"slow");
-                        } else {
-                            i = 0;
-                            className.css("margin-top","0px");
+        $scope.newslisfun=function(){  //新闻
+            $api.get("app/news/list",{},true) //本地最近五条信息
+                .then(function (ret) {
+                    $scope.datasetData = ret.data.slice(0,5);
+                  //  console.log($scope.datasetData)
+                    localStorageService.set('IndexNews',$scope.datasetData);
+                    $timeout(function(){
+                        var className = $(".slideUl");
+                        var i = 0,sh;
+                        var liLength = className.children("li").length;
+                        var liHeight = className.children("li").height() + parseInt(className.children("li").css('border-bottom-width'));
+                        var html = className.html() + className.html()
+                        var $html = $compile(html)($scope);
+                        className.append($html);
+                        sh = setInterval(slide,4000);
+                        function slide(){
+                            if (parseInt(className.css("margin-top")) > (-liLength *  liHeight)) {
+                                i++;
+                                className.animate({
+                                    marginTop : -liHeight * i + "px"
+                                },"slow");
+                            } else {
+                                i = 0;
+                                className.css("margin-top","0px");
+                            }
                         }
-                    }
-                },0)
-            },function (err) {
-                $alert.show(err)
-            })
-        // return url 回挑
-        // return url 回挑
-
-
-
-
-        // if(iband==='0'){
-        //     if (rs) {
-        //         localStorageService.remove('rs');
-        //         console.log(rs);
-        //         var _state = rs.substring(0, rs.indexOf('-'));
-        //         var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
-        //         $state.go('main.speedlogin', eval('(' + _param + ')'));
-        //         return;
-        //     }else{
-        //         $state.go('main.speedlogin');
-        //     }
-        //    // $state.go('main.login',{},true);
-        // }else{
-        //     if (rs) {
-        //         localStorageService.remove('rs');
-        //         console.log(rs);
-        //         var _state = rs.substring(0, rs.indexOf('-'));
-        //         var _param = rs.substring(rs.indexOf('-') + 1, rs.length);
-        //
-        //         $state.go(_state, eval('(' + _param + ')'));
-        //         return;
-        //     }
-        // }
-
-
+                    },0)
+                },function (err) {
+                    $alert.show(err)
+                })
+        }
         //首页轮播
-        $api.get("app/main/ad/retrieve",{})
-            .then(function (ret) {
-                $scope.advs = ret.data; //首页轮播
-                console.log($scope.advs);
-                //修改比例29/50
-                angular.element('#carousel-demo').height($document.width()/2.08);
-            })
+        $scope.AdvsBanners=function(){
+            $api.get("app/main/ad/retrieve",{})
+                .then(function (ret) {
+                    $scope.advs = ret.data; //首页轮播
+                 //   console.log($scope.advs);
+                    localStorageService.set('IndexAdvs',$scope.advs);
+                    //修改比例29/50
+                    angular.element('#carousel-demo').height($document.width()/2.08);
+                })
+        }
+
+        if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
+            $scope.AdvsBanners();
+        } else{
+            $scope.advs=localStorageService.get('IndexAdvs');
+            angular.element('#carousel-demo').height($document.width()/2.08);
+        }
+        if(localStorageService.get('IndexNews')==undefined||localStorageService.get('IndexNews')==null){
+            $scope.newslisfun();
+        }else{
+            $scope.datasetData=localStorageService.get('IndexNews');
+            $timeout(function(){
+                var className = $(".slideUl");
+                var i = 0,sh;
+                var liLength = className.children("li").length;
+                var liHeight = className.children("li").height() + parseInt(className.children("li").css('border-bottom-width'));
+                var html = className.html() + className.html()
+                var $html = $compile(html)($scope);
+                className.append($html);
+                sh = setInterval(slide,4000);
+                function slide(){
+                    if (parseInt(className.css("margin-top")) > (-liLength *  liHeight)) {
+                        i++;
+                        className.animate({
+                            marginTop : -liHeight * i + "px"
+                        },"slow");
+                    } else {
+                        i = 0;
+                        className.css("margin-top","0px");
+                    }
+                }
+            },0)
+        }
+
         //列表
-        $api.get("app/main/latest/good",{})
-            .then(function (ret) {
-                $scope.latest = ret.data  //列表
-            })
+      $scope.getLatestGood=function(){
+          $api.get("app/main/latest/good",{
+              page_num: 1,
+              page_size: 10})
+              .then(function (ret) {
+                  $scope.latest = ret.data  //列表
+                  localStorageService.set('IndexLat', $scope.latest);
+              })
+      }
+        if(localStorageService.get('IndexLat')==undefined||localStorageService.get('IndexLat')==null){
+            $scope.getLatestGood();
+        } else{
+            $scope.latest=localStorageService.get('IndexLat');
+        }
         //导航分类
         // $timeout(function () {
         //     var swiper = new Swiper('.nav', {

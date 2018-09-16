@@ -3,68 +3,129 @@
 stareal
     .controller("DetailController", function ($rootScope,$scope,$http,$compile,$interval,$stateParams,$location,$anchorScroll,$api, $sce, base64, $state, $alert, localStorageService,FileUploader) {
         $scope.current = $stateParams.good_id;
+        $scope.user =localStorageService.get("user"); //存储用户信息
         $scope.sharUrl='http://www.fjzscb1997.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
-        $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
-            .then(function (ret) {
-                var good = ret.data;
-               // console.log(good)
-                localStorageService.set("goodDetail", good)
-                good.detail = $sce.trustAsHtml(base64.decode(good.detail));
-                $scope.good = good;
-                $scope.title = $scope.good.title;
-                $scope.site_title = $scope.good.site_title;
-                $scope.thumb = $scope.good.thumb;
-                $scope.seat = good.seat_thumb;  //座位图
-                $scope.favor = $scope.good.favor;//收藏\
-                $scope.star = $scope.good.star;
-                $scope.goodType=$scope.good.good_type;
-                $scope.is_coupon = $scope.good.is_coupon;//是否可以使用优惠券
-                if ($scope.star) {
-                    $scope.star = good.star.split('.')
-                }
-                if (good.state == '售票中') {
-                    $scope.shop_bg = '';
-                    $scope.gbn = '立即购票';
-                    $scope.isdisabled = true;
-                    $scope.gf = 1;
-                }
-                if (good.state == '预售中') {
-                    $scope.shop_bg = '';
-                    $scope.gbn = '立即预订';
-                    $scope.gf = 1;
-                }
-                if (good.state == '扫尾票') {
-                    $scope.shop_bg = '';
-                    $scope.gbn = '立即购票';
-                    $scope.gf = 1;
-                }
-                if (good.state == '即将开票') {
-                    $scope.good.sold = 0;
-                    if (good.appRegistered == 1) {
-                        $scope.gbn = '已预订';
-                        $scope.shop_bg = 'subscribe';
-                        return false;
-                    }
-                    $scope.shop_bg = 'subscribe';
-                    $scope.gbn = '立即预订';
-                    $scope.gf = 2;
-                }
-                if (good.state == '已售罄') {
-                    $scope.shop_bg = 'disable';
-                    $scope.gbn = good.state;
-                    $scope.gf = 0;
-                }
+      $scope.getGoodDetail=function(){
+          $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
+              .then(function (ret) {
+                  var good = ret.data;
+                  // console.log(good)
+                  localStorageService.set("goodDetail"+$stateParams.good_id, good);
+                  localStorageService.set('mygoodDEtail'+$stateParams.good_id,good);
+                  good.detail = $sce.trustAsHtml(base64.decode(good.detail));
+                  $scope.good = good;
+                  $scope.title = $scope.good.title;
+                  $scope.site_title = $scope.good.site_title;
+                  $scope.thumb = $scope.good.thumb;
+                  $scope.seat = good.seat_thumb;  //座位图
+                  $scope.favor = $scope.good.favor;//收藏\
+                  $scope.star = $scope.good.star;
+                  $scope.goodType=$scope.good.good_type;
+                  $scope.is_coupon = $scope.good.is_coupon;//是否可以使用优惠券
+                  if ($scope.star) {
+                      $scope.star = good.star.split('.')
+                  }
+                  if (good.state == '售票中') {
+                      $scope.shop_bg = '';
+                      $scope.gbn = '立即购票';
+                      $scope.isdisabled = true;
+                      $scope.gf = 1;
+                  }
+                  if (good.state == '预售中') {
+                      $scope.shop_bg = '';
+                      $scope.gbn = '立即预订';
+                      $scope.gf = 1;
+                  }
+                  if (good.state == '扫尾票') {
+                      $scope.shop_bg = '';
+                      $scope.gbn = '立即购票';
+                      $scope.gf = 1;
+                  }
+                  if (good.state == '即将开票') {
+                      $scope.good.sold = 0;
+                      if (good.appRegistered == 1) {
+                          $scope.gbn = '已预订';
+                          $scope.shop_bg = 'subscribe';
+                          return false;
+                      }
+                      $scope.shop_bg = 'subscribe';
+                      $scope.gbn = '立即预订';
+                      $scope.gf = 2;
+                  }
+                  if (good.state == '已售罄') {
+                      $scope.shop_bg = 'disable';
+                      $scope.gbn = good.state;
+                      $scope.gf = 0;
+                  }
 
-                if (good.state == '演出结束') {
-                    $scope.shop_bg = 'disable';
-                    $scope.gbn = good.state;
-                    $scope.gf = 0;
+                  if (good.state == '演出结束') {
+                      $scope.shop_bg = 'disable';
+                      $scope.gbn = good.state;
+                      $scope.gf = 0;
+                  }
+
+
+              });
+      }
+        if(localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=undefined&&localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=null&&localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=''){
+            var good=localStorageService.get('mygoodDEtail'+$stateParams.good_id);
+            good.detail = $sce.trustAsHtml(base64.decode(good.detail));
+            $scope.good = good;
+            $scope.title = $scope.good.title;
+            $scope.site_title = $scope.good.site_title;
+            $scope.thumb = $scope.good.thumb;
+            $scope.seat = good.seat_thumb;  //座位图
+            $scope.favor = $scope.good.favor;//收藏\
+            $scope.star = $scope.good.star;
+            $scope.goodType=$scope.good.good_type;
+            $scope.is_coupon = $scope.good.is_coupon;//是否可以使用优惠券
+            if ($scope.star) {
+                $scope.star = good.star.split('.')
+            }
+            if (good.state == '售票中') {
+                $scope.shop_bg = '';
+                $scope.gbn = '立即购票';
+                $scope.isdisabled = true;
+                $scope.gf = 1;
+            }
+            if (good.state == '预售中') {
+                $scope.shop_bg = '';
+                $scope.gbn = '立即预订';
+                $scope.gf = 1;
+            }
+            if (good.state == '扫尾票') {
+                $scope.shop_bg = '';
+                $scope.gbn = '立即购票';
+                $scope.gf = 1;
+            }
+            if (good.state == '即将开票') {
+                $scope.good.sold = 0;
+                if (good.appRegistered == 1) {
+                    $scope.gbn = '已预订';
+                    $scope.shop_bg = 'subscribe';
+                    return false;
                 }
-                
-                
-            });
+                $scope.shop_bg = 'subscribe';
+                $scope.gbn = '立即预订';
+                $scope.gf = 2;
+            }
+            if (good.state == '已售罄') {
+                $scope.shop_bg = 'disable';
+                $scope.gbn = good.state;
+                $scope.gf = 0;
+            }
+
+            if (good.state == '演出结束') {
+                $scope.shop_bg = 'disable';
+                $scope.gbn = good.state;
+                $scope.gf = 0;
+            }
+
+        }else{
+            $scope.getGoodDetail();
+        }
         //巡演开始
-        $api.get("app/detail/good/tour", {id: $stateParams.good_id}, true)
+       /* $api.get("app/detail/good/tour", {id: $stateParams.good_id}, true)
             .then(function (ret) {
                 if (ret.data.length > 0) {
                     $scope.tours = ret.data;
@@ -102,6 +163,7 @@ stareal
                     }, 0)
                 }
             })
+        */
         //当前加active
         $scope.isActive = function (s) {
             return $scope.current == s
@@ -308,11 +370,12 @@ stareal
         // angular.element('html,body').click(function () {
         //     $scope.close()
         // })
-        //获取头像
-        $api.get("app/login/userinfo/retrieve", null, true)
-            .then(function (ret) {
-                $scope.user = ret.data;
-            })
+
+        // //获取头像
+        // $api.get("app/login/userinfo/retrieve", null, true)
+        //     .then(function (ret) {
+        //         $scope.user = ret.data;
+        //     })
         //获取评论
         $scope.GetCooments = function () {
             $api.get("app/comment/goodComments",{
@@ -320,12 +383,21 @@ stareal
                 pageNum:1,
                 pageSize:3},true)
                 .then(function (ret) {
+                    localStorageService.set('goodDetailcom',ret);
                     $scope.totalRe = ret.total_row;
                     $scope.reviews = ret.data;
                //     console.log($scope.reviews);
                 })
         }
-        $scope.GetCooments()
+        if(localStorageService.get('goodDetailcom')==undefined||localStorageService.get('goodDetailcom')==null){
+            $scope.GetCooments();
+        }else{
+            var data= localStorageService.get('goodDetailcom');
+            $scope.totalRe =data.total_row;
+            $scope.reviews = data.data;
+
+        }
+
         //跳转写评论
         $scope.write = function () {
             if (!localStorageService.get('token')) {
@@ -438,99 +510,97 @@ stareal
         $scope.stopPropagation = function (event) {
             event.stopPropagation()//阻止冒泡
         }
-
         //分享
         //微信分享http://192.168.1.4:9090/oauth/getSignature
-        $api.get("app/share/getSignature",{url: 'http://www.fjzscb1997.com'})
-            .then(function (ret) {
+            $api.get("app/share/getSignature", {url: 'http://www.fjzscb1997.com'})
+                .then(function (ret) {
+                    if (ret) {
+                        //     console.log(ret);
+                        var data = ret.data;
+                        // console.log('-------------------------------');
+                        // console.log(data);
+                        // console.log(data.appid);
+                        // console.log(data.timestamp);
+                        // console.log(data.nonceStr);
+                        // console.log(data.signature);
 
-                if (ret) {
-               //     console.log(ret);
-                    var data=ret.data;
-                    // console.log('-------------------------------');
-                    // console.log(data);
-                    // console.log(data.appid);
-                    // console.log(data.timestamp);
-                    // console.log(data.nonceStr);
-                    // console.log(data.signature);
-
-                    wx.config({
-                        debug: false,
-                        appId: data.appid,
-                        timestamp: data.timestamp,
-                        nonceStr: data.nonceStr,
-                        signature: data.signature,
-                        jsApiList: [
-                            'onMenuShareTimeline',
-                            'onMenuShareAppMessage',
-                            'onMenuShareQQ',
-                            // 'onMenuShareWeibo',
-                            'onMenuShareQZone'
-                        ]
-                    });
-                    wx.ready(function(){
-                        //分享到朋友圈
-                        wx.onMenuShareTimeline({
-                            title: $scope.title, // 分享标题
-                            desc: $scope.good.introduction, // 分享描述
-                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl:  $scope.thumb, // 分享图标
-                            success: function () {
-                                // 用户确认分享后执行的回调函数
-                                //alert('你好');
-                            },
-                            cancel: function () {
-                                // 用户取消分享后执行的回调函数
-                                // alert('你好....');
-                            }
+                        wx.config({
+                            debug: false,
+                            appId: data.appid,
+                            timestamp: data.timestamp,
+                            nonceStr: data.nonceStr,
+                            signature: data.signature,
+                            jsApiList: [
+                                'onMenuShareTimeline',
+                                'onMenuShareAppMessage',
+                                'onMenuShareQQ',
+                                // 'onMenuShareWeibo',
+                                'onMenuShareQZone'
+                            ]
                         });
-                        //分享给朋友
-                        wx.onMenuShareAppMessage({
-                            title: $scope.title, // 分享标题
-                            desc: $scope.good.introduction, // 分享描述
-                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl:  $scope.thumb, // 分享图标
-                            type: '', // 分享类型,music、video或link，不填默认为link
-                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                            success: function () {
+                        wx.ready(function () {
+                            //分享到朋友圈
+                            wx.onMenuShareTimeline({
+                                title: $scope.title, // 分享标题
+                                desc: $scope.good.introduction, // 分享描述
+                                link: $scope.sharUrl + 'main/detail/good/' + $stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: $scope.thumb, // 分享图标
+                                success: function () {
+                                    // 用户确认分享后执行的回调函数
+                                    //alert('你好');
+                                },
+                                cancel: function () {
+                                    // 用户取消分享后执行的回调函数
+                                    // alert('你好....');
+                                }
+                            });
+                            //分享给朋友
+                            wx.onMenuShareAppMessage({
+                                title: $scope.title, // 分享标题
+                                desc: $scope.good.introduction, // 分享描述
+                                link: $scope.sharUrl + 'main/detail/good/' + $stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: $scope.thumb, // 分享图标
+                                type: '', // 分享类型,music、video或link，不填默认为link
+                                dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                                success: function () {
 // 用户确认分享后执行的回调函数
-                                // alert('你好....');
-                            },
-                            cancel: function () {
+                                    // alert('你好....');
+                                },
+                                cancel: function () {
 // 用户取消分享后执行的回调函数
-                            }
-                        });
-                        wx.onMenuShareQQ({
-                            title: $scope.title, // 分享标题
-                            desc: $scope.good.introduction, // 分享描述
-                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl:  $scope.thumb, // 分享图标
-                            success: function () {
+                                }
+                            });
+                            wx.onMenuShareQQ({
+                                title: $scope.title, // 分享标题
+                                desc: $scope.good.introduction, // 分享描述
+                                link: $scope.sharUrl + 'main/detail/good/' + $stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: $scope.thumb, // 分享图标
+                                success: function () {
 // 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
+                                },
+                                cancel: function () {
 // 用户取消分享后执行的回调函数
-                            }
-                        });
-                        wx.onMenuShareQZone({
-                            title: $scope.title, // 分享标题
-                            desc: $scope.good.introduction, // 分享描述
-                            link:  $scope.sharUrl+'main/detail/good/'+$stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl:  $scope.thumb, // 分享图标
-                            success: function () {
+                                }
+                            });
+                            wx.onMenuShareQZone({
+                                title: $scope.title, // 分享标题
+                                desc: $scope.good.introduction, // 分享描述
+                                link: $scope.sharUrl + 'main/detail/good/' + $stateParams.good_id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致   link:  $scope.sharUrl+'main/detail/good/'+$stateParams.id, // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                                imgUrl: $scope.thumb, // 分享图标
+                                success: function () {
 // 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
+                                },
+                                cancel: function () {
 // 用户取消分享后执行的回调函数
-                            }
+                                }
+                            });
                         });
-                    });
-                    wx.error(function(res){
-                        //console.log(res);
-                        //alert("微信分享接口配置失败");
-                    });
-                }
-            })
+                        wx.error(function (res) {
+                            //console.log(res);
+                            //alert("微信分享接口配置失败");
+                        });
+                    }
+                })
 
     //购票
 

@@ -892,8 +892,9 @@ stareal
             var calTotal = function () {
                 var _po = $scope.prices[$scope.paras.priceIndex];
                 var _price = (_po ? _po.price : 0);
-                $scope.unit_price = _price
+                $scope.unit_price = _price;
                 $scope.total = _price * $scope.num;
+                $scope.totalPrice=$scope.total;
             }
             var createOrder = function (gf) {
                 // if (!localStorageService.get('token')) {

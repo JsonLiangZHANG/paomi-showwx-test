@@ -235,6 +235,9 @@
                         <div class="num fl"><input type="text" ng-model="num" disabled></div>
                         <div class="add {{num==max?'active':''}} fl" ng-click="addNum()"></div>
                     </div>
+                    <div class="totalPrice fr">
+                        <span style="color:#B0272B;font-size:0.4rem;line-height: 0.7rem">合计：￥{{totalPrice}}</span>
+                    </div>
                 </div>
                 <div style="height:1.4rem"></div>
                 <div class="cloes" ng-click="ticClose()"></div>

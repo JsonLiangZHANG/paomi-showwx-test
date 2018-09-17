@@ -41,19 +41,19 @@ stareal
                 return false;
             }
             if (!$scope.detail) {
-                $alert.show("姓名不能为空!");
+                $alert.show("详细地址不能为空!");
                 return false;
             }
             if (!$scope.province) {
-                $alert.show("姓名不能为空!");
+                $alert.show("省份不能为空!");
                 return false;
             }
             if (!$scope.city) {
-                $alert.show("姓名不能为空!");
+                $alert.show("城市不能为空!");
                 return false;
             }
             if (!$scope.district) {
-                $alert.show("姓名不能为空!");
+                $alert.show("区域不能为空!");
                 return false;
             }
 

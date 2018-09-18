@@ -175,7 +175,7 @@ stareal
         }
         $scope.live_mobile = localStorageService.get("telphone_no");
         //支付前校验信息
-        var _params = {ticketId: $scope.ticketId, ticketNum: $scope.num};
+        var _params = {ticketId: $scope.ticketId, ticketNum: $scope.num,good_id:$scope.order_id};
         $scope.verify = function () {
             console.log(798)
             // 校验
@@ -208,7 +208,7 @@ stareal
                 _params.deliverType = 2;
             }
             //校验通过
-            var h = document.body.scrollHeight;
+            var h = $(window).height();
             $(".mask_pay").css({"height":h,"display":"block"}
             );
             $(".pay_box").css({"display":"block"});
@@ -246,7 +246,7 @@ stareal
                                 console.log(ret);
                                 document.forms['alipaysubmit'].action = ret.data.action;
                                 document.forms['alipaysubmit'].biz_content.value = ret.data.biz_content;
-                                //  document.forms['alipaysubmit'].submit();
+                                 document.forms['alipaysubmit'].submit();
                             }, function (err) {
                                 $alert.show(err);
                                 $state.go("my.orders", {})

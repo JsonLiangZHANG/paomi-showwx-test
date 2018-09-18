@@ -12,6 +12,7 @@ stareal
                     .then(function (ret) {
                         $scope.orders.items[index].new_state='已取消'
                         $alert.show('取消成功')
+                        $("."+order_id).fadeOut();
                     }, function (err) {
                         $alert.show(err)
                     });
@@ -24,6 +25,7 @@ stareal
                 $api.post("app/order/delete",{orderId:order_id},true)
                     .then(function (ret) {
                         $scope.orders.items.splice(index,1)
+                        $("."+order_id).fadeOut();
                         $alert.show('删除成功')
                     },function (err) {
                         $alert.show(err)
@@ -67,7 +69,7 @@ stareal
                     $window.location.reload();
                 }
             }
-            var h = document.body.scrollHeight;
+            var h = $(window).height();
             $(".mask_pay").css({"height":h,"display":"block"}
             );
             $(".pay_box").css({"display":"block"});

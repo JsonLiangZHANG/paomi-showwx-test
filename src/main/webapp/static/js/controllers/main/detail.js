@@ -645,7 +645,6 @@ stareal
             // 获取第一个可以选择的价位
             var getAvailableCatIndex = function () {
                 var _index = [null, null];
-
                 catsLoop:
                     for (var _i = 0; _i < $scope.cats.length; _i++) {
                         var _gory = $scope.cats[_i].children;
@@ -663,7 +662,6 @@ stareal
             // 获取第一个可以选择的价格
             var getAvailablePriceIndex = function () {
                 var _index = null;
-
                 for (var _i = 0; _i < $scope.prices.length; _i++) {
                     if ($scope.prices[_i].status) {
                         _index = _i;
@@ -714,62 +712,6 @@ stareal
                     //
                     // });
                     //http://app.mydeershow.com/index/GetEvent/27?UserId=3f34&AppId=FEQWEe
-                    //拿座位信息
-                    $scope.selectsiteModa = function () {
-                        if (!localStorageService.get('token')) {
-                            // $state.go("main.login",{})
-                            // return false;
-                            var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
-                            var ua = window.navigator.userAgent.toLowerCase();
-                            // if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                            //     // 正式地址
-                            //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                            //         // "appid=wxd39f7e740343d507&" +
-                            //         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                            //         "appid=wxae855abb1d0c1ba3&" +
-                            //         "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-                            //         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
-                            //
-                            //     // //测试redirect_uri
-                            //     // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                            //     //     "appid=wxd39f7e740343d507&" +
-                            //     //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
-                            //     //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-                            // } else {
-                                // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
-                                //     "appid=wx05c47c7db58b03aa&" +
-                                //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
-                                //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
-                                location.href = "#/main/login/"+encodeURIComponent(rs);
-                         ///   }
-                            return false;
-                        }
-                        // console.log("ggggggg ")
-                        //以下判断iframe是否加载完,并且隐藏滚动条
-                        //拿座位信息
-                        // var iframe = document.getElementById("iframe-projects");
-                        // console.log(iframe);
-                        // console.log($("#table_seats"));
-                        $scope.text=$('div.c-event-item.active').text();
-                        // $("#seats_Screenings").html(text);
-                        var height = angular.element(window).height();
-                        angular.element("#detailmask").css("height", height);
-                        angular.element("#detailmask").show();
-                        angular.element("#detailcontent").addClass("coverAniamtion");
-                        $(angular.element("body")[0]).css('overflow','hidden');
-                        $scope.eventShowId=eventId;
-                        if(!localStorageService.get('token')){
-                            var mobile=localStorageService.get('mobile');
-                            //http://app.mydeershow.com/ 正式
-                            //http://api.dd.com/  测试
-                            $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/webpc/GetEvent?EventId='+eventId+'&UserId='+mobile+'&AppId=FEQWEe&m=pc&ver='+Math.random()+'" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
-                        }else{
-                            var mobile=localStorageService.get('mobile');
-                            $scope.specialHtml = $sce.trustAsHtml('<iframe id="projects" name="projects" src="http://app.mydeershow.com/webpc/GetEvent?EventId='+eventId+'&UserId='+mobile+'&AppId=FEQWEe&m=pc&ver='+Math.random()+'" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
-
-                        }
-                        $scope.getseats();
-                    };
                     $scope.selectseats=function(){
                         $scope.eventShowId=eventId;
                         if (!localStorageService.get('token')) {
@@ -897,16 +839,20 @@ stareal
                 $scope.totalPrice=$scope.total;
             }
             var createOrder = function (gf) {
-                // if (!localStorageService.get('token')) {
-                //     $scope.$broadcast('to-child');
-                //     return;
-                // }
-              // console.log("333");
-              // console.log(gf);
+                if (!localStorageService.get('token')) {
+                    var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
+                    location.href = "#/main/login/"+encodeURIComponent(rs);
+                    return false;
+                }
                 if ($scope.paras.priceIndex == null) {
                     $alert.show("请选择座位!")
                 }
+
                 var _po = $scope.prices[$scope.paras.priceIndex];
+                if(_po==undefined||_po==null){
+                    $alert.show("请选择座位!");
+                    return;
+                }
                 var _sku = _po.num;
                 if (_sku < $scope.num) {
                     $alert.show("库存不足!")
@@ -927,38 +873,13 @@ stareal
                 }
                 if($scope.gf == 2) {
                     if (!localStorageService.get('token')) {
-                        // $state.go("main.login",{})
-                        // return false;
                         var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
-                        var ua = window.navigator.userAgent.toLowerCase();
-                        // if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                        //     // 正式地址
-                        //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        //         // "appid=wxd39f7e740343d507&" +
-                        //         // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
-                        //         "appid=wxae855abb1d0c1ba3&" +
-                        //         "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-                        //         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
-                        //
-                        //     // //测试redirect_uri
-                        //     // location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        //     //     "appid=wxd39f7e740343d507&" +
-                        //     //     "redirect_uri=http%3A%2F%2Ft.stareal.cn%2Foauth%2Findex" +
-                        //     //     "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
-                        // } else {
-                            // location.href = "https://open.weixin.qq.com/connect/qrconnect?" +
-                            //     "appid=wx05c47c7db58b03aa&" +
-                            //     "redirect_uri=http%3A%2F%2Fwww.stareal.cn%2Fwx%2Foauth%2Fweixin" +
-                            //     "&response_type=code&scope=snsapi_login&state=" + encodeURIComponent(rs) + "#wechat_redirect";
                             location.href = "#/main/login/"+encodeURIComponent(rs);
-                       // }
                         return false;
                     }
                 }
                 if(gf==0){//预约登记
-                    var height = $(window).height();
-                    $(".subscribe").css("height", height);
-                    $(".subscribe").fadeIn();
+                    $alert.show("暂未开票！");
                     return false
                 }
                 if(gf==3){
@@ -1063,18 +984,19 @@ stareal
 
         },function (err) {
             var createOrder = function (gf) {
-                if (!localStorageService.get('token')) {
-                    $scope.$broadcast('to-child');
-                    return;
-                }
-                if(gf==4){
-                    $alert.show("您已预约！");
-                    return false;
-                }
-                //预约登记
-                var height = $(window).height();
-                $(".subscribe").css("height", height);
-                $(".subscribe").fadeIn();
+                // if (!localStorageService.get('token')) {
+                //     $scope.$broadcast('to-child');
+                //     return;
+                // }
+                // if(gf==4){
+                //     $alert.show("您已预约！");
+                //     return false;
+                // }
+                // //预约登记
+                // var height = $(window).height();
+                // $(".subscribe").css("height", height);
+                // $(".subscribe").fadeIn();
+                $alert.show("系统繁忙，请稍后重试！");
             }
             $scope.createOrder = createOrder;
             $alert.show(err)

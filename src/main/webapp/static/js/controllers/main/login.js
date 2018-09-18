@@ -84,6 +84,7 @@ stareal
                         $scope.accessToken = ret.accessToken;
                         localStorageService.set('login_token', ret.accessToken);
                         localStorageService.set('token', ret.accessToken);
+                        // location.href = "oauth/web?accessToken=" + ret.accessToken + "&mobile=" + $scope.telphone_no + "&state="+encodeURIComponent($stateParams.good_id);
                         location.href = "oauth/web?accessToken=" + ret.accessToken + "&state="+encodeURIComponent($stateParams.good_id);
                     }, function (err) {
                         $alert.show(err);

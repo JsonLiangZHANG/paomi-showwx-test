@@ -253,9 +253,9 @@ stareal
                 }
             })
         var rs = localStorageService.get('rs');
-        var token=localStorageService.get('token');
-        var isbind = localStorageService.get('isbind');
-        var openID = localStorageService.get('openid');
+        // var token=localStorageService.get('token');
+        // var isbind = localStorageService.get('isbind');
+        // var openID = localStorageService.get('openid');
         // if(isbind!=1&&openID!=''){
         //     localStorageService.set('cleartoken',token);
         //     location.href = "#/main/bindregister/"+encodeURIComponent(rs);

@@ -5,10 +5,12 @@ stareal
         return {
             restrict: 'E',
             link: function (scope, element, attrs) {
-                localStorageService.set('token', attrs.token);
+                // localStorageService.set('token', attrs.token);
                 localStorageService.set('openid', attrs.openid);
                 localStorageService.set('isbind', attrs.isbind);
-
+                if(attrs.token != undefined && attrs.token !=null && attrs.token != ''){
+                    localStorageService.set('token', attrs.token);
+                }
                 if (attrs.rs) {
                     localStorageService.set('rs', attrs.rs);
                 }

@@ -83,6 +83,7 @@ stareal
                         localStorageService.set("user",ret); //存储用户信息
                         $scope.accessToken = ret.accessToken;
                         localStorageService.set('login_token', ret.accessToken);
+                        localStorageService.set('token', ret.accessToken);
                         location.href = "oauth/web?accessToken=" + ret.accessToken + "&state="+encodeURIComponent($stateParams.good_id);
                     }, function (err) {
                         $alert.show(err);
@@ -112,6 +113,7 @@ stareal
                         localStorageService.set("user",ret); //存储用户信息
                         $scope.accessToken = ret.accessToken;
                         localStorageService.set('login_token', ret.accessToken);
+                        localStorageService.set('token', ret.accessToken);
                         location.href = "oauth/web?accessToken=" + ret.accessToken + "&state="+encodeURIComponent($stateParams.good_id);
                     }, function (err) {
                         $alert.show(err);

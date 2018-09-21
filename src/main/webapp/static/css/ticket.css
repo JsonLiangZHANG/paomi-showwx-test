@@ -558,3 +558,61 @@
     border-bottom-right-radius:40%;
     color:#fff;
 }
+/*新增购票人信息*/
+.payOrderCustomer{
+    background: #fff;
+    margin: 0.3rem 0rem;
+    padding: 0.2rem 0.32rem;
+}
+.payOrderCustomer .payOrderCustomer_title{
+    font-size: 0.42rem;
+    line-height: 0.8rem;
+    color: #666;
+
+}
+.payOrderCustomer .payOrderCustomer_title span{
+    color:#B0272B;
+    font-size: 0.36rem;
+    line-height: 0.8rem;
+}
+.payOrderCustomer_card{
+    padding: 0.1rem 0.2rem;
+    color: #999;
+    font-size: 0.34rem;
+    border: 1px solid #999;
+    border-radius: 0.03rem;
+    display: inline-block;
+    margin: 0.1rem;
+}
+.payOrderCustomer_card.active{
+    border: 1px solid #B0272B;
+    color: #B0272B;
+}
+.payOrderCustomer_list{
+    padding: 0.2rem 0rem;
+    border-bottom: 1px solid #ddd;
+    border-top: 1px solid #ddd;
+}
+.selcet_payOrderCustomer_list .selcet_payOrderCustomer_listicon {
+    position: relative;
+    border-bottom: 1px solid #eee;
+    padding: 0.1rem 0rem;
+}
+.selcet_payOrderCustomer_list .selcet_payOrderCustomer_listicon p{
+    font-size: 0.4rem;
+    line-height: 0.6rem;
+    color: #333;
+}
+.selcet_payOrderCustomer_list .selcet_payOrderCustomer_listicon p span{
+    padding: 0 0.1rem;
+}
+.selcet_payOrderCustomer_list .selcet_payOrderCustomer_listicon .deletCardIcon{
+    position: absolute;
+    width: 0.6rem;
+    height: 0.6rem;
+    background: url('../img/search_off@2x.png')no-repeat center center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    top: 0.3rem;
+    right: 0rem;
+}

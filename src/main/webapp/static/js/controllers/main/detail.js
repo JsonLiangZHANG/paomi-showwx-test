@@ -88,7 +88,7 @@ stareal
                 $scope.isdisabled = true;
                 $scope.gf = 1;
             }
-            if (good.state == '预售中') {
+            if (good.state == '立即购票') {
                 $scope.shop_bg = '';
                 $scope.gbn = '立即预订';
                 $scope.gf = 1;
@@ -101,12 +101,12 @@ stareal
             if (good.state == '即将开票') {
                 $scope.good.sold = 0;
                 if (good.appRegistered == 1) {
-                    $scope.gbn = '已预订';
+                    $scope.gbn = '立即购票';
                     $scope.shop_bg = 'subscribe';
                     return false;
                 }
                 $scope.shop_bg = 'subscribe';
-                $scope.gbn = '立即预订';
+                $scope.gbn = '立即购票';
                 $scope.gf = 2;
             }
             if (good.state == '已售罄') {

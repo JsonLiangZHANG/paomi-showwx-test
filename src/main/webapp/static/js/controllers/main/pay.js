@@ -28,6 +28,17 @@ stareal
         $scope.total_price = "0.0元";
         $scope.beily_price = '0.0元';
 
+        $scope.GetCard =function(){
+            $api.get("app/card/retrieve", {}, true)
+                .then(function (ret) {
+                    var data=ret.data;
+                    for(var i=0;i<data.length;i++){
+                        data.selectStatus=false;
+                    }
+                    $scope.cards = data;
+                });
+        }
+        $scope.GetCard();
         //获取我的贝里余额
         if(localStorageService.get('MYbeilys')==undefined||localStorageService.get('MYbeilys')==null){
             $api.get("app/belly/getL3ft", {}, true)
@@ -177,7 +188,23 @@ stareal
         //支付前校验信息
         var _params = {ticketId: $scope.ticketId, ticketNum: $scope.num,good_id:$scope.order_id};
         $scope.verify = function () {
-            console.log(798)
+            console.log(798);
+            $scope.selectPaypeopleIArrd=[]// 购票人id
+            var data=$scope.cards;
+            var length=data.length;
+            console.log(data);
+            for(var i=0;i<length;i++ ) {
+                if(data[i].selectStatus) {
+                    $scope.selectPaypeopleIArrd.push(data[i].id);
+                }
+            }
+            console.log($scope.selectPaypeopleIArrd);
+            console.log($scope.num)
+            if($scope.selectPaypeopleIArrd.length!=$scope.num){
+                $alert.show('该演出一张票对应一个实名证件号');
+                return;
+            }
+            _params.card_id=$scope.selectPaypeopleIArrd.join(',');
             // 校验
             if($scope.deliver_price==1001){
                 $alert.show('超出配送范围内，请重新选择地址!');
@@ -319,6 +346,34 @@ stareal
                         $alert.show(err)
                         $state.go("my.orders", {})
                     })
+            }
+        }
+
+
+    //    购票人信息
+        $scope.text=function(type){
+            if(type==1){
+                return '身份证';
+            }else if(type==2){
+                return '护照';
+            }else if(type==3){
+                return '港澳通行证';
+            }else if(type==4){
+                return '台胞证';
+            }
+        }
+        $scope.selectNum=0;
+
+        $scope.selctChange=function(id,status){
+            var data=$scope.cards;
+            for(var i=0;i<data.length;i++ ){
+                if(data[i].id==id){
+                    if(status){
+                        $scope.cards[i].selectStatus=false;
+                    }else{
+                        $scope.cards[i].selectStatus=true;
+                    }
+                }
             }
         }
     });

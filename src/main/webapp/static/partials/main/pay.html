@@ -35,6 +35,22 @@
         <div class="seat_1 f12 pd_rl12" ng-bind="seat">看台／随即连坐</div>
     </div>
     <!--商品详情结束-->
+    <!--购票人信息-->
+    <div class="payOrderCustomer">
+      <p class="clear payOrderCustomer_title">选择1位购票人 <span ui-sref="my.pay_customer({order_id:order_id})" class="fr">+ 新增</span></p>
+        <div class="payOrderCustomer_list">
+           <span ng-repeat="card in cards" class="payOrderCustomer_card" ng-class="{'true':'active','false':''}[card.selectStatus]" ng-click="selctChange(card.id,card.selectStatus)" ng-bind="card.name_new">
+           </span>
+            <p style="color:#B0272B;">*请添加购票人信息</p>
+        </div>
+        <div class="selcet_payOrderCustomer_list" >
+          <div  class="selcet_payOrderCustomer_listicon" ng-repeat="card in cards" ng-show="card.selectStatus">
+               <p ng-bind="card.name_new"></p>
+               <p> <span ng-bind="text(card.type)"></span> :<span ng-bind="card.idcard_new"></span></p>
+              <p class="deletCardIcon" ng-click="selctChange(card.id,card.selectStatus)"></p>
+          </div>
+        </div>
+    </div>
     <!--选择取票方式开始-->
     <div class="mode pd_rl16">
         <div class="mode_type clear">
@@ -88,7 +104,8 @@
                 <!--<p><span style="color:#222">优惠劵</span><span style="color:#999;">{{csl}}<i class="arrow"></i></span></p>-->
             <!--</li>-->
             <li class="pd_tb12">
-                <p><span style="color:#222">积分</span><span style="color:#999"><input type="text" ng-model="param.beily" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" ng-change="MaxBelly(param.beily)"placeholder="最多可抵扣{{deduction_max}}积分"></span></p>
+                <!--<p><span style="color:#222">积分</span><span style="color:#999"><input type="text" ng-model="param.beily" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" ng-change="MaxBelly(param.beily)"placeholder="最多可抵扣{{deduction_max}}积分"></span></p>-->
+                <p><span style="color:#222">积分</span><span style="color:#999"><input type="text" readonly  placeholder="暂不支持积分抵扣"></span></p>
             </li>
         </ul>
     </div>

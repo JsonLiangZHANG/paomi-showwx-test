@@ -1,0 +1,34 @@
+<div class="edit_address CustomerManageEdit" ng-controller="CustomerManageEditController">
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18" style="padding-left: 1.33rem">新增购票人</span>
+        <!--<span class="f18 fr" style="margin-right: 0.32rem" ng-click="save()">保存</span>-->
+    </div>
+    <!--标题结束-->
+    <!--编辑地址开始-->
+    <div class="edit_list pd_rl12">
+        <ul>
+            <li class="pd_rl16">
+                <span class="f14">姓名：</span>
+                <input type="text" placeholder="请输入姓名" ng-model="name">
+            </li>
+            <li class="pd_rl16">
+                <span class="f14">证件类型：</span>
+                <select ng-model="Certificate_type" >
+                    <option value="">请选择证件类型</option>
+                    <option value="身份证">身份证</option>
+                    <option value="护照">护照</option>
+                    <option value="港澳通行证">港澳通行证</option>
+                    <option value="台胞证">台胞证</option>
+                </select>
+            </li>
+            <li class="pd_rl16">
+                <span class="f14 fl">证件号：</span>
+                <input type="text" placeholder="请输入证件号" ng-model="Certificate_no">
+            </li>
+        </ul>
+    </div>
+    <div class="add_address pd_rl16 f16" ng-click="save()">保存</div>
+    <!--编辑地址结束-->
+</div>

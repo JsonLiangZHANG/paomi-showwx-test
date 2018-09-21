@@ -306,6 +306,26 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/my.css'
             ])
         })
+        //常用购票人
+        .state('my.pay_customer', {
+            url: '/pay_customer/:order_id',
+            templateUrl: 'static/partials/main/pay_customer.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/pay_customer.js',
+                'static/css/public.css',
+                'static/css/my.css'
+            ])
+        })
+        // //常用人新增
+        // .state('my.customerManageEdit', {
+        //     url: '/customerManageEdit',
+        //     templateUrl: 'static/partials/my/customerManage_edit.html',
+        //     resolve: loadLazyjs([
+        //         'static/js/controllers/my/customerManage_edit.js',
+        //         'static/css/public.css',
+        //         'static/css/my.css'
+        //     ])
+        // })
         .state('main.pay_coupon', {
             url: '/pay/coupon/:order_id/:good_id/:total/:xuanzuo',
             templateUrl: 'static/partials/main/pay_coupon.html',
@@ -568,6 +588,26 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             templateUrl: 'static/partials/my/address_management.html',
             resolve: loadLazyjs([
                 'static/js/controllers/my/address_management.js',
+                'static/css/public.css',
+                'static/css/my.css'
+            ])
+        })
+        //常用购票人
+        .state('my.customerManage', {
+            url: '/customerManage',
+            templateUrl: 'static/partials/my/customerManage.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/my/customerManage.js',
+                'static/css/public.css',
+                'static/css/my.css'
+            ])
+        })
+        //常用人新增
+        .state('my.customerManageEdit', {
+            url: '/customerManageEdit',
+            templateUrl: 'static/partials/my/customerManage_edit.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/my/customerManage_edit.js',
                 'static/css/public.css',
                 'static/css/my.css'
             ])

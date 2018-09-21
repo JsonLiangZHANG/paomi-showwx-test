@@ -691,15 +691,15 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-treasure{
-    background:url("../img/personal_purchase@2x.png");
+    background:url("../img/my-in.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-treasure{
-    background:url("../img/personal_purchase@2x.png");
+    background:url("../img/my-in.png");
     background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-treasure{
-    background:url("../img/personal_purchase@3x.png");
+    background:url("../img/my-in.png");
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-invita{
@@ -3093,4 +3093,38 @@
     background: #B0272B;
     border: 1px solid #B0272B;
     border-radius: 0.16rem;
+}
+
+
+/*常用购票人*/
+.CustomerManageEdit .edit_list ul li span {
+    color: #999999;
+    display: inline-block;
+    height: 0.8rem;
+    font-size: 0.4rem;
+    line-height: 0.8rem;
+    width: 2.5rem;
+}
+.CustomerManageEdit .edit_list ul li input {
+    font-size: 0.3733rem;
+    width: 6.0rem;
+    font-szie:0.4rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    border: none;
+}
+.CustomerManageEdit .edit_list ul li select{
+    width: 5.0rem;
+    font-size:0.4rem;
+    height: 0.8rem;
+    line-height: 0.8rem;
+    border: none;
+}
+.CustomerManageEdit .add_address{
+    text-align: center;
+    color: #fff;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background: #B0272B;
 }

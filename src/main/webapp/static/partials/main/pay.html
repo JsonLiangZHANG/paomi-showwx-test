@@ -37,7 +37,7 @@
     <!--商品详情结束-->
     <!--购票人信息-->
     <div class="payOrderCustomer">
-      <p class="clear payOrderCustomer_title">选择1位购票人 <span ui-sref="my.pay_customer({order_id:order_id})" class="fr">+ 新增</span></p>
+      <p class="clear payOrderCustomer_title">选择{{num}}位购票人 <span ui-sref="my.pay_customer({order_id:order_id})" class="fr">+ 新增</span></p>
         <div class="payOrderCustomer_list">
            <span ng-repeat="card in cards" class="payOrderCustomer_card" ng-class="{'true':'active','false':''}[card.selectStatus]" ng-click="selctChange(card.id,card.selectStatus)" ng-bind="card.name_new">
            </span>

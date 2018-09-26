@@ -90,6 +90,10 @@ stareal
 
         // 切换取票方式
         $scope.cd = function (deliverType) {
+            if(deliverType==2){
+                $alert.show('该演出暂不支持现场取票!');
+                return false;
+            }
             $scope.param.deliverType = deliverType;
         };
         /**

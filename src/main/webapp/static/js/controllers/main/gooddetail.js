@@ -2,8 +2,9 @@
 
 stareal
     .controller("GoodDetaController", function ($scope,$interval,$document, $stateParams, $api, $sce, base64, $state, $alert,localStorageService,$timeout) {
-        var good = localStorageService.get("goodDetail");
+        var good = localStorageService.get("goodDetail"+$stateParams.id);
         $scope.sharUrl='http://www.fjzscb1997.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
+        console.log(good);
         good.detail = $sce.trustAsHtml(base64.decode(good.detail));
         $scope.good = good;
         $timeout(function () {

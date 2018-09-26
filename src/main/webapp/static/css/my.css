@@ -691,15 +691,15 @@
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-treasure{
-    background:url("../img/my-in.png");
+    background:url("../img/icon_wd_ren@2x.png")no-repeat center center;
     background-size: 100% 100%;
 }
 [data-dpr="2"] .my_list > ul li a.i-treasure{
-    background:url("../img/my-in.png");
+    background:url("../img/icon_wd_ren@2x.png")no-repeat center center;
     background-size: 100% 100%;
 }
 [data-dpr="3"] .my_list > ul li a.i-treasure{
-    background:url("../img/my-in.png");
+    background:url("../img/icon_wd_ren@2x.png")no-repeat center center;
     background-size: 100% 100%;
 }
 .my_list > ul li a.i-invita{
@@ -2622,17 +2622,17 @@
 }
 .comment_detail .detail_list ul li .right_block .topside .operation i.i_review{
     /* background: url("../img/showdetails_comments@2x.png"); */
-    background: url("../pinglun-xiao@2x.png");
+    background: url("../img/pinglun-xiao@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="2"] .comment_detail .detail_list ul li .right_block .topside .operation i.i_review{
     /* background: url("../img/showdetails_comments@2x.png"); */
-    background: url("../pinglun-xiao@2x.png");
+    background: url("../img/pinglun-xiao@2x.png");
     background-size: 100% 100%;
 }
 [data-dpr="3"] .comment_detail .detail_list ul li .right_block .topside .operation i.i_review{
     /* background: url("../img/showdetails_comments@3x.png"); */
-    background: url("../pinglun-xiao@3x.png");
+    background: url("../img/pinglun-xiao@3x.png");
     background-size: 100% 100%;
 }
 .comment_detail .detail_list ul li .right_block .topside .operation .fabulous i{

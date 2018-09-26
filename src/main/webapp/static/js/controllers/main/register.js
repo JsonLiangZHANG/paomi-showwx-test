@@ -41,6 +41,8 @@ stareal
                         } else {
                             $alert.show("验证码发送失败，请稍后重试!");
                         }
+                    },function(err){
+                        $alert.show(err);
                     });
 
                 // if (timerHandler) {

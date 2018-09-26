@@ -10,7 +10,6 @@ stareal
         $scope.sendCodeStatus=false;
         $scope.goBack = function() {
             $rootScope.back()//直接使用
-
         },
         $scope.login = {
             cd:function () {
@@ -48,6 +47,8 @@ stareal
                         } else {
                             $alert.show("验证码发送失败，请稍后重试!");
                         }
+                    },function (err) {
+                        $alert.show(err);
                     });
                 //
                 // if (timerHandler) {

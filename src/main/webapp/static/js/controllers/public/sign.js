@@ -11,7 +11,7 @@ stareal
                 $(".home-sign").text("签到")
             }
         },0)
-        console.log(isAndroid)
+       // console.log(isAndroid)
         //签到
         var mo=function(e){e.preventDefault();};
         $scope.sign = function () {

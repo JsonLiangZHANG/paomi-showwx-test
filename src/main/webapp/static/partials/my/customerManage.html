@@ -9,19 +9,23 @@
     <div class="address_list">
         <ul>
             <li class="pd_rl12" ng-repeat="card in cards">
-                <div class="upper_half pd_rl16">
-                    <p class="clear">
+                <div class="upper_half pd_rl16" style="border: none!important;">
+                    <div class="clear">
                         <span class="f14 fl" style="color: #666;font-size: 0.4rem;">{{card.name_new}}</span>
                         <!--<span class="mobile f14 fl">{{address.mobile}}</span>-->
-                    </p>
+                        <div class="delete fr" ng-click="alertmodel({{card.id}})">
+                            <i></i>
+                            <span class="f12">删除</span>
+                        </div>
+                    </div>
                     <p class="address f12" style="color: #666;font-size: 0.4rem;"><span ng-bind="text(card.type)"></span>:<span ng-bind="card.idcard_new"></span></p>
                 </div>
-                <div class="pd_tb12 clear">
-                    <div class="delete fr" ng-click="alertmodel({{card.id}})">
-                        <i></i>
-                        <span class="f12">删除</span>
-                    </div>
-                </div>
+                <!--<div class="pd_tb12 clear">-->
+                    <!--<div class="delete fr" ng-click="alertmodel({{card.id}})">-->
+                        <!--<i></i>-->
+                        <!--<span class="f12">删除</span>-->
+                    <!--</div>-->
+                <!--</div>-->
                 <div class="pubtps {{card.id}}" close-model >
                     <div class="pubtps-box" stop-propagation>
                         <div class="con-box">

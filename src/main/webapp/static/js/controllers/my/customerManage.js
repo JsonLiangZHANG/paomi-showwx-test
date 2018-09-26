@@ -11,7 +11,7 @@ stareal
         }
         $scope.GetCard()
         $scope.alertmodel = function (ID) {
-            console.log(ID);
+          //  console.log(ID);
             var height = $(window).height();
             $("."+ID).css("height", height);
             $("."+ID).fadeIn();

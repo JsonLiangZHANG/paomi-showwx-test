@@ -45,13 +45,13 @@ stareal
 
                 })
         }
-        $api.post("app/member/checkin/getCheckTips",{},true)
-            .then(function (ret) {
-                $scope.daybeily = ret.data;
-            })
+        // $api.post("app/member/checkin/getCheckTips",{},true)
+        //     .then(function (ret) {
+        //         $scope.daybeily = ret.data;
+        //     })
        // $scope.sign_state = localStorageService.get("sign-state")
-        console.log('----------------')
-        console.log($scope.sign_state);
+       //  console.log('----------------')
+       //  console.log($scope.sign_state);
         //获取会员信息
         $api.get("app/member/index/retrieve",{},true)
             .then(function (ret) {

@@ -8,6 +8,7 @@ stareal
         $scope.password2 = "";
         $scope.paracont = "获取验证码";
         $scope.code = "";
+        $scope.sendCodeStatus=false;
         $scope.login = {
             sendCode:function () {
                 var second = 60;
@@ -15,33 +16,41 @@ stareal
                 if (!this.validatemobile($scope.telphone_no)) {
                     return;
                 }
+                if($scope.sendCodeStatus){
+                    return;
+                }
                 // 验证码
                 $api.get("app/login/code/retrieve", {mobile:$scope.telphone_no, type: "0"})
                     .then(function (ret) {
                         if (ret.retCode == "0") {
                             $alert.show("验证码已发送!");
-                            localStorageService.set('code_token', ret.accessToken)
+                            localStorageService.set('code_token', ret.accessToken);
+                            timerHandler = $interval(function () {
+                                if (second <= 0) {
+                                    $interval.cancel(timerHandler);
+                                    timerHandler = undefined;
+                                    second = 60;
+                                    $scope.paracont = "重发";
+                                    $scope.sendCodeStatus=false;
+                                } else {
+                                    $scope.sendCodeStatus=true;
+                                    $scope.paracont = second + "秒";
+                                    second--;
+
+                                }
+                            }, 1000, 100)
                             $scope.accessToken = ret.accessToken;
                         } else {
                             $alert.show("验证码发送失败，请稍后重试!");
                         }
+                    },function(err){
+                        $alert.show(err);
                     });
 
-                if (timerHandler) {
-                    return;
-                }
-                timerHandler = $interval(function () {
-                    if (second <= 0) {
-                        $interval.cancel(timerHandler);
-                        timerHandler = undefined;
-                        second = 60;
-                        $scope.paracont = "重发";
-                    } else {
-                        $scope.paracont = second + "秒";
-                        second--;
+                // if (timerHandler) {
+                //     return;
+                // }
 
-                    }
-                }, 1000, 100)
             },
             next:function (){
                 if (!this.validatemobile($scope.telphone_no)) {

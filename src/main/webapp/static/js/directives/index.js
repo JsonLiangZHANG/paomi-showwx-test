@@ -846,7 +846,7 @@ stareal
         return{
             restrict:'EA',
             link:function (scope,element,attrs) {
-                console.log("22")
+                // console.log("22")
                 element.bind('click',function () {
                     $(".pubtps").fadeOut();
 

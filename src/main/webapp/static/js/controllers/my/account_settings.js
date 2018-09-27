@@ -13,10 +13,10 @@ stareal
                         $scope.birthday = '未设置'
                 }
 
-                var ua = window.navigator.userAgent.toLowerCase();
-                if (ua.match(/MicroMessenger/i) == 'micromessenger' || typeof WeixinJSBridge != "undefined") {
-                    $scope.show = true;
-                }
+                // var ua = window.navigator.userAgent.toLowerCase();
+                // if (ua.match(/MicroMessenger/i) == 'micromessenger' || typeof WeixinJSBridge != "undefined") {
+                //     $scope.show = true;
+                // }
                 $scope.thumb = {};
                 $scope.thumb.imgSrc = ret.data.headimgurl;
                 $scope.headimgurl = ret.data.headimgurl;
@@ -84,7 +84,7 @@ stareal
             });
         //设置性别
         $scope.setSex = function () {
-            var h = document.body.scrollHeight;
+            var h = $(window).height();
             $(".sex_mask").height(h);
             $(".sex_mask").css({"display":"block"})
             $(".sex_box").css({"display":"block"})
@@ -93,7 +93,11 @@ stareal
         var set = function () {
             $api.get("app/login/userinfo/update", {
                 sex: $scope.sex,
-            }, true)
+            }, true).then(function(ret){
+                $alert.show('修改成功!');
+            },function(err){
+                $alert.show('修改失败!');
+            })
         }
         $scope.choose = function (sex) {
             $scope.sex = sex;
@@ -114,7 +118,7 @@ stareal
         })
         //设置生日
         $scope.setBirthday = function () {
-            var h = document.body.scrollHeight;
+            var h = $(window).height();
             $(".birthday_mask").height(h);
             $(".birthday_mask").css({"display":"block"})
             $(".birthday_box").css({"display":"block"})
@@ -127,8 +131,14 @@ stareal
             $scope.birthday = year+'-'+month+'-'+day
             $api.get("app/login/userinfo/update", {
                 birthday:birthday,
-            }, true)
-            $(".birthday_mask").css({"display":"none"})
+            }, true).then(function(ret){
+                $alert.show('修改成功!');
+                $(".birthday_mask").css({"display":"none"})
+            },function(err){
+                $alert.show(err);
+                $(".birthday_mask").css({"display":"none"})
+            })
+
         }
         $(".birthday_mask").click(function () {
             $(this).css({"display":"none"})

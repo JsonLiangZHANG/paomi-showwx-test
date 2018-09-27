@@ -28,27 +28,24 @@ stareal
                     .then(function (ret) {
                         if (ret.retCode == "0") {
                             $alert.show("验证码已发送!");
+                            timerHandler = $interval(function () {
+                                if (second <= 0) {
+                                    $interval.cancel(timerHandler);
+                                    timerHandler = undefined;
+                                    second = 60;
+                                    $scope.paracont = "重发";
+                                } else {
+                                    $scope.paracont = second + "秒";
+                                    second--;
+
+                                }
+                            }, 1000, 100)
                             localStorageService.set('code_token', ret.accessToken);
                         } else {
                             $alert.show("验证码发送失败，请稍后重试!");
                         }
                     });
 
-                if (timerHandler) {
-                    return;
-                }
-                timerHandler = $interval(function () {
-                    if (second <= 0) {
-                        $interval.cancel(timerHandler);
-                        timerHandler = undefined;
-                        second = 60;
-                        $scope.paracont = "重发";
-                    } else {
-                        $scope.paracont = second + "秒";
-                        second--;
-
-                    }
-                }, 1000, 100)
             },
             login:function (){
                 console.log(localStorageService.get('code_token'))

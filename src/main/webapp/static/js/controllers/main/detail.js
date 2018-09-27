@@ -32,9 +32,9 @@ stareal
                       $scope.gf = 1;
                   }
                   if (good.state == '预售中') {
-                      $scope.shop_bg = '';
-                      $scope.gbn = '立即预订';
-                      $scope.gf = 1;
+                      $scope.shop_bg = 'disable';
+                      $scope.gbn = '即将开票';
+                      $scope.gf = 2;
                   }
                   if (good.state == '扫尾票') {
                       $scope.shop_bg = '';
@@ -44,12 +44,12 @@ stareal
                   if (good.state == '即将开票') {
                       $scope.good.sold = 0;
                       if (good.appRegistered == 1) {
-                          $scope.gbn = '已预订';
-                          $scope.shop_bg = 'subscribe';
+                          $scope.gbn = '即将开票';
+                          $scope.shop_bg = 'disable';
                           return false;
                       }
-                      $scope.shop_bg = 'subscribe';
-                      $scope.gbn = '立即预订';
+                      $scope.shop_bg = 'disable';
+                      $scope.gbn = '即将开票';
                       $scope.gf = 2;
                   }
                   if (good.state == '已售罄') {
@@ -88,10 +88,10 @@ stareal
                 $scope.isdisabled = true;
                 $scope.gf = 1;
             }
-            if (good.state == '立即购票') {
-                $scope.shop_bg = '';
-                $scope.gbn = '立即预订';
-                $scope.gf = 1;
+            if (good.state == '预售中') {
+                $scope.shop_bg = 'disable';
+                $scope.gbn = '即将开票';
+                $scope.gf = 2;
             }
             if (good.state == '扫尾票') {
                 $scope.shop_bg = '';
@@ -101,12 +101,12 @@ stareal
             if (good.state == '即将开票') {
                 $scope.good.sold = 0;
                 if (good.appRegistered == 1) {
-                    $scope.gbn = '立即购票';
-                    $scope.shop_bg = 'subscribe';
+                    $scope.gbn = '即将开票';
+                    $scope.shop_bg = 'disable';
                     return false;
                 }
-                $scope.shop_bg = 'subscribe';
-                $scope.gbn = '立即购票';
+                $scope.shop_bg = 'disable';
+                $scope.gbn = '即将开票';
                 $scope.gf = 2;
             }
             if (good.state == '已售罄') {
@@ -241,18 +241,18 @@ stareal
                 }
             }
             if ($scope.gf == 2) {
-
-                var bodyH = angular.element('body').height();
-                angular.element('.mask').css({
-                    'display': 'block',
-                    'height': bodyH
-                })
-                angular.element('.alert_box').css({
-                    'display': 'block',
-                    'bottom': -alertHe
-                });
-                angular.element('.alert_box').animate({bottom: '0px'}, 200);
-                e.stopPropagation();
+                   return false;
+                // var bodyH = angular.element('body').height();
+                // angular.element('.mask').css({
+                //     'display': 'block',
+                //     'height': bodyH
+                // })
+                // angular.element('.alert_box').css({
+                //     'display': 'block',
+                //     'bottom': -alertHe
+                // });
+                // angular.element('.alert_box').animate({bottom: '0px'}, 200);
+                // e.stopPropagation();
             }
 
         }

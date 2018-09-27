@@ -63,7 +63,7 @@
     </div>
     <!--个人资料结束-->
     <!--账号安全开始-->
-    <div class="personal_data" ng-show="!show">
+    <div class="personal_data" >
         <p class="title f16">账号安全</p>
         <ul>
             <li class="pd_rl16 clear" ng-click="tip()">
@@ -101,17 +101,19 @@
     <!--设置性别弹窗结束-->
     <!--设置生日弹窗开始-->
     <div class="birthday_mask">
-        <div class="birthday_box pd_rl12" ng-click="bubble($event)">
-            <div class="date f18">
-                <select ng-model="time.year" data-ng-options="t.id as t.name for t in yearNows"></select>年
-                <select ng-model="time.month" data-ng-options="t.id as t.name for t in monthNow"></select>月
-                <select ng-model="time.day"  data-ng-options="t.id as t.name for t in dayNow"></select>日
+        <div class="birthday_content">
+            <div class="birthday_box pd_rl12" ng-click="bubble($event)">
+                <div class="date f18">
+                    <select ng-model="time.year" data-ng-options="t.id as t.name for t in yearNows" style="width: 2.0rem;"></select>年
+                    <select ng-model="time.month" data-ng-options="t.id as t.name for t in monthNow" style="width:1.5rem"></select>月
+                    <select ng-model="time.day"  data-ng-options="t.id as t.name for t in dayNow" style="width: 1.5rem;"></select>日
+                </div>
+                <p class="f14 pd_rl16" ng-click="confirm()">确定</p>
             </div>
-            <p class="f14 pd_rl16" ng-click="confirm()">确定</p>
         </div>
     </div>
     <!--设置生日弹窗结束-->
-    <div class="saveIn-btn pd_rl12" ui-sref="my.index" ng-click="saveIn()">
-        <div class="saveIn pd_rl16 f16">保存</div>
-    </div>
+    <!--<div class="saveIn-btn pd_rl12" ui-sref="my.index">-->
+        <!--<div class="saveIn pd_rl16 f16">保存</div>-->
+    <!--</div>-->
 </div>

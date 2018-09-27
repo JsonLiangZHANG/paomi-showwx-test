@@ -14,7 +14,7 @@
                 <p><span>手机号</span><input type="number" ng-model="telphone_no"></p>
             </li>
             <li class="f16 clear">
-                <p class="fl"><span>动态码</span><input type="number" maxlength="4" ng-model="code"></p>
+                <p class="fl"><span>动态码</span><input type="number" maxlength="8" ng-model="code" id="codeInput"></p>
                 <p class="fr" ng-click="login.sendCode(telphone_no)" ng-bind="paracont"></p>
             </li>
             <li class="f16 clear" style="margin-top:0.5333rem">

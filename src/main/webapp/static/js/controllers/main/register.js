@@ -63,7 +63,7 @@ stareal
                 }
                 var _params = {
                     mobile:telphone_no,
-                    code:code,
+                    code:$("#codeInput").val(),
                     password:pass,
                     accessToken: localStorageService.get('code_token')
                 };

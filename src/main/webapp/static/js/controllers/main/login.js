@@ -65,10 +65,10 @@ stareal
                         $alert.show("请先获取验证码！");
                         return false;
                     }
-                    console.log(code+'n')
+                    //console.log(code+'n')
                     var _params = {
                         mobile:telphone_no,
-                        code:code,
+                        code:$('#codeInput').val(),
                         accessToken: localStorageService.get('code_token')
                     };
                 }
@@ -103,7 +103,7 @@ stareal
                     console.log(code+'n')
                     var _params = {
                         mobile:telphone_no,
-                        code:code,
+                        code:$('#codeInput').val(),
                         openId:localStorageService.get('openid'),
                         accessToken: localStorageService.get('code_token')
                     };

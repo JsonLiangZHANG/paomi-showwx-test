@@ -11,7 +11,7 @@ stareal
                     "border":"1px solid #B0272B",
                     "background":"#B0272B"
                 }
-                $rootScope.btn = '预售中'
+                $rootScope.btn = '即将开票'
             }
             if(statu=='售票中'){
                 $rootScope.defstyle = {
@@ -33,7 +33,7 @@ stareal
                     "color": "#3D50F0",
                     "border":"1px solid #3D50F0"
                 }
-                $rootScope.btn = '预定中'
+                $rootScope.btn = '即将开票'
             }
             if(statu=='演出结束'){
                 $rootScope.defstyle = {
@@ -54,7 +54,7 @@ stareal
         //演出状态文字
         $rootScope.btnText = function (statu) {
             if(statu=='预售中'){
-                $rootScope.btn = '预售中'
+                $rootScope.btn = '即将开票'
             }
             if(statu=='售票中'){
                 $rootScope.btn = '售票中'
@@ -63,7 +63,7 @@ stareal
                 $rootScope.btn = '扫尾票'
             }
             if(statu=='即将开票'){
-                $rootScope.btn = '预定中'
+                $rootScope.btn = '即将开票'
             }
             if(statu=='演出结束'){
                 $rootScope.btn = '已结束'

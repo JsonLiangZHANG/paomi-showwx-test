@@ -68,59 +68,59 @@ stareal
               });
       }
         if(localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=undefined&&localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=null&&localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=''){
-            var good=localStorageService.get('mygoodDEtail'+$stateParams.good_id);
-            good.detail = $sce.trustAsHtml(base64.decode(good.detail));
-            $scope.good = good;
-            $scope.title = $scope.good.title;
-            $scope.site_title = $scope.good.site_title;
-            $scope.thumb = $scope.good.thumb;
-            $scope.seat = good.seat_thumb;  //座位图
-            $scope.favor = $scope.good.favor;//收藏\
-            $scope.star = $scope.good.star;
-            $scope.goodType=$scope.good.good_type;
-            $scope.is_coupon = $scope.good.is_coupon;//是否可以使用优惠券
-            if ($scope.star) {
-                $scope.star = good.star.split('.')
-            }
-            if (good.state == '售票中') {
-                $scope.shop_bg = '';
-                $scope.gbn = '立即购票';
-                $scope.isdisabled = true;
-                $scope.gf = 1;
-            }
-            if (good.state == '预售中') {
-                $scope.shop_bg = 'disable';
-                $scope.gbn = '即将开票';
-                $scope.gf = 2;
-            }
-            if (good.state == '扫尾票') {
-                $scope.shop_bg = '';
-                $scope.gbn = '立即购票';
-                $scope.gf = 1;
-            }
-            if (good.state == '即将开票') {
-                $scope.good.sold = 0;
-                if (good.appRegistered == 1) {
-                    $scope.gbn = '即将开票';
-                    $scope.shop_bg = 'disable';
-                    return false;
-                }
-                $scope.shop_bg = 'disable';
-                $scope.gbn = '即将开票';
-                $scope.gf = 2;
-            }
-            if (good.state == '已售罄') {
-                $scope.shop_bg = 'disable';
-                $scope.gbn = good.state;
-                $scope.gf = 0;
-            }
+            // var good=localStorageService.get('mygoodDEtail'+$stateParams.good_id);
+            // good.detail = $sce.trustAsHtml(base64.decode(good.detail));
+            // $scope.good = good;
+            // $scope.title = $scope.good.title;
+            // $scope.site_title = $scope.good.site_title;
+            // $scope.thumb = $scope.good.thumb;
+            // $scope.seat = good.seat_thumb;  //座位图
+            // $scope.favor = $scope.good.favor;//收藏\
+            // $scope.star = $scope.good.star;
+            // $scope.goodType=$scope.good.good_type;
+            // $scope.is_coupon = $scope.good.is_coupon;//是否可以使用优惠券
+            // if ($scope.star) {
+            //     $scope.star = good.star.split('.')
+            // }
+            // if (good.state == '售票中') {
+            //     $scope.shop_bg = '';
+            //     $scope.gbn = '立即购票';
+            //     $scope.isdisabled = true;
+            //     $scope.gf = 1;
+            // }
+            // if (good.state == '预售中') {
+            //     $scope.shop_bg = 'disable';
+            //     $scope.gbn = '即将开票';
+            //     $scope.gf = 2;
+            // }
+            // if (good.state == '扫尾票') {
+            //     $scope.shop_bg = '';
+            //     $scope.gbn = '立即购票';
+            //     $scope.gf = 1;
+            // }
+            // if (good.state == '即将开票') {
+            //     $scope.good.sold = 0;
+            //     if (good.appRegistered == 1) {
+            //         $scope.gbn = '即将开票';
+            //         $scope.shop_bg = 'disable';
+            //         return false;
+            //     }
+            //     $scope.shop_bg = 'disable';
+            //     $scope.gbn = '即将开票';
+            //     $scope.gf = 2;
+            // }
+            // if (good.state == '已售罄') {
+            //     $scope.shop_bg = 'disable';
+            //     $scope.gbn = good.state;
+            //     $scope.gf = 0;
+            // }
 
-            if (good.state == '演出结束') {
-                $scope.shop_bg = 'disable';
-                $scope.gbn = good.state;
-                $scope.gf = 0;
-            }
-
+            // if (good.state == '演出结束') {
+            //     $scope.shop_bg = 'disable';
+            //     $scope.gbn = good.state;
+            //     $scope.gf = 0;
+            // }
+              $scope.getGoodDetail();
         }else{
             $scope.getGoodDetail();
         }

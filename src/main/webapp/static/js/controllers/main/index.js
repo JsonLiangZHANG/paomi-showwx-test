@@ -56,38 +56,38 @@ stareal
             location.href = "#/main/bindregister/"+encodeURIComponent(rs);
             return false;
         }
-        if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
+        // if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
             $scope.AdvsBanners();
-        } else{
-            $scope.advs=localStorageService.get('IndexAdvs');
-            angular.element('#carousel-demo').height($document.width()/2.08);
-        }
-        if(localStorageService.get('IndexNews')==undefined||localStorageService.get('IndexNews')==null){
+        // } else{
+        //     $scope.advs=localStorageService.get('IndexAdvs');
+        //     angular.element('#carousel-demo').height($document.width()/2.08);
+        // }
+        // if(localStorageService.get('IndexNews')==undefined||localStorageService.get('IndexNews')==null){
             $scope.newslisfun();
-        }else{
-            $scope.datasetData=localStorageService.get('IndexNews');
-            $timeout(function(){
-                var className = $(".slideUl");
-                var i = 0,sh;
-                var liLength = className.children("li").length;
-                var liHeight = className.children("li").height() + parseInt(className.children("li").css('border-bottom-width'));
-                var html = className.html() + className.html()
-                var $html = $compile(html)($scope);
-                className.append($html);
-                sh = setInterval(slide,4000);
-                function slide(){
-                    if (parseInt(className.css("margin-top")) > (-liLength *  liHeight)) {
-                        i++;
-                        className.animate({
-                            marginTop : -liHeight * i + "px"
-                        },"slow");
-                    } else {
-                        i = 0;
-                        className.css("margin-top","0px");
-                    }
-                }
-            },0)
-        }
+        // }else{
+        //     $scope.datasetData=localStorageService.get('IndexNews');
+        //     $timeout(function(){
+        //         var className = $(".slideUl");
+        //         var i = 0,sh;
+        //         var liLength = className.children("li").length;
+        //         var liHeight = className.children("li").height() + parseInt(className.children("li").css('border-bottom-width'));
+        //         var html = className.html() + className.html()
+        //         var $html = $compile(html)($scope);
+        //         className.append($html);
+        //         sh = setInterval(slide,4000);
+        //         function slide(){
+        //             if (parseInt(className.css("margin-top")) > (-liLength *  liHeight)) {
+        //                 i++;
+        //                 className.animate({
+        //                     marginTop : -liHeight * i + "px"
+        //                 },"slow");
+        //             } else {
+        //                 i = 0;
+        //                 className.css("margin-top","0px");
+        //             }
+        //         }
+        //     },0)
+        // }
 
         //列表
       $scope.getLatestGood=function(){
@@ -99,12 +99,13 @@ stareal
                   localStorageService.set('IndexLat', $scope.latest);
               })
       }
-        if(localStorageService.get('IndexLat')==undefined||localStorageService.get('IndexLat')==null){
-            $scope.getLatestGood();
-        } else{
-            $scope.getLatestGood();
-           /// $scope.latest=localStorageService.get('IndexLat');
-        }
+        $scope.getLatestGood();
+        // if(localStorageService.get('IndexLat')==undefined||localStorageService.get('IndexLat')==null){
+        //     $scope.getLatestGood();
+        // } else{
+        //     $scope.getLatestGood();
+        //    /// $scope.latest=localStorageService.get('IndexLat');
+        // }
         //导航分类
         // $timeout(function () {
         //     var swiper = new Swiper('.nav', {

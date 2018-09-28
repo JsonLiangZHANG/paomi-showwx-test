@@ -52,8 +52,8 @@ stareal
         var openID = localStorageService.get('openid');
         if(isbind!=1&&openID!=''){
             localStorageService.set('cleartoken',token);
-            location.href = "#/main/bindregister/"+encodeURIComponent(rs);
             localStorageService.set('token','');
+            location.href = "#/main/bindregister/"+encodeURIComponent(rs);
             return false;
         }
         if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
@@ -102,7 +102,8 @@ stareal
         if(localStorageService.get('IndexLat')==undefined||localStorageService.get('IndexLat')==null){
             $scope.getLatestGood();
         } else{
-            $scope.latest=localStorageService.get('IndexLat');
+            $scope.getLatestGood();
+           /// $scope.latest=localStorageService.get('IndexLat');
         }
         //导航分类
         // $timeout(function () {

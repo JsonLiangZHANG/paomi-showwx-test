@@ -978,7 +978,7 @@
 }
 .detail .fare .fare_list ul li{
     /*height:0.8rem;*/
-    line-height:0.8rem;
+    line-height:1.0rem;
     text-align: center;
     border: 1px solid #E5E5E5;
     border-radius: 4px;

@@ -8,6 +8,7 @@ stareal
         // $scope.password2 = "";
         $scope.paracont = "获取验证码";
         $scope.code = "";
+        $scope.sendCode=false;
         $scope.$watch('code',function (newValue, oldValue) {
             console.log($scope.code);
             if( $scope.code!=''&&$scope.code!=null){
@@ -23,6 +24,9 @@ stareal
                 if (!this.validatemobile($scope.telphone_no)) {
                     return;
                 }
+                if($scope.sendCode){
+                    return;
+                }
                 // 验证码
                 $api.get("app/login/code/retrieve", {mobile:$scope.telphone_no, type: "0"})
                     .then(function (ret) {
@@ -34,7 +38,9 @@ stareal
                                     timerHandler = undefined;
                                     second = 60;
                                     $scope.paracont = "重发";
+                                    $scope.sendCode=false;
                                 } else {
+                                    $scope.sendCode=true;
                                     $scope.paracont = second + "秒";
                                     second--;
 
@@ -101,8 +107,12 @@ stareal
                                 $scope.accessToken = ret.accessToken;
                                 localStorageService.set('login_token', ret.accessToken);
                                 localStorageService.set("isbind",'1');
-                                $state.go('main.index',{},true);
-                                //location.href = "oauth/web?accessToken=" + ret.accessToken + "&state="+encodeURIComponent($stateParams.good_id);
+                                location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                                    // "appid=wxd39f7e740343d507&" +
+                                    // "redirect_uri=http%3A%2F%2Fm.stareal.cn%2Foauth%2Findex" +
+                                    "appid=wxae855abb1d0c1ba3&" +
+                                    "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                                    "&response_type=code&scope=snsapi_userinfo&state=";
                             }, function (err) {
                                 $alert.show(err);
                             });

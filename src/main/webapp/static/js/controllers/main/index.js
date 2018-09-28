@@ -8,7 +8,7 @@ stareal
             $api.get("app/news/list",{},true) //本地最近五条信息
                 .then(function (ret) {
                     $scope.datasetData = ret.data.slice(0,5);
-                  //  console.log($scope.datasetData)
+                    //  console.log($scope.datasetData)
                     localStorageService.set('IndexNews',$scope.datasetData);
                     $timeout(function(){
                         var className = $(".slideUl");
@@ -40,7 +40,7 @@ stareal
             $api.get("app/main/ad/retrieve",{})
                 .then(function (ret) {
                     $scope.advs = ret.data; //首页轮播
-                 //   console.log($scope.advs);
+                    //   console.log($scope.advs);
                     localStorageService.set('IndexAdvs',$scope.advs);
                     //修改比例29/50
                     angular.element('#carousel-demo').height($document.width()/2.08);
@@ -56,49 +56,49 @@ stareal
             location.href = "#/main/bindregister/"+encodeURIComponent(rs);
             return false;
         }
-        // if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
+        if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
             $scope.AdvsBanners();
-        // } else{
-        //     $scope.advs=localStorageService.get('IndexAdvs');
-        //     angular.element('#carousel-demo').height($document.width()/2.08);
-        // }
-        // if(localStorageService.get('IndexNews')==undefined||localStorageService.get('IndexNews')==null){
+        } else{
+            $scope.advs=localStorageService.get('IndexAdvs');
+            angular.element('#carousel-demo').height($document.width()/2.08);
+        }
+        if(localStorageService.get('IndexNews')==undefined||localStorageService.get('IndexNews')==null){
             $scope.newslisfun();
-        // }else{
-        //     $scope.datasetData=localStorageService.get('IndexNews');
-        //     $timeout(function(){
-        //         var className = $(".slideUl");
-        //         var i = 0,sh;
-        //         var liLength = className.children("li").length;
-        //         var liHeight = className.children("li").height() + parseInt(className.children("li").css('border-bottom-width'));
-        //         var html = className.html() + className.html()
-        //         var $html = $compile(html)($scope);
-        //         className.append($html);
-        //         sh = setInterval(slide,4000);
-        //         function slide(){
-        //             if (parseInt(className.css("margin-top")) > (-liLength *  liHeight)) {
-        //                 i++;
-        //                 className.animate({
-        //                     marginTop : -liHeight * i + "px"
-        //                 },"slow");
-        //             } else {
-        //                 i = 0;
-        //                 className.css("margin-top","0px");
-        //             }
-        //         }
-        //     },0)
-        // }
+        }else{
+            $scope.datasetData=localStorageService.get('IndexNews');
+            $timeout(function(){
+                var className = $(".slideUl");
+                var i = 0,sh;
+                var liLength = className.children("li").length;
+                var liHeight = className.children("li").height() + parseInt(className.children("li").css('border-bottom-width'));
+                var html = className.html() + className.html()
+                var $html = $compile(html)($scope);
+                className.append($html);
+                sh = setInterval(slide,4000);
+                function slide(){
+                    if (parseInt(className.css("margin-top")) > (-liLength *  liHeight)) {
+                        i++;
+                        className.animate({
+                            marginTop : -liHeight * i + "px"
+                        },"slow");
+                    } else {
+                        i = 0;
+                        className.css("margin-top","0px");
+                    }
+                }
+            },0)
+        }
 
         //列表
-      $scope.getLatestGood=function(){
-          $api.get("app/main/latest/good",{
-              page_num: 1,
-              page_size: 10})
-              .then(function (ret) {
-                  $scope.latest = ret.data  //列表
-                  localStorageService.set('IndexLat', $scope.latest);
-              })
-      }
+        $scope.getLatestGood=function(){
+            $api.get("app/main/latest/good",{
+                page_num: 1,
+                page_size: 10})
+                .then(function (ret) {
+                    $scope.latest = ret.data  //列表
+                    localStorageService.set('IndexLat', $scope.latest);
+                })
+        }
         $scope.getLatestGood();
         // if(localStorageService.get('IndexLat')==undefined||localStorageService.get('IndexLat')==null){
         //     $scope.getLatestGood();
@@ -154,36 +154,36 @@ stareal
         //       // $(".Repertoire-wrapper").css('transform','translate3d(0px, 0px, 0px)');
         //    },500)
         //点击跳转
-       /* var _wrapper = document.getElementById("swiper-wrapper");
-        _wrapper.addEventListener("click",function (e) {
-            switch (e.target.id){
-                case "activity-item-1":
-                    $scope.$apply(function () {
-                                $alert.show("活动暂未开启")
-                            })
-                    break;
-                case "activity-item-2":
-                    window.location.href='#/main/privilege'
-                    break;
-                case "activity-item-3":
-                    window.location.href='#/my/share'
-                    break;
-            }
-        },false)*/
+        /* var _wrapper = document.getElementById("swiper-wrapper");
+         _wrapper.addEventListener("click",function (e) {
+             switch (e.target.id){
+                 case "activity-item-1":
+                     $scope.$apply(function () {
+                                 $alert.show("活动暂未开启")
+                             })
+                     break;
+                 case "activity-item-2":
+                     window.location.href='#/main/privilege'
+                     break;
+                 case "activity-item-3":
+                     window.location.href='#/my/share'
+                     break;
+             }
+         },false)*/
 
-       //微信分享http://192.168.1.4:9090/oauth/getSignature  window.location.href.split('#')[0]
+        //微信分享http://192.168.1.4:9090/oauth/getSignature  window.location.href.split('#')[0]
         $api.get("app/share/getSignature",{url: 'http://www.fjzscb1997.com/?'})
             .then(function (ret) {
 
                 if (ret) {
                     console.log(ret);
-                   var data=ret.data;
-                    console.log('-------------------------------');
-                    console.log(data);
-                    console.log(data.appid);
-                    console.log(data.timestamp);
-                    console.log(data.nonceStr);
-                    console.log(data.signature);
+                    var data=ret.data;
+                    // console.log('-------------------------------');
+                    // console.log(data);
+                    // console.log(data.appid);
+                    // console.log(data.timestamp);
+                    // console.log(data.nonceStr);
+                    // console.log(data.signature);
 
                     wx.config({
                         debug: false,
@@ -213,7 +213,7 @@ stareal
                             },
                             cancel: function () {
                                 // 用户取消分享后执行的回调函数
-                               // alert('你好....');
+                                // alert('你好....');
                             }
                         });
                         //分享给朋友
@@ -226,7 +226,7 @@ stareal
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
 // 用户确认分享后执行的回调函数
-                               // alert('你好....');
+                                // alert('你好....');
                             },
                             cancel: function () {
 // 用户取消分享后执行的回调函数

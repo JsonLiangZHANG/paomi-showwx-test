@@ -16,11 +16,11 @@
         <div class="good_con">
             <div class="good-box clear">
                 <div class="thumb fl">
-                    <img ng-src="{{good.thumb}}" alt="">
+                    <img ng-src="{{localGood.thumb}}" alt="">
                 </div>
                 <div class="info fl">
                     <div class="title">
-                        <p class="hd2" ng-bind="good.title"></p>
+                        <p class="hd2" ng-bind="localGood.title"></p>
                     </div>
                     <div class="good_type">
                         <div class="price clear">
@@ -34,13 +34,13 @@
                             <p ng-if="!star" class="fr">暂无评分</p>
                         </div>
                         <!--<div class="sold_num">已售出{{good.sold}}张</div>-->
-                </div>
+                    </div>
                 </div>
             </div>
             <div class="message">
-                <div class="time"><i></i><span>{{good.date}}</span></div>
-                <div class="addres1"><i></i><span>{{good.site_title}}</span></div>
-                <div class="addres2" ng-bind="good.address"></div>
+                <div class="time"><i></i><span>{{localGood.date}}</span></div>
+                <div class="addres1"><i></i><span>{{localGood.site_title}}</span></div>
+                <div class="addres2" ng-bind="localGood.address"></div>
             </div>
         </div>
     </div>
@@ -62,17 +62,17 @@
     <div class="intro">
         <h4>演出简介</h4>
         <div class="intro_info">
-            <p ng-bind="good.introduction" ng-if="good.introduction.length>1"></p>
-            <p style="text-align:center" ng-if="good.introduction.length==1">暂无简介</p>
+            <p ng-bind="localGood.introduction" ng-if="localGood.introduction.length>1"></p>
+            <p style="text-align:center" ng-if="localGood.introduction.length==1">暂无简介</p>
         </div>
-        <div class="more" ng-if="good.introduction.length>1" ui-sref="main.gooddetail({id:current})">查看全部</div>
+        <div class="more" ng-if="localGood.introduction.length>1" ui-sref="main.gooddetail({id:current})">查看全部</div>
     </div>
     <!--演出简介结束-->
     <!--购票须知开始-->
     <div class="intro">
         <h4>购票须知</h4>
         <div class="intro_info">
-            <p ng-bind="good.notice"></p>
+            <p ng-bind="localGood.notice"></p>
         </div>
     </div>
     <!--购票须知结束-->
@@ -109,10 +109,10 @@
                                 <p ng-bind="review.content"></p>
                             </div>
                             <div style="background: #F9F9F9;margin-top: 0.16rem;padding: 0.16rem;border-radius: 0.1066rem" ng-hide="review.replies.length==0">
-                            <div class="from_con" ng-repeat="replie in review.replies">
-                                <!--<p ng-if="replie.from_name"><span class="color999" ng-bind="replie.from_name+'：'"></span><span ng-bind="replie.content">购票须知不是有吗？是连坐的。</span></p>-->
-                                <p><span class="color999" ng-bind="replie.to_name!=''?replie.from_name:replie.from_name">bowen</span><span ng-hide="replie.to_name">：</span><i style="font-style:normal" ng-if="replie.to_name">回复</i><span class="color999" ng-if="replie.to_name" ng-bind="replie.to_name+'：'">天道</span><span ng-bind="replie.content">这样啊 刚过没看到额</span></p>
-                            </div>
+                                <div class="from_con" ng-repeat="replie in review.replies">
+                                    <!--<p ng-if="replie.from_name"><span class="color999" ng-bind="replie.from_name+'：'"></span><span ng-bind="replie.content">购票须知不是有吗？是连坐的。</span></p>-->
+                                    <p><span class="color999" ng-bind="replie.to_name!=''?replie.from_name:replie.from_name">bowen</span><span ng-hide="replie.to_name">：</span><i style="font-style:normal" ng-if="replie.to_name">回复</i><span class="color999" ng-if="replie.to_name" ng-bind="replie.to_name+'：'">天道</span><span ng-bind="replie.content">这样啊 刚过没看到额</span></p>
+                                </div>
                             </div>
                             <div class="itme_img_box clear" ng-if="review.attach">
                                 <div class="itme_img" ng-repeat="atta in review.attach.split(',').slice(0,5)" img-view img-arr="review.attach" ng-style="{width:'{{review.attach.split(',').length==1?'2.6666rem':''}}',height:'{{review.attach.split(',').length==1?'2.6666rem':''}}'}">
@@ -182,7 +182,7 @@
 
 
     <!--立即购票弹窗开始-->
-       <!--时间开始-->
+    <!--时间开始-->
     <div class="tic" >
         <div class="alertBox"  ng-show="good.good_type==0">
             <div class="time">
@@ -223,39 +223,39 @@
                         </li>
                     </ul>
                 </div>
-           </div>
-    <!--座位信息结束-->
-    <!--商品数量开始-->
-                <div class="good_num clear">
-                    <div class="shuliang fl">
-                        <h4>数量</h4>
-                    </div>
-                    <div class="quantity fl clear">
-                        <div class="sub {{num>1?'active':''}} fl" ng-click="subNum()"></div>
-                        <div class="num fl"><input type="text" ng-model="num" disabled></div>
-                        <div class="add {{num==max?'active':''}} fl" ng-click="addNum()"></div>
-                    </div>
-                    <div class="totalPrice fr">
-                        <span style="color:#B0272B;font-size:0.4rem;line-height: 0.7rem">合计：￥{{totalPrice}}</span>
-                    </div>
+            </div>
+            <!--座位信息结束-->
+            <!--商品数量开始-->
+            <div class="good_num clear">
+                <div class="shuliang fl">
+                    <h4>数量</h4>
                 </div>
-                <div style="height:1.4rem"></div>
-                <div class="cloes" ng-click="ticClose()"></div>
-                <!--商品数量结束-->
-                <!--立即支付开始-->
-                <div class="total_box shop_box clear">
-                    <!--<div class="total_price fl">-->
-                        <!--<p><span ng-bind="total | currency:'¥'">¥5880.00</span><span>({{num}}张)</span></p>-->
-                    <!--</div>-->
-                    <div class="total_btn " ng-click="createOrder(gf)">
-                        确认订单
-                    </div>
-           </div>
+                <div class="quantity fl clear">
+                    <div class="sub {{num>1?'active':''}} fl" ng-click="subNum()"></div>
+                    <div class="num fl"><input type="text" ng-model="num" disabled></div>
+                    <div class="add {{num==max?'active':''}} fl" ng-click="addNum()"></div>
+                </div>
+                <div class="totalPrice fr">
+                    <span style="color:#B0272B;font-size:0.4rem;line-height: 0.7rem">合计：￥{{totalPrice}}</span>
+                </div>
+            </div>
+            <div style="height:1.4rem"></div>
+            <div class="cloes" ng-click="ticClose()"></div>
+            <!--商品数量结束-->
+            <!--立即支付开始-->
+            <div class="total_box shop_box clear">
+                <!--<div class="total_price fl">-->
+                <!--<p><span ng-bind="total | currency:'¥'">¥5880.00</span><span>({{num}}张)</span></p>-->
+                <!--</div>-->
+                <div class="total_btn " ng-click="createOrder(gf)">
+                    确认订单
+                </div>
+            </div>
             <div class="cloes" ng-click="ticClose()"></div>
         </div>
     </div>
 
-        <!--//关闭-->
+    <!--//关闭-->
 
 
     <!--立即支付结束-->
@@ -282,7 +282,7 @@
         </div>
     </div>
     <!--到货提醒弹窗结束-->
-       <!--<div class="cloes" ng-click="close()">X</div>-->
+    <!--<div class="cloes" ng-click="close()">X</div>-->
 
 
 
@@ -296,7 +296,7 @@
                             <!--选择场次开始-->
                             <div class="time clear" >
                                 <!--<div class="book_row_title fl">-->
-                                    <!--选择时间：-->
+                                <!--选择时间：-->
                                 <!--</div>-->
                                 <div class="book_row_table fl">
                                     <div id="calendar"></div>
@@ -351,10 +351,10 @@
                     <div class="xuanClose" ng-click="Xuanclose()">&times;</div>
                 </div>
 
-               </div>
-             </div>
+            </div>
         </div>
-  </div>
+    </div>
+</div>
 </div>
 
 

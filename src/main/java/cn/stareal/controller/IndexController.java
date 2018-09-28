@@ -12,7 +12,7 @@ import com.jfinal.ext.route.ControllerBind;
             public void index() {
                 this.setAttr("accessToken", getSessionAttr("accessToken"));
                 this.setAttr("openid",getSessionAttr("openid"));
-                //  this.setAttr("unionid",getSessionAttr("unionid"));
+                this.setAttr("unionid",getSessionAttr("unionid"));
                 this.setAttr("rs",getSessionAttr("rs"));
                 this.setAttr("isbind",getSessionAttr("isbind"));
                 this.removeSessionAttr("rs");

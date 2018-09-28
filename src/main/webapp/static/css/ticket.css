@@ -67,7 +67,7 @@
 .fare .fare_list ul li.disabled{
     background: #F9F9F9;
     line-height:0.5rem;
-    border:none;
+    /*border:none;*/
 }
 .fare .fare_list ul li.disabled p:first-child{
     margin-top:0.08rem;

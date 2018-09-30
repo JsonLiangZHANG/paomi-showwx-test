@@ -29,10 +29,10 @@ stareal
                     $scope.good.state = '已取消'
                 }
             }
-            // if($scope.payType==0){
-            //     $alert.show('暂不支持微信付款，请在手机浏览器打开！');
-            //     return;
-            // }
+            if($scope.payType==0){
+                $alert.show('暂不支持微信付款，请在手机浏览器打开！');
+                return;
+            }
             //校验通过
             var h = document.body.scrollHeight;
             $(".mask_pay").css({"height":h,"display":"block"}

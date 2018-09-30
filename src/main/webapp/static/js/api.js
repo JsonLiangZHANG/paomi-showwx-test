@@ -93,7 +93,7 @@ stareal.config(function ($httpProvider, localStorageServiceProvider) {
 
         $api.get(this.url, this.params, this.needToken)
             .then(function (ret) {
-                console.log(ret)
+               // console.log(ret)
                 var items = ret.data;
                 for (var i = 0; i < items.length; i++) {
                     this.items.push(items[i]);

@@ -73,6 +73,7 @@ stareal
                     })
                 }
                 $scope.$watch('time.month',function(newValue){//这个是得监控月份才能获取天数
+                    $scope.dayNow = [];//天数
                     maxDay = newValue?new Date(yearNow,newValue,0).getDate():'';
                     for(var i=1;i<maxDay+1;i++){
                         $scope.dayNow.push({

@@ -45,6 +45,9 @@ stareal
 
                 })
         }
+        $scope.callphone=function(){
+            window.location.href = "tel:0591-87539833";
+        }
         // $api.post("app/member/checkin/getCheckTips",{},true)
         //     .then(function (ret) {
         //         $scope.daybeily = ret.data;

@@ -50,12 +50,12 @@ stareal
         var token=localStorageService.get('token');
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
-        // if(isbind!=1&&openID!=''){
-        //     localStorageService.set('cleartoken',token);
-        //     localStorageService.set('token','');
-        //     location.href = "#/main/bindregister/"+encodeURIComponent(rs);
-        //     return false;
-        // }
+        if(isbind!=1&&openID!=''){
+            localStorageService.set('cleartoken',token);
+            localStorageService.set('token','');
+            location.href = "#/main/bindregister/"+encodeURIComponent(rs);
+            return false;
+        }
         if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
             $scope.AdvsBanners();
         } else{
@@ -174,17 +174,9 @@ stareal
         //微信分享http://192.168.1.4:9090/oauth/getSignature  window.location.href.split('#')[0]
         $api.get("app/share/getSignature",{url: 'http://www.fjzscb1997.com/?'})
             .then(function (ret) {
-
                 if (ret) {
                     console.log(ret);
                     var data=ret.data;
-                    // console.log('-------------------------------');
-                    // console.log(data);
-                    // console.log(data.appid);
-                    // console.log(data.timestamp);
-                    // console.log(data.nonceStr);
-                    // console.log(data.signature);
-
                     wx.config({
                         debug: false,
                         appId: data.appid,
@@ -264,19 +256,19 @@ stareal
                 }
             })
 
-        // if (!localStorageService.get('token')) {
-        //     // $state.go("main.login",{})
-        //     // return false;
-        //     var ua = window.navigator.userAgent.toLowerCase();
-        //     if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-        //         // 正式地址
-        //         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-        //             "appid=wxae855abb1d0c1ba3&" +
-        //             "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
-        //             "&response_type=code&scope=snsapi_userinfo&state=";
-        //     }
-        //     return false;
-        // }
+        if (!localStorageService.get('token')) {
+            // $state.go("main.login",{})
+            // return false;
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                // 正式地址
+                location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    "appid=wxae855abb1d0c1ba3&" +
+                    "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                    "&response_type=code&scope=snsapi_userinfo&state=";
+            }
+            return false;
+        }
         if(rs){
             localStorageService.remove('rs');
             //  console.log(rs);

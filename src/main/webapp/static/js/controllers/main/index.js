@@ -50,11 +50,14 @@ stareal
         var token=localStorageService.get('token');
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
-        if(isbind!=1&&openID!=''){
-            localStorageService.set('cleartoken',token);
-            localStorageService.set('token','');
-            location.href = "#/main/bindregister/"+encodeURIComponent(rs);
-            return false;
+        var ua = window.navigator.userAgent.toLowerCase();
+        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+            if (isbind != 1 && openID != '') {
+                localStorageService.set('cleartoken', token);
+                localStorageService.set('token', '');
+                location.href = "#/main/bindregister/" + encodeURIComponent(rs);
+                return false;
+            }
         }
         if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
             $scope.AdvsBanners();

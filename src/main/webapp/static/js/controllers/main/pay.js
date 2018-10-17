@@ -238,10 +238,10 @@ stareal
                 _params.liveMobile = $scope.live_mobile;
                 _params.deliverType = 2;
             }
-            if($scope.payType==0){
-                $alert.show('暂不支持微信付款，请在手机浏览器打开！');
-                return;
-            }
+            // if($scope.payType==0){
+            //     $alert.show('暂不支持微信付款，请在手机浏览器打开！');
+            //     return;
+            // }
             //校验通过
             var h = $(window).height();
             $(".mask_pay").css({"height":h,"display":"block"}

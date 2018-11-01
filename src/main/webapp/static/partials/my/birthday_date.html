@@ -1,0 +1,26 @@
+<div class="edit_address" ng-controller="AccountSettingsController">
+    <!--标题开始-->
+    <div class="head pd_tb14">
+        <a class="back" go-back></a>
+        <span class="headline f18" style="padding-left: 1.33rem">修改生日</span>
+        <span class="f18 fr" style="margin-right: 0.32rem" ng-click="confirm()">保存</span>
+    </div>
+    <!--标题结束-->
+    <!--编辑地址开始-->
+    <div class="edit_list pd_rl12">
+        <ul>
+            <li class="pd_rl16">
+                <span class="f14">选择出生年:</span>
+                <select ng-model="time.year" data-ng-options="t.id as t.name for t in yearNows"></select>年
+            </li>
+            <li class="pd_rl16">
+                <span class="f14">选择出生月:</span>
+                <select ng-model="time.month" data-ng-options="t.id as t.name for t in monthNow"></select>月
+            </li>
+            <li class="pd_rl16">
+                <span class="f14">选择出生日:</span>
+                <select ng-model="time.day"  data-ng-options="t.id as t.name for t in dayNow"></select>日
+            </li>
+        </ul>
+    </div>
+</div> 

@@ -19,7 +19,7 @@
     <!--banner开始-->
     <div id="carousel-demo" class="carousel-demo">
         <ul rn-carousel rn-carousel-index="cindex" rn-carousel-auto-slide rn-carousel-pause-on-hover rn-carousel-buffered rn-carousel-controls-allow-loop>
-            <li ng-repeat="slide in advs" >
+            <li ng-repeat="slide in advs"  ng-click="goToLink(slide.id,slide.type_id,slide.outer_link)">
                 <div ng-style="{'background-image': 'url(' + slide.thumb + ')'}"  class="bgimage">
                     <!--添加按钮-->
                     <!--<div class="carousel_dailog" ></div>-->

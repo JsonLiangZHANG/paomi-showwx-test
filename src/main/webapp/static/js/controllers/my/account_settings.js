@@ -12,11 +12,6 @@ stareal
                 }else{
                         $scope.birthday = '未设置'
                 }
-
-                // var ua = window.navigator.userAgent.toLowerCase();
-                // if (ua.match(/MicroMessenger/i) == 'micromessenger' || typeof WeixinJSBridge != "undefined") {
-                //     $scope.show = true;
-                // }
                 $scope.thumb = {};
                 $scope.thumb.imgSrc = ret.data.headimgurl;
                 $scope.headimgurl = ret.data.headimgurl;
@@ -119,10 +114,11 @@ stareal
         })
         //设置生日
         $scope.setBirthday = function () {
-            var h = $(window).height();
-            $(".birthday_mask").height(h);
-            $(".birthday_mask").css({"display":"block"})
-            $(".birthday_box").css({"display":"block"})
+            // var h = $(window).height();
+            // $(".birthday_mask").height(h);
+            // $(".birthday_mask").css({"display":"block"})
+            // $(".birthday_box").css({"display":"block"})
+            $state.go("my.birthday_date", {});
         }
         $scope.confirm = function () {
             var year = $scope.time.year.toString();
@@ -134,10 +130,11 @@ stareal
                 birthday:birthday,
             }, true).then(function(ret){
                 $alert.show('修改成功!');
-                $(".birthday_mask").css({"display":"none"})
+                $state.go("my.account_settings", {});
             },function(err){
                 $alert.show(err);
-                $(".birthday_mask").css({"display":"none"})
+                $state.go("my.account_settings", {});
+                // $(".birthday_mask").css({"display":"none"})
             })
 
         }

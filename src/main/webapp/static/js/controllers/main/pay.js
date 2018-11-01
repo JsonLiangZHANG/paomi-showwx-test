@@ -27,7 +27,25 @@ stareal
         $scope.deliver_price = "0.0元";
         $scope.total_price = "0.0元";
         $scope.beily_price = '0.0元';
-
+        $scope.get_ticket_type= localStorageService.get("get_ticket_type");
+        if($scope.get_ticket_type!=null&&$scope.get_ticket_type!=undefined&&$scope.get_ticket_type!='') {
+            var getTicketType = $scope.get_ticket_type;
+            $scope.param.deliverType = getTicketType[0];
+            for (var i = 0; i < getTicketType.length; i++) {
+                if (getTicketType[i] == 1) {
+                    $scope.getTicketType0 = true;
+                }
+                if (getTicketType[i] == 2) {
+                    $scope.getTicketType1 = true;
+                }
+                if (getTicketType[i] == 3) {
+                    $scope.getTicketType2 = true;
+                }
+            }
+        }else{
+            $scope.getTicketType0 = true;
+            $scope.getTicketType1 = true;
+        }
         $scope.GetCard =function(){
             $api.get("app/card/retrieve", {}, true)
                 .then(function (ret) {
@@ -86,15 +104,23 @@ stareal
                     }
                 });
         }
-
-
         // 切换取票方式
         $scope.cd = function (deliverType) {
-            if(deliverType==2){
-                $alert.show('该演出暂不支持现场取票!');
-                return false;
+            if(!$scope.getTicketType0){
+                if(deliverType==1){
+                    $alert.show('该演出暂不支持快递配送!');
+                    return false;
+                }
+                $scope.param.deliverType = deliverType;
+            } else if(!$scope.getTicketType1){
+                if(deliverType==2){
+                    $alert.show('该演出暂不支持现场取票!');
+                    return false;
+                }
+                $scope.param.deliverType = deliverType;
+            }else{
+                $scope.param.deliverType = deliverType;
             }
-            $scope.param.deliverType = deliverType;
         };
         /**
          *  返显优惠券
@@ -150,18 +176,18 @@ stareal
 
             $api.get("app/order/index/calculate", _params, true)
                 .then(function (ret) {
-                    $scope.deliver_price = ret.data.express_value; //快递费
-                    $scope.total_price = ret.data.actually_paid;//总价
                     $scope.beily_price = ret.data.belly_value / 100//贝里值
                     $scope.copon_price = ret.data.coupon_value;//优惠值
-                    if ($scope.total_price == 0) {
-                        $scope.showpay = false;
-                    } else {
-                        $scope.showpay = true;
-                    }
-                    if($scope.deliver_price==1001){
+                    if(ret.data.express_value==1001){
+                        $scope.deliver_price=0;
+                        $scope.deliver_priceType=1001;
+                        $scope.total_price =  $scope.total;//总价
                         $alert.show('超出配送范围内，请重新选择地址!');
                         //  return;
+                    }else{
+                        $scope.deliver_priceType =1;
+                        $scope.total_price = ret.data.actually_paid;//总价
+                        $scope.deliver_price = ret.data.express_value; //快递费
                     }
                 });
         };
@@ -192,25 +218,25 @@ stareal
         //支付前校验信息
         var _params = {ticketId: $scope.ticketId, ticketNum: $scope.num,good_id:$scope.order_id};
         $scope.verify = function () {
-            console.log(798);
+           // console.log(798);
             $scope.selectPaypeopleIArrd=[]// 购票人id
             var data=$scope.cards;
             var length=data.length;
-            console.log(data);
+            //console.log(data);
             for(var i=0;i<length;i++ ) {
                 if(data[i].selectStatus) {
                     $scope.selectPaypeopleIArrd.push(data[i].id);
                 }
             }
-            console.log($scope.selectPaypeopleIArrd);
-            console.log($scope.num)
+            // console.log($scope.selectPaypeopleIArrd);
+            // console.log($scope.num)
             if($scope.selectPaypeopleIArrd.length!=$scope.num){
                 $alert.show('该演出一张票对应一个实名证件号');
                 return;
             }
             _params.card_id=$scope.selectPaypeopleIArrd.join(',');
             // 校验
-            if($scope.deliver_price==1001){
+            if( $scope.deliver_priceType==1001){
                 $alert.show('超出配送范围内，请重新选择地址!');
                 return false;
             }

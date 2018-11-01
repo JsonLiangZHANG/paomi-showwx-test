@@ -93,12 +93,10 @@ public class OAuthController extends BaseController {
         if (code == null || code.equals("")) {
             throw LoginException.WX_CODE_NULL_ERROR;
         }
-
         JSONObject json = OauthWxweb.me().getUserInfoByCode(code);
         if (null == json) {
             throw LoginException.WX_GET_CODE_ERROR;
         }
-
         String openid = json.getString("openid");
         String nickname = json.getString("nickname");
         String sex = json.getString("sex");

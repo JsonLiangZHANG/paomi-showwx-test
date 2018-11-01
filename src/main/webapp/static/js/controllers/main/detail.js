@@ -13,6 +13,7 @@ stareal
                     localStorageService.set("goodDetail"+$stateParams.good_id, good);
                     localStorageService.set('mygoodDEtail'+$stateParams.good_id,good);
                     good.detail = $sce.trustAsHtml(base64.decode(good.detail));
+                    good.notice=$sce.trustAsHtml(good.notice);
                     $scope.good = good;
                     $scope.localGood=good;
                     $scope.title = $scope.good.title;
@@ -72,99 +73,11 @@ stareal
             var good=localStorageService.get('mygoodDEtail'+$stateParams.good_id);
             good.detail = $sce.trustAsHtml(base64.decode(good.detail));
             $scope.localGood = good;
-            // $scope.title = $scope.good.title;
-            // $scope.site_title = $scope.good.site_title;
-            // $scope.thumb = $scope.good.thumb;
-            // $scope.seat = good.seat_thumb;  //座位图
-            // $scope.favor = $scope.good.favor;//收藏\
-            // $scope.star = $scope.good.star;
-            // $scope.goodType=$scope.good.good_type;
-            // $scope.is_coupon = $scope.good.is_coupon;//是否可以使用优惠券
-            // if ($scope.star) {
-            //     $scope.star = good.star.split('.')
-            // }
-            // if (good.state == '售票中') {
-            //     $scope.shop_bg = '';
-            //     $scope.gbn = '立即购票';
-            //     $scope.isdisabled = true;
-            //     $scope.gf = 1;
-            // }
-            // if (good.state == '预售中') {
-            //     $scope.shop_bg = 'disable';
-            //     $scope.gbn = '即将开票';
-            //     $scope.gf = 2;
-            // }
-            // if (good.state == '扫尾票') {
-            //     $scope.shop_bg = '';
-            //     $scope.gbn = '立即购票';
-            //     $scope.gf = 1;
-            // }
-            // if (good.state == '即将开票') {
-            //     $scope.good.sold = 0;
-            //     if (good.appRegistered == 1) {
-            //         $scope.gbn = '即将开票';
-            //         $scope.shop_bg = 'disable';
-            //         return false;
-            //     }
-            //     $scope.shop_bg = 'disable';
-            //     $scope.gbn = '即将开票';
-            //     $scope.gf = 2;
-            // }
-            // if (good.state == '已售罄') {
-            //     $scope.shop_bg = 'disable';
-            //     $scope.gbn = good.state;
-            //     $scope.gf = 0;
-            // }
-
-            // if (good.state == '演出结束') {
-            //     $scope.shop_bg = 'disable';
-            //     $scope.gbn = good.state;
-            //     $scope.gf = 0;
-            // }
             $scope.getGoodDetail();
         }else{
             $scope.getGoodDetail();
         }
-        //巡演开始
-        /* $api.get("app/detail/good/tour", {id: $stateParams.good_id}, true)
-             .then(function (ret) {
-                 if (ret.data.length > 0) {
-                     $scope.tours = ret.data;
-                     $timeout(function () {
-                         var swiper = new Swiper('.swiper-container', {
-                             slidesPerView: 'auto',
-                             spaceBetween: 0,
-                             observer: true//修改swiper自己或子元素时，自动初始化swiper
-                         })
-                         var winW = document.documentElement.clientWidth; //可视区宽度
-                         var $slide = angular.element(".swiper-container").find(".swiper-slide")
-                         var $sildeActive = angular.element(".swiper-container").find(".swiper-slide.active")
-                         var _index = $sildeActive.index()//当前索引
-                         var oNav = document.getElementById("swiper-wrapper");
-                         var _length = $slide.length;//长度
-                         var w1 = 0;//itme总长度
-                         var tourTop = parseInt($(".tour").css('padding-left')) + parseInt($(".tour").css('padding-right'))
-                         $slide.each(function () {
-                             w1 += $(this).outerWidth(true)
-                         })
-                         var maxLeft = w1 - winW + tourTop
-                         var w2 = $sildeActive.offset().left - ($sildeActive.width()) * 3
-                         if (_index <= 3) {
-                             oNav.style.transform = "translate3d(0px, 0px, 0px)";
-                             return false;
-                         }
-                         if (_index > 3 && _index < _length - 1 - 3) {
-                             //改变位置
-                             oNav.style.transform = "translate3d(-" + w2 + "px, 0px, 0px)";
-                         }
-                         if (_index >= _length - 1 - 3) {
-                             oNav.style.transform = "translate3d(-" + maxLeft + "px, 0px, 0px)";
-                             return false;
-                         }
-                     }, 0)
-                 }
-             })
-         */
+
         //当前加active
         $scope.isActive = function (s) {
             return $scope.current == s
@@ -662,6 +575,7 @@ stareal
                             // console.log($scope.eventShowId);
                             localStorageService.set('good_title',$scope.title);
                             localStorageService.set('good_titlemax',$scope.max);
+                            localStorageService.set("get_ticket_type",$scope.good.get_ticket_type);
                             $state.go("main.seat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
 
                         }
@@ -797,6 +711,7 @@ stareal
                         localStorageService.set('ticketId',_po.id);
                         localStorageService.set('total',$scope.total);
                         localStorageService.set('num',$scope.num);
+                        localStorageService.set("get_ticket_type",$scope.good.get_ticket_type);
                         $state.go('main.pay',{order_id:$stateParams.good_id})
                     }
                     if($scope.gf == 2) {

@@ -843,6 +843,15 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                 'static/css/my.css'
             ])
         })
+        .state('my.birthday_date',{
+            url: '/birthday_date',
+            templateUrl: 'static/partials/my/birthday_date.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/my/account_settings.js',
+                'static/css/public.css',
+                'static/css/my.css'
+            ])
+        })
         .state('my.collect', {
             url: '/collect',
             templateUrl: 'static/partials/my/collect.html',

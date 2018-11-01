@@ -91,7 +91,19 @@ stareal
                 }
             },0)
         }
+        $scope.goToLink=function(id,type_id,link){  //0外链 9周边  4新闻资讯 7演出
+            console.log(type_id);
+            if(type_id==0){
+                window.open(link,'_blank');
+            }else  if(type_id==9){
+                $state.go('main.productdetail',{good_id:id},true);
+            }else if(type_id==7){
+                $state.go('main.detail',{good_id:id},true);
+            }else if(type_id==4){
+                $state.go('main.newdetail',{newId:id},true);
+            }
 
+        }
         //列表
         $scope.getLatestGood=function(){
             $api.get("app/main/latest/good",{

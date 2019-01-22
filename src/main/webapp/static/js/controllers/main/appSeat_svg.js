@@ -1,13 +1,14 @@
 'use strict';
 
 stareal
-    .controller("SeatController", function ($rootScope,$scope,$http,$compile,$interval,$stateParams,$location,$anchorScroll,$api, $sce, base64, $state, $alert,$timeout, localStorageService,FileUploader) {
+    .controller("AppSeatController", function ($rootScope,$scope,$http,$compile,$interval,$stateParams,$location,$anchorScroll,$api, $sce, base64, $state, $alert,$timeout, localStorageService,FileUploader) {
         $scope.currentId = $stateParams.good_id;
         $scope.currentEventId = $stateParams.event_id;
+        $scope.token=$stateParams.accessToken;
         $scope.date=localStorageService.get('date') ;
         $scope.timeId=localStorageService.get('timeId') ;
         $scope.goodTitle=localStorageService.get('good_title');
-        $scope.max=localStorageService.get('good_titlemax');
+        $scope.max=$stateParams.max;
         $scope.timeIndex= localStorageService.get('timeIndex');
         $scope._po=localStorageService.get('_po');
         $scope.seatsShow=true;
@@ -35,7 +36,7 @@ stareal
                     $scope.mapId=$scope.good.site_id;
                     //  console.log($scope.mapId);
                     $scope.seat = good.seat_thumb; //座位图
-                    $scope.gettickets();
+                    $scope.getSetionImg();
                     // //生成分享的二维码
                     // $('#weixin_corder').qrcode({
                     //     text:  $scope.share
@@ -107,8 +108,8 @@ stareal
 
                 });
         }
-        $scope.GetGood();
-
+       $scope.GetGood();
+       // $scope.gettickets();
         //获取场次
         $scope.gettickets=function(){
             $api.get("app/detail/ticket/retrieve", {id: $stateParams.good_id})
@@ -145,6 +146,7 @@ stareal
                 $scope.getSetionImg();
             }
         }
+
         //获取背景图
         $scope.getSetionImg=function() {
             timer1 = $interval(updateTime,1000);
@@ -157,7 +159,7 @@ stareal
                     $alert.show('系统繁忙,数据加载失败!');
                 }
             }
-            $api.get("app/map/ticket_v2/map", {mapid: $scope.mapId}, true)
+            $api.get("app/map/ticket_v2/map", {mapid: $scope.mapId,accessToken:$scope.token}, true)
                 .then(function (ret) {
                     //console.log(ret);
                     var data=ret.map;
@@ -172,7 +174,7 @@ stareal
         }
         //获取svg 区域
         $scope.getSetion=function(){
-            $api.get("app/map/ticket_v2/sections",{mapid:$scope.mapId},true)
+            $api.get("app/map/ticket_v2/sections",{mapid:$scope.mapId,accessToken:$scope.token},true)
                 .then(function (ret) {
                     $scope.setionSvgs=ret.section;
                     $scope.getSvgPrices();
@@ -180,7 +182,7 @@ stareal
         }
         //价格区域
         $scope.getSvgPrices=function(){
-            $api.get("app/map/ticket_v2/price", {mapid:$scope.mapId},true)
+            $api.get("app/map/ticket_v2/price", {mapid:$scope.mapId,accessToken:$scope.token},true)
                 .then(function (ret) {
                     $scope.priceSvgs=ret.price;
                 });
@@ -190,7 +192,7 @@ stareal
 
         $scope.getSvgSeats=function(areaID){
             $scope.moveToch(areaID);
-            $api.get("app/map/ticket_v2/seat", {mapid: $scope.mapId,areaid:areaID,eventid: $scope.currentEventId},true)
+            $api.get("app/map/ticket_v2/seat", {mapid: $scope.mapId,areaid:areaID,eventid: $scope.currentEventId,accessToken:$scope.token},true)
                 .then(function (ret) {
                     var data=ret.seat;
                     $interval.cancel(timer);
@@ -455,6 +457,7 @@ stareal
         }
 
         //勾选座位
+        localStorageService.set("myslectSeats",[]);
         if(localStorageService.get("myslectSeats")){
             $scope.slectSeats=localStorageService.get("myslectSeats");
             $scope.total = 0;
@@ -470,20 +473,24 @@ stareal
             if (status == '待售') {
                 if ($('#seats_' + id).attr('class') == 'seatselected') {
                     $('#seats_' + id).attr('class', '');
-                    $scope.total = 0;
+                    // $scope.total = 0;
                     var data=$scope.slectSeats;
                     for(var i=0;i<data.length;i++){
                         if (data[i].id == id) {
+                            console.log(data[i]);
+                           // alert()
                             $scope.slectSeats.splice(i, 1)
                         }
                     }
-                    for(var i=0;i<data.length;i++){
-                        if (data[i].id != id) {
-                            $scope.total += data[i].price;
-                        }
-                    }
-
+                    console.log(id+','+section_name+','+section_area+','+section_names+','+row+','+columns+','+price_seat_id+','+price+','+section_id+','+','+'del');
+                    // for(var i=0;i<data.length;i++){
+                    //     if (data[i].id != id) {
+                    //         $scope.total += data[i].price;
+                    //     }
+                    // }
+                    //
                     localStorageService.set("myslectSeats",$scope.slectSeats);
+                    alert(id+','+section_name+','+section_area+','+section_names+','+row+','+columns+','+price_seat_id+','+price+','+section_id+','+'del');
                 } else {
                     if ($scope.slectSeats.length <$scope.max) {
                         $('#seats_' + id).attr('class', 'seatselected');
@@ -500,10 +507,12 @@ stareal
                         obj.section_id=section_id;
                         $scope.slectSeats.push(obj);
                         $scope.total = 0;
-                        $.each($scope.slectSeats, function (index, data) {
-                            $scope.total += data.price;
-                        })
+                        // $.each($scope.slectSeats, function (index, data) {
+                        //     $scope.total += data.price;
+                        // })
                         localStorageService.set("myslectSeats",$scope.slectSeats);
+                        console.log(id+','+section_name+','+section_area+','+section_names+','+row+','+columns+','+price_seat_id+','+price+','+section_id+','+'add');
+                        alert(id+','+section_name+','+section_area+','+section_names+','+row+','+columns+','+price_seat_id+','+price+','+section_id+','+'add');
                     } else {
                         $alert.show("该演出一次只能购买"+$scope.max+"张！");
                     }
@@ -512,10 +521,27 @@ stareal
                 $alert.show("该座位已被抢,看看其他的吧！");
             }
         }
-        $scope.deletseats=function(event,id){
-            var e=event;
-            e.stopPropagation();
+        $scope.deletseats=function(id){
+            // var e=event;
+            // e.stopPropagation();
             $scope.total=0;
+            var data=$scope.slectSeats;
+            $('#seats_'+id).attr('class','');
+            for(var i=0;i<data.length;i++){
+                if (data[i].id == id) {
+                    $scope.slectSeats.splice(i, 1)
+                }
+            }
+            for(var i=0;i<data.length;i++){
+                if (data[i].id != id) {
+                    $scope.total += data[i].price;
+                }
+            }
+            localStorageService.set("myslectSeats",$scope.slectSeats);
+        }
+
+      var  delSeats=function(id){
+            alert(id);
             var data=$scope.slectSeats;
             $('#seats_'+id).attr('class','');
             for(var i=0;i<data.length;i++){

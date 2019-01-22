@@ -156,7 +156,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             ])
         })
         //衍生品购物车--确认订单
-        .state('main.productpay', {
+        .state('main.productpay',{
             url: '/productpay',
             templateUrl: 'static/partials/main/productPay.html',
             resolve: loadLazyjs([
@@ -291,6 +291,18 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             templateUrl: 'static/partials/main/svg_seat.html',
             resolve: loadLazyjs([
                 'static/js/controllers/main/svg_seat.js',
+                'static/js/controllers/public/public.js',
+                'static/css/public.css',
+                'static/css/detail.css',
+                'static/css/seat.css'
+            ])
+        })
+        // app在线选座
+        .state('main.appSvgSeat', {
+            url: '/appSvgSeat/:event_id/:good_id/:accessToken/:max',
+            templateUrl: 'static/partials/main/appSeat_svg.html',
+            resolve: loadLazyjs([
+                'static/js/controllers/main/appSeat_svg.js',
                 'static/js/controllers/public/public.js',
                 'static/css/public.css',
                 'static/css/detail.css',

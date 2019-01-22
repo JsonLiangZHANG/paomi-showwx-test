@@ -232,3 +232,34 @@ a{
     fill: #ddd;
 }
 
+#seatsLoading{
+    display: none;
+    position: fixed;
+    width:220px;
+    height:38px;
+    top: 50%;
+    left: 50%;
+    margin-top: -19px;
+    margin-left: -110px;
+    z-index: 99999;
+}
+#seatsLoading img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+
+.m-scree-title .icon_arrow{
+    float:right;
+    width:0.4rem ;
+    height: 0.22rem;
+    background: url("../img/down_icon.png")no-repeat center center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+    margin-top: 0.39rem;
+}
+.m-scree-title.m-scree-on .icon_arrow{
+    background: url("../img/up_icon.png")no-repeat center center;
+    -webkit-background-size: 100% 100%;
+    background-size: 100% 100%;
+}

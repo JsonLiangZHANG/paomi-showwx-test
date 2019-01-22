@@ -72,6 +72,7 @@ stareal
         if(localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=undefined&&localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=null&&localStorageService.get('mygoodDEtail'+$stateParams.good_id)!=''){
             var good=localStorageService.get('mygoodDEtail'+$stateParams.good_id);
             good.detail = $sce.trustAsHtml(base64.decode(good.detail));
+            good.notice=$sce.trustAsHtml(good.notice);
             $scope.localGood = good;
             $scope.getGoodDetail();
         }else{
@@ -576,8 +577,8 @@ stareal
                             localStorageService.set('good_title',$scope.title);
                             localStorageService.set('good_titlemax',$scope.max);
                             localStorageService.set("get_ticket_type",$scope.good.get_ticket_type);
-                            $state.go("main.seat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
-
+                          //  $state.go("main.seat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
+                            $state.go("main.svgseat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
                         }
 
                     }

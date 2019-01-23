@@ -5,7 +5,16 @@ stareal
         $scope.orderId = $stateParams.id;
         $api.get("app/order/detail/retrieve",{orderId:$scope.orderId},true)
             .then(function (ret) {
-                $scope.good = ret.data;
+                var data=ret.data;
+                if(data.type==2) {
+                    var seatsList = JSON.parse(data.seats);
+                    var seatsListarr = [];
+                    for (var i in seatsList) {
+                        seatsListarr.push(seatsList[i]); //属性
+                    }
+                    data.seats = seatsListarr;
+                }
+                $scope.good = data;
                 console.log($scope.good)
                 $scope.param = {};
                 $scope.param.deliverType = $scope.good.deliver_type_code;//1快递2现场3上门

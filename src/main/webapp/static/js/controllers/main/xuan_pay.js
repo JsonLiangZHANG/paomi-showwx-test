@@ -26,7 +26,7 @@ stareal
         $scope.total = 0//总价
         $.each($scope.seatsListArray,function(index,data){
             console.log(data);
-            $scope.total+=parseInt(data.price);
+            $scope.total+=parseFloat(data.price).toFixed(2);
         })
         $scope.num = $scope.seatscart.length;//数量
         $scope.is_coupon = localStorageService.get('is_coupon')

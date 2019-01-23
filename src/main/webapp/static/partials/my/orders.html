@@ -36,7 +36,13 @@
                 <div class="orders_row_info fl" ui-sref="my.order({id:{{order.order_id}}})">
                     <div class="good_info clear">
                         <div class="title hd2 fl" ng-bind="order.title"></div>
-                        <div class="price fr">
+                        <div class="price fr" ng-if="order.type==2">
+                            <p>在线选座</p>
+                            <p ng-bind="order.total | currency:'¥'"></p>
+                            <p ng-bind="order.num+'张'"></p>
+                        </div>
+                        <div class="price fr" ng-if="order.type==1">
+                            <p>随机连座</p>
                             <p ng-bind="order.total | currency:'¥'"></p>
                             <p ng-bind="order.num+'张'"></p>
                         </div>

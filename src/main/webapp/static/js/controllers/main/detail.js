@@ -271,9 +271,10 @@ stareal
         if(localStorageService.get('goodDetailcom')==undefined||localStorageService.get('goodDetailcom')==null){
             $scope.GetCooments();
         }else{
-            var data= localStorageService.get('goodDetailcom');
-            $scope.totalRe =data.total_row;
-            $scope.reviews = data.data;
+            $scope.GetCooments();
+            // var data= localStorageService.get('goodDetailcom');
+            // $scope.totalRe =data.total_row;
+            // $scope.reviews = data.data;
 
         }
 

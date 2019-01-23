@@ -38,6 +38,14 @@
         </div>
     </div>
     <!--订单详情结束-->
+    <div class="ticket_delivery pd_rl12 pd_tb12 clear" ng-if="good.type==2">
+        <h3 class="f14">在线选座</h3>
+        <p ng-repeat="seat in good.seats">{{seat.section_names}}{{seat.section_area}}区-{{seat.row}}排-{{seat.columns}}号&nbsp;&nbsp;¥{{seat.price}}</p>
+    </div>
+    <div class="ticket_delivery pd_rl12 pd_tb12 clear" ng-if="good.type==1">
+        <h4 class="f14">随机连座</h4>
+
+    </div>
     <!--取票标题开始-->
     <div class="ticket_delivery pd_rl12 pd_tb12 clear" ng-if="param.deliverType!=3">
         <i class="express" ng-if="param.deliverType==1"></i>

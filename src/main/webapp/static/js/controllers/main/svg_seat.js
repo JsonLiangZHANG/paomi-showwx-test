@@ -459,9 +459,8 @@ stareal
             $scope.slectSeats=localStorageService.get("myslectSeats");
             $scope.total = 0;
             $.each($scope.slectSeats, function (index, data) {
-                ($scope.total +=parseFloat(data.price)).toFixed(2);
+                $scope.total += data.price;
             })
-            $scope.total=$scope.total.toFixed(2);
         }else{
             $scope.slectSeats=[];
             $scope.total = 0;
@@ -480,10 +479,10 @@ stareal
                     }
                     for(var i=0;i<data.length;i++){
                         if (data[i].id != id) {
-                            ($scope.total += parseFloat(data[i].price)).toFixed(2);
+                            $scope.total += data[i].price;
                         }
                     }
-                    $scope.total=$scope.total.toFixed(2);
+
                     localStorageService.set("myslectSeats",$scope.slectSeats);
                 } else {
                     if ($scope.slectSeats.length <$scope.max) {
@@ -502,9 +501,8 @@ stareal
                         $scope.slectSeats.push(obj);
                         $scope.total = 0;
                         $.each($scope.slectSeats, function (index, data) {
-                            ($scope.total += parseFloat(data.price)).toFixed(2);
+                            $scope.total += data.price;
                         })
-                        $scope.total=$scope.total.toFixed(2);
                         localStorageService.set("myslectSeats",$scope.slectSeats);
                     } else {
                         $alert.show("该演出一次只能购买"+$scope.max+"张！");
@@ -527,10 +525,9 @@ stareal
             }
             for(var i=0;i<data.length;i++){
                 if (data[i].id != id) {
-                    ($scope.total += parseFloat(data[i].price)).toFixed(2);
+                    $scope.total += data[i].price;
                 }
             }
-            $scope.total=$scope.total.toFixed(2);
             localStorageService.set("myslectSeats",$scope.slectSeats);
         }
         $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {

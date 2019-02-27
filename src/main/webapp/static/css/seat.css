@@ -221,10 +221,6 @@ a{
     right: -0.4rem;
 }
 /*新svg*/
-#svg{
-    width: 320px;
-    margin: 0 auto;
-}
 #seats circle.seatselected{
     stroke:red;
 }

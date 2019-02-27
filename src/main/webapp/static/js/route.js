@@ -290,7 +290,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
             url: '/svgseat/:event_id/:good_id',
             templateUrl: 'static/partials/main/svg_seat.html',
             resolve: loadLazyjs([
-                'static/js/controllers/main/svg_seat.js',
+                'static/js/controllers/main/svg_newSeat.js',
                 'static/js/controllers/public/public.js',
                 'static/css/public.css',
                 'static/css/detail.css',

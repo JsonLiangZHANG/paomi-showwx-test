@@ -15,7 +15,7 @@ stareal
         $scope.laydate=15000;
         $("#seatsLoading").show();
         var timer1=null;
-        var height=($(window).height()-parseInt(document.documentElement.style.fontSize)*4.0)+'px';
+        var height=$(window).height()+'px';
         $("#inverted-contain").height(height);
         $("#svg").attr('width',$(window).width());
         $("#svg").attr('height',height);

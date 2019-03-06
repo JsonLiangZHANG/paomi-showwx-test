@@ -39,18 +39,18 @@
             </div>
             <div style="border:0;overflow: hidden;width:100%;margin-left:auto;margin-right:auto;position: relative;background:#fff;" id="inverted-contain">
                 <svg id="svg"  style="cursor: default; display: block; overflow: hidden; position: relative;" version="1.1" xmlns="http://www.w3.org/2000/svg">
-                    <g id="all" class="transform" transform="matrix(0.32,0,0,0.32,0,0)" style="backface-visibility: hidden; transform-origin: 0px 0px 0px; cursor: move;">
+                    <g id="all" class="transform"  style="backface-visibility: hidden; transform-origin: 0px 0px 0px; cursor: move;">
                         <image id="bg" x="0" y="0" xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="{{setionSvgsImg.background | trustUrl }}"></image>
                         <g class="map" id="map">
-                            <path  id="{{venusDetailsvgItem.section_name}}"  ng-attr-fill="{{venusDetailsvgItem.fillcolor}}"  ng-attr-d="{{venusDetailsvgItem.section_path}}" ng-repeat="venusDetailsvgItem in setionSvgs" data-id="{{venusDetailsvgItem.id}}" />
+                            <path  id="{{venusDetailsvgItem.section_name}}" class="d{{venusDetailsvgItem.id}}" ng-attr-fill="{{venusDetailsvgItem.fillcolor}}"  ng-attr-d="{{venusDetailsvgItem.section_path}}" ng-repeat="venusDetailsvgItem in setionSvgs" data-id="{{venusDetailsvgItem.id}}" />
                         </g>
                         <g class="seats" id="seats">
-                            <circle ng-repeat="venusDetailsvgItem in seatSvgs" on-finish  ng-attr-cx="{{venusDetailsvgItem.cx}}" ng-attr-cy="{{venusDetailsvgItem.cy}}" r="5.0"  id="seats_{{venusDetailsvgItem.id}}"  ng-attr-fill="{{venusDetailsvgItem.fillcolor}}" seatrow="{{venusDetailsvgItem.row}}" seatcol="{{venusDetailsvgItem.columns}}" section_name="{{venusDetailsvgItem.section_name}}"  price="{{venusDetailsvgItem.price}}" status="{{venusDetailsvgItem.status}}" size="{{venusDetailsvgItem.size}}" ng-attr-transform="{{venusDetailsvgItem.transform}}" price_seat_id="{{venusDetailsvgItem.price_seat_id}}"
-                                    ng-click="selectSeats(venusDetailsvgItem.section_id,venusDetailsvgItem.status,venusDetailsvgItem.price_seat_id,venusDetailsvgItem.id,$event,venusDetailsvgItem.section_name,venusDetailsvgItem.section_area,venusDetailsvgItem.section_names,venusDetailsvgItem.row,venusDetailsvgItem.columns,venusDetailsvgItem.price)" ng-class="{'true':'active','false':''}[venusDetailsvgItem.status=='已售']"></circle>
+                            <circle ng-repeat="venusDetailsvgItem in seatSvgs" on-finish  ng-attr-cx="{{venusDetailsvgItem.cx}}" ng-attr-cy="{{venusDetailsvgItem.cy}}" r="4"  id="seats_{{venusDetailsvgItem.id}}"  ng-attr-fill="{{venusDetailsvgItem.fillcolor}}" seatrow="{{venusDetailsvgItem.row}}" seatcol="{{venusDetailsvgItem.columns}}" section_name="{{venusDetailsvgItem.section_name}}"  price="{{venusDetailsvgItem.value}}" status="{{venusDetailsvgItem.status}}" size="{{venusDetailsvgItem.size}}" ng-attr-transform="{{venusDetailsvgItem.transform}}" price_seat_id="{{venusDetailsvgItem.price_seat_id}}"
+                                    ng-click="selectSeats(venusDetailsvgItem.section_id,venusDetailsvgItem.status,venusDetailsvgItem.price_seat_id,venusDetailsvgItem.id,$event,venusDetailsvgItem.section_name,venusDetailsvgItem.section_area,venusDetailsvgItem.section_names,venusDetailsvgItem.row,venusDetailsvgItem.columns,venusDetailsvgItem.value)" ng-class="{'true':'active','false':''}[venusDetailsvgItem.status=='已售']"></circle>
 
                         </g>
                         <g class="price" id="price">
-                            <path  id="{{venusDetailsvgItem.section_id}}" class="d{{venusDetailsvgItem.section_id}}" on-finish  area="{{venusDetailsvgItem.section_id}}" ng-attr-fill="{{venusDetailsvgItem.fillcolor}}"  ng-attr-d="{{venusDetailsvgItem.price_path}}" ng-repeat="venusDetailsvgItem in priceSvgs" data-id="{{venusDetailsvgItem.id}}" ng-click="getSvgSeats(venusDetailsvgItem.section_id)"/>
+                            <path  id="{{venusDetailsvgItem.section_id}}"  on-finish  area="{{venusDetailsvgItem.section_id}}" ng-attr-fill="{{venusDetailsvgItem.fillcolor}}"  ng-attr-d="{{venusDetailsvgItem.price_path}}" ng-repeat="venusDetailsvgItem in priceSvgs" data-id="{{venusDetailsvgItem.id}}" ng-click="getSvgSeats(venusDetailsvgItem.section_id)"/>
 
                         </g>
                     </g>

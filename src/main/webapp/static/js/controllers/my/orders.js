@@ -69,10 +69,10 @@ stareal
                     $window.location.reload();
                 }
             }
-            if($scope.payType==0){
-                $alert.show('暂不支持微信付款，请在手机浏览器打开！');
-                return;
-            }
+            // if($scope.payType==0){
+            //     $alert.show('暂不支持微信付款，请在手机浏览器打开！');
+            //     return;
+            // }
             var h = $(window).height();
             $(".mask_pay").css({"height":h,"display":"block"}
             );

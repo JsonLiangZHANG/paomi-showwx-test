@@ -59,7 +59,7 @@
                 <div class="Btn_time fl" ng-show="order.new_state=='待付款'" style="height:0.72rem;line-height:0.72rem;"><p change-state1 order-state="order.new_state" create-time="order.create_timestamp" ></p></div>
                 <div class="btns">
                     <a href="" ng-if="order.new_state=='待付款'"  ng-click="alertmodel('{{order.order_id+'cen'}}')">取消订单</a>
-                    <a href="" ng-if="order.new_state=='待付款'" ng-click="verify(order.order_id,order.create_timestamp)">立即支付</a>
+                    <a href="" ng-if="order.new_state=='待付款'" ui-sref="my.order({id:{{order.order_id}}})">立即支付</a>
                     <a href="" ng-if="order.new_state=='已取消'"  ng-click="alertmodel('{{order.order_id+'del'}}')">删除订单</a>
                     <a href="" ng-if="(order.new_state=='已完成'||order.new_state=='待收货')&&(order.deliver_type!=2)" ui-sref="my.logistics_information({order_id:{{order.order_id}}})">查看物流</a>
                     <a href="" ng-if="order.new_state=='待收货'" ng-click="donelOrder(order.order_id,order)">确认收货</a>

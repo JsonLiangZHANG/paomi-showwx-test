@@ -915,8 +915,8 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
                     if (ua.match(/MicroMessenger/i) == 'micromessenger') {//判断是否是微信浏览器
                         // 正式地址
                         location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                            "appid=wxae855abb1d0c1ba3&" +
-                            "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                            "appid=wxc2377a19f91b4c20&" +
+                            "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
                             "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
                     } else {
                         location.href = "#/main/login/"+encodeURIComponent(rs);

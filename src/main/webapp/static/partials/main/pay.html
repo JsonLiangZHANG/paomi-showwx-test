@@ -41,7 +41,7 @@
         <div class="payOrderCustomer_list">
            <span ng-repeat="card in cards" class="payOrderCustomer_card" ng-class="{'true':'active','false':''}[card.selectStatus]" ng-click="selctChange(card.id,card.selectStatus)" ng-bind="card.name_new">
            </span>
-            <p style="color:#B0272B;">*请添加购票人信息</p>
+            <p style="color:#FC0F4A;">*请添加购票人信息</p>
         </div>
         <div class="selcet_payOrderCustomer_list" >
           <div  class="selcet_payOrderCustomer_listicon" ng-repeat="card in cards" ng-show="card.selectStatus">

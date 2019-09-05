@@ -65,7 +65,7 @@
     display:inline-block;
     width:1.3333rem;
     height:1.3333rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius:50%;
 }
 .productpay .address{
@@ -86,7 +86,7 @@
 .productpay .product_btn .sale{
     font-size:0.34rem;
     color:#fff;
-    background:#B0272B;
+    background:#FC0F4A;
     /*background-size: 100% 100%;*/
     padding:0.3rem 0.42rem;
     border-radius: 0.2rem;
@@ -131,7 +131,7 @@
 }
 .productorders_listPrice{
     font-size: 0.4rem;
-    color: #B0272B;
+    color: #FC0F4A;
     line-height: 0.6rem;
 }
 .productorders_listCount{

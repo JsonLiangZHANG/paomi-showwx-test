@@ -79,13 +79,13 @@
 .myorder .orders-tab ul li.active a{
     position:relative;
     padding-bottom: 0.2rem;
-    border-bottom: 3px solid #B0272B;
+    border-bottom: 3px solid #FC0F4A;
 }
 /*.myorder .orders-tab ul li:after{*/
     /*content:'';*/
     /*width:0rem;*/
     /*height:0rem;*/
-    /*background:#B0272B;*/
+    /*background:#FC0F4A;*/
     /*border: none!important;*/
     /*border-radius:0.21333rem;*/
     /*position:absolute;*/
@@ -97,7 +97,7 @@
     /*content:'';*/
     /*width:0.42666rem;*/
     /*height:0.10666rem;*/
-    /*background:#B0272B;*/
+    /*background:#FC0F4A;*/
     /*border-radius:0.21333rem;*/
     /*position:absolute;*/
     /*left:50%;*/
@@ -105,7 +105,7 @@
     /*transform:translateX(-50%);*/
 /*}*/
 .myorder .orders-tab ul li.active a{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .myorder .orders_row_list .itme-order{
     background:#fff;
@@ -123,7 +123,7 @@
     padding-bottom:0.26rem;
 }
 .myorder .orders_row_list .state p:last-child{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .myorder .orders_row_list .orders_row_con .orders_row_info{
     width:7.4rem;
@@ -154,8 +154,8 @@
 }
 .myorder .orders_row_list .orders_row_btns > .btns a:last-child{
     margin-left:0.28rem;
-    color:#B0272B;
-    border:1px solid #B0272B;
+    color:#FC0F4A;
+    border:1px solid #FC0F4A;
 }
 /**************************************************************************************************************************/
 /*订单详情*/
@@ -165,7 +165,7 @@
     border-bottom:1px solid #E5E5E5;
 }
 .order .state p:last-child{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .order .orders_itme .orders_row_info{
     width:7.4rem;
@@ -440,7 +440,7 @@
     font-size: 0.45rem;
     padding-left: 0.2133rem;
     font-weight: bold;
-    color: #B0272B;
+    color: #FC0F4A;
 }
 
 .beli_sign .sign button {
@@ -819,7 +819,7 @@
     margin-top: 0.1333rem;
 }
 .express_status > ul li:first-child a{
-    background: #B0272B;
+    background: #FC0F4A;
 }
 .express_status > ul li p{
     padding-left: 0.453rem;
@@ -1001,7 +1001,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -1009,7 +1009,7 @@
     transform:translateX(-50%);
 }
 .precious .precious-tab ul li.active a{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 /*夺宝列表*/
 .precious .precious-list > ul .flag .flag-item{
@@ -1044,7 +1044,7 @@
     left:0;
     top:0;
     width:20%;
-    background:#B0272B;
+    background:#FC0F4A;
     height:0.106666rem;
     border-top-left-radius:8px;
     border-bottom-left-radius:8px;
@@ -1059,13 +1059,13 @@
     height:0.373333rem;
     line-height:0.373333rem;
     text-align:center;
-    color:#B0272B;
-    border:1px solid #B0272B;
+    color:#FC0F4A;
+    border:1px solid #FC0F4A;
     border-radius:0.8rem;
     transform:translateY(-35%);
 }
 .precious .precious-list > ul .flag .flag-item em{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .precious .precious-list > ul .flag .flag-item .award_xq .flag-type span{
     font-size:12px;
@@ -1351,13 +1351,13 @@
     padding-left:0.32rem;
     /* border-bottom:0.16rem solid #F1F1F1; */
     position:relative;
-    background: #B0272B;
+    background: #FC0F4A;
 }
 .record .beili_top .beili_q,.beili .beili_top .beili_q{
     display:inline-block;
     /* width:0.21333rem;
     height:0.21333rem;
-    border:1px solid #B0272B; */
+    border:1px solid #FC0F4A; */
     border-radius:50%;
     margin-right:0.5333rem;
     margin-top:0.4rem;
@@ -1372,7 +1372,7 @@
 }
 .record .beili_top .beili_remaining span:first-child{
     font-size:30px;
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .beili .beili_top .beili_remaining :last-child,
 .record .beili_top .beili_remaining p:last-child{
@@ -1413,7 +1413,7 @@
     display: inline-block;
     width: 0.48rem;
     height: 0.4rem;
-    background: #B0272B;
+    background: #FC0F4A;
 }
 .beili .beili_top .ranking_btn p i{
     background: url("../img/beili_icon_ranking@2x.png");
@@ -1431,7 +1431,7 @@
     display: inline-block;
     width: 0.3733rem;
     height: 0.3733rem;
-    background:#B0272B;
+    background:#FC0F4A;
     margin-left: 0.18rem;
     margin-top: 0.2rem;
 }
@@ -1462,7 +1462,7 @@
     background:#fff;
 }
 .beili .beili_get_way .beili_list ul li p:first-child span:last-child{
-    color:#B0272B;
+    color:#FC0F4A;
     padding-left:0.53333rem;
 }
 .beili .beili_title{
@@ -1558,7 +1558,7 @@
     height: 3.36rem;
     text-align: center;
     line-height: 3.36rem;
-    color: #B0272B;
+    color: #FC0F4A;
 }
 .coupon .certificate .price.active{
     color: #999999;
@@ -1599,7 +1599,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -1607,7 +1607,7 @@
     transform:translateX(-50%);
 }
 .coupon .treasure-tabs ul li.active a{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 /**********************************************************************************************************/
 /*贝里记录*/
@@ -1626,7 +1626,7 @@
     display:block;
     width:2px;
     height:0.8rem;
-    background:#B0272B;
+    background:#FC0F4A;
     margin-left:0.08rem;
     /*visibility:visible;*/
 }
@@ -1634,7 +1634,7 @@
     display:none;
 }
 .record .record_list .num{
-    color:#B0272B;
+    color:#FC0F4A;
     /*padding-right:1.0666rem;*/
     height:0.8rem;
     line-height:0.8rem;
@@ -1649,7 +1649,7 @@
     display:inline-block;
     width:0.15333rem;
     height:0.153333rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius:50%;
 }
 .record .record_list .beili_info{
@@ -1685,7 +1685,7 @@
     color:#222;
 }
 .rank .rank_top .rank_info .rank_beili{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .rank .rank_list .rank_num{
     width:0.8rem;
@@ -1868,7 +1868,7 @@
     cursor:pointer;
 }
 .account_settings .saveIn{
-    background: #B0272B;
+    background: #FC0F4A;
     color: #fff;
     text-align: center;
     border-radius: 0.16rem;
@@ -1913,7 +1913,7 @@
     border-bottom: 1px solid #e5e5e5;
 }
 .sex_box ul li.active{
-    color: #B0272B;
+    color: #FC0F4A;
 }
 .sex_box ul li i{
     display: inline-block;
@@ -2056,7 +2056,7 @@
 }
 .address_management .add_address{
     text-align: center;
-    color: #B0272B;
+    color: #FC0F4A;
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -2263,7 +2263,7 @@
 .settings_feedback .feedback button{
     width: 100%;
     border: none;
-    background: #B0272B;
+    background: #FC0F4A;
     border-radius: 0.1066rem;
     color: #ffffff;
     margin-top: 0.8rem;
@@ -2455,7 +2455,7 @@
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #B0272B;
+    background: #FC0F4A;
     border-radius: 50%;
     position: absolute;
     right: 0.4533rem;
@@ -2480,13 +2480,13 @@
     color: #999999;
 }
 .message_praise .praise_list ul li .words .name{
-    color: #B0272B;
+    color: #FC0F4A;
 }
 .message_praise .praise_list ul li .words .unread{
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #B0272B;
+    background: #FC0F4A;
     border-radius: 50%;
     float: right;
     margin-top: 0.12rem;
@@ -2513,7 +2513,7 @@
     color: #999999;
 }
 .message_reply .reply_list ul li .words .name{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .message_reply .reply_list ul li .words .content{
     display: inline-block;
@@ -2526,7 +2526,7 @@
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background: #B0272B;
+    background: #FC0F4A;
     border-radius: 50%;
     float: right;
     margin-top: 0.12rem;
@@ -2847,12 +2847,12 @@
     left: -0.53333rem;
     width: 0.16rem;
     height: 0.16rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius: 50%;
 }
 .Share .all .activate{
     padding: 0.4111rem 0.9666rem;
-    background: #B0272B;
+    background: #FC0F4A;
     color: #fff;
     text-align: center;
     border-radius: 0.1666rem;
@@ -2959,7 +2959,7 @@
 .activity .hot_list .more p {
     text-align: center;
     margin: 6% 0;
-    color:#B0272B;
+    color:#FC0F4A;
 }
 
 .activity .attention {
@@ -2992,8 +2992,8 @@
 }
 
 .activity .attention .btnatten .btn {
-    border: 1px solid #B0272B;
-    color: #B0272B;
+    border: 1px solid #FC0F4A;
+    color: #FC0F4A;
     float: right;
     width: 1.44rem;
     height: 0.9066rem;
@@ -3098,8 +3098,8 @@
 .logout{
     text-align:center;
     color: #fff;
-    background: #B0272B;
-    border: 1px solid #B0272B;
+    background: #FC0F4A;
+    border: 1px solid #FC0F4A;
     border-radius: 0.16rem;
 }
 
@@ -3134,5 +3134,5 @@
     position: fixed;
     bottom: 0;
     width: 100%;
-    background: #B0272B;
+    background: #FC0F4A;
 }

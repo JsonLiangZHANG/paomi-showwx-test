@@ -37,7 +37,7 @@
 #list_nav .nav_ul li{
     text-align: center;
     float:left;
-    width:33.3%;
+    width:50%;
     box-sizing: border-box;
     height:100%;
     font-size:0.5rem;
@@ -57,11 +57,11 @@
 
 
 #list_nav .nav_ul li.active{
-    color:#B0272B;
-    border-bottom: 2px solid #B0272B;
+    color:#FC0F4A;
+    border-bottom: 2px solid #FC0F4A;
 }
 .list_style .list_top{
-    background: #B0272B;
+    background: #FC0F4A;
 }
 .list_style .list_top .title{
     display: block;

@@ -4,7 +4,8 @@ stareal
     .controller("DetailController", function ($rootScope,$scope,$http,$compile,$interval,$stateParams,$location,$anchorScroll,$api, $sce, base64, $state, $alert, localStorageService,FileUploader) {
         $scope.current = $stateParams.good_id;
         $scope.user =localStorageService.get("user"); //存储用户信息
-        $scope.sharUrl='http://www.fjzscb1997.com/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
+        $scope.sharUrl='https://m.blackwan.cn/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
+        $scope.gbn = '立即购票';
         $scope.getGoodDetail=function(){
             $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
                 .then(function (ret) {
@@ -23,6 +24,7 @@ stareal
                     $scope.favor = $scope.good.favor;//收藏\
                     $scope.star = $scope.good.star;
                     $scope.goodType=$scope.good.good_type;
+                    localStorageService.set('GoodmapId',$scope.good.site_id);
                     $scope.is_coupon = $scope.good.is_coupon;//是否可以使用优惠券
                     if ($scope.star) {
                         $scope.star = good.star.split('.')
@@ -65,7 +67,11 @@ stareal
                         $scope.gbn = good.state;
                         $scope.gf = 0;
                     }
-
+                   if($scope.plans ==undefined||$scope.plans ==null||$scope.plans ==''||$scope.plans .length==0){
+                       $scope.shop_bg = 'disable';
+                       $scope.gbn = '暂无售票';
+                       $scope.gf = 0;
+                   }
 
                 });
         }
@@ -99,8 +105,8 @@ stareal
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                     // 正式地址
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                        "appid=wxc2377a19f91b4c20&" +
+                        "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
                 } else {
                     location.href = "#/main/login/"+encodeURIComponent(rs);
@@ -172,8 +178,8 @@ stareal
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                     // 正式地址
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                        "appid=wxc2377a19f91b4c20&" +
+                        "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
                 } else {
                     location.href = "#/main/login/"+encodeURIComponent(rs);
@@ -286,8 +292,8 @@ stareal
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                     // 正式地址
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                        "appid=wxc2377a19f91b4c20&" +
+                        "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
                 } else {
                     location.href = "#/main/login/"+encodeURIComponent(rs);
@@ -304,8 +310,8 @@ stareal
                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                     // 正式地址
                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                        "appid=wxae855abb1d0c1ba3&" +
-                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                        "appid=wxc2377a19f91b4c20&" +
+                        "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
                 } else {
                     location.href = "#/main/login/"+encodeURIComponent(rs);
@@ -364,7 +370,7 @@ stareal
         }
         //分享
         //微信分享http://192.168.1.4:9090/oauth/getSignature
-        $api.get("app/share/getSignature", {url: 'http://www.fjzscb1997.com'})
+        $api.get("app/share/getSignature", {url: 'https://m.blackwan.cn'})
             .then(function (ret) {
                 if (ret) {
                     var data = ret.data;
@@ -566,8 +572,8 @@ stareal
                                 if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                                     // 正式地址
                                     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                                        "appid=wxae855abb1d0c1ba3&" +
-                                        "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                                        "appid=wxc2377a19f91b4c20&" +
+                                        "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
                                         "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
                                 } else {
                                     location.href = "#/main/login/"+encodeURIComponent(rs);
@@ -680,8 +686,8 @@ stareal
                         if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                             // 正式地址
                             location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                                "appid=wxae855abb1d0c1ba3&" +
-                                "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                                "appid=wxc2377a19f91b4c20&" +
+                                "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
                                 "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
                         } else {
                             location.href = "#/main/login/"+encodeURIComponent(rs);
@@ -775,6 +781,7 @@ stareal
                 }
                 $scope.createOrder = createOrder;
                 $alert.show(err)
+
             });
         //生成日历
         var eCalendar = function (options, object) {

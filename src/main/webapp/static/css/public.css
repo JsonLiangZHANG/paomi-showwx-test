@@ -47,20 +47,23 @@ body{
 /*全局按钮渐变色*/
 
 .linear{
-    background: -webkit-linear-gradient(left,#B0272B ,#B0272B);
-    background: -o-linear-gradient(right, #B0272B, #B0272B);
-    background: -moz-linear-gradient(right, #B0272B,#B0272B);
-    background: linear-gradient(to right, #B0272B ,#B0272B);
+    background: -webkit-linear-gradient(left,#FC0F4A ,#FC0F4A);
+    background: -o-linear-gradient(right, #FC0F4A, #FC0F4A);
+    background: -moz-linear-gradient(right, #FC0F4A,#FC0F4A);
+    background: linear-gradient(to right, #FC0F4A ,#FC0F4A);
 }
 /*热门推荐-列表公共开始*/
 .hot{
-    /* color:#B0272B; */
+    /* color:#FC0F4A; */
     padding:0 0.32rem;
     padding-top:0.426rem;
     background: #fff;
 }
 .hot > h4{
     font-size:16px;
+    color:#FC0F4A;
+    line-height: 0.5rem;
+    font-weight:700;
 }
 [data-dpr="2"] .hot > h4{
     font-size:32px;
@@ -151,7 +154,7 @@ img[ bn-lazy-src ] {
     padding-top:.16rem;
 }
 .flag .flag-type strong{
-    color:#B0272B;
+    color:#FC0F4A;
     font-size:16px;
     font-weight: normal;
 }
@@ -179,9 +182,9 @@ img[ bn-lazy-src ] {
 .flag .flag-btn {
     position: absolute;
     padding:0.16rem 0.2666rem;
-    border:1px solid #B0272B;
+    border:1px solid #FC0F4A;
     text-align: center;
-    color: #B0272B;
+    color: #FC0F4A;
     font-size: 12px;
     bottom: .4rem;
     right: 0rem;
@@ -543,7 +546,7 @@ img[ bn-lazy-src ] {
     position: absolute;
     left:0;
     top:0.04rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius: 2px;
 }
 .alert_box .alert_con .subscribe_btn,.alert_box .alert_con .subscribe_tips{
@@ -569,10 +572,10 @@ img[ bn-lazy-src ] {
     border-radius: .10666rem;
     float: right;
     color: #fff;
-    background: -webkit-linear-gradient(left, #B0272B ,#B0272B);
-    background: -o-linear-gradient(right,#B0272B, #B0272B);
-    background: -moz-linear-gradient(right, #B0272B, #B0272B);
-    background: linear-gradient(to right,#B0272B ,#B0272B);
+    background: -webkit-linear-gradient(left, #FC0F4A ,#FC0F4A);
+    background: -o-linear-gradient(right,#FC0F4A, #FC0F4A);
+    background: -moz-linear-gradient(right, #FC0F4A, #FC0F4A);
+    background: linear-gradient(to right,#FC0F4A ,#FC0F4A);
 }
 /****************************************************************************************************************************/
 /*底部菜单开始*/
@@ -600,7 +603,7 @@ img[ bn-lazy-src ] {
     display: inline-block;
     width: 0.1066rem;
     height: 0.1066rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius: 50%;
     position: absolute;
     right: 0.8533rem;
@@ -618,7 +621,7 @@ img[ bn-lazy-src ] {
     color:#999;
 }
 .menu_bar ul li p.active{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .menu_bar ul li i.menu-home{
     /* background: url("../img/home_tab_home_n@2x.png") no-repeat center; */
@@ -640,7 +643,7 @@ img[ bn-lazy-src ] {
     /* background: url("../img/home_tab_home_s@2x.png") no-repeat center; */
     background: url("../img/home-in@2x.png") no-repeat center;
     background-size:100%;
-    color:#B0272B;
+    color:#FC0F4A;
 }
 [data-dpr="2"] .menu_bar ul li i.menu-home.active{
     /* background: url("../img/home_tab_home_s@2x.png") no-repeat center; */
@@ -1914,7 +1917,7 @@ button.swiper-pagination-bullet {
     background:#adadad;
 }
 .pubtps .pubtps-box .con-box .tpsbtns a.a2{
-    background:#B0272B;
+    background:#FC0F4A;
     /*background-size: 100% 100%;*/
 }
 .pubtps .pubtps-box .pubtps-close{

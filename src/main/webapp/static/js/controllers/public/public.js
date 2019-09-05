@@ -8,16 +8,16 @@ stareal
             if(statu=='预售中'){
                 $rootScope.defstyle = {
                     "color": "#fff",
-                    "border":"1px solid #B0272B",
-                    "background":"#B0272B"
+                    "border":"1px solid #FC0F4A",
+                    "background":"#FC0F4A"
                 }
                 $rootScope.btn = '即将开票'
             }
             if(statu=='售票中'){
                 $rootScope.defstyle = {
                     "color": "#fff",
-                    "border":"1px solid #B0272B",
-                    "background":"#B0272B"
+                    "border":"1px solid #FC0F4A",
+                    "background":"#FC0F4A"
                 }
                 $rootScope.btn = '售票中'
             }
@@ -208,8 +208,8 @@ stareal
                 //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                 //         // "appid=wxd39f7e740343d507&" +
                 //         // "redirect_uri=http%3A%2F%2Fwww.mydeershow.com%2Foauth%2Findex" +
-                //         "appid=wxae855abb1d0c1ba3&" +
-                //         "redirect_uri=http%3A%2F%2Fm.fjzscb1997.com%2Foauth%2Findex" +
+                //         "appid=wxc2377a19f91b4c20&" +
+                //         "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
                 //         "&response_type=code&scope=snsapi_userinfo&state=" ;
                 //
                 //     // //测试redirect_uri

@@ -15,8 +15,8 @@
     text-align:center;
 }
 .ticket > .time .time_scroll ul li.active{
-    color:#B0272B;
-    border: 1px solid #B0272B;
+    color:#FC0F4A;
+    border: 1px solid #FC0F4A;
 }
 [data-dpr="2"] .ticket > .time .time_scroll ul li{
     font-size:24px;
@@ -158,7 +158,7 @@
     border-radius:50%;
     text-align: center;
     line-height:.5333rem;
-    color:#B0272B;
+    color:#FC0F4A;
     background:url("../img/plus_s.png") no-repeat center;
     background-size:100%;
 }
@@ -189,7 +189,7 @@
     padding-left:2.56rem;
 }
 .total_box .total_price{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .total_box .total_price p span:first-child{
     font-size:16px;
@@ -218,10 +218,10 @@
     border-radius:.10666rem;
     color:#fff;
     font-size:16px;
-    background: -webkit-linear-gradient(left, #B0272B ,#B0272B); /* Safari 5.1 - 6.0 */
-    background: -o-linear-gradient(right,#B0272B, #B0272B); /* Opera 11.1 - 12.0 */
-    background: -moz-linear-gradient(right,#B0272B, #B0272B); /* Firefox 3.6 - 15 */
-    background: linear-gradient(to right, #B0272B ,#B0272B); /* 标准的语法（必须放在最后） */
+    background: -webkit-linear-gradient(left, #FC0F4A ,#FC0F4A); /* Safari 5.1 - 6.0 */
+    background: -o-linear-gradient(right,#FC0F4A, #FC0F4A); /* Opera 11.1 - 12.0 */
+    background: -moz-linear-gradient(right,#FC0F4A, #FC0F4A); /* Firefox 3.6 - 15 */
+    background: linear-gradient(to right, #FC0F4A ,#FC0F4A); /* 标准的语法（必须放在最后） */
 }
 [data-dpr="2"] .total_box .total_btn{
     font-size:32px;
@@ -350,7 +350,7 @@
     display:inline-block;
     width:1.3333rem;
     height:1.3333rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius:50%;
 }
 .pay .address{
@@ -427,7 +427,7 @@
     padding-bottom:0;
 }
 .pay .state p:last-child{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .pay .orders_itme .orders_row_info{
     width:7.4rem;
@@ -508,7 +508,7 @@
     position: absolute;
     left:0;
     top:0.04rem;
-    background: #B0272B;
+    background: #FC0F4A;
     border-radius: 2px;
 }
 .alert_box1 .alert_con .subscribe_btn,.alert_box .alert_con .subscribe_tips{
@@ -534,10 +534,10 @@
     border-radius: .10666rem;
     float: right;
     color: #fff;
-    background: -webkit-linear-gradient(left,#B0272B ,#B0272B);
-    background: -o-linear-gradient(right,#B0272B,#B0272B);
-    background: -moz-linear-gradient(right,#B0272B,#B0272B);
-    background: linear-gradient(to right, #B0272B ,#B0272B);
+    background: -webkit-linear-gradient(left,#FC0F4A ,#FC0F4A);
+    background: -o-linear-gradient(right,#FC0F4A,#FC0F4A);
+    background: -moz-linear-gradient(right,#FC0F4A,#FC0F4A);
+    background: linear-gradient(to right, #FC0F4A ,#FC0F4A);
 }
 
 .fare_type ul li{
@@ -571,7 +571,7 @@
 
 }
 .payOrderCustomer .payOrderCustomer_title span{
-    color:#B0272B;
+    color:#FC0F4A;
     font-size: 0.36rem;
     line-height: 0.8rem;
 }
@@ -585,8 +585,8 @@
     margin: 0.1rem;
 }
 .payOrderCustomer_card.active{
-    border: 1px solid #B0272B;
-    color: #B0272B;
+    border: 1px solid #FC0F4A;
+    color: #FC0F4A;
 }
 .payOrderCustomer_list{
     padding: 0.2rem 0rem;

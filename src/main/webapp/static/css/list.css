@@ -19,7 +19,7 @@
     content:'';
     width:0.42666rem;
     height:0.10666rem;
-    background:#B0272B;
+    background:#FC0F4A;
     border-radius:0.21333rem;
     position:absolute;
     left:50%;
@@ -148,7 +148,7 @@
     margin-left: 0.2666rem;
 }
 .list .Sortsearch span.active{
-    color:#B0272B;
+    color:#FC0F4A;
 }
 .list .Sortsearch .hotter{
     float: left;

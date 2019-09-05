@@ -132,7 +132,7 @@
 }
 .zj_btn{
     width: 30%;
-    background: #B0272B;
+    background: #FC0F4A;
     height: 1.1rem;
     display: inline-block;
     line-height: 1.1rem;
@@ -170,7 +170,7 @@
 
 .zj_total span:nth-child(1){
     font-size:16px;
-    color:#B0272B;
+    color:#FC0F4A;
 }
 a{
     text-decoration: none;
@@ -212,7 +212,7 @@ a{
     display: block;
     width: 0.7rem;
     height: 0.7rem;
-    background: #B0272B;
+    background: #FC0F4A;
     border-radius: 50%;
     line-height: 0.7rem;
     font-size: 0.4rem;

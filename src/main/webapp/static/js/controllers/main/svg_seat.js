@@ -33,7 +33,7 @@ stareal
                     $scope.thumb = $scope.good.thumb;
                     // console.log($scope.good.site_id);
                     $scope.mapId=$scope.good.site_id;
-                    //  console.log($scope.mapId);
+                    //  console.log($scope.mapId)
                     $scope.seat = good.seat_thumb; //座位图
                     $scope.gettickets();
                     // //生成分享的二维码

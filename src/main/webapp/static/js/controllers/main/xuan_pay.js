@@ -13,6 +13,7 @@ stareal
         $scope.seat = localStorageService.get('seat')//座位
         $scope.eventId=localStorageService.get('eventShowId')//场次id
         $scope.ticketId = localStorageService.get('ticketId')//票价id
+        $scope.mapId=localStorageService.get('GoodmapId')//maId
         // $scope.price = localStorageService.get('price');//单价
         // $scope.unit_price = localStorageService.get('unit_price');
         $scope.seatscart=localStorageService.get('seatscart')//选的座位id集合
@@ -24,10 +25,13 @@ stareal
         $scope.order_id = $stateParams.order_id;
         //获取本地存储
         $scope.total = 0//总价
+        var totalPriceData=0
         $.each($scope.seatsListArray,function(index,data){
             console.log(data);
-            $scope.total+=parseFloat(data.price).toFixed(2);
+            totalPriceData=Number(totalPriceData)+Number(data.price);
+
         })
+        $scope.total=totalPriceData.toFixed(2)
         $scope.num = $scope.seatscart.length;//数量
         $scope.is_coupon = localStorageService.get('is_coupon')
         $scope.order_id = $stateParams.order_id;
@@ -164,8 +168,6 @@ stareal
             }
         }, true);
 
-
-        var myreg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
         var ua = window.navigator.userAgent.toLowerCase();
         if (ua.match(/MicroMessenger/i) == 'micromessenger' || typeof WeixinJSBridge != "undefined") {
             $scope.showPay = true;
@@ -173,6 +175,7 @@ stareal
         } else {
             $scope.payType = 4
         }
+        var myreg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
         $scope.live_mobile = localStorageService.get("telphone_no");
         //支付前校验信息
         var seatcart=$scope.seatscart.join(',');
@@ -209,10 +212,10 @@ stareal
                 _params.liveMobile = $scope.live_mobile;
                 _params.deliverType = 2;
             }
-            if($scope.payType==0){
-                $alert.show('暂不支持微信付款，请在手机浏览器打开！');
-                return;
-            }
+            // if($scope.payType==0){
+            //     $alert.show('暂不支持微信付款，请在手机浏览器打开！');
+            //     return;
+            // }
             //校验通过
             var h = document.body.scrollHeight;
             $(".mask_pay").css({"height":h,"display":"block"}
@@ -227,7 +230,9 @@ stareal
         $scope.bubble = function ($event){
             $event.stopPropagation()
         }
-        $scope.pay = function () {
+        $scope.pay = function (type) {
+            _params.mapId=$scope.mapId
+            console.log($scope.mapId)
             // 优惠券
             if ($scope.param.couponId) {
                 _params.couponId = $scope.param.couponId;

@@ -9,7 +9,7 @@ stareal
         $scope.sharUrl='https://m.blackwan.cn/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
         $scope.gbn = '立即购票';
         $scope.searchQuery=$location.search();
-        if($scope.searchQuery.token!=undefined&&$scope.searchQuery.token!=null&&$scope.searchQuery.token!=''){//获取免登录接口 app/login/user/freepass
+        if($scope.searchQuery.token!=undefined&&$scope.searchQuery.token!=null&&$scope.searchQuery.token!=''){ //获取免登录接口 app/login/user/freepass
             localStorageService.set('myseershowToken',$scope.searchQuery.token)
             $api.get("app/login/user/freepass", {token: $scope.searchQuery.token}, true)
                 .then(function (ret) {
@@ -23,6 +23,14 @@ stareal
 
                         });
                 })
+            var ua = window.navigator.userAgent.toLowerCase();
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                // 正式地址
+                location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    "appid=wxc2377a19f91b4c20&" +
+                    "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
+                    "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
+            }
         }
         $scope.getGoodDetail=function(){
             $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)

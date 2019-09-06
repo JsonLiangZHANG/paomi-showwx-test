@@ -36,6 +36,7 @@ stareal
             var ua = window.navigator.userAgent.toLowerCase();
             if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                 // 正式地址
+                var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
                 location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
                     "appid=wxc2377a19f91b4c20&" +
                     "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +

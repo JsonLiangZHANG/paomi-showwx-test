@@ -269,7 +269,7 @@ stareal
                 localStorageService.set('thumb',$scope.thumb);
                 localStorageService.set('seatsList',$scope.slectSeats);
                 //$state.go('main.xuanpay',{order_id:$stateParams.good_id})
-                var href='?#/main/xuanpay?order_id='+$stateParams.good_id
+                 var href='?#/main/xuanpay?order_id='+$stateParams.good_id
                 location.href = href;
             }
             if($scope.gf == 2) {

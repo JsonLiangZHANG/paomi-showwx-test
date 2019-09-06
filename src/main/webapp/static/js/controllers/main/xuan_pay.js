@@ -1,7 +1,7 @@
 'use strict';
 
 stareal
-    .controller("XuanPayController", function ($scope, $stateParams, $api, $state, $alert, localStorageService) {
+    .controller("XuanPayController", function ($scope, $stateParams,$location, $api, $state, $alert, localStorageService) {
         //获取本地存储
         $scope.title = localStorageService.get('title');//演出标题
         $scope.site_title = localStorageService.get('site_title');//演出地址

@@ -268,7 +268,9 @@ stareal
                 localStorageService.set('eventShowId', $scope.currentEventId);
                 localStorageService.set('thumb',$scope.thumb);
                 localStorageService.set('seatsList',$scope.slectSeats);
-                $state.go('main.xuanpay',{order_id:$stateParams.good_id})
+                //$state.go('main.xuanpay',{order_id:$stateParams.good_id})
+                var href='?#/main/xuanpay?order_id='+$stateParams.good_id
+                location.href = href;
             }
             if($scope.gf == 2) {
                 if (!localStorageService.get('token')) {

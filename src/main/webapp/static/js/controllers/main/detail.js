@@ -93,11 +93,8 @@ stareal
                         $scope.gbn = good.state;
                         $scope.gf = 0;
                     }
-                   if($scope.plans ==undefined||$scope.plans ==null||$scope.plans ==''||$scope.plans .length==0){
-                       $scope.shop_bg = 'disable';
-                       $scope.gbn = '暂无售票';
-                       $scope.gf = 0;
-                   }
+                    $scope.getTicket()
+
 
                 });
         }
@@ -484,331 +481,342 @@ stareal
         // $scope.timesList=[];//场次
         $scope.priceList=[];//票价
         $scope.FIRSTdate="";//哪一天有演出
-        $scope.telphone_no = $rootScope.tel
-        $api.get("app/detail/ticket/retrieve", {id: $stateParams.good_id})
-            .then(function (ret) {
-                // console.log(ret)
-                $scope.remark = ret.remark;
-                $scope.plans = ret.data;
-                $scope.paras = {};
-                $scope.max = $scope.plans[0].max_num;
-                $scope.eventId=$scope.plans[0].eventId;
-                //  console.log($scope.plans);
-                // $scope.specialHtml = $sce.trustAsHtml('<iframe id="iframe-projects"  src="http://app.mydeershow.com/index/event/16" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
-                //获取演出时间表
-                $scope.FIRSTdate=$scope.plans[0].name.split("#")[0];
-                for(var i=0;i< $scope.plans.length;i++){
-                    var dayobj=new Object();
-                    var data = $scope.plans[i].name.split("#")[0];
-                    dayobj.id=$scope.plans[i].id;
-                    dayobj.datet=data;
-                    // dayobj.datetime = new Date(data.split("-")[0],data.split("-")[1], data.split("-")[2]);
-                    dayobj.datetime = new Date(data);
-                    dayobj.day=data.split("-")[2];
-                    dayobj.description =$scope.plans[i].name.split("#")[1];
-                    dayobj.eventId=$scope.plans[i].eventId;
-                    // dayobj.times = options[i].times;
-                    $scope.dayList[i]= dayobj;
-                    $scope.plans[i].day=data.split("-")[2];
-                }
-                // console.log($scope.dayList);
-                // console.log( $scope.plans );
-                // 获取第一个可以选择的场次
-                var getAvailablePlanIndex = function () {
-                    return 0;
-                };
-
-                // 获取第一个可以选择的价位
-                var getAvailableCatIndex = function () {
-                    var _index = [null, null];
-                    catsLoop:
-                        for (var _i = 0; _i < $scope.cats.length; _i++) {
-                            var _gory = $scope.cats[_i].children;
-                            for (var _j = 0; _j < _gory.length; _j++) {
-                                if (_gory[_j].status) {
-                                    _index = [_i, _j];
-                                    break catsLoop;
-                                }
-                            }
-                        }
-                    // console.log(_index);
-                    return _index;
-                };
-
-                // 获取第一个可以选择的价格
-                var getAvailablePriceIndex = function () {
-                    var _index = null;
-                    for (var _i = 0; _i < $scope.prices.length; _i++) {
-                        if ($scope.prices[_i].status) {
-                            _index = _i;
-                            break;
-                        }
+        $scope.telphone_no = $rootScope.tel;
+        //获取门票
+        $scope.getTicket=function() {
+            $api.get("app/detail/ticket/retrieve", {id: $stateParams.good_id})
+                .then(function (ret) {
+                    // console.log(ret)
+                    $scope.remark = ret.remark;
+                    $scope.plans = ret.data;
+                    if($scope.plans ==undefined||$scope.plans ==null||$scope.plans ==''||$scope.plans .length==0){
+                        $scope.shop_bg = 'disable';
+                        $scope.gbn = '暂无售票';
+                        $scope.gf = 0;
                     }
-                    return _index;
-                };
+                    $scope.paras = {};
+                    $scope.max = $scope.plans[0].max_num;
+                    $scope.eventId = $scope.plans[0].eventId;
+                    //  console.log($scope.plans);
+                    // $scope.specialHtml = $sce.trustAsHtml('<iframe id="iframe-projects"  src="http://app.mydeershow.com/index/event/16" frameborder="0" width="100%" height="700";style="display: inline;overflow: hidden;"scrolling="no"></iframe>');
+                    //获取演出时间表
+                    $scope.FIRSTdate = $scope.plans[0].name.split("#")[0];
+                    for (var i = 0; i < $scope.plans.length; i++) {
+                        var dayobj = new Object();
+                        var data = $scope.plans[i].name.split("#")[0];
+                        dayobj.id = $scope.plans[i].id;
+                        dayobj.datet = data;
+                        // dayobj.datetime = new Date(data.split("-")[0],data.split("-")[1], data.split("-")[2]);
+                        dayobj.datetime = new Date(data);
+                        dayobj.day = data.split("-")[2];
+                        dayobj.description = $scope.plans[i].name.split("#")[1];
+                        dayobj.eventId = $scope.plans[i].eventId;
+                        // dayobj.times = options[i].times;
+                        $scope.dayList[i] = dayobj;
+                        $scope.plans[i].day = data.split("-")[2];
+                    }
+                    // console.log($scope.dayList);
+                    // console.log( $scope.plans );
+                    // 获取第一个可以选择的场次
+                    var getAvailablePlanIndex = function () {
+                        return 0;
+                    };
 
-                // 更改场次
-                var switchPlan = function (index,eventId) {
-                    if (true) {
-                        $('div.c-event-item[data-event-index="' + index + '"]').addClass('active').siblings().removeClass('active');
-                        localStorageService.set('date',$scope.plans[index].name)  //会报错  做一个判断
-                        localStorageService.set('timeId',$scope.plans[index].id)  //会报错  做一个判断
-                        localStorageService.set('timeIndex',index)  //会报错  做一个判断
-                        var  Check=function() {   //导航切换
-                            if(angular.element('.positioncontent').length>0){
-                                // console.log(angular.element('.positioncontent').length);
-                                var wst = angular.element(window).scrollTop();
-                                if (wst >= angular.element('.positioncontent').offset().top + 20) {
-                                    angular.element("#productDetail_content").fadeIn(500);
-                                } else {
-                                    angular.element('#productDetail_content').fadeOut(500);
+                    // 获取第一个可以选择的价位
+                    var getAvailableCatIndex = function () {
+                        var _index = [null, null];
+                        catsLoop:
+                            for (var _i = 0; _i < $scope.cats.length; _i++) {
+                                var _gory = $scope.cats[_i].children;
+                                for (var _j = 0; _j < _gory.length; _j++) {
+                                    if (_gory[_j].status) {
+                                        _index = [_i, _j];
+                                        break catsLoop;
+                                    }
                                 }
-                            }else{
-                                return;
+                            }
+                        // console.log(_index);
+                        return _index;
+                    };
+
+                    // 获取第一个可以选择的价格
+                    var getAvailablePriceIndex = function () {
+                        var _index = null;
+                        for (var _i = 0; _i < $scope.prices.length; _i++) {
+                            if ($scope.prices[_i].status) {
+                                _index = _i;
+                                break;
                             }
                         }
+                        return _index;
+                    };
 
-                        angular.element(window).on("scroll",Check);
-                        // console.log("---hjjhh----");
-                        // console.log(index);
-                        $scope.paras.planIndex = index;
-                        $scope.cats = $scope.plans[index].children;
-                        $scope.max = $scope.plans[index].max_num;
-                        localStorageService.set('timeIndex',index)  //会报错  做一个判断
-                        localStorageService.set('date',$scope.plans[index].name)  //会报错  做一个判断
-                        localStorageService.set('timeId',$scope.plans[index].id)  //会报错  做一个判断
-                        $scope.time=$scope.plans[index].name.replace(/#/g,"");
-                        // 联动切换价位
-                        var _index = getAvailableCatIndex();
-                        $scope.prices = [];
-                        // console.log($scope.cats);
-                        // console.log(_index);
-                        switchCat(_index[0], _index[1], true);
-                        // $scope.$apply(function(){
-                        //
-                        // });
-                        //http://app.mydeershow.com/index/GetEvent/27?UserId=3f34&AppId=FEQWEe
-                        $scope.selectseats=function(){
-                            $scope.eventShowId=eventId;
-                            if (!localStorageService.get('token')) {
-                                // $state.go("main.login",{})
-                                // return false;
-                                var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
-                                var ua = window.navigator.userAgent.toLowerCase();
-                                if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                                    // 正式地址
-                                    location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                                        "appid=wxc2377a19f91b4c20&" +
-                                        "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
-                                        "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
+                    // 更改场次
+                    var switchPlan = function (index, eventId) {
+                        if (true) {
+                            $('div.c-event-item[data-event-index="' + index + '"]').addClass('active').siblings().removeClass('active');
+                            localStorageService.set('date', $scope.plans[index].name)  //会报错  做一个判断
+                            localStorageService.set('timeId', $scope.plans[index].id)  //会报错  做一个判断
+                            localStorageService.set('timeIndex', index)  //会报错  做一个判断
+                            var Check = function () {   //导航切换
+                                if (angular.element('.positioncontent').length > 0) {
+                                    // console.log(angular.element('.positioncontent').length);
+                                    var wst = angular.element(window).scrollTop();
+                                    if (wst >= angular.element('.positioncontent').offset().top + 20) {
+                                        angular.element("#productDetail_content").fadeIn(500);
+                                    } else {
+                                        angular.element('#productDetail_content').fadeOut(500);
+                                    }
                                 } else {
-                                    location.href = "#/main/login/"+encodeURIComponent(rs);
-                               }
+                                    return;
+                                }
+                            }
+
+                            angular.element(window).on("scroll", Check);
+                            // console.log("---hjjhh----");
+                            // console.log(index);
+                            $scope.paras.planIndex = index;
+                            $scope.cats = $scope.plans[index].children;
+                            $scope.max = $scope.plans[index].max_num;
+                            localStorageService.set('timeIndex', index)  //会报错  做一个判断
+                            localStorageService.set('date', $scope.plans[index].name)  //会报错  做一个判断
+                            localStorageService.set('timeId', $scope.plans[index].id)  //会报错  做一个判断
+                            $scope.time = $scope.plans[index].name.replace(/#/g, "");
+                            // 联动切换价位
+                            var _index = getAvailableCatIndex();
+                            $scope.prices = [];
+                            // console.log($scope.cats);
+                            // console.log(_index);
+                            switchCat(_index[0], _index[1], true);
+                            // $scope.$apply(function(){
+                            //
+                            // });
+                            //http://app.mydeershow.com/index/GetEvent/27?UserId=3f34&AppId=FEQWEe
+                            $scope.selectseats = function () {
+                                $scope.eventShowId = eventId;
+                                if (!localStorageService.get('token')) {
+                                    // $state.go("main.login",{})
+                                    // return false;
+                                    var rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
+                                    var ua = window.navigator.userAgent.toLowerCase();
+                                    if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                                        // 正式地址
+                                        location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                                            "appid=wxc2377a19f91b4c20&" +
+                                            "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
+                                            "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                                    } else {
+                                        location.href = "#/main/login/" + encodeURIComponent(rs);
+                                    }
+                                    return false;
+                                }
+                                // console.log($scope.eventShowId);
+                                localStorageService.set('good_title', $scope.title);
+                                localStorageService.set('good_titlemax', $scope.max);
+                                localStorageService.set("get_ticket_type", $scope.good.get_ticket_type);
+                                //  $state.go("main.seat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
+                                $state.go("main.svgseat", {
+                                    event_id: $scope.eventShowId,
+                                    good_id: $stateParams.good_id
+                                });
+                            }
+
+                        }
+                    };
+                    // 更改价位
+                    var switchCat = function (index1, index2, choosable) {
+                        if (choosable == '') {
+                            // $scope.pop()
+                            $alert.show('该价位票已售罄！');
+                        }
+
+                        if (choosable) {
+                            $scope.paras.catIndex1 = index1;
+                            $scope.paras.catIndex2 = index2;
+                            localStorageService.set('cat', $scope.plans[$scope.paras.planIndex].children[index1].children[index2].name)  //会报错
+                            // 没有可选择的价位
+                            if (index1 == null) {
+                                $scope.prices = [];
+                            } else {
+                                $scope.prices = $scope.plans[$scope.paras.planIndex].children[index1].children[index2].children;
+                            }
+                            //  console.log( $scope.prices );
+                            // 联动切换价格
+                            var _index = getAvailablePriceIndex();
+                            switchPrice(_index, true)
+                        } else {
+                            $scope.price2 = $scope.plans[$scope.paras.planIndex].children[index1].children[index2].name;
+                            $scope.ticketId = $scope.plans[$scope.paras.planIndex].children[index1].children[index2].id;
+                        }
+                    };
+
+                    // 更改价格
+                    var switchPrice = function (index, choosable) {
+
+                        if (choosable) {
+                            $scope.paras.priceIndex = index;
+                        }
+                        var _po = $scope.prices[$scope.paras.priceIndex];
+                        localStorageService.set('_po', _po);
+                        //   console.log(_po);
+                    };
+
+                    // ****************************************  加载计算张数部分  ****************************************
+                    $scope.num = 1;
+
+                    $scope.subNum = function () {
+                        if ($scope.num == 1) {
+                            $scope.defstylenum1 = {
+                                "color": "#ccc"
+                            }
+                            $scope.defstylenum = {
+                                "color": "#000"
+                            }
+                            return;
+                        }
+                        $scope.num = $scope.num - 1;
+                        calTotal();
+                    };
+
+                    $scope.addNum = function () {
+                        if ($scope.num == $scope.max) {
+                            $scope.defstylenum = {
+                                "color": "#ccc"
+                            }
+                            $alert.show("最多只能购买" + $scope.max + "张!")
+                            return;
+                        } else {
+                            $scope.defstylenum = {
+                                "color": "#000"
+                            }
+                            $scope.defstylenum1 = {
+                                "color": "#000"
+                            }
+                        }
+                        $scope.num = $scope.num + 1;
+                        calTotal();
+                    };
+
+                    $scope.$watch("paras", function (newValue) {
+                        // 张数还原到1
+                        $scope.num = 1;
+                        calTotal();
+                    }, true);
+
+                    var calTotal = function () {
+                        var _po = $scope.prices[$scope.paras.priceIndex];
+                        var _price = (_po ? _po.price : 0);
+                        $scope.unit_price = _price;
+                        $scope.total = _price * $scope.num;
+                        $scope.totalPrice = $scope.total;
+                    }
+                    var createOrder = function (gf) {
+                        if (!localStorageService.get('token')) {
+                            // $state.go("main.login",{})
+                            // return false;
+                            var rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
+                            var ua = window.navigator.userAgent.toLowerCase();
+                            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                                // 正式地址
+                                location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                                    "appid=wxc2377a19f91b4c20&" +
+                                    "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
+                                    "&response_type=code&scope=snsapi_userinfo&state=" + encodeURIComponent(rs);
+                            } else {
+                                location.href = "#/main/login/" + encodeURIComponent(rs);
+                            }
+                            return false;
+                        }
+                        if ($scope.paras.priceIndex == null) {
+                            $alert.show("请选择座位!")
+                        }
+
+                        var _po = $scope.prices[$scope.paras.priceIndex];
+                        if (_po == undefined || _po == null) {
+                            $alert.show("请选择座位!");
+                            return;
+                        }
+                        var _sku = _po.num;
+                        if (_sku < $scope.num) {
+                            $alert.show("库存不足!")
+                            return false
+                        }
+                        if (gf == 1) {
+                            localStorageService.set('max', $scope.max)
+                            localStorageService.set('unit_price', $scope.unit_price);
+                            localStorageService.set('title', $scope.title);
+                            localStorageService.set('site_title', $scope.site_title);
+                            localStorageService.set('thumb', $scope.thumb);
+                            localStorageService.set('seat', _po.name);
+                            localStorageService.set('price', _po.price);
+                            localStorageService.set('ticketId', _po.id);
+                            localStorageService.set('total', $scope.total);
+                            localStorageService.set('num', $scope.num);
+                            localStorageService.set("get_ticket_type", $scope.good.get_ticket_type);
+                            //$state.go('main.pay',{order_id:$stateParams.good_id})
+                            var href = '?#/main/pay?order_id=' + $stateParams.good_id
+                            location.href = href;
+                        }
+                        if ($scope.gf == 2) {
+                            if (!localStorageService.get('token')) {
+                                var rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
+                                location.href = "#/main/login/" + encodeURIComponent(rs);
                                 return false;
                             }
-                            // console.log($scope.eventShowId);
-                            localStorageService.set('good_title',$scope.title);
-                            localStorageService.set('good_titlemax',$scope.max);
-                            localStorageService.set("get_ticket_type",$scope.good.get_ticket_type);
-                          //  $state.go("main.seat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
-                            $state.go("main.svgseat",{event_id:$scope.eventShowId,good_id:$stateParams.good_id});
                         }
-
-                    }
-                };
-                // 更改价位
-                var switchCat = function (index1, index2, choosable) {
-                    if(choosable==''){
-                        // $scope.pop()
-                        $alert.show('该价位票已售罄！');
-                    }
-
-                    if (choosable) {
-                        $scope.paras.catIndex1 = index1;
-                        $scope.paras.catIndex2 = index2;
-                        localStorageService.set('cat',$scope.plans[$scope.paras.planIndex].children[index1].children[index2].name)  //会报错
-                        // 没有可选择的价位
-                        if (index1 == null) {
-                            $scope.prices = [];
-                        } else {
-                            $scope.prices = $scope.plans[$scope.paras.planIndex].children[index1].children[index2].children;
+                        if (gf == 0) {//预约登记
+                            $alert.show("暂未开票！");
+                            return false
                         }
-                        //  console.log( $scope.prices );
-                        // 联动切换价格
-                        var _index = getAvailablePriceIndex();
-                        switchPrice(_index, true)
-                    }else {
-                        $scope.price2 = $scope.plans[$scope.paras.planIndex].children[index1].children[index2].name;
-                        $scope.ticketId=$scope.plans[$scope.paras.planIndex].children[index1].children[index2].id;
-                    }
-                };
-
-                // 更改价格
-                var switchPrice = function (index, choosable) {
-
-                    if (choosable) {
-                        $scope.paras.priceIndex = index;
-                    }
-                    var _po = $scope.prices[$scope.paras.priceIndex];
-                    localStorageService.set('_po',_po);
-                    //   console.log(_po);
-                };
-
-                // ****************************************  加载计算张数部分  ****************************************
-                $scope.num = 1;
-
-                $scope.subNum = function () {
-                    if ($scope.num == 1) {
-                        $scope.defstylenum1={
-                            "color":"#ccc"
+                        if (gf == 3) {
+                            $alert.show("演出结束");
+                            return false
                         }
-                        $scope.defstylenum={
-                            "color":"#000"
-                        }
-                        return;
-                    }
-                    $scope.num = $scope.num - 1;
-                    calTotal();
-                };
-
-                $scope.addNum = function () {
-                    if ($scope.num == $scope.max) {
-                        $scope.defstylenum={
-                            "color":"#ccc"
-                        }
-                        $alert.show("最多只能购买"+$scope.max+"张!")
-                        return;
-                    }else{
-                        $scope.defstylenum={
-                            "color":"#000"
-                        }
-                        $scope.defstylenum1={
-                            "color":"#000"
-                        }
-                    }
-                    $scope.num = $scope.num + 1;
-                    calTotal();
-                };
-
-                $scope.$watch("paras", function (newValue) {
-                    // 张数还原到1
-                    $scope.num = 1;
-                    calTotal();
-                }, true);
-
-                var calTotal = function () {
-                    var _po = $scope.prices[$scope.paras.priceIndex];
-                    var _price = (_po ? _po.price : 0);
-                    $scope.unit_price = _price;
-                    $scope.total = _price * $scope.num;
-                    $scope.totalPrice=$scope.total;
-                }
-                var createOrder = function (gf) {
-                    if (!localStorageService.get('token')) {
-                        // $state.go("main.login",{})
-                        // return false;
-                        var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
-                        var ua = window.navigator.userAgent.toLowerCase();
-                        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                            // 正式地址
-                            location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                                "appid=wxc2377a19f91b4c20&" +
-                                "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
-                                "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
-                        } else {
-                            location.href = "#/main/login/"+encodeURIComponent(rs);
-                       }
-                        return false;
-                    }
-                    if ($scope.paras.priceIndex == null) {
-                        $alert.show("请选择座位!")
-                    }
-
-                    var _po = $scope.prices[$scope.paras.priceIndex];
-                    if(_po==undefined||_po==null){
-                        $alert.show("请选择座位!");
-                        return;
-                    }
-                    var _sku = _po.num;
-                    if (_sku < $scope.num) {
-                        $alert.show("库存不足!")
-                        return false
-                    }
-                    if(gf==1){
-                        localStorageService.set('max',$scope.max)
-                        localStorageService.set('unit_price',$scope.unit_price);
-                        localStorageService.set('title',$scope.title);
-                        localStorageService.set('site_title',$scope.site_title);
-                        localStorageService.set('thumb',$scope.thumb);
-                        localStorageService.set('seat',_po.name);
-                        localStorageService.set('price',_po.price);
-                        localStorageService.set('ticketId',_po.id);
-                        localStorageService.set('total',$scope.total);
-                        localStorageService.set('num',$scope.num);
-                        localStorageService.set("get_ticket_type",$scope.good.get_ticket_type);
-                        $state.go('main.pay',{order_id:$stateParams.good_id})
-                    }
-                    if($scope.gf == 2) {
-                        if (!localStorageService.get('token')) {
-                            var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
-                            location.href = "#/main/login/"+encodeURIComponent(rs);
+                        if (gf == 4) {
+                            $alert.show("您已预约！")
                             return false;
                         }
                     }
-                    if(gf==0){//预约登记
-                        $alert.show("暂未开票！");
-                        return false
+                    $scope.switchPlan = switchPlan;
+                    $scope.switchCat = switchCat;
+                    $scope.switchPrice = switchPrice;
+                    $scope.createOrder = createOrder;
+                    switchPlan(0, $scope.eventId);
+                    eCalendar($scope.dayList, '#calendar');
+                    $scope.completeplansRepeat = function () {
+                        if ($scope.plans.length > 3) {
+                            var swiper = new Swiper('.detailepertoire_container', {
+                                slidesPerView: 'auto',
+                                spaceBetween: 0,
+                                pagination: '.detailepertoire-pagination',//分页容器
+                                observer: true,//修改swiper自己或子元素时，自动初始化swiper
+                                observeParents: true//修改swiper的父元素时，自动初始化swiper
+                            })
+                        }
                     }
-                    if(gf==3){
-                        $alert.show("演出结束");
-                        return false
+
+
+                }, function (err) {
+                    var createOrder = function (gf) {
+                        // if (!localStorageService.get('token')) {
+                        //     $scope.$broadcast('to-child');
+                        //     return;
+                        // }
+                        // if(gf==4){
+                        //     $alert.show("您已预约！");
+                        //     return false;
+                        // }
+                        // //预约登记
+                        // var height = $(window).height();
+                        // $(".subscribe").css("height", height);
+                        // $(".subscribe").fadeIn();
+                        $alert.show("系统繁忙，请稍后重试！");
                     }
-                    if(gf==4){
-                        $alert.show("您已预约！")
-                        return false;
-                    }
-                }
-                $scope.switchPlan = switchPlan;
-                $scope.switchCat = switchCat;
-                $scope.switchPrice = switchPrice;
-                $scope.createOrder = createOrder;
-                switchPlan(0,$scope.eventId);
-                eCalendar( $scope.dayList,'#calendar');
-                $scope.completeplansRepeat=function(){
-                    if($scope.plans.length>3){
-                        var swiper = new Swiper('.detailepertoire_container', {
-                            slidesPerView: 'auto',
-                            spaceBetween:0,
-                            pagination: '.detailepertoire-pagination',//分页容器
-                            observer:true,//修改swiper自己或子元素时，自动初始化swiper
-                            observeParents: true//修改swiper的父元素时，自动初始化swiper
-                        })
-                    }
-                }
+                    $scope.createOrder = createOrder;
+                    $alert.show(err)
 
-
-
-
-            },function (err) {
-                var createOrder = function (gf) {
-                    // if (!localStorageService.get('token')) {
-                    //     $scope.$broadcast('to-child');
-                    //     return;
-                    // }
-                    // if(gf==4){
-                    //     $alert.show("您已预约！");
-                    //     return false;
-                    // }
-                    // //预约登记
-                    // var height = $(window).height();
-                    // $(".subscribe").css("height", height);
-                    // $(".subscribe").fadeIn();
-                    $alert.show("系统繁忙，请稍后重试！");
-                }
-                $scope.createOrder = createOrder;
-                $alert.show(err)
-
-            });
+                });
+        }
         //生成日历
         var eCalendar = function (options, object) {
             // Initializing global variables

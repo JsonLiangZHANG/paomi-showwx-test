@@ -1,7 +1,7 @@
 'use strict';
 
 stareal
-    .controller("PayController", function ($scope, $stateParams, $api, $state, $alert, localStorageService) {
+    .controller("PayController", function ($scope, $stateParams, $api,$location, $state, $alert, localStorageService) {
         //获取本地存储
         $scope.title = localStorageService.get('title');//演出标题
         $scope.site_title = localStorageService.get('site_title');//演出地址
@@ -15,7 +15,8 @@ stareal
         $scope.ticketId =localStorageService.get('ticketId')//演出id
         $scope.price = localStorageService.get('price');//单价
         $scope.is_coupon =localStorageService.get('is_coupon')
-        $scope.order_id = $stateParams.order_id;
+        $scope.searchQuery=$location.search();
+        $scope.order_id = $scope.searchQuery.order_id;
         $scope.param = {};
         $scope.param.deliverType = 1;
         $scope.param.addressId = '';

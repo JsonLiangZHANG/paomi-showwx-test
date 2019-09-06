@@ -255,7 +255,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
         //     ])
         // })
         .state('main.pay', {
-            url: '/pay/:order_id?_',
+            url: '/pay',
             templateUrl: 'static/partials/main/pay.html',
             resolve: loadLazyjs([
                 'static/js/controllers/main/pay.js',
@@ -265,7 +265,7 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
         })
         //选座支付
         .state('main.xuanpay', {
-            url: '/xuanpay/:order_id?_',
+            url: '/xuanpay',
             templateUrl: 'static/partials/main/xuan_pay.html',
             resolve: loadLazyjs([
                 'static/js/controllers/main/xuan_pay.js',

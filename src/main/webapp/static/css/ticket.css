@@ -284,8 +284,8 @@
     margin-right:0.9333rem;
 }
 .pay .mode .mode_type .express a{
-    background:url("../img/order_express_n.png") no-repeat center;
-    background-size:100%;
+    background:url("../img/order_express_n.png") no-repeat center center;
+    background-size:100% 100%;
 }
 [data-dpr="2"] .pay .mode .mode_type .express a{
     background:url("../img/order_express_n@2x.png") no-repeat center;
@@ -297,7 +297,8 @@
 }
 .pay .mode .mode_type .express a.active{
     /* background:url("../img/order_express_s.png") no-repeat center; */
-    background:url("../img/icon_dd_peisong.png") no-repeat center;
+    background:url("../img/icon_dd_peisong.png") no-repeat center center;
+    background-size:100% 100%;
     /* background-size:100%; */
     /* box-shadow: 0px 1px 1px 0px #ddd; */
 }
@@ -313,7 +314,8 @@
 }
 .pay .mode .mode_type .locale a{
      /* background:url("../img/order_scene_n.png") no-repeat center; */
-     background:url("../img/xianchan_qp.png") no-repeat center;
+     background:url("../img/xianchan_qp.png") no-repeat center center;
+    background-size:100% 100%;
      /* background-size:100%; */
  }
 [data-dpr="2"] .pay .mode .mode_type .locale a{
@@ -327,8 +329,8 @@
     background-size:100%;
 }
 .pay .mode .mode_type .locale a.active{
-    background:url("../img/order_scene_s.png") no-repeat center;
-    background-size:100%;
+    background:url("../img/order_scene_s.png") no-repeat center center;
+    background-size:100% 100%;
 }
 [data-dpr="2"] .pay .mode .mode_type .locale a.active{
     background:url("../img/order_scene_s@2x.png") no-repeat center;

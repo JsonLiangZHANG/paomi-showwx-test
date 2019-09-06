@@ -3,9 +3,27 @@
 stareal
     .controller("DetailController", function ($rootScope,$scope,$http,$compile,$interval,$stateParams,$location,$anchorScroll,$api, $sce, base64, $state, $alert, localStorageService,FileUploader) {
         $scope.current = $stateParams.good_id;
+        // console.log($location.search())
+        // console.log($state)
         $scope.user =localStorageService.get("user"); //存储用户信息
         $scope.sharUrl='https://m.blackwan.cn/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
         $scope.gbn = '立即购票';
+        $scope.searchQuery=$location.search();
+        if($scope.searchQuery.token!=undefined&&$scope.searchQuery.token!=null&&$scope.searchQuery.token!=''){//获取免登录接口 app/login/user/freepass
+            localStorageService.set('myseershowToken',$scope.searchQuery.token)
+            $api.get("app/login/user/freepass", {token: $scope.searchQuery.token}, true)
+                .then(function (ret) {
+                    localStorageService.set('token',ret.accessToken);
+                    localStorageService.set('login_token',ret.accessToken);
+                   // console.log(ret.data)
+                    $api.get("app/login/userinfo/retrieve", null, true)
+                        .then(function (ret) {
+                            $scope.user = ret.data;
+                            localStorageService.set('user',$scope.user);
+
+                        });
+                })
+        }
         $scope.getGoodDetail=function(){
             $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
                 .then(function (ret) {

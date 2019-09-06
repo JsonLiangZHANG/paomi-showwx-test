@@ -46,19 +46,24 @@ stareal
                     angular.element('#carousel-demo').height($document.width()/2.08);
                 })
         }
+        var  myseershowToken=localStorageService.get('myseershowToken');
         var rs = localStorageService.get('rs');
         var token=localStorageService.get('token');
         var isbind = localStorageService.get('isbind');
         var openID = localStorageService.get('openid');
         var ua = window.navigator.userAgent.toLowerCase();
-        if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-            if (isbind != 1 && openID != '') {
-                localStorageService.set('cleartoken', token);
-                localStorageService.set('token', '');
-                location.href = "#/main/bindregister/" + encodeURIComponent(rs);
-                return false;
+        if(myseershowToken==undefined||myseershowToken==null||myseershowToken==''){
+            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                if (isbind != 1 && openID != '') {
+                    localStorageService.set('cleartoken', token);
+                    localStorageService.set('token', '');
+                    location.href = "#/main/bindregister/" + encodeURIComponent(rs);
+                    return false;
+                }
             }
         }
+
+
         if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
             $scope.AdvsBanners();
         } else{

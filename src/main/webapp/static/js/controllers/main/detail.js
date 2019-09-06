@@ -22,6 +22,16 @@ stareal
                             localStorageService.set('user',$scope.user);
 
                         });
+                    // if (ua.match(/MicroMessenger/i) == 'micromessenger') {
+                    //     // 正式地址
+                    //     if()
+                    //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
+                    //         "appid=wxc2377a19f91b4c20&" +
+                    //         "redirect_uri="+encodeURIComponent(window.location.href) +
+                    //         "&response_type=code&scope=snsapi_userinfo&state="+parseInt(Math.random(10)*10000000)+"&connect_redirect"
+                    // }
+                    // $api.get("app/login/oauth/index")
+
                 })
             var ua = window.navigator.userAgent.toLowerCase();
             if (ua.match(/MicroMessenger/i) == 'micromessenger') {

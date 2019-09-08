@@ -269,7 +269,7 @@ stareal
                     })
             }else if(type==1){//微信h5支付
                 //生成订单
-                $api.post("app/order/index/create", _params, true)
+                $api.post("app/order/index/createorder", _params, true)
                     .then(function (ret) {
                         $scope.orderId = ret.data.orderId
                         $api.post("app/pay/gateway/create", {//支付订单
@@ -280,7 +280,7 @@ stareal
                             .then(function (ret) {
                                 console.log(ret);
                                 document.forms['alipaysubmit'].action = ret.data.mweb_url
-                                document.forms['alipaysubmit'].submit();
+                               // document.forms['alipaysubmit'].submit();
                             }, function (err) {
                                 $alert.show(err);
                                 $state.go("my.orders", {})

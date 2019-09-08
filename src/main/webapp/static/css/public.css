@@ -146,6 +146,7 @@ img[ bn-lazy-src ] {
     height: 3.386666rem;
     border-radius:0.10666rem;
     vertical-align: top;
+    object-fit: cover;
 }
 .flag .flag-price {
     padding: 0.3rem 0 .16rem;

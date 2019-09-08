@@ -183,7 +183,7 @@ stareal
         var seatcart=$scope.seatscart.join(',');
         var _params = {ticketId: $scope.ticketId, ticketNum:  $scope.seatsListlength, deliverType: $scope.param.deliverType,eventId:$scope.eventId,tickets:seatcart,totalprice:$scope.total,seats:JSON.stringify($scope.seatsListArray),good_id:$scope.order_id};
         $scope.verify = function () {
-            console.log(798)
+           // console.log(798)
             // 校验
             // 快递
             if($scope.deliver_price=='1001'){
@@ -219,7 +219,7 @@ stareal
             //     return;
             // }
             //校验通过
-            var h = document.body.scrollHeight;
+            var h = $(window).height();
             $(".mask_pay").css({"height":h,"display":"block"}
             );
             $(".pay_box").css({"display":"block"});

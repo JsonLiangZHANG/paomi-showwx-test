@@ -64,7 +64,7 @@ stareal
         }
 
 
-        if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null){
+        if(localStorageService.get('IndexAdvs')==undefined||localStorageService.get('IndexAdvs')==null||localStorageService.get('IndexAdvs')==''||localStorageService.get('IndexAdvs')==[]){
             $scope.AdvsBanners();
         } else{
             $scope.advs=localStorageService.get('IndexAdvs');

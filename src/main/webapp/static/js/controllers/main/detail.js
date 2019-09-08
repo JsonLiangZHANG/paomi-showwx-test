@@ -825,6 +825,9 @@ stareal
                     }
                     $scope.createOrder = createOrder;
                     $alert.show(err)
+                    $scope.shop_bg = 'disable';
+                    $scope.gbn = '暂无售票';
+                    $scope.gf = 0;
 
                 });
         }

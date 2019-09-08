@@ -43,7 +43,7 @@ stareal
             //     return;
             // }
             //校验通过
-            var h = document.body.scrollHeight;
+            var h = $(window).height();
             $(".mask_pay").css({"height":h,"display":"block"}
             );
             $(".pay_box").css({"display":"block"});

@@ -112,12 +112,17 @@
             </div>
             <div class="pay_method pd_rl12">
                 <ul>
-                    <li ng-show="!showPay" ng-click="pay()">
+                    <li ng-show="!showPay" ng-click="pay(0)">
                         <i class="alipay"></i>
                         <span>支付宝</span>
                         <i class="arrow"></i>
                     </li>
-                    <li ng-show="showPay" ng-click="pay()">
+                    <li ng-show="!showPay" ng-click="pay(1)">
+                        <i class="pay_wechat"></i>
+                        <span>微信</span>
+                        <i class="arrow"></i>
+                    </li>
+                    <li ng-show="showPay" ng-click="pay(2)">
                         <i class="pay_wechat"></i>
                         <span>微信</span>
                         <i class="arrow"></i>

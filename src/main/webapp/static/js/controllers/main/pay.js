@@ -283,7 +283,7 @@ stareal
         $scope.bubble = function ($event){
             $event.stopPropagation()
         }
-        $scope.pay = function () {
+        $scope.pay = function (type) {
             // 优惠券
             if ($scope.param.couponId) {
                 _params.couponId = $scope.param.couponId;
@@ -294,7 +294,7 @@ stareal
             }
             _params.good_id=$scope.order_id;
             //支付宝
-            if ($scope.payType == 4) {
+            if(type==0){
                 //生成订单
                 $api.post("app/order/index/create", _params, true)
                     .then(function (ret) {
@@ -308,7 +308,7 @@ stareal
                                 console.log(ret);
                                 document.forms['alipaysubmit'].action = ret.data.action;
                                 document.forms['alipaysubmit'].biz_content.value = ret.data.biz_content;
-                                 document.forms['alipaysubmit'].submit();
+                                document.forms['alipaysubmit'].submit();
                             }, function (err) {
                                 $alert.show(err);
                                 $state.go("my.orders", {})
@@ -317,9 +317,36 @@ stareal
                         $alert.show(err)
                         $state.go("my.orders", {})
                     })
-            }
+            }else if(type==1){ //微信h5支付
+            //     document.forms['alipaysubmit'].action = data.mweb_url
+            // document.forms['alipaysubmit'].submit()
+                //生成订单
+                $api.post("app/order/index/create", _params, true)
+                    .then(function (ret) {
+                        $scope.orderId = ret.data.orderId
+                        $api.post("app/pay/gateway/create", {//支付订单
+                            orderId: $scope.orderId,
+                            tradeType: 0,
+                            payType: 22
+                        }, true)
+                            .then(function (ret) {
+                                console.log(ret);
+                                document.forms['alipaysubmit'].action = ret.data.mweb_url
+                                document.forms['alipaysubmit'].submit();
+                            }, function (err) {
+                                $alert.show(err);
+                                $state.go("my.orders", {})
+                            })
+                    }, function (err) {
+                        $alert.show(err)
+                        $state.go("my.orders", {})
+                    })
+        }
+            // if ($scope.payType == 4) {
+            //
+            // }
             //微信支付
-            if ($scope.payType == 0) {
+            else if (type==2) {
                 //生成订单
                 $api.post("app/order/index/create", _params, true)
                     .then(function (ret) {

@@ -36,7 +36,7 @@ stareal
         $scope.total=totalPriceData.toFixed(2)
         $scope.num = $scope.seatscart.length;//数量
         $scope.is_coupon = localStorageService.get('is_coupon')
-        $scope.order_id = $stateParams.order_id;
+        // $scope.order_id = $stateParams.order_id;
 
         $scope.param = {};
         $scope.param.deliverType = 1;
@@ -244,7 +244,7 @@ stareal
                 _params.belly = $scope.param.beily;
             }
             //支付宝
-            if ($scope.payType == 4) {
+            if (type == 0) {
                 //生成订单
                 $api.post("app/order/index/createorder", _params, true)
                     .then(function (ret) {
@@ -267,9 +267,32 @@ stareal
                         $alert.show(err)
                         $state.go("my.orders", {})
                     })
+            }else if(type==1){//微信h5支付
+                //生成订单
+                $api.post("app/order/index/create", _params, true)
+                    .then(function (ret) {
+                        $scope.orderId = ret.data.orderId
+                        $api.post("app/pay/gateway/create", {//支付订单
+                            orderId: $scope.orderId,
+                            tradeType: 0,
+                            payType: 22
+                        }, true)
+                            .then(function (ret) {
+                                console.log(ret);
+                                document.forms['alipaysubmit'].action = ret.data.mweb_url
+                                document.forms['alipaysubmit'].submit();
+                            }, function (err) {
+                                $alert.show(err);
+                                $state.go("my.orders", {})
+                            })
+                    }, function (err) {
+                        $alert.show(err)
+                        $state.go("my.orders", {})
+                    })
             }
+
             //微信支付
-            if ($scope.payType == 0) {
+           else if ( type== 2) {
                 //生成订单
                 $api.post("app/order/index/createorder", _params, true)
                     .then(function (ret) {

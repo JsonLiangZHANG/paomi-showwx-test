@@ -65,9 +65,9 @@ stareal
             $scope.payType = 4
         }
         //支付订单
-        $scope.pay = function () {
+        $scope.pay = function (type) {
             ///支付宝
-            if($scope.payType==4){
+            if(type==0){
                 //支付
                 $api.post("app/pay/gateway/create", {
                     orderId: $scope.orderId,
@@ -82,9 +82,24 @@ stareal
                         $alert.show(err);
                         $state.go("my.orders", {})
                     })
+            }else if(type==1){
+                //支付
+                $api.post("app/pay/gateway/create", {
+                    orderId: $scope.orderId,
+                    tradeType: 0,
+                    payType: 22
+                }, true)
+                    .then(function (ret) {
+                        document.forms['alipaysubmit'].action = ret.data.mweb_url;
+                        document.forms['alipaysubmit'].submit();
+                    }, function (err) {
+                        $alert.show(err);
+                        $state.go("my.orders", {})
+                    })
             }
+
             //微信支付
-            if($scope.payType==0){
+            else if(type==2){
                 $api.post("app/pay/gateway/create",{
                     orderId: $scope.orderId,
                     tradeType: 0,

@@ -3,6 +3,9 @@
 stareal
     .controller("PayController", function ($scope, $stateParams, $api,$location, $state, $alert, localStorageService) {
         //获取本地存储
+        //校验通过
+        var h = $(window).height();
+        $(".mask_pay").css({"height":h});
         $scope.title = localStorageService.get('title');//演出标题
         $scope.site_title = localStorageService.get('site_title');//演出地址
         $scope.thumb = localStorageService.get('thumb');//演出图片
@@ -270,9 +273,7 @@ stareal
             //     return;
             // }
             //校验通过
-            var h = $(window).height();
-            $(".mask_pay").css({"height":h,"display":"block"}
-            );
+            $(".mask_pay").css({"display":"block"});
             $(".pay_box").css({"display":"block"});
         }
         //关闭
@@ -332,7 +333,7 @@ stareal
                             .then(function (ret) {
                                 console.log(ret);
                                 document.forms['alipaysubmit'].action = ret.data.mweb_url
-                              //  document.forms['alipaysubmit'].submit();
+                               document.forms['alipaysubmit'].submit();
                             }, function (err) {
                                 $alert.show(err);
                                 $state.go("my.orders", {})

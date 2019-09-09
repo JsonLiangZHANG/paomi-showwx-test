@@ -151,16 +151,16 @@ stareal
         }
         //获取背景图
         $scope.getSetionImg=function() {
-            timer1 = $interval(updateTime,1000);
-            updateTime()
-            function updateTime(){
-                $scope.laydate -= 1000;
-                if($scope.laydate<=0){
-                    $interval.cancel(timer1);
-                    $("#seatsLoading").hide();
-                    $alert.show('系统繁忙,数据加载失败!');
-                }
-            }
+            // timer1 = $interval(updateTime,1000);
+            // updateTime()
+            // function updateTime(){
+            //     $scope.laydate -= 1000;
+            //     if($scope.laydate<=0){
+            //         $interval.cancel(timer1);
+            //         $("#seatsLoading").hide();
+            //         $alert.show('系统繁忙,数据加载失败!');
+            //     }
+            // }
             $api.get("app/map/ticket_v2/map", {mapid: $scope.mapId}, true)
                 .then(function (ret) {
                     //console.log(ret);
@@ -193,11 +193,22 @@ stareal
         $scope.SELECTarea=0;
 
         $scope.getSvgSeats=function(areaID){
+            // var timer=null;
+            // timer = $interval(updateTime,1000);
+            var timeout = setInterval(function(){
+                $scope.laydate -= 1000;
+                if($scope.laydate<=0){
+                    $interval.cancel(timer);
+                    $("#seatsLoading").hide();
+                    // $alert.show('系统繁忙,数据加载失败!');
+                }
+            }, 1000)
+
             $scope.moveToch(areaID);
             $api.get("app/map/ticket_v2/seat", {mapid: $scope.mapId,areaid:areaID,eventid: $scope.currentEventId},true)
                 .then(function (ret) {
                     var data=ret.seat;
-                    $interval.cancel(timer);
+                    clearInterval(timeout)
                     for(var i=0;i<data.length;i++){
                         if(data[i].locker_level!=99){
                             data[i].status='已售';
@@ -216,18 +227,16 @@ stareal
                     }
                 },function(err){
                     $alert.show('系统繁忙,数据加载失败!');
-                    $interval.cancel(timer);
+                    clearInterval(timeout)
                     $("#seatsLoading").hide();
                 });
-            var timer=null;
-            timer = $interval(updateTime,1000);
-            updateTime()
+
             function updateTime(){
                 $scope.laydate -= 1000;
                 if($scope.laydate<=0){
-                    $interval.cancel(timer);
+                    clearInterval(timeout)
                     $("#seatsLoading").hide();
-                    $alert.show('系统繁忙,数据加载失败!');
+                   // $alert.show('系统繁忙,数据加载失败!');
                 }
             }
 
@@ -458,7 +467,7 @@ stareal
                     , customEventsHandler: eventsHandler,
                     zoomScaleSensitivity:0.3,
                     minZoom:0.3
-                    ,maxZoom:5
+                    ,maxZoom:6
                     , onZoom:function(){
                         onZoom();
                     }
@@ -473,7 +482,7 @@ stareal
                     var initialScale = instance.getZoom()
                     var ev = initialScale.toFixed(2);
                     onpan();
-                    if(ev >= 5.0){
+                    if(ev >= 6.0){
                         $timeout(function () {
                             $alert.show('已经是最大了!');
                         },0)

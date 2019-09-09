@@ -7,6 +7,7 @@
             cursor:pointer;
         }
     </style>
+    <div  ng-show="!islogIn">
     <!--商品详情开始-->
     <div class="good">
         <div class="good_bg" >
@@ -357,7 +358,19 @@
         </div>
     </div>
 </div>
+    <div class="returnTimes" ng-show="islogIn">
+        <div class="non-main">
+            <div>
+                登录失效，请重新登录！
+            </div>
+            <img src="static/img/empty_page_information_imgNo.png" alt="">
+            <p>
+                还剩{{time}}秒回到上一页
+            </p>
+        </div>
+    </div>
 </div>
+
 
 
 

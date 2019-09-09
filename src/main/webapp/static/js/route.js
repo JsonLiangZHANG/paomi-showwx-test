@@ -16,6 +16,8 @@ stareal.config(['$stateProvider', '$urlRouterProvider', '$locationProvider', '$o
     // $locationProvider.html5Mode(true);
     // $locationProvider.hashPrefix('?');
 
+    FastClick.attach(document.body);//在配置中加上这句话
+
     $ocLazyLoadProvider.config({
         debug: false,
         events: true,

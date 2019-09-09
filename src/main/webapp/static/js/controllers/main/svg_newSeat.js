@@ -270,7 +270,7 @@ stareal
                 localStorageService.set('seatsList',$scope.slectSeats);
                 //$state.go('main.xuanpay',{order_id:$stateParams.good_id})
                  var href='?#/main/xuanpay?order_id='+$stateParams.good_id
-                location.href = href;
+                window.location.href = href;
             }
             if($scope.gf == 2) {
                 if (!localStorageService.get('token')) {
@@ -458,7 +458,7 @@ stareal
                     , customEventsHandler: eventsHandler,
                     zoomScaleSensitivity:0.3,
                     minZoom:0.3
-                    ,maxZoom:4
+                    ,maxZoom:5
                     , onZoom:function(){
                         onZoom();
                     }
@@ -473,7 +473,7 @@ stareal
                     var initialScale = instance.getZoom()
                     var ev = initialScale.toFixed(2);
                     onpan();
-                    if(ev >= 4.0){
+                    if(ev >= 5.0){
                         $timeout(function () {
                             $alert.show('已经是最大了!');
                         },0)

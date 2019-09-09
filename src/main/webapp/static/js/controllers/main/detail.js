@@ -5,10 +5,12 @@ stareal
         $scope.current = $stateParams.good_id;
         // console.log($location.search())
         // console.log($state)
+        $scope.time=3
         $scope.user =localStorageService.get("user"); //存储用户信息
         $scope.sharUrl='https://m.blackwan.cn/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
         $scope.gbn = '立即购票';
         $scope.searchQuery=$location.search();
+        $scope.islogIn=false
         if($scope.searchQuery.token!=undefined&&$scope.searchQuery.token!=null&&$scope.searchQuery.token!=''){ //获取免登录接口 app/login/user/freepass
             localStorageService.set('myseershowToken',$scope.searchQuery.token)
             $api.get("app/login/user/freepass", {token: $scope.searchQuery.token}, true)
@@ -16,23 +18,42 @@ stareal
                     localStorageService.set('token',ret.accessToken);
                     localStorageService.set('login_token',ret.accessToken);
                    // console.log(ret.data)
+
                     $api.get("app/login/userinfo/retrieve", null, true)
                         .then(function (ret) {
                             $scope.user = ret.data;
                             localStorageService.set('user',$scope.user);
 
                         });
-                    // if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                    //     // 正式地址
-                    //     if()
-                    //     location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                    //         "appid=wxc2377a19f91b4c20&" +
-                    //         "redirect_uri="+encodeURIComponent(window.location.href) +
-                    //         "&response_type=code&scope=snsapi_userinfo&state="+parseInt(Math.random(10)*10000000)+"&connect_redirect"
-                    // }
-                    // $api.get("app/login/oauth/index")
 
+
+                },function(err){
+                    $scope.islogIn=true
+                    var timeout = setInterval(function(){
+                        $scope.time -= 1
+                        if ($scope.time == 0) {
+                            clearInterval(timeout)
+
+                            if (searchQuery.isApp == 1) {
+                                if (query.plat == 'ios') {
+                                    alert('back')
+                                }else if (query.plat == 'android'||query.plat == 'Android' ) {
+                                    JSInterface.hello('back')
+                                }else if (query.plat == 'miniProgram') {
+                                    wx.miniProgram.navigateBack({
+                                        delta: 1
+                                    })
+                                }
+                            }else{
+                                if(history.length>0){
+                                    history.go(-1)
+                                }
+                            }
+                        }
+                    }, 1000)
                 })
+
+
             var ua = window.navigator.userAgent.toLowerCase();
             if (ua.match(/MicroMessenger/i) == 'micromessenger') {
                 // 正式地址

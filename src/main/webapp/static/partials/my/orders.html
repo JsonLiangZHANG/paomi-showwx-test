@@ -55,7 +55,7 @@
                     </div>
                 </div>
             </div>
-            <div class="orders_row_btns clear" style="padding:0.21333rem 0" ng-hide="(order.new_state=='待发货')||(order.new_state=='已完成'&&order.deliver_type==2)">  <!--无按钮的时候-->
+            <div class="orders_row_btns clear" style="padding:0.21333rem 0" ng-hide="(order.new_state=='已退款')||(order.new_state=='待发货')||(order.new_state=='已完成'&&order.deliver_type==2)">  <!--无按钮的时候-->
                 <div class="Btn_time fl" ng-show="order.new_state=='待付款'" style="height:0.72rem;line-height:0.72rem;"><p change-state1 order-state="order.new_state" create-time="order.create_timestamp" ></p></div>
                 <div class="btns">
                     <a href="" ng-if="order.new_state=='待付款'"  ng-click="alertmodel('{{order.order_id+'cen'}}')">取消订单</a>

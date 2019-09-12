@@ -90,6 +90,13 @@ stareal
             if(status=='已取消'){
                 $scope.text = '已取消';
             }
+            if(status=='已退款'){
+                $scope.text = '已退款';
+            }
+            if(status==undefined||status==''||status==null){
+                $scope.text =''
+            }
+
             return $scope.text;
         }
         //衍生品 订单状态文字

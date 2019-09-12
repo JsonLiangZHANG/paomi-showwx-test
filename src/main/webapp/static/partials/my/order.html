@@ -89,7 +89,7 @@
     <!--订单底部按钮开始-->
     <div>
         <div style="height:1.3333rem"></div>
-        <div class="order_btns pd_tb12 pd_rl12" ng-hide="(good.new_state=='待发货')||(good.new_state=='已完成'&&param.deliverType==2)">
+        <div class="order_btns pd_tb12 pd_rl12" ng-hide="(good.new_state=='已退款')||(good.new_state=='待发货')||(good.new_state=='已完成'&&param.deliverType==2)">
             <div class="btns">
                 <a href="" ng-if="good.new_state=='待付款'" ng-click="cancelOrder(good.order_id)">取消订单</a>
                 <a href="" ng-if="good.new_state=='待付款'" ng-click="verify(good.create_time)">立即支付</a>

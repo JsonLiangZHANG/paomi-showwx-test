@@ -4,6 +4,7 @@ stareal
     .controller("OrdersController", function ($scope, $lazyLoader, $api, $state,$alert,$stateParams,$timeout,$interval,$window,localStorageService) {
         $scope.status = $stateParams.status;
         $scope.orders = new $lazyLoader("app/order/list/retrieve", {status:$scope.status}, true);
+
         //取消订单
         $scope.cancelOrder = function (order_id,order) {
             if($scope.orders.items.indexOf(order)!=-1){

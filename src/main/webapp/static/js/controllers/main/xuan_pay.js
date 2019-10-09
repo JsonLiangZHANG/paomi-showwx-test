@@ -69,6 +69,7 @@ stareal
          *  选择地址后,跳转回本页面
          */
         var selectedAddressId = localStorageService.get($scope.order_id + '_address_id');
+        console.log(selectedAddressId)
         if ($stateParams._ && selectedAddressId) {
             $scope.param.addressId = selectedAddressId;
             $api.get("app/address/getbyid", {id: selectedAddressId}, true)

@@ -110,21 +110,26 @@ stareal
         }
         // 切换取票方式
         $scope.cd = function (deliverType) {
-            if(!$scope.getTicketType0){
-                if(deliverType==1){
-                    $alert.show('该演出暂不支持快递配送!');
-                    return false;
-                }
-                $scope.param.deliverType = deliverType;
-            } else if(!$scope.getTicketType1){
-                if(deliverType==2){
-                    $alert.show('该演出暂不支持现场取票!');
-                    return false;
-                }
-                $scope.param.deliverType = deliverType;
+            if(deliverType==2){
+                $alert.show('暂不支持现场取票')
             }else{
                 $scope.param.deliverType = deliverType;
             }
+            // if(!$scope.getTicketType0){
+            //     if(deliverType==1){
+            //         $alert.show('该演出暂不支持快递配送!');
+            //         return false;
+            //     }
+            //     $scope.param.deliverType = deliverType;
+            // } else if(!$scope.getTicketType1){
+            //     if(deliverType==2){
+            //         $alert.show('该演出暂不支持现场取票!');
+            //         return false;
+            //     }
+            //     $scope.param.deliverType = deliverType;
+            // }else{
+            //     $scope.param.deliverType = deliverType;
+            // }
         };
         /**
          *  返显优惠券

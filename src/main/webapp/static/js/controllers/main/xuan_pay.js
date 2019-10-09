@@ -93,7 +93,14 @@ stareal
 
         // 切换取票方式
         $scope.cd = function (deliverType) {
-            $scope.param.deliverType = deliverType;
+            if(deliverType==2){
+                $alert.show('暂不支持现场取票')
+            }else{
+                $scope.param.deliverType = deliverType;
+            }
+
+
+
         };
         /**
          *  返显优惠券

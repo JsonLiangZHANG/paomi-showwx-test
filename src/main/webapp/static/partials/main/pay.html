@@ -103,7 +103,7 @@
             <!--<li class="pd_tb12" ng-click="cc()">-->
                 <!--<p><span style="color:#222">优惠劵</span><span style="color:#999;">{{csl}}<i class="arrow"></i></span></p>-->
             <!--</li>-->
-            <li class="pd_tb12">
+            <li class="pd_tb12" style="display:none;">
                 <!--<p><span style="color:#222">积分</span><span style="color:#999"><input type="text" ng-model="param.beily" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" ng-change="MaxBelly(param.beily)"placeholder="最多可抵扣{{deduction_max}}积分"></span></p>-->
                 <p><span style="color:#222">积分</span><span style="color:#999"><input type="text" readonly  placeholder="暂不支持积分抵扣"></span></p>
             </li>
@@ -121,7 +121,7 @@
                 <span class="fl">优惠劵</span>
                 <span class="fr" ng-bind="copon_price | currency:'-¥'">－¥9999.00</span>
             </li>
-            <li>
+            <li style="display:none;">
                 <span class="fl">积分</span>
                 <span class="fr" ng-bind="beily_price | currency:'-¥'">－¥9999.00</span>
             </li>

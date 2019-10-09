@@ -19,7 +19,7 @@ stareal
         $scope.price = localStorageService.get('price');//单价
         $scope.is_coupon =localStorageService.get('is_coupon')
         $scope.searchQuery=$location.search();
-        $scope.order_id = $scope.searchQuery.order_id;
+        $scope.order_id = $stateParams.order_id;
         $scope.param = {};
         $scope.param.deliverType = 1;
         $scope.param.addressId = '';

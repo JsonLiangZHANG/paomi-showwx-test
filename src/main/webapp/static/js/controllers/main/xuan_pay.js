@@ -25,8 +25,8 @@ stareal
         console.log( $scope.seatsListArray);
         $scope.seatsListlength= $scope.seatscart.length;
         $scope.searchQuery=$location.search();
-        $scope.order_id = $scope.searchQuery.order_id;
-      //  $scope.order_id = $stateParams.order_id;
+        // $scope.order_id = $scope.searchQuery.order_id;
+       $scope.order_id = $stateParams.order_id;
         //获取本地存储
         $scope.total = 0//总价
         var totalPriceData=0

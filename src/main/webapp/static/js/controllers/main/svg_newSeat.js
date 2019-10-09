@@ -277,9 +277,9 @@ stareal
                 localStorageService.set('eventShowId', $scope.currentEventId);
                 localStorageService.set('thumb',$scope.thumb);
                 localStorageService.set('seatsList',$scope.slectSeats);
-                //$state.go('main.xuanpay',{order_id:$stateParams.good_id})
-                 var href='?#/main/xuanpay?order_id='+$stateParams.good_id
-                window.location.href = href;
+                $state.go('main.xuanpay',{order_id:$stateParams.good_id});
+                // var href='?#/main/xuanpay?order_id='+$stateParams.good_id
+                //window.location.href = href;
             }
             if($scope.gf == 2) {
                 if (!localStorageService.get('token')) {
@@ -397,7 +397,7 @@ stareal
                 eventsHandler = {
                     haltEventListeners: ['touchstart', 'touchend', 'touchmove', 'touchleave', 'touchcancel']
                     , init: function(options) {
-                        console.log(options);
+                        // console.log(options);
                         var instance = options.instance
                             , initialScale = 1
                             , pannedX = 0
@@ -481,7 +481,7 @@ stareal
                     var instance = zoompaor;
                     var initialScale = instance.getZoom()
                     var ev = initialScale.toFixed(2);
-                    onpan();
+                    // onpan();
                     if(ev >= 6.0){
                         $timeout(function () {
                             $alert.show('已经是最大了!');
@@ -501,11 +501,11 @@ stareal
                     var instance = zoompaor;
                     var svgTop =  parseInt(document.documentElement.style.fontSize)*2.9;
                     var rectO = document.getElementById("all").getBoundingClientRect();
-                    console.log( rectO );
+                    // console.log( rectO );
                     var wc = 0;
                     var hc = 0;
                     var ev=instance.getPan();
-                    console.log(ev);
+                    // console.log(ev);
                     var item  = null;//定时器
                     clearTimeout(item)//清除定时器
                     // 如果本身超过来了屏幕宽度
@@ -513,31 +513,30 @@ stareal
                         wc = rectO.width - cilentW;
                     }
                     // 如果本身超过来了屏幕高度
-                    if(rectO.height > cilentH){
+                    if(rectO.height > cilentH) {
                         hc = rectO.height - cilentH;
                     }
                     if(-(rectO.width*2/3)> ev.x){
                         document.getElementById("all").classList.add("ts");
-                        if(wc>0){
-                            instance.pan({x:-(wc/2),y:ev.y})
-                        }else{
-                            instance.pan({x:0,y:ev.y})
-                        }
+                        instance.pan({x:-(wc/2),y:ev.y})
+                        // if(wc>0){
+                        //     instance.pan({x:-(wc/2),y:ev.y})
+                        // }else{
+                        //     instance.pan({x:0,y:ev.y})
+                        // }
                         setTimeout(function(){
                             document.getElementById("all").classList.remove("ts");
                         },1000)
                     }
                     if((cilentW-rectO.width/3)< ev.x){
-                        // $timeout(function () {
-                        //     $alert.show("不能再移动啦1");
-                        // },0)
+
                         document.getElementById("all").classList.add("ts");
-                        //instance.pan({x:(cilentW-rectO.width/3) ,y:ev.y})
-                        if(wc>0){
-                            instance.pan({x:-(wc/2),y:ev.y})
-                        }else{
-                            instance.pan({x:0,y:ev.y})
-                        }
+                        // if(wc>0){
+                        //     instance.pan({x:-(wc/2),y:ev.y})
+                        // }else{
+                        //     instance.pan({x:0,y:ev.y})
+                        // }
+                        instance.pan({x:-(wc/2),y:ev.y})
                         setTimeout(function(){
                             document.getElementById("all").classList.remove("ts");
                         },1000)
@@ -547,10 +546,9 @@ stareal
                         document.getElementById("all").classList.add("ts");
                         if(hc>0){
                             instance.pan({x:ev.x,y:(hc/2)})
-                        }else{
-                            instance.pan({x:ev.x,y:-(rectO.height - cilentH)*1/2})
+                        }else {
+                            instance.pan({x: ev.x, y: -(rectO.height - cilentH) * 1 / 2})
                         }
-                      //  instance.pan({x:ev.x,y:-(rectO.height*1/2)})
                         setTimeout(function(){
                             document.getElementById("all").classList.remove("ts");
                         },1000)
@@ -583,13 +581,14 @@ stareal
                     var cilentW = document.documentElement.clientWidth || document.body.clientWidth;
                     var svgTop =  parseInt(document.documentElement.style.fontSize)*2.9;//document.querySelector(".seat_title_box").getBoundingClientRect().height+ document.querySelector(".nav").getBoundingClientRect().height;
                     var cilentHT =(cilentH-svgTop)/2;  //(cilentH-svgTop)/2
-                    console.log(document.querySelector(".d"+areaId));
+                    // console.log(document.querySelector(".d"+areaId));
                     var rect = document.querySelector(".d"+areaId).getBoundingClientRect(); // 没放大缩小内部矩形的数据
-                    console.log(rect);
+                    // console.log(rect);
                     var rectW = parseInt(rect.width)/2+parseInt(rect.left);//没放大缩小内部矩形的矩形宽度
                     var rectH =parseInt(rect.height)/2+parseInt(rect.top);//没大缩小内部矩形的矩形高度
                     instance.pan({x:instance.getPan().x+((cilentW/2)-rectW),y:svgTop+(instance.getPan().y+(cilentHT-rectH))})
-                    instance.zoomAtPoint(1.8, {x:cilentW/2,y:cilentHT})
+                    // console.log(instance.getPan())
+                   // instance.zoomAtPoint(1.8, {x:instance.getPan().x,y:instance.getPan().y})
                     item = setTimeout(function(){
                         document.getElementById("all").classList.remove("ts");
                         $("path").css("display",'block');

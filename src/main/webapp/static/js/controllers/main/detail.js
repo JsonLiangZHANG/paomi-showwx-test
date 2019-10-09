@@ -785,9 +785,9 @@ stareal
                             localStorageService.set('total', $scope.total);
                             localStorageService.set('num', $scope.num);
                             localStorageService.set("get_ticket_type", $scope.good.get_ticket_type);
-                            //$state.go('main.pay',{order_id:$stateParams.good_id})
-                            var href = '?#/main/pay?order_id=' + $stateParams.good_id
-                            location.href = href;
+                            $state.go('main.pay',{order_id:$stateParams.good_id})
+                           // var href = '?#/main/pay?order_id=' + $stateParams.good_id
+                           // location.href = href;
                         }
                         if ($scope.gf == 2) {
                             if (!localStorageService.get('token')) {

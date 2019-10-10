@@ -324,8 +324,39 @@ stareal
             $scope.slectSeats=[];
             $scope.total = 0;
         }
-
-        $scope.selectSeats=function(section_id,status,price_seat_id,id,event,section_name,section_area,section_names,row,columns,price) {
+        //锚点
+        $scope.seatsDalogshowStatus=false;
+        $scope.seatsDalogshow=function(section_area,section_names,section_name,row,columns,price,status,size,price_seat_id,id,e){
+            var e = event || window.event;
+            var scrollX = document.documentElement.scrollLeft || document.body.scrollLeft;
+            var scrollY = document.documentElement.scrollTop || document.body.scrollTop;
+            var x0 = e.pageX || e.clientX + scrollX;
+            var y0 = e.pageY || e.clientY + scrollY;
+            // console.log(e);
+            console.log(x0);
+             console.log(y0);
+             if(x0>300) {
+               x0=280
+             }
+            $("#alert_show0").css({top:y0-20,left:x0+22});
+            $scope.Seats_section_name=section_names+section_area;//  section_name;
+            $scope.Seats_row=row;
+            $scope.Seats_columns=columns;
+            $scope.Seats_price=price;
+            $scope.Seats_status=status;
+            // $scope.Seats_size=size;
+            $scope.seatsDalogshowStatus=true;
+            var timeOut=function(){
+                $scope.seatsDalogshowStatus=false;
+            }
+            $timeout(timeOut,1500,true)
+        }
+        $scope.seatsDaloghide=function(){
+            console.log("999")
+            $scope.seatsDalogshowStatus=false;
+        }
+        $scope.selectSeats=function(section_id,status,price_seat_id,id,event,section_name,section_area,section_names,row,columns,price,e) {
+            $scope.seatsDalogshow(section_area,section_names,section_name,row,columns,price,status,'',price_seat_id,id,e)
             if (status == '待售') {
                 if ($('#seats_' + id).attr('class') == 'seatselected') {
                     $('#seats_' + id).attr('class', '');

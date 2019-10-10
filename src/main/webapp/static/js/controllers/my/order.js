@@ -166,6 +166,16 @@ stareal
             $api.post("app/order/delete",{orderId:order_id},true)
                 .then(function (ret) {
                     $alert.show('删除成功')
+                    localStorageService.set('date','')//时间日期
+                    localStorageService.set('seat','')//座位
+                    localStorageService.set('eventShowId','')//场次id
+                    localStorageService.set('ticketId','')//票价id
+                    localStorageService.set('GoodmapId','')//maId
+                    // $scope.price = localStorageService.get('price');//单价
+                    // $scope.unit_price = localStorageService.get('unit_price');
+                    localStorageService.set('seatscart','')//选的座位id集合
+                    localStorageService.set('seatsList','')//所选的座位信息
+                    localStorageService.set("myslectSeats",'')
                     $state.go('my.orders',{status:''})
                 },function (err) {
                     $alert.show(err)

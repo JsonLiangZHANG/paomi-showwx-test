@@ -420,6 +420,18 @@ stareal
             }
             localStorageService.set("myslectSeats",$scope.slectSeats);
         }
+        $scope.deletAllseats=function(event){
+            var e=event;
+            e.stopPropagation();
+            $scope.total=0;
+            var data=$scope.slectSeats;
+            for(var i=0;i<data.length;i++){
+                $('#seats_'+data[i].id).attr('class','');
+            }
+            $scope.slectSeats=[]
+            localStorageService.set("myslectSeats",$scope.slectSeats);
+            $scope.hideShow()
+        }
         $scope.$on('ngRepeatFinished', function(ngRepeatFinishedEvent) {
             $(document).ready(function(){
                 FastClick.attach(document.body);

@@ -26,8 +26,12 @@
                     <!--ng-if="timeshow"-->
                     <div class="ct" ng-if="timeshow">
                         <ul class="lst clear">
-                            <li class="itm {{timeId== timeItem.id?'active':''}}" ng-repeat=" timeItem in timesList" ng-click="switch({{timeItem.id}},$index)">{{timeItem.name}}</li>
+                            <li class="itm {{timeId== timeItem.id?'active':''}}" ng-repeat=" timeItem in timesList" ng-click="switch({{timeItem.id}},$index)">
+                                <p class="itmName">{{goodTitle}}</p>
+                                <p class="itmNameTime">{{timeItem.name}}</p>
+                            </li>
                         </ul>
+                        <div class="tim_Btn" ng-click="hide()">收起 ∧</div>
                     </div>
                 </div>
             </div>
@@ -77,32 +81,37 @@
         <div class="seat_dailog" ng-click="hideShow()">
             <div style="position: relative;width: 100%;height: 100%;">
                 <div class="seat_box2"  id="seats_list" >
+                    <div class="titleSeats">
+                         <div>
+                             <img src="static/img/order_icon_seat.png" alt="" style="width:0.5rem;margin-right:0.1rem;vertical-align: middle;">座位信息</div>
+                         <div style="color:orangered" ng-click="deletAllseats($event)">全部删除</div>
+                    </div>
                     <table id="Seat_alertBox">
                         <tbody ng-show="slectSeats.length!=0">
-                        <tr>
-                            <td>区域</td>
-                            <td>排</td>
-                            <td>座位号</td>
-                            <td>价格</td>
-                            <td>操作</td>
-                        </tr>
+                        <!--<tr>-->
+                            <!--<td>区域</td>-->
+                            <!--<td>排</td>-->
+                            <!--<td>座位号</td>-->
+                            <!--<td>价格</td>-->
+                            <!--<td>操作</td>-->
+                        <!--</tr>-->
                         <tr ng-repeat="seat in slectSeats track by $index" on-finish-render-filters="completecarRepeat" >
-                            <td>{{seat.section_names}}{{seat.section_area}}</td>
-                            <td>{{seat.row}}</td>
-                            <td>{{seat.columns}}</td>
-                            <td style="color: rgb(241,0,95);">￥{{seat.price}}</td>
+                            <td>{{date}}</td>
+                            <td>{{seat.row}}排{{seat.columns}}座</td>
+                            <!--<td>{{seat.columns}}</td>-->
+                            <td >{{seat.price}}票面</td>
                             <td ><span class="detele_seat" ng-click="deletseats($event,seat.id)">&times;</span></td>
                         </tr>
                         </tbody>
 
                         <tbody ng-show="slectSeats.length==0">
-                        <tr>
-                            <td>区域</td>
-                            <td>号</td>
-                            <td>展位号</td>
-                            <td>价格</td>
-                            <td>操作</td>
-                        </tr>
+                        <!--<tr>-->
+                            <!--<td>区域</td>-->
+                            <!--<td>号</td>-->
+                            <!--<td>展位号</td>-->
+                            <!--<td>价格</td>-->
+                            <!--<td>操作</td>-->
+                        <!--</tr>-->
                         <tr>
                             <td colspan="4">您还没选票！</td>
                             <td>￥0</td>

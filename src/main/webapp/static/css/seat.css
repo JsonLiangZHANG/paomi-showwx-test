@@ -60,9 +60,9 @@
 .ct .itm{
     float: left;
     display: block;
-    min-width: 4.0rem;
-    _width: 130px;
-    line-height: 0.8rem;
+    min-width:4.5rem;
+    width: 130px;
+   height:1.0rem;
     /* padding: 4px; */
     text-align: center;
     border: 1px solid #fff;
@@ -72,9 +72,40 @@
     display: inline;
     background-color: #fff;
 }
+.itmName{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.32rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: #333;
+    cursor: pointer;
+}
+.itmNameTime{
+    height: 0.5rem;
+    line-height: 0.5rem;
+    font-size: 0.32rem;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    color: #333;
+    cursor: pointer;
+}
+
 .ct .itm.active  {
-    border: 1px solid rgb(213,0,95);
+    border: 1px solid #FC0F4A;
+    color: #FC0F4A!important;
     /*background: url(../img/m-datepicker-sel.png)no-repeat right bottom;*/
+}
+.ct .itm.active .itmNameTime,.ct .itm.active .itmName{
+    color: #FC0F4A!important;
 }
 .ct{
     /* display: none; */
@@ -88,10 +119,42 @@
     border: 1px solid #a8a8a8;
     z-index: 200;
     /* display: none; */
-    max-height: 160px;
+    max-height: 13rem;
     overflow-y: auto;
     border-right: 1px solid #a8a8a8;
 }
+.tim_Btn{
+    width:100%;
+    height:1.2rem;
+    color:#fff;
+    font-size:0.38rem;
+    line-height: 1.2rem;
+    text-align: center;
+    background:#FC0F4A;
+}
+.detele_seat{
+    display: block;
+    color: #999;
+    font-size: 0.36rem;
+    padding: 2px;
+    border: 2px solid #999;
+    float: right;
+    width: 0.4rem;
+    height: 0.4rem;
+    line-height: 0.38rem;
+    margin-right: 0.2rem;
+    border-radius: 0.4rem;
+}
+.titleSeats{
+    display:flex;
+    justify-content: space-between;
+    line-height: 1.0rem;
+    font-size:0.42rem;
+    color:#FC0F4A;
+    padding:0 0.2rem;
+    align-content: center;
+}
+
 .seat{
     background: #f1f1f1;;
 }
@@ -203,10 +266,15 @@ a{
 
 #Seat_alertBox tr{
     text-align:center;
-    height: 0.8rem;
-    line-height:0.8rem
+    height: 1.0rem;
+    line-height: 1.0rem;
+    font-size:0.32rem;
+    color:#333;
+    border-bottom: 2px solid #eee;
 }
-
+#Seat_alertBox tr>td:first-child{
+    width:4.0rem;
+}
 .seat_car_car span.seat_num{
     color: #fff;
     display: block;
@@ -222,7 +290,7 @@ a{
 }
 /*新svg*/
 #seats circle.seatselected{
-    stroke:red;
+    stroke:#000;
 }
 #seats circle.active{
     fill: #ddd;
@@ -249,6 +317,7 @@ a{
     float:right;
     width:0.4rem ;
     height: 0.22rem;
+    margin-right: 0.2rem;
     background: url("../img/down_icon.png")no-repeat center center;
     -webkit-background-size: 100% 100%;
     background-size: 100% 100%;

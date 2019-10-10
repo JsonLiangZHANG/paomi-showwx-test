@@ -185,9 +185,11 @@
 .c-event-over1 {
     background-color:#fff;
     /* font-weight: bold; */
-    color:  #FC0F4A;
+    color:  #333;
     display: block;
 }
+
+
 .c-event-over0 {
     background: url(../img/rli_yuan.png)no-repeat center!important;
 	/* background-color: #FC0F4A!important ; */
@@ -224,18 +226,18 @@
     border-radius: 0.1rem;
     /* height: 0.8rem; */
     /* line-height: 0.4rem; */
-    color: #FC0F4A;
+    color: #666;
     margin-bottom: 0px;
     margin-top: 0px;
     padding: 0 0.3rem;
     text-align: center;
-    border: 1px solid #FC0F4A;
+    border: 1px solid #666;
     padding: 0.1333rem 0.26666rem
 }
 
 #calendarEvent .c-event-item.active .title{
-    /*border: 1px solid rgb(213,0,95);*/
-    /*background:url(../img/m-datepicker-sel.png)no-repeat right bottom;*/
+    color: #FC0F4A;
+    border: 1px solid #FC0F4A;
 }
 
 

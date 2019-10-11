@@ -51,7 +51,7 @@
         <i class="express" ng-if="param.deliverType==1"></i>
         <i class="scene" ng-if="param.deliverType==2"></i>
         <h4 class="f14" ng-if="param.deliverType==1">快递配送</h4>
-        <h4 class="f14" ng-if="param.deliverType==2">现场取票</h4>
+        <h4 class="f14" ng-if="param.deliverType==2">校区取票</h4>
     </div>
     <!--取票标题结束-->
     <!--取票人信息开始  快递-->
@@ -63,8 +63,8 @@
         <!--现场取票开始-->
         <div class="ticket_people_info pd_rl12 pd_rl16 f12" ng-if="param.deliverType==2">
             <p class="clear"><span class="fl">收货人：</span><span class="fl" ng-bind="good.live_name"></span><span class="fr" ng-bind="good.live_mobile"></span></p>
-            <p>取票时间：<span>演出开场前1小时</span></p>
-            <p>取票地址：<span>演出场馆</span></p>
+            <p>取票时间：<span>请咨询校区客服</span></p>
+            <p>取票校区：<span ng-bind="good.campus||'会员所在校区'"></span></p>
         </div>
     </div>
     <!--现场取票结束-->

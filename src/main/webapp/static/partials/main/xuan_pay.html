@@ -44,7 +44,7 @@
             </div>
             <div class="locale fl">
                 <a ng-class="{2: 'active'}[param.deliverType]" ng-click="cd(2)"></a>
-                <p ng-class="{2: 'active'}[param.deliverType]">现场取票</p>
+                <p ng-class="{2: 'active'}[param.deliverType]">校区取票</p>
             </div>
         </div>
     </div>
@@ -67,18 +67,31 @@
     </div>
     <!--快递取票添加地址结束-->
     <!--现场取票开始-->
+    <!--现场取票开始-->
     <div class="discount pd_rl12 pd_tb14 f14 clear" ng-show="param.deliverType == 2">
         <ul>
             <li class="pd_tb12">
-                <p><span style="color:#222">取票人姓名</span><span style="color:#999"><input type="text" placeholder="请输入姓名" ng-model="live_name"></span></p>
+                <p><span style="color:#222">会员姓名</span><span style="color:#999"><input type="text" placeholder="请输入姓名" ng-model="live_name"></span></p>
             </li>
             <li class="pd_tb12">
-                <p><span style="color:#222">取票人手机号</span><span style="color:#999"><input type="text" placeholder="请输入手机号" ng-model="live_mobile"></span></p>
+                <p><span style="color:#222">会员手机号</span><span style="color:#999"><input type="text" placeholder="请输入手机号" ng-model="live_mobile"></span></p>
             </li>
         </ul>
     </div>
     <div class="mode_tips pd_rl12 pd_rl16" ng-show="param.deliverType == 2">
-        <p>取票地址 演出场馆，取票时间 演出开场前1小时。凭手机短信取票码取票。</p>
+        <p>取票地址: <span ng-bind="ADDRESSInfo.address"></span><br> 取票时间:<span ng-bind="ADDRESSInfo.TIME"></span><br>取票说明:<span ng-bind="ADDRESSInfo.remark"></span>。</p>
+    </div>
+
+
+    <div class="choose_school clear" style="padding: 0.4266rem 0.32rem;background: #fff;border-top: 0.16rem solid #f1f1f1;">
+        <h4 class="fl" style="font-size:0.4rem">
+            选择校区：
+        </h4>
+        <div class="fl">
+            <select name="" ng-model="school" ng-options="items for items in campus" style="margin-left: 0.4rem;width: 4.5rem;height: 0.588rem;">
+                <option value="">请选择校区</option>
+            </select>
+        </div>
     </div>
     <!--现场取票结束-->
     <!--优惠券贝里开始-->

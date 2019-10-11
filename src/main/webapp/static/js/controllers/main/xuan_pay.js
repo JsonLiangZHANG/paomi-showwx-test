@@ -8,7 +8,7 @@ stareal
         $scope.title = localStorageService.get('title');//演出标题
         $scope.site_title = localStorageService.get('site_title');//演出地址
         $scope.thumb = localStorageService.get('thumb');//演出图片
-
+        $scope.campus = [];
         // $scope.num = localStorageService.get('num')//数量
         $scope.cat = localStorageService.get('cat')//票面价格
         $scope.date = localStorageService.get('date')//时间日期
@@ -41,7 +41,7 @@ stareal
         // $scope.order_id = $stateParams.order_id;
 
         $scope.param = {};
-        $scope.param.deliverType = 1;
+        $scope.param.deliverType = 2;
         $scope.param.addressId = '';
         $scope.param.couponId = '';
         $scope.param.beily = ''
@@ -62,6 +62,17 @@ stareal
                         $alert.show('最多可使用'+$scope.deduction_max)
                     }
                 }
+            })
+        //获取校区
+        $api.get("app/campus/list/retrieve", {good_id:$scope.order_id},true)
+            .then(function (ret) {
+              console.log(ret)
+                $scope.campus=[]
+                var data=ret.data
+                for(var i=0;i<data.length;i++){
+                    $scope.campus.push(data[i].campus)
+                }
+
             })
 
         /**
@@ -94,10 +105,11 @@ stareal
         // 切换取票方式
         $scope.cd = function (deliverType) {
             if(deliverType==2){
-                $alert.show('暂不支持现场取票')
-            }else{
                 $scope.param.deliverType = deliverType;
+            }else{
+                $alert.show("暂不支持快递取票！")
             }
+
 
 
 
@@ -155,17 +167,37 @@ stareal
             }
             $api.get("app/order/index/calculates", _params, true)
                 .then(function (ret) {
-                    $scope.deliver_price = ret.data.express_value; //快递费
-                    $scope.total_price = ret.data.actually_paid;//总价
+                    // $scope.deliver_price = ret.data.express_value; //快递费
+                    // $scope.total_price = ret.data.actually_paid;//总价
+                    // $scope.beily_price = ret.data.belly_value / 100//贝里值
+                    // $scope.copon_price = ret.data.coupon_value;//优惠值
+                    // if($scope.deliver_price=='1001'){
+                    //     $alert.show('超出配送范围内，请重新选择地址!');
+                    //     //  return;
+                    // }
                     $scope.beily_price = ret.data.belly_value / 100//贝里值
                     $scope.copon_price = ret.data.coupon_value;//优惠值
-                    if($scope.deliver_price=='1001'){
+                    if(ret.data.express_value==1001){
+                        $scope.deliver_price=0;
+                        $scope.deliver_priceType=1001;
+                        $scope.total_price=$scope.total
                         $alert.show('超出配送范围内，请重新选择地址!');
                         //  return;
+                    }else{
+                        $scope.deliver_priceType=1;
+                        $scope.deliver_price = ret.data.express_value; //快递费
+                        $scope.total_price = ret.data.actually_paid;//总价
                     }
                 });
         };
-
+        $scope.getADDRESS=function(type){
+            $api.get("app/detail/deliver/retrieve", {type:type}, true)
+                .then(function (ret) {
+                    $scope.ADDRESSInfo=ret.data;
+                    //console.log(ret.data);
+                })
+        }
+        $scope.getADDRESS(2);
 
         // 监听取票方式/地址/优惠券的变化,实时计算价格
         $scope.$watch('param', function (a, b) {
@@ -196,10 +228,15 @@ stareal
            // console.log(798)
             // 校验
             // 快递
-            if($scope.deliver_price=='1001'){
+            if($scope.deliver_priceType=='1001'){
                 $alert.show('超出配送范围内，请重新选择地址!');
                 return false;
             }
+            if(!$scope.school){
+                $alert.show("请选择校区!")
+                return false
+            }
+            _params.campus=$scope.school;
             // 快递
             if ($scope.param.deliverType == 1) {
                 if (!$scope.param.addressId) {
@@ -220,6 +257,8 @@ stareal
                     $alert.show('请输入有效的手机号码！');
                     return false;
                 }
+
+
                 _params.liveName = $scope.live_name;
                 _params.liveMobile = $scope.live_mobile;
                 _params.deliverType = 2;

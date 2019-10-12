@@ -90,7 +90,7 @@ stareal
                     $alert.show('请输入11位手机号码！');
                     return false;
                 }
-                var myreg = /^1[3|4|5|7|8][0-9]{9}$/; //验证规则
+                var myreg = /^1[2|3|4|5|6|7|8|9][0-9]{9}$/; //验证规则
                 if (!myreg.test(mobile)) {
                     $alert.show('请输入有效的手机号码！');
                     return false;

@@ -346,7 +346,7 @@
                     <div class="create-order">
                         <div class="order-price " style=" margin:20px auto;">
                             <!--<p ng-bind="total | currency:'￥'"></p>-->
-                            <!--ng-click="createOrder(gf)"-->
+                            <!--ng-click="createOrder(gf)" islogIn-->
                             <!--<div class="create-btn fr"  ng-click="selectsiteModa()">选座购票</div>-->
                             <div class="create-btn "  ng-click="selectseats()">选座购票</div>
                         </div>
@@ -358,15 +358,14 @@
         </div>
     </div>
 </div>
-    <div class="returnTimes" ng-show="islogIn">
-        <div class="non-main">
-            <div>
-                登录失效，请重新登录！
+    <div class="returnTimes" ng-show="true">
+        <div class="non-main" style="text-align: center;">
+            <div style="font-size:0.28rem;text-align: center;">
+                登录失效，请重新登录后打开！
             </div>
-            <img src="static/img/empty_page_information_imgNo.png" alt="">
-            <p>
-                还剩{{time}}秒回到上一页
-            </p>
+            <img src="static/img/empty_page_information_imgNo.png" alt="" >
+
+            <div style="height:1.3333rem"></div>
         </div>
     </div>
 </div>

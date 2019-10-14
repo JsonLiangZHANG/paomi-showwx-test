@@ -5,7 +5,7 @@ stareal
         $scope.current = $stateParams.good_id;
         // console.log($location.search())
         // console.log($state)
-        $scope.time=3
+        $scope.backTime=3
         $scope.user =localStorageService.get("user"); //存储用户信息
         $scope.sharUrl='https://m.blackwan.cn/?#/'; // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致'
         $scope.gbn = '立即购票';
@@ -29,28 +29,7 @@ stareal
 
                 },function(err){
                     $scope.islogIn=true
-                    var timeout = setInterval(function(){
-                        $scope.time -= 1
-                        if ($scope.time == 0) {
-                            clearInterval(timeout)
 
-                            if (searchQuery.isApp == 1) {
-                                if (query.plat == 'ios') {
-                                    alert('back')
-                                }else if (query.plat == 'android'||query.plat == 'Android' ) {
-                                    JSInterface.hello('back')
-                                }else if (query.plat == 'miniProgram') {
-                                    wx.miniProgram.navigateBack({
-                                        delta: 1
-                                    })
-                                }
-                            }else{
-                                if(history.length>0){
-                                    history.go(-1)
-                                }
-                            }
-                        }
-                    }, 1000)
                 })
 
 
@@ -125,7 +104,12 @@ stareal
                         $scope.gbn = good.state;
                         $scope.gf = 0;
                     }
-                    $scope.getTicket()
+
+                        $scope.getTicket(good.id)
+
+
+
+
 
 
                 });
@@ -515,8 +499,8 @@ stareal
         $scope.FIRSTdate="";//哪一天有演出
         $scope.telphone_no = $rootScope.tel;
         //获取门票
-        $scope.getTicket=function() {
-            $api.get("app/detail/ticket/retrieve", {id: $stateParams.good_id})
+        $scope.getTicket=function(id) {
+            $api.get("app/detail/ticket/retrieve", {id: id})
                 .then(function (ret) {
                     // console.log(ret)
                     $scope.remark = ret.remark;

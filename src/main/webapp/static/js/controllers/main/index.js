@@ -215,8 +215,8 @@ stareal
                         //分享到朋友圈
                         console.log(res);
                         wx.onMenuShareTimeline({
-                            title: '福建省中视传播有限公司', // 分享标题
-                            desc: '官方售票', // 分享描述
+                            title: '灰姑娘Cinderella', // 分享标题
+                            desc: '三地巡演', // 分享描述
                             link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
                             success: function () {
@@ -230,8 +230,8 @@ stareal
                         });
                         //分享给朋友
                         wx.onMenuShareAppMessage({
-                            title: '福建省中视传播有限公司', // 分享标题
-                            desc: '官方售票', // 分享描述
+                            title: '灰姑娘Cinderella', // 分享标题
+                            desc: '三地巡演', // 分享描述
                             link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
@@ -245,8 +245,8 @@ stareal
                             }
                         });
                         wx.onMenuShareQQ({
-                            title: '福建省中视传播有限公司', // 分享标题
-                            desc: '官方售票', // 分享描述
+                            title: '灰姑娘Cinderella', // 分享标题
+                            desc: '三地巡演', // 分享描述
                             link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
                             success: function () {
@@ -257,8 +257,8 @@ stareal
                             }
                         });
                         wx.onMenuShareQZone({
-                            title: '福建省中视传播有限公司', // 分享标题
-                            desc: '官方售票', // 分享描述
+                            title: '灰姑娘Cinderella', // 分享标题
+                            desc: '三地巡演', // 分享描述
                             link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
                             imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
                             success: function () {

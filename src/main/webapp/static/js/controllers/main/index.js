@@ -1,7 +1,7 @@
 'use strict';
 
 stareal
-    .controller("IndexController", function ($scope, $api, $alert, $document, localStorageService, $state,$timeout,$compile) {
+    .controller("IndexController", function ($scope, $api, $alert, $document, localStorageService, $state,$timeout,$compile,$location) {
         $scope.mypage = 1;
         $scope.my_sing = 1;//我的页面隐藏gif图
         $scope.searchQuery=$location.search();

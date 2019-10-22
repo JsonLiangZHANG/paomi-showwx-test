@@ -35,7 +35,7 @@ stareal
 
         });
         //微信分享http://192.168.1.4:9090/oauth/getSignature
-        $api.get("app/share/getSignature", {url: 'https://m.blackwan.cn'})
+        $api.get("app/share/getSignature", {url: window.location.href.split('#')[0]})
             .then(function (ret) {
                 if (ret) {
                     var data = ret.data;

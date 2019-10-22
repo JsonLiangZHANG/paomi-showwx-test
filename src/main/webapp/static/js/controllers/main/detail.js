@@ -18,30 +18,15 @@ stareal
                     localStorageService.set('token',ret.accessToken);
                     localStorageService.set('login_token',ret.accessToken);
                    // console.log(ret.data)
-
                     $api.get("app/login/userinfo/retrieve", null, true)
                         .then(function (ret) {
                             $scope.user = ret.data;
                             localStorageService.set('user',$scope.user);
-
                         });
-
-
                 },function(err){
                     $scope.islogIn=true
 
                 })
-
-
-            var ua = window.navigator.userAgent.toLowerCase();
-            if (ua.match(/MicroMessenger/i) == 'micromessenger') {
-                // 正式地址
-                var  rs = "main.detail-" + JSON.stringify({good_id: $stateParams.good_id});
-                location.href = "https://open.weixin.qq.com/connect/oauth2/authorize?" +
-                    "appid=wxc2377a19f91b4c20&" +
-                    "redirect_uri=https%3A%2F%2Fm.blackwan.cn%2Foauth%2Findex" +
-                    "&response_type=code&scope=snsapi_userinfo&state="+encodeURIComponent(rs) ;
-            }
         }
         $scope.getGoodDetail=function(){
             $api.get("app/detail/good/retrieve", {id: $stateParams.good_id}, true)
@@ -433,7 +418,7 @@ stareal
                             title: '灰姑娘Cinderella', // 分享标题
                             desc: '三地巡演', // 分享描述
                             link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
+                            imgUrl: 'https://image.mydeershow.com/20191022154847.png', // 分享图标
                             success: function () {
                                 // 用户确认分享后执行的回调函数
                                 //alert('你好');
@@ -448,7 +433,7 @@ stareal
                             title: '灰姑娘Cinderella', // 分享标题
                             desc: '三地巡演', // 分享描述
                             link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
+                            imgUrl: 'https://image.mydeershow.com/20191022154847.png', // 分享图标
                             type: '', // 分享类型,music、video或link，不填默认为link
                             dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
                             success: function () {
@@ -463,7 +448,7 @@ stareal
                             title: '灰姑娘Cinderella', // 分享标题
                             desc: '三地巡演', // 分享描述
                             link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
+                            imgUrl: 'https://image.mydeershow.com/20191022154847.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },
@@ -475,7 +460,7 @@ stareal
                             title: '灰姑娘Cinderella', // 分享标题
                             desc: '三地巡演', // 分享描述
                             link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
+                            imgUrl: 'https://image.mydeershow.com/20191022154847.png', // 分享图标
                             success: function () {
 // 用户确认分享后执行的回调函数
                             },

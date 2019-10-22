@@ -4,6 +4,110 @@ stareal
     .controller("IndexController", function ($scope, $api, $alert, $document, localStorageService, $state,$timeout,$compile) {
         $scope.mypage = 1;
         $scope.my_sing = 1;//我的页面隐藏gif图
+        $scope.searchQuery=$location.search();
+        if($scope.searchQuery.token!=undefined&&$scope.searchQuery.token!=null&&$scope.searchQuery.token!=''){ //获取免登录接口 app/login/user/freepass
+            localStorageService.set('myseershowToken',$scope.searchQuery.token)
+            $api.get("app/login/user/freepass", {token: $scope.searchQuery.token}, true)
+                .then(function (ret) {
+                    localStorageService.set('token',ret.accessToken);
+                    localStorageService.set('login_token',ret.accessToken);
+                    // console.log(ret.data)
+
+                    $api.get("app/login/userinfo/retrieve", null, true)
+                        .then(function (ret) {
+                            $scope.user = ret.data;
+                            localStorageService.set('user',$scope.user);
+                        });
+                },function(err){
+                    $scope.islogIn=true
+
+                })
+        }
+        //微信分享http://192.168.1.4:9090/oauth/getSignature  window.location.href.split('#')[0]
+        $api.get("app/share/getSignature",{url: 'https://m.blackwan.cn'})
+            .then(function (ret) {
+                if (ret) {
+                    console.log(ret);
+                    var data=ret.data;
+                    wx.config({
+                        debug: false,
+                        appId: data.appid,
+                        timestamp: data.timestamp,
+                        nonceStr: data.nonceStr,
+                        signature: data.signature,
+                        jsApiList: [
+                            'onMenuShareTimeline',
+                            'onMenuShareAppMessage',
+                            'onMenuShareQQ',
+                            // 'onMenuShareWeibo',
+                            'onMenuShareQZone'
+                        ]
+                    });
+                    wx.ready(function(res){
+                        //分享到朋友圈
+                        console.log(res);
+                        wx.onMenuShareTimeline({
+                            title: '灰姑娘Cinderella', // 分享标题
+                            desc: '三地巡演', // 分享描述
+                            link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'https://image.mydeershow.com/20191022154847.png', // 分享图标
+                            success: function () {
+                                // 用户确认分享后执行的回调函数
+                                //alert('你好');
+                            },
+                            cancel: function () {
+                                // 用户取消分享后执行的回调函数
+                                // alert('你好....');
+                            }
+                        });
+                        //分享给朋友
+                        wx.onMenuShareAppMessage({
+                            title: '灰姑娘Cinderella', // 分享标题
+                            desc: '三地巡演', // 分享描述
+                            link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'https://image.mydeershow.com/20191022154847.png', // 分享图标
+                            type: '', // 分享类型,music、video或link，不填默认为link
+                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
+                            success: function () {
+// 用户确认分享后执行的回调函数
+                                // alert('你好....');
+                            },
+                            cancel: function () {
+// 用户取消分享后执行的回调函数
+                            }
+                        });
+                        wx.onMenuShareQQ({
+                            title: '灰姑娘Cinderella', // 分享标题
+                            desc: '三地巡演', // 分享描述
+                            link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'https://image.mydeershow.com/20191022154847.png', // 分享图标
+                            success: function () {
+// 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+// 用户取消分享后执行的回调函数
+                            }
+                        });
+                        wx.onMenuShareQZone({
+                            title: '灰姑娘Cinderella', // 分享标题
+                            desc: '三地巡演', // 分享描述
+                            link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
+                            imgUrl: 'https://image.mydeershow.com/20191022154847.png', // 分享图标
+                            success: function () {
+// 用户确认分享后执行的回调函数
+                            },
+                            cancel: function () {
+// 用户取消分享后执行的回调函数
+                            }
+                        });
+                    });
+                    wx.error(function(res){
+                        //console.log(res);
+                        //alert("微信分享接口配置失败");
+                    });
+                }
+            })
+
         $scope.newslisfun=function(){  //新闻
             $api.get("app/news/list",{},true) //本地最近五条信息
                 .then(function (ret) {
@@ -191,90 +295,6 @@ stareal
              }
          },false)*/
 
-        //微信分享http://192.168.1.4:9090/oauth/getSignature  window.location.href.split('#')[0]
-        $api.get("app/share/getSignature",{url: 'https://m.blackwan.cn/?'})
-            .then(function (ret) {
-                if (ret) {
-                    console.log(ret);
-                    var data=ret.data;
-                    wx.config({
-                        debug: false,
-                        appId: data.appid,
-                        timestamp: data.timestamp,
-                        nonceStr: data.nonceStr,
-                        signature: data.signature,
-                        jsApiList: [
-                            'onMenuShareTimeline',
-                            'onMenuShareAppMessage',
-                            'onMenuShareQQ',
-                            // 'onMenuShareWeibo',
-                            'onMenuShareQZone'
-                        ]
-                    });
-                    wx.ready(function(res){
-                        //分享到朋友圈
-                        console.log(res);
-                        wx.onMenuShareTimeline({
-                            title: '灰姑娘Cinderella', // 分享标题
-                            desc: '三地巡演', // 分享描述
-                            link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
-                            success: function () {
-                                // 用户确认分享后执行的回调函数
-                                //alert('你好');
-                            },
-                            cancel: function () {
-                                // 用户取消分享后执行的回调函数
-                                // alert('你好....');
-                            }
-                        });
-                        //分享给朋友
-                        wx.onMenuShareAppMessage({
-                            title: '灰姑娘Cinderella', // 分享标题
-                            desc: '三地巡演', // 分享描述
-                            link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
-                            type: '', // 分享类型,music、video或link，不填默认为link
-                            dataUrl: '', // 如果type是music或video，则要提供数据链接，默认为空
-                            success: function () {
-// 用户确认分享后执行的回调函数
-                                // alert('你好....');
-                            },
-                            cancel: function () {
-// 用户取消分享后执行的回调函数
-                            }
-                        });
-                        wx.onMenuShareQQ({
-                            title: '灰姑娘Cinderella', // 分享标题
-                            desc: '三地巡演', // 分享描述
-                            link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
-                            success: function () {
-// 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
-// 用户取消分享后执行的回调函数
-                            }
-                        });
-                        wx.onMenuShareQZone({
-                            title: '灰姑娘Cinderella', // 分享标题
-                            desc: '三地巡演', // 分享描述
-                            link: 'https://m.blackwan.cn/?#/main/index', // 分享链接，该链接域名或路径必须与当前页面对应的公众号JS安全域名一致
-                            imgUrl: 'https://m.blackwan.cn/static/img/download2.png', // 分享图标
-                            success: function () {
-// 用户确认分享后执行的回调函数
-                            },
-                            cancel: function () {
-// 用户取消分享后执行的回调函数
-                            }
-                        });
-                    });
-                    wx.error(function(res){
-                        //console.log(res);
-                        //alert("微信分享接口配置失败");
-                    });
-                }
-            })
 
         if (!localStorageService.get('token')) {
             // $state.go("main.login",{})

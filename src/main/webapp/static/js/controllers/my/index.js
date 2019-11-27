@@ -46,7 +46,7 @@ stareal
                 })
         }
         $scope.callphone=function(){
-            window.location.href = "tel:0591-87539833";
+            window.location.href = "tel:19946207844";
         }
         // $api.post("app/member/checkin/getCheckTips",{},true)
         //     .then(function (ret) {

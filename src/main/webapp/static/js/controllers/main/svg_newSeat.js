@@ -140,8 +140,24 @@ stareal
             $scope.date= $scope.timesList[index].name;
             $scope.max= $scope.timesList[index].max_num;
             $scope.currentEventId= $scope.timesList[index].eventId;
+            localStorageService.set('eventShowId', $scope.currentEventId);
             $scope.timeshow = false;
             localStorageService.set("myslectSeats",'');
+            console.log($scope.timesList[index].children.length);
+            if($scope.timesList[index].children.length!=0){
+                if($scope.timesList[index].children[0].length!=0){
+                    if($scope.timesList[index].children[0].children[0].length!=0){
+                        console.log($scope.timesList[index].children[0].children[0].children[0])
+                        localStorageService.set('_po',$scope.timesList[index].children[0].children[0].children[0]);
+                        $scope._po=$scope.timesList[index].children[0].children[0].children[0];
+                        localStorageService.set('ticketId',$scope.timesList[index].children[0].children[0].children[0].id);
+                    }
+
+                }
+              //  localStorageService.set('_po',$scope.timesList[index].children[0].cha);
+            }
+
+            // localStorageService.set('ticketId',$scope._po.id);
             $scope.slectSeats=[];
             $scope.total = 0;
             if(localStorageService.get('token')){

@@ -510,7 +510,7 @@ stareal
                     , customEventsHandler: eventsHandler,
                     zoomScaleSensitivity:0.3,
                     minZoom:0.3
-                    ,maxZoom:6
+                    ,maxZoom:10
                     , onZoom:function(){
                         onZoom();
                     }
@@ -525,7 +525,7 @@ stareal
                     var initialScale = instance.getZoom()
                     var ev = initialScale.toFixed(2);
                     // onpan();
-                    if(ev >= 6.0){
+                    if(ev >= 10.0){
                         $timeout(function () {
                             $alert.show('已经是最大了!');
                         },0)
@@ -556,58 +556,50 @@ stareal
                         wc = rectO.width - cilentW;
                     }
                     // 如果本身超过来了屏幕高度
-                    if(rectO.height > cilentH) {
-                        hc = rectO.height - cilentH;
-                    }
-                    if(-(rectO.width*2/3)> ev.x){
-                        document.getElementById("all").classList.add("ts");
-                        instance.pan({x:-(wc/2),y:ev.y})
-                        // if(wc>0){
-                        //     instance.pan({x:-(wc/2),y:ev.y})
-                        // }else{
-                        //     instance.pan({x:0,y:ev.y})
-                        // }
-                        setTimeout(function(){
-                            document.getElementById("all").classList.remove("ts");
-                        },1000)
-                    }
-                    if((cilentW-rectO.width/3)< ev.x){
-
-                        document.getElementById("all").classList.add("ts");
-                        // if(wc>0){
-                        //     instance.pan({x:-(wc/2),y:ev.y})
-                        // }else{
-                        //     instance.pan({x:0,y:ev.y})
-                        // }
-                        instance.pan({x:-(wc/2),y:ev.y})
-                        setTimeout(function(){
-                            document.getElementById("all").classList.remove("ts");
-                        },1000)
-                    }
-
-                    if(-(rectO.height*2/3) > ev.y){
-                        document.getElementById("all").classList.add("ts");
-                        if(hc>0){
-                            instance.pan({x:ev.x,y:(hc/2)})
-                        }else {
-                            instance.pan({x: ev.x, y: -(rectO.height - cilentH) * 1 / 2})
-                        }
-                        setTimeout(function(){
-                            document.getElementById("all").classList.remove("ts");
-                        },1000)
-                    }
-                    if((cilentH - $(window).width()*2/3) < ev.y){
-
-                        document.getElementById("all").classList.add("ts");
-                        if(hc>0){
-                            instance.pan({x:ev.x,y:(hc/2)})
-                        }else{
-                            instance.pan({x:ev.x,y:-(rectO.height - cilentH)*1/2})
-                        }
-                        setTimeout(function(){
-                            document.getElementById("all").classList.remove("ts");
-                        },1000)
-                    }
+                    // if(rectO.height > cilentH) {
+                    //     hc = rectO.height - cilentH;
+                    // }
+                    // if(-(rectO.width*2/3)> ev.x){
+                    //     document.getElementById("all").classList.add("ts");
+                    //     instance.pan({x:-(wc/2),y:ev.y})
+                    //
+                    //     setTimeout(function(){
+                    //         document.getElementById("all").classList.remove("ts");
+                    //     },1000)
+                    // }
+                    // if((cilentW-rectO.width/3)< ev.x){
+                    //
+                    //     document.getElementById("all").classList.add("ts");
+                    //
+                    //     instance.pan({x:-(wc/2),y:ev.y})
+                    //     setTimeout(function(){
+                    //         document.getElementById("all").classList.remove("ts");
+                    //     },1000)
+                    // }
+                    //
+                    // if(-(rectO.height*2/3) > ev.y){
+                    //     document.getElementById("all").classList.add("ts");
+                    //     if(hc>0){
+                    //         instance.pan({x:ev.x,y:(hc/2)})
+                    //     }else {
+                    //         instance.pan({x: ev.x, y: -(rectO.height - cilentH) * 1 / 2})
+                    //     }
+                    //     setTimeout(function(){
+                    //         document.getElementById("all").classList.remove("ts");
+                    //     },1000)
+                    // }
+                    // if((cilentH - $(window).width()*2/3) < ev.y){
+                    //
+                    //     document.getElementById("all").classList.add("ts");
+                    //     if(hc>0){
+                    //         instance.pan({x:ev.x,y:(hc/2)})
+                    //     }else{
+                    //         instance.pan({x:ev.x,y:-(rectO.height - cilentH)*1/2})
+                    //     }
+                    //     setTimeout(function(){
+                    //         document.getElementById("all").classList.remove("ts");
+                    //     },1000)
+                    // }
 
                 }
                 $scope.moveToch=function (areaID) {

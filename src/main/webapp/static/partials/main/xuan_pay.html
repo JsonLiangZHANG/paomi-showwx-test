@@ -51,10 +51,10 @@
     <!--选择取票方式结束-->
     <!--快递取票添加地址开始-->
     <div class="address pd_rl12 pd_rl16"  ng-show="param.deliverType == 1">
-        <div class="address_info">
+        <div class="address_info" ui-sref="main.pay_address({order_id:'{{order_id}}',src:5})">
             <i class="arrow"></i>
-            <p class="f14" ng-hide="address.id"><span style="color:#222">收货地址：</span><span style="color:#999" ui-sref="main.pay_address({order_id:'{{order_id}}',src:5})">新增收货地址</span></p>
-            <p ng-show="address.id" ui-sref="main.pay_address({order_id:'{{order_id}}',src:5})">
+            <p class="f14" ng-hide="address.id"><span style="color:#222">收货地址：</span><span style="color:#999" >新增收货地址</span></p>
+            <p ng-show="address.id" >
                 <span>{{address.name}}</span>
                 <span>{{address.mobile}}</span>
                 <br>
@@ -83,7 +83,7 @@
     </div>
 
 
-    <div class="choose_school clear" style="padding: 0.4266rem 0.32rem;background: #fff;border-top: 0.16rem solid #f1f1f1;">
+    <div class="choose_school clear" style="padding: 0.4266rem 0.32rem;background: #fff;border-top: 0.16rem solid #f1f1f1;" ng-if="getTicketType1">
         <h4 class="fl" style="font-size:0.4rem">
             选择校区：
         </h4>

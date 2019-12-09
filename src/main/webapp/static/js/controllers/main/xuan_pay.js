@@ -33,25 +33,44 @@ stareal
         $.each($scope.seatsListArray,function(index,data){
             console.log(data);
             totalPriceData=Number(totalPriceData)+Number(data.price);
-
         })
         $scope.total=totalPriceData.toFixed(2)
         $scope.num = $scope.seatscart.length;//数量
         $scope.is_coupon = localStorageService.get('is_coupon')
         // $scope.order_id = $stateParams.order_id;
-
         $scope.param = {};
         $scope.param.deliverType = 2;
         $scope.param.addressId = '';
         $scope.param.couponId = '';
         $scope.param.beily = ''
-
         $scope.csl = "0张优惠券可用";
         $scope.copon_price = "0.0";
         $scope.deliver_price = "0.0元";
         $scope.total_price = "0.0元";
         $scope.beily_price = '0.0元';
-
+        $scope.getTicketType0 =false;
+        $scope.getTicketType1 =false;
+        $scope.getTicketType2 = false;
+        //取票方式
+        $scope.get_ticket_type= localStorageService.get("get_ticket_type");
+        if($scope.get_ticket_type!=null&&$scope.get_ticket_type!=undefined&&$scope.get_ticket_type!='') {
+            var getTicketType = $scope.get_ticket_type;
+            $scope.param.deliverType = getTicketType[0];
+            for (var i = 0; i < getTicketType.length; i++) {
+                if (getTicketType[i] == 1) {
+                    $scope.getTicketType0 = true;
+                }
+                if (getTicketType[i] == 2) {
+                    $scope.getTicketType1 = true;
+                }
+                if (getTicketType[i] == 3) {
+                    $scope.getTicketType2 = true;
+                }
+            }
+        }else{
+            $scope.getTicketType0 = true;
+            $scope.getTicketType1 = true;
+        }
         //获取我的贝里余额
         $api.get("app/belly/getL3ft", {}, true)
             .then(function (ret) {
@@ -104,12 +123,26 @@ stareal
 
         // 切换取票方式
         $scope.cd = function (deliverType) {
-            if(deliverType==2){
+            // if(deliverType==2){
+            //     $scope.param.deliverType = deliverType;
+            // }else{
+            //     $alert.show("暂不支持快递取票！")
+            // }
+            if(!$scope.getTicketType0){
+                if(deliverType==1){
+                    $alert.show('该演出暂不支持快递配送!');
+                    return false;
+                }
+                $scope.param.deliverType = deliverType;
+            } else if(!$scope.getTicketType1){
+                if(deliverType==2){
+                    $alert.show('该演出暂不支持校区取票!');
+                    return false;
+                }
                 $scope.param.deliverType = deliverType;
             }else{
-                $alert.show("暂不支持快递取票！")
+                $scope.param.deliverType = deliverType;
             }
-
 
 
 
@@ -232,11 +265,8 @@ stareal
                 $alert.show('超出配送范围内，请重新选择地址!');
                 return false;
             }
-            if(!$scope.school){
-                $alert.show("请选择校区!")
-                return false
-            }
-            _params.campus=$scope.school;
+
+
             // 快递
             if ($scope.param.deliverType == 1) {
                 if (!$scope.param.addressId) {
@@ -257,7 +287,11 @@ stareal
                     $alert.show('请输入有效的手机号码！');
                     return false;
                 }
-
+                if(!$scope.school){
+                    $alert.show("请选择校区!")
+                    return false
+                }
+                _params.campus=$scope.school;
 
                 _params.liveName = $scope.live_name;
                 _params.liveMobile = $scope.live_mobile;
